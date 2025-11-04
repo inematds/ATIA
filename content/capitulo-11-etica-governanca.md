@@ -1,7 +1,7 @@
 # **CAPÍTULO 11**
 # Ética, Governança e Responsabilidade em IA
 
-![Ética, Governança e Responsabilidade em IA](/home/ubuntu/capitulo11_etica_ia.png)
+![Ética, Governança e Responsabilidade em IA](doc/imagens/capitulo11_etica_ia (2).png)
 
 ## Introdução: A Imperativa Moral da Era Digital
 

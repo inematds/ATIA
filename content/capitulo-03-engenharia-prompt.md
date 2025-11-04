@@ -1,7 +1,7 @@
 # **CAPÍTULO 3**
 # Engenharia de Prompt - A Nova Linguagem do Futuro
 
-![Engenharia de Prompt](/home/ubuntu/capitulo3_engenharia_prompt.png)
+![Engenharia de Prompt](doc/imagens/capitulo3_engenharia_prompt (2).png)
 
 ## Introdução: A Arte e Ciência da Comunicação com IA
 

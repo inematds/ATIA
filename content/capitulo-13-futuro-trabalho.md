@@ -1,7 +1,7 @@
 # **CAPÍTULO 13**
 # O Futuro do Trabalho e da Sociedade
 
-![O Futuro do Trabalho e da Sociedade](/home/ubuntu/capitulo13_futuro_trabalho.png)
+![O Futuro do Trabalho e da Sociedade](doc/imagens/capitulo13_futuro_trabalho (2).png)
 
 ## Introdução: Reimaginando o Futuro Humano na Era da IA
 

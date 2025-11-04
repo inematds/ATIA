@@ -1,7 +1,7 @@
 # **CAPÍTULO 8**
 # Criação de Conteúdo e Marketing Digital com IA
 
-![Criação de Conteúdo e Marketing Digital com IA](/home/ubuntu/capitulo8_marketing_digital.png)
+![Criação de Conteúdo e Marketing Digital com IA](doc/imagens/capitulo8_marketing_digital (2).png)
 
 ## Introdução: A Revolução Criativa que Está Redefinindo o Marketing
 

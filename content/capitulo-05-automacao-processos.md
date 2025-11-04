@@ -1,7 +1,7 @@
 # **CAPÍTULO 5**
 # Automação de Processos Empresariais com IA
 
-![Automação de Processos Empresariais](/home/ubuntu/capitulo5_automacao_processos.png)
+![Automação de Processos Empresariais](doc/imagens/capitulo5_automacao_processos (2).png)
 
 ## Introdução: A Revolução da Automação Inteligente
 

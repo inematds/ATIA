@@ -1,7 +1,7 @@
 # **CAPÍTULO 9**
 # Prospecção e Vendas Automatizadas
 
-![Prospecção e Vendas Automatizadas](/home/ubuntu/capitulo9_vendas_automatizadas.png)
+![Prospecção e Vendas Automatizadas](doc/imagens/capitulo9_vendas_automatizadas (2).png)
 
 ## Introdução: A Revolução das Vendas Inteligentes
 

@@ -1,7 +1,7 @@
 # **CAPÍTULO 10**
 # Educação e Desenvolvimento de Habilidades na Era IA
 
-![Educação e Desenvolvimento de Habilidades na Era IA](/home/ubuntu/capitulo10_educacao_ia.png)
+![Educação e Desenvolvimento de Habilidades na Era IA](doc/imagens/capitulo10_educacao_ia (2).png)
 
 ## Introdução: A Revolução Educacional Impulsionada pela IA
 

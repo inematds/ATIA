@@ -1,7 +1,7 @@
 # **CAPÍTULO 2**
 # Transformação Digital e o Novo Mercado de Trabalho
 
-![Transformação do Mercado de Trabalho](/home/ubuntu/capitulo2_mercado_trabalho.png)
+![Transformação do Mercado de Trabalho](doc/imagens/capitulo2_mercado_trabalho (2).png)
 
 ## Introdução: Redefinindo o Conceito de Trabalho
 

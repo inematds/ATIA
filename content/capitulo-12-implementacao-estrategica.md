@@ -1,7 +1,7 @@
 # **CAPÍTULO 12**
 # Implementação Estratégica de IA nas Organizações
 
-![Implementação Estratégica de IA nas Organizações](/home/ubuntu/capitulo12_implementacao_estrategica.png)
+![Implementação Estratégica de IA nas Organizações](doc/imagens/capitulo12_implementacao_estrategica (2).png)
 
 ## Introdução: Transformação Organizacional na Era da IA
 

@@ -1,7 +1,7 @@
 # **CAPÍTULO 14**
 # Guia Prático de Implementação
 
-![Guia Prático de Implementação](/home/ubuntu/capitulo14_guia_pratico.png)
+![Guia Prático de Implementação](doc/imagens/capitulo14_guia_pratico (2).png)
 
 ## Introdução: Da Teoria à Prática
 
