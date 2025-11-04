@@ -163,19 +163,24 @@
 
                         <div id="cap1-topics" class="topics-container" style="display: none;">
                             <!-- Tópico 1 -->
-                            <div class="topico-card mb-3">
-                                <h4 class="font-semibold text-fundamentos mb-2">💡 Large Language Models (LLMs)</h4>
-                                <div class="topico-item">
-                                    <h5>O que é:</h5>
-                                    <p>Large Language Models (LLMs) são modelos de IA que processam e geram texto humano através de padrões aprendidos de enormes quantidades de dados.</p>
-                                </div>
-                                <div class="topico-item">
-                                    <h5>Por que aprender:</h5>
-                                    <p>Entender como funcionam te ajuda a criar prompts muito mais eficazes e aproveitar todo o potencial dessas ferramentas.</p>
-                                </div>
-                                <div class="topico-item">
-                                    <h5>Conceitos chave:</h5>
-                                    <p>Predição de próxima palavra, padrões estatísticos, treinamento com dados massivos, contexto e temperatura.</p>
+                            <div class="topico-expandivel mb-3" onclick="toggleTopico('cap1-llm')">
+                                <h4 class="flex items-center justify-between">
+                                    💡 Large Language Models (LLMs)
+                                    <span class="icon">▼</span>
+                                </h4>
+                                <div class="topico-conteudo" id="cap1-llm">
+                                    <div class="topico-item">
+                                        <h5>O que é:</h5>
+                                        <p>Large Language Models (LLMs) são modelos de IA que processam e geram texto humano através de padrões aprendidos de enormes quantidades de dados.</p>
+                                    </div>
+                                    <div class="topico-item">
+                                        <h5>Por que aprender:</h5>
+                                        <p>Entender como funcionam te ajuda a criar prompts muito mais eficazes e aproveitar todo o potencial dessas ferramentas.</p>
+                                    </div>
+                                    <div class="topico-item">
+                                        <h5>Conceitos chave:</h5>
+                                        <p>Predição de próxima palavra, padrões estatísticos, treinamento com dados massivos, contexto e temperatura.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -509,7 +514,7 @@
         // Initialize with 0 completed
         updateProgress(0, 5);
 
-        // Toggle all topics in a section (FEP style)
+        // Toggle all topics in a section (FEP style - Level 1)
         function toggleAllTopics(containerId) {
             const container = document.getElementById(containerId);
             const button = event.currentTarget;
@@ -523,35 +528,90 @@
                 icon.textContent = '▼';
             }
         }
+
+        // Toggle individual topic (FEP style - Level 2)
+        function toggleTopico(id) {
+            const conteudo = document.getElementById(id);
+            const container = conteudo.parentElement;
+            const icon = container.querySelector('.icon');
+
+            if (conteudo.classList.contains('show')) {
+                conteudo.classList.remove('show');
+                container.classList.remove('active');
+                icon.textContent = '▼';
+            } else {
+                conteudo.classList.add('show');
+                container.classList.add('active');
+                icon.textContent = '▲';
+            }
+        }
     </script>
 
     <style>
-        /* Topico Card Styles */
-        .topico-card {
+        /* Topics Container */
+        .topics-container {
+            margin-top: 1rem;
+        }
+
+        /* Topico Expandivel (Individual topic card) */
+        .topico-expandivel {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 12px;
             padding: 1.5rem;
-            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .topico-card h4 {
-            color: white !important;
-            margin-bottom: 1rem;
+        .topico-expandivel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .topico-card .topico-item {
+        .topico-expandivel h4 {
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .topico-expandivel .icon {
+            color: white;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .topico-expandivel.active .icon {
+            transform: rotate(180deg);
+        }
+
+        /* Topico Content (Hidden by default) */
+        .topico-conteudo {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .topico-conteudo.show {
+            max-height: 1000px;
+            transition: max-height 0.6s ease-in;
+            margin-top: 1rem;
+        }
+
+        /* Topico Items (O que é, Por que aprender, etc) */
+        .topico-item {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             padding: 1rem;
             margin-bottom: 0.75rem;
         }
 
-        .topico-card .topico-item:last-child {
+        .topico-item:last-child {
             margin-bottom: 0;
         }
 
-        .topico-card h5 {
+        .topico-item h5 {
             color: rgba(255, 255, 255, 0.9);
             font-weight: 600;
             font-size: 0.875rem;
@@ -560,14 +620,11 @@
             letter-spacing: 0.05em;
         }
 
-        .topico-card p {
+        .topico-item p {
             color: rgba(255, 255, 255, 0.95);
             line-height: 1.6;
             margin: 0;
-        }
-
-        .topics-container {
-            margin-top: 1rem;
+            font-size: 0.9375rem;
         }
     </style>
 
