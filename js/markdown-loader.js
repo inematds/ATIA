@@ -39,7 +39,14 @@ function renderMarkdown(markdown) {
             gfm: true,
             headerIds: true
         });
-        return marked.parse(markdown);
+
+        // Fix image paths with spaces - encode spaces as %20
+        const fixedMarkdown = markdown.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (match, alt, url) => {
+            const encodedUrl = url.replace(/ /g, '%20');
+            return `![${alt}](${encodedUrl})`;
+        });
+
+        return marked.parse(fixedMarkdown);
     } else {
         // Fallback: basic HTML escaping
         return markdown
