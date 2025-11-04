@@ -154,33 +154,28 @@
                         <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 3 vídeos</span>
                     </div>
 
-                    <!-- Tópicos Expandíveis -->
+                    <!-- Tópicos-chave -->
                     <div class="mb-4">
-                        <button onclick="toggleAllTopics('cap1-topics')" class="flex items-center justify-between w-full text-left font-semibold text-gray-900 hover:text-fundamentos transition mb-3">
-                            <span>📚 Ver todos os tópicos (1)</span>
-                            <span class="toggle-icon">▼</span>
-                        </button>
+                        <h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
 
-                        <div id="cap1-topics" class="topics-container" style="display: none;">
-                            <!-- Lista de Tópicos -->
-                            <ul class="topicos-list">
-                                <!-- Tópico 1 -->
-                                <li class="topico-item">
-                                    <div class="topico-header" onclick="toggleTopico(event, 'cap1-llm')">
-                                        <strong class="topico-titulo">💡 Large Language Models (LLMs)</strong>
-                                        <span class="topico-icon">▼</span>
-                                    </div>
+                        <!-- Lista de Tópicos (sempre visível) -->
+                        <ul class="topicos-list">
+                            <!-- Tópico 1 -->
+                            <li class="topico-item">
+                                <div class="topico-header" onclick="toggleTopico(event, 'cap1-llm')">
+                                    <strong class="topico-titulo">💡 Large Language Models (LLMs)</strong>
+                                    <span class="topico-icon">▼</span>
+                                </div>
 
-                                    <div class="topico-conteudo" id="cap1-llm">
-                                        <p><strong>O que é:</strong> Large Language Models (LLMs) são modelos de IA que processam e geram texto humano através de padrões aprendidos de enormes quantidades de dados.</p>
+                                <div class="topico-conteudo" id="cap1-llm">
+                                    <p><strong>O que é:</strong> Large Language Models (LLMs) são modelos de IA que processam e geram texto humano através de padrões aprendidos de enormes quantidades de dados.</p>
 
-                                        <p><strong>Por que aprender:</strong> Entender como funcionam te ajuda a criar prompts muito mais eficazes e aproveitar todo o potencial dessas ferramentas.</p>
+                                    <p><strong>Por que aprender:</strong> Entender como funcionam te ajuda a criar prompts muito mais eficazes e aproveitar todo o potencial dessas ferramentas.</p>
 
-                                        <p><strong>Conceitos chave:</strong> Predição de próxima palavra, padrões estatísticos, treinamento com dados massivos, contexto e temperatura.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                                    <p><strong>Conceitos chave:</strong> Predição de próxima palavra, padrões estatísticos, treinamento com dados massivos, contexto e temperatura.</p>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
                     <a href="capitulo.html?id=capitulo-01-tsunami-ia" class="inline-block bg-fundamentos text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition w-full md:w-auto text-center">
@@ -511,22 +506,7 @@
         // Initialize with 0 completed
         updateProgress(0, 5);
 
-        // Toggle all topics in a section (FEP style - Level 1)
-        function toggleAllTopics(containerId) {
-            const container = document.getElementById(containerId);
-            const button = event.currentTarget;
-            const icon = button.querySelector('.toggle-icon');
-
-            if (container.style.display === 'none' || container.style.display === '') {
-                container.style.display = 'block';
-                icon.textContent = '▲';
-            } else {
-                container.style.display = 'none';
-                icon.textContent = '▼';
-            }
-        }
-
-        // Toggle individual topic (FEP style - Level 2)
+        // Toggle individual topic
         function toggleTopico(e, id) {
             e.stopPropagation();
             const conteudo = document.getElementById(id);
