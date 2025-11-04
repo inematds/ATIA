@@ -76,8 +76,8 @@ function processarTopicosExpandiveis(html) {
     html = html.replace(topicoRegex, (match, titulo, conteudo) => {
         const topicoId = 'topico-' + Math.random().toString(36).substr(2, 9);
 
-        // Extrair itens da lista
-        const items = conteudo.match(/<li><strong>([^:]+):<\/strong>\s*([^<]+)<\/li>/gi) || [];
+        // Extrair itens da lista - regex mais flexível para capturar conteúdo com tags adicionais
+        const items = conteudo.match(/<li>[\s\S]*?<strong>([^:]+):<\/strong>([\s\S]*?)<\/li>/gi) || [];
 
         let topicoHtml = `
             <div class="topico-expandivel" onclick="toggleTopico('${topicoId}')">
@@ -88,10 +88,12 @@ function processarTopicosExpandiveis(html) {
                 <div class="topico-conteudo" id="${topicoId}">`;
 
         items.forEach(item => {
-            const itemMatch = item.match(/<li><strong>([^:]+):<\/strong>\s*([^<]+)<\/li>/);
+            // Regex mais flexível para extrair label e texto
+            const itemMatch = item.match(/<strong>([^:]+):<\/strong>([\s\S]*?)<\/li>/);
             if (itemMatch) {
-                const label = itemMatch[1];
-                const texto = itemMatch[2];
+                const label = itemMatch[1].trim();
+                // Remove tags HTML do texto e limpa espaços
+                const texto = itemMatch[2].replace(/<[^>]+>/g, '').trim();
                 topicoHtml += `
                     <div class="topico-item">
                         <h4>${label}</h4>
