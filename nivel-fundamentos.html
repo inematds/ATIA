@@ -156,15 +156,15 @@
 
                     <!-- Tópicos Expandíveis -->
                     <div class="mb-4">
-                        <h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
+                        <button onclick="toggleAllTopics('cap1-topics')" class="flex items-center justify-between w-full text-left font-semibold text-gray-900 hover:text-fundamentos transition mb-3">
+                            <span>📚 Ver todos os tópicos (1)</span>
+                            <span class="toggle-icon">▼</span>
+                        </button>
 
-                        <!-- Tópico 1 -->
-                        <div class="topico-expandivel mb-3" onclick="toggleTopico('cap1-llm')">
-                            <h4 class="flex items-center justify-between">
-                                Large Language Models (LLMs)
-                                <span class="icon">▼</span>
-                            </h4>
-                            <div class="topico-conteudo" id="cap1-llm">
+                        <div id="cap1-topics" class="topics-container" style="display: none;">
+                            <!-- Tópico 1 -->
+                            <div class="topico-card mb-3">
+                                <h4 class="font-semibold text-fundamentos mb-2">💡 Large Language Models (LLMs)</h4>
                                 <div class="topico-item">
                                     <h5>O que é:</h5>
                                     <p>Large Language Models (LLMs) são modelos de IA que processam e geram texto humano através de padrões aprendidos de enormes quantidades de dados.</p>
@@ -508,7 +508,68 @@
 
         // Initialize with 0 completed
         updateProgress(0, 5);
+
+        // Toggle all topics in a section (FEP style)
+        function toggleAllTopics(containerId) {
+            const container = document.getElementById(containerId);
+            const button = event.currentTarget;
+            const icon = button.querySelector('.toggle-icon');
+
+            if (container.style.display === 'none' || container.style.display === '') {
+                container.style.display = 'block';
+                icon.textContent = '▲';
+            } else {
+                container.style.display = 'none';
+                icon.textContent = '▼';
+            }
+        }
     </script>
+
+    <style>
+        /* Topico Card Styles */
+        .topico-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .topico-card h4 {
+            color: white !important;
+            margin-bottom: 1rem;
+        }
+
+        .topico-card .topico-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .topico-card .topico-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .topico-card h5 {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .topico-card p {
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .topics-container {
+            margin-top: 1rem;
+        }
+    </style>
 
 </body>
 </html>
