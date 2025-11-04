@@ -104,6 +104,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    /* ========================================
+       TOPIC EXPANSION SYSTEM (FEP Pattern)
+       ======================================== */
+
+    // Toggle topic explanations using event delegation
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.topic-button')) {
+            const button = e.target.closest('.topic-button');
+            const topicItem = button.closest('.topic-item');
+            const explanation = topicItem.querySelector('.topic-explanation');
+
+            if (explanation) {
+                // Toggle (mostra/esconde) a explicação
+                explanation.classList.toggle('hidden');
+
+                // COMPORTAMENTO ACCORDION: Fecha outras explicações abertas no mesmo card
+                const chapterCard = topicItem.closest('.chapter-card');
+                if (chapterCard) {
+                    chapterCard.querySelectorAll('.topic-explanation').forEach(exp => {
+                        if (exp !== explanation) {
+                            exp.classList.add('hidden');
+                        }
+                    });
+                }
+            }
+        }
+    });
+
 });
 
 /* ========================================
