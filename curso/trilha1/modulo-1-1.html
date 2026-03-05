@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modulo 1.1 - O Tsunami da IA. Entenda a revolucao dos Large Language Models e o crescimento exponencial da inteligencia artificial.">
+    <title>Modulo 1.1 - O Tsunami da IA | ATIA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FACC15',
+                        'dark-900': '#111827',
+                        'dark-800': '#1f2937',
+                        'dark-700': '#374151',
+                        'dark-600': '#4b5563',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .dark body { background-color: #111827; }
+        .topic-explanation { display: none; }
+        .topic-explanation.active { display: block; }
+        html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-14">
+                <div class="flex items-center space-x-4">
+                    <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+                        <span class="text-2xl">🎓</span>
+                        <span class="font-bold text-lg hidden sm:inline">ATIA</span>
+                    </a>
+                    <span class="text-neutral-600">|</span>
+                    <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+                </div>
+                <div class="flex items-center space-x-1 sm:space-x-2">
+                    <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+                        <span class="sm:hidden">T1</span>
+                        <span class="hidden sm:inline">Fundamentos</span>
+                    </a>
+                    <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+                        <span class="sm:hidden">T2</span>
+                        <span class="hidden sm:inline">Aplicacao</span>
+                    </a>
+                    <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+                        <span class="sm:hidden">T3</span>
+                        <span class="hidden sm:inline">Estrategico</span>
+                    </a>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-dark-900 border-b border-dark-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="text-sm text-neutral-400">
+                <a href="../../index.html" class="hover:text-emerald-400 transition-colors">Inicio</a>
+                <span class="mx-2 text-neutral-600">/</span>
+                <a href="index.html" class="hover:text-emerald-400 transition-colors">Trilha 1</a>
+                <span class="mx-2 text-neutral-600">/</span>
+                <span class="text-emerald-400 font-semibold">Modulo 1.1</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-transparent"></div>
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="mb-4">
+                <span class="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/20 border border-emerald-500/30 rounded-full">Modulo 1.1</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-4">🌊 O Tsunami da IA</h1>
+            <p class="text-lg text-neutral-300 max-w-3xl mb-8">
+                Entenda a magnitude da revolucao em inteligencia artificial, como os Large Language Models funcionam, o crescimento exponencial da tecnologia e como se preparar para surfar essa onda de mudancas sem precedentes.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+                <div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-emerald-400">6</div>
+                    <div class="text-xs text-neutral-400 mt-1">Topicos</div>
+                </div>
+                <div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-emerald-400">30</div>
+                    <div class="text-xs text-neutral-400 mt-1">Minutos</div>
+                </div>
+                <div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-emerald-400">Basico</div>
+                    <div class="text-xs text-neutral-400 mt-1">Nivel</div>
+                </div>
+                <div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-emerald-400">Teoria</div>
+                    <div class="text-xs text-neutral-400 mt-1">Formato</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Topic 1 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">1</span>
+                <h2 class="text-2xl font-bold text-neutral-100">🤖 Large Language Models</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                Os Large Language Models (LLMs) sao o motor por tras da revolucao atual em inteligencia artificial. Esses modelos, como GPT-4, Claude, Gemini e LLaMA, foram treinados em trilhoes de palavras da internet, livros, artigos cientificos e codigos de programacao. O resultado sao sistemas capazes de compreender, gerar e manipular linguagem humana com uma fluencia surpreendente.
+            </p>
+
+            <!-- Conceito Principal -->
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Um LLM funciona prevendo o proximo token (fragmento de palavra) em uma sequencia. Parece simples, mas quando feito em escala massiva com bilhoes de parametros, essa capacidade preditiva se transforma em algo que se assemelha a compreensao, raciocinio e criatividade. A arquitetura Transformer, introduzida pelo paper "Attention Is All You Need" (Google, 2017), foi o avanco que tornou isso possivel, permitindo que o modelo "preste atencao" a partes relevantes do texto de forma paralela.
+                </p>
+            </div>
+
+            <!-- Dados e Pesquisa -->
+            <div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-blue-400 font-semibold mb-3">Dados e Pesquisa</h3>
+                <ul class="text-neutral-300 space-y-2">
+                    <li>O GPT-3 foi treinado com 175 bilhoes de parametros; o GPT-4 estima-se ter mais de 1 trilhao</li>
+                    <li>O ChatGPT atingiu 100 milhoes de usuarios em apenas 2 meses — o aplicativo de crescimento mais rapido da historia</li>
+                    <li>LLMs ja superam humanos em diversos benchmarks: exames de direito, medicina e programacao</li>
+                    <li>O custo por token caiu mais de 100x entre 2023 e 2025, democratizando o acesso</li>
+                </ul>
+            </div>
+
+            <!-- Dica Pratica -->
+            <div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-primary font-semibold mb-3">Dica Pratica</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Comece experimentando diferentes LLMs para a mesma tarefa. Tente pedir ao ChatGPT, Claude e Gemini para resumir um artigo, escrever um email profissional ou explicar um conceito complexo. Voce percebera que cada modelo tem personalidade e forcas diferentes — e saber escolher o certo para cada tarefa e uma habilidade valiosa.
+                </p>
+            </div>
+
+            <!-- Fazer vs Evitar -->
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+                    <h3 class="text-emerald-400 font-semibold mb-3">Fazer</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Experimentar multiplas plataformas de IA</li>
+                        <li>Entender as limitacoes dos modelos</li>
+                        <li>Verificar informacoes geradas pela IA</li>
+                        <li>Aprender a formular perguntas claras</li>
+                    </ul>
+                </div>
+                <div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+                    <h3 class="text-red-400 font-semibold mb-3">Evitar</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Confiar cegamente nas respostas da IA</li>
+                        <li>Ignorar a revolucao achando que "nao te afeta"</li>
+                        <li>Compartilhar dados sensiveis nos prompts</li>
+                        <li>Usar IA sem entender o basico de como funciona</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topic 2 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">2</span>
+                <h2 class="text-2xl font-bold text-neutral-100">📈 Crescimento Exponencial</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                O cerebro humano pensa de forma linear — imaginamos que o futuro sera uma continuacao gradual do presente. Mas a IA avanca de forma exponencial: cada geracao de modelos e dramaticamente mais capaz que a anterior, os custos caem vertiginosamente e a adocao acelera. Entender essa dinamica e fundamental para nao ser pego desprevenido.
+            </p>
+
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    O crescimento exponencial significa que a capacidade da IA dobra em intervalos regulares. O que levou decadas para a internet se normalizar, a IA generativa fez em meses. A Lei de Moore se aplica aqui de forma amplificada: nao e so o hardware que melhora, mas tambem os algoritmos, os dados de treinamento e as tecnicas de otimizacao — todos avancam simultaneamente, criando um efeito multiplicador.
+                </p>
+            </div>
+
+            <div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-blue-400 font-semibold mb-3">Dados e Pesquisa</h3>
+                <ul class="text-neutral-300 space-y-2">
+                    <li>A internet levou 7 anos para atingir 100 milhoes de usuarios; o ChatGPT levou 2 meses</li>
+                    <li>O investimento global em IA cresceu de $12.75B em 2017 para mais de $200B em 2025</li>
+                    <li>A cada 6 meses, novos modelos superam benchmarks que pareciam distantes anos atras</li>
+                    <li>Scaling laws mostram que modelos maiores + mais dados = capacidades emergentes imprevisiveis</li>
+                </ul>
+            </div>
+
+            <div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+                <h3 class="text-primary font-semibold mb-3">Dica Pratica</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Adote a mentalidade de "o que e impossivel hoje sera trivial em 18 meses". Antes de descartar a IA para uma tarefa porque o resultado atual nao e bom o suficiente, pergunte-se: "Como sera a proxima versao?" A resposta quase sempre e: significativamente melhor.
+                </p>
+            </div>
+        </div>
+
+        <!-- Topic 3 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">3</span>
+                <h2 class="text-2xl font-bold text-neutral-100">📜 Historia da IA</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                A inteligencia artificial nao nasceu com o ChatGPT. Sua historia remonta aos anos 1950, quando Alan Turing publicou "Computing Machinery and Intelligence" e propos o famoso Teste de Turing. Desde entao, a area passou por ciclos de otimismo e decepcao — os chamados "invernos da IA" — ate chegar a era atual dos modelos generativos.
+            </p>
+
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    A historia da IA pode ser dividida em eras: IA Simbolica (1950-1980), onde se tentava codificar regras logicas; Machine Learning (1980-2010), onde maquinas aprendiam com dados; Deep Learning (2010-2017), com redes neurais profundas; e a Era dos Transformers (2017-presente), que possibilitou os LLMs atuais. Cada era construiu sobre as anteriores, e o momento atual e resultado de decadas de pesquisa acumulada.
+                </p>
+            </div>
+
+            <div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-blue-400 font-semibold mb-3">Marcos Historicos</h3>
+                <ul class="text-neutral-300 space-y-2">
+                    <li><strong>1950:</strong> Alan Turing propoe o Teste de Turing</li>
+                    <li><strong>1956:</strong> Conferencia de Dartmouth — nasce o termo "inteligencia artificial"</li>
+                    <li><strong>1997:</strong> Deep Blue vence Kasparov no xadrez</li>
+                    <li><strong>2016:</strong> AlphaGo vence Lee Sedol no Go — jogo considerado intratavel para maquinas</li>
+                    <li><strong>2017:</strong> Google publica "Attention Is All You Need" — nasce o Transformer</li>
+                    <li><strong>2022:</strong> ChatGPT e lancado e muda tudo</li>
+                </ul>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+                    <h3 class="text-emerald-400 font-semibold mb-3">Fazer</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Estudar a historia para ter perspectiva</li>
+                        <li>Entender que avancos vem em ondas</li>
+                        <li>Reconhecer que estamos no inicio de uma nova era</li>
+                        <li>Aprender com os erros e exageros do passado</li>
+                    </ul>
+                </div>
+                <div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+                    <h3 class="text-red-400 font-semibold mb-3">Evitar</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Achar que IA e apenas uma "moda passageira"</li>
+                        <li>Ignorar licoes dos invernos da IA</li>
+                        <li>Acreditar que IA resolve tudo magicamente</li>
+                        <li>Confundir hype com capacidade real</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topic 4 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">4</span>
+                <h2 class="text-2xl font-bold text-neutral-100">🌐 Convergencia Tecnologica</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                A IA nao esta acontecendo isoladamente. O que torna este momento unico e a convergencia de multiplas tecnologias que se reforcam mutuamente: computacao em nuvem barata e escalavel, dados abundantes, conectividade 5G, IoT gerando dados em tempo real e APIs que permitem integrar tudo. E essa sinergia que diferencia a "onda atual" das tentativas anteriores.
+            </p>
+
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Convergencia tecnologica significa que tecnologias antes separadas estao se fundindo para criar algo maior que a soma das partes. A nuvem fornece poder computacional ilimitado, big data alimenta os algoritmos, APIs conectam servicos, IoT gera dados do mundo fisico e 5G torna tudo acessivel em tempo real. A IA e o "cerebro" que da sentido a tudo isso. Por isso, desta vez, e diferente.
+                </p>
+            </div>
+
+            <div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+                <h3 class="text-primary font-semibold mb-3">Dica Pratica</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Quando pensar em aplicacoes de IA, nao pense apenas no modelo de linguagem. Pense no ecossistema completo: de onde vem os dados? Como a IA se conecta com outros sistemas? Como o resultado chega ao usuario final? As melhores solucoes de IA exploram a convergencia, nao apenas um modelo isolado.
+                </p>
+            </div>
+        </div>
+
+        <!-- Topic 5 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">5</span>
+                <h2 class="text-2xl font-bold text-neutral-100">🏭 Impactos Setoriais</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                Nenhum setor da economia esta imune a transformacao pela IA. Do financeiro ao agricola, da saude ao juridico, cada industria esta sendo redesenhada. Entender como a IA impacta diferentes setores permite identificar oportunidades, antecipar riscos e posicionar-se estrategicamente independente da sua area de atuacao.
+            </p>
+
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    O impacto setorial da IA segue um padrao: primeiro automatiza tarefas repetitivas, depois melhora a tomada de decisao com analises preditivas e finalmente cria novos modelos de negocio que antes eram impossiveis. Financas usa IA para deteccao de fraude e trading algoritmico. Saude aplica em diagnostico por imagem e descoberta de medicamentos. Educacao personaliza o ensino. Direito automatiza analise de contratos. Cada setor esta em um estagio diferente dessa jornada.
+                </p>
+            </div>
+
+            <div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-blue-400 font-semibold mb-3">Dados e Pesquisa</h3>
+                <ul class="text-neutral-300 space-y-2">
+                    <li><strong>Financas:</strong> IA ja analisa 90% das transacoes em bolsa nos EUA</li>
+                    <li><strong>Saude:</strong> Modelos de IA detectam cancer de pele com precisao superior a dermatologistas</li>
+                    <li><strong>Educacao:</strong> Tutores de IA melhoram resultados de aprendizagem em ate 30%</li>
+                    <li><strong>Juridico:</strong> Analise de contratos por IA reduz tempo de revisao em 80%</li>
+                    <li><strong>Agricultura:</strong> Drones com IA otimizam irrigacao e reduzem uso de pesticidas em 40%</li>
+                </ul>
+            </div>
+
+            <div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+                <h3 class="text-primary font-semibold mb-3">Dica Pratica</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Pesquise como a IA esta impactando especificamente o seu setor. Identifique 3 aplicacoes concretas que ja existem e que voce poderia comecar a usar ou recomendar. Profissionais que trazem conhecimento de IA para seu setor especifico sao extremamente valorizados.
+                </p>
+            </div>
+        </div>
+
+        <!-- Topic 6 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">6</span>
+                <h2 class="text-2xl font-bold text-neutral-100">🏄 Surfando o Tsunami</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                Diante de uma onda gigante, voce tem tres opcoes: ser engolido por ela, tentar lutar contra ela ou aprender a surfa-la. O tsunami da IA e inevitavel — a questao nao e se ele vai chegar, mas se voce estara preparado. Este topico transforma todo o conhecimento anterior em um plano de acao concreto para sua carreira.
+            </p>
+
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Surfar o tsunami da IA exige tres coisas: mentalidade de aprendizado continuo (growth mindset), experimentacao pratica constante e construcao de um portfolio que demonstre suas habilidades. Nao basta ler sobre IA — e preciso usar diariamente, criar projetos e compartilhar aprendizados. A vantagem competitiva vai para quem comeca primeiro, nao para quem sabe mais teoria.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                <div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+                    <h3 class="text-emerald-400 font-semibold mb-3">Fazer</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Usar IA todos os dias em tarefas reais</li>
+                        <li>Criar projetos pessoais com IA</li>
+                        <li>Participar de comunidades de IA</li>
+                        <li>Documentar e compartilhar aprendizados</li>
+                        <li>Investir 30 min/dia em aprendizado de IA</li>
+                    </ul>
+                </div>
+                <div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+                    <h3 class="text-red-400 font-semibold mb-3">Evitar</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Procrastinar "ate a tecnologia amadurecer"</li>
+                        <li>Focar so em teoria sem pratica</li>
+                        <li>Ter medo de errar ou de parecer iniciante</li>
+                        <li>Esperar que sua empresa te capacite</li>
+                        <li>Ignorar a IA por achar que e "coisa de TI"</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+                <h3 class="text-primary font-semibold mb-3">Dica Pratica</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Comece hoje. Escolha uma ferramenta de IA (ChatGPT, Claude, Gemini) e use-a para uma tarefa real do seu trabalho: redigir um email, analisar um relatorio, criar uma apresentacao. Depois, repita amanha com uma tarefa diferente. Em 30 dias, voce tera uma percepcao completamente diferente das possibilidades.
+                </p>
+            </div>
+        </div>
+
+        <!-- Resumo -->
+        <div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+            <h2 class="text-2xl font-bold text-neutral-100 mb-6">Resumo do Modulo</h2>
+            <div class="space-y-3 mb-8">
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Entendi como funcionam os Large Language Models (LLMs)</span>
+                </label>
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Compreendi a natureza exponencial do avanco da IA</span>
+                </label>
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Conheco a historia da IA e seus marcos principais</span>
+                </label>
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Entendo a convergencia tecnologica e por que agora e diferente</span>
+                </label>
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Identifiquei impactos da IA no meu setor de atuacao</span>
+                </label>
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Tenho um plano inicial para me preparar para a onda de IA</span>
+                </label>
+            </div>
+
+            <div class="bg-dark-700 rounded-xl p-4 mb-6">
+                <p class="text-neutral-400 text-sm">Proximo modulo:</p>
+                <p class="text-neutral-100 font-semibold">💼 1.2 — Transformacao Digital e Mercado de Trabalho</p>
+            </div>
+
+            <div class="flex justify-start gap-3">
+                <a href="index.html" class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors">Voltar para Trilha 1</a>
+                <a href="modulo-1-2.html" class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Proximo Modulo</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-dark-700 mt-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="flex items-center space-x-2 text-neutral-400 text-sm">
+                    <span>🎓</span>
+                    <span class="font-semibold">ATIA</span>
+                    <span>—</span>
+                    <span>Aceleracao em Tecnologia e Inteligencia Artificial</span>
+                </div>
+                <div class="text-neutral-500 text-sm">
+                    <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Topic toggle
+        function toggleTopic(button) {
+            const topicItem = button.closest('.topic-item');
+            const explanation = topicItem.querySelector('.topic-explanation');
+            const moduleCard = button.closest('.bg-dark-800');
+            moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+                if (exp !== explanation) exp.classList.remove('active');
+            });
+            explanation.classList.toggle('active');
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const html = document.documentElement;
+        if (localStorage.getItem('theme') === 'light') {
+            themeToggleDarkIcon.classList.remove('hidden');
+            html.classList.remove('dark');
+        } else {
+            themeToggleLightIcon.classList.remove('hidden');
+        }
+        themeToggle.addEventListener('click', () => {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        }
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modulo 1.2 - Transformacao Digital e Mercado de Trabalho. Entenda como a IA esta reestruturando empregos, habilidades e setores inteiros da economia.">
+    <title>Modulo 1.2 - Transformacao Digital e Mercado de Trabalho | ATIA</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FACC15',
+                        'dark-900': '#111827',
+                        'dark-800': '#1f2937',
+                        'dark-700': '#374151',
+                        'dark-600': '#4b5563',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .dark body { background-color: #111827; }
+        .topic-explanation { display: none; }
+        .topic-explanation.active { display: block; }
+        html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-14">
+                <div class="flex items-center space-x-4">
+                    <a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300">
+                        <span class="text-2xl">🎓</span>
+                        <span class="font-bold text-lg hidden sm:inline">ATIA</span>
+                    </a>
+                    <span class="text-neutral-600">|</span>
+                    <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a>
+                </div>
+                <div class="flex items-center space-x-1 sm:space-x-2">
+                    <a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10">
+                        <span class="sm:hidden">T1</span>
+                        <span class="hidden sm:inline">Fundamentos</span>
+                    </a>
+                    <a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors">
+                        <span class="sm:hidden">T2</span>
+                        <span class="hidden sm:inline">Aplicacao</span>
+                    </a>
+                    <a href="../trilha3/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors">
+                        <span class="sm:hidden">T3</span>
+                        <span class="hidden sm:inline">Estrategico</span>
+                    </a>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="bg-dark-900 border-b border-dark-700">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <nav class="text-sm text-neutral-400">
+                <a href="../../index.html" class="hover:text-emerald-400 transition-colors">Inicio</a>
+                <span class="mx-2 text-neutral-600">/</span>
+                <a href="index.html" class="hover:text-emerald-400 transition-colors">Trilha 1</a>
+                <span class="mx-2 text-neutral-600">/</span>
+                <span class="text-emerald-400 font-semibold">Modulo 1.2</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-transparent"></div>
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="mb-4">
+                <span class="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/20 border border-emerald-500/30 rounded-full">Modulo 1.2</span>
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-4">💼 Transformacao Digital e Mercado de Trabalho</h1>
+            <p class="text-lg text-neutral-300 max-w-3xl mb-8">
+                A inteligencia artificial esta redesenhando o mapa do mercado de trabalho. Milhoes de empregos serao transformados, novos cargos surgirao e as habilidades mais valorizadas mudarao radicalmente. Entenda essa reestruturacao e prepare-se para prosperar nela.
+            </p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+                <div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-emerald-400">6</div>
+                    <div class="text-xs text-neutral-400 mt-1">Topicos</div>
+                </div>
+                <div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-emerald-400">35</div>
+                    <div class="text-xs text-neutral-400 mt-1">Minutos</div>
+                </div>
+                <div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-emerald-400">Basico</div>
+                    <div class="text-xs text-neutral-400 mt-1">Nivel</div>
+                </div>
+                <div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+                    <div class="text-2xl font-bold text-emerald-400">Teoria</div>
+                    <div class="text-xs text-neutral-400 mt-1">Formato</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Topic 1 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">1</span>
+                <h2 class="text-2xl font-bold text-neutral-100">🔄 Quarta Revolucao Industrial</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                Klaus Schwab, fundador do Forum Economico Mundial, cunhou o termo "Quarta Revolucao Industrial" para descrever a fusao de tecnologias que borram as fronteiras entre os mundos fisico, digital e biologico. Diferente das revolucoes anteriores — vapor, eletricidade, computadores — esta nao e apenas sobre novas ferramentas, mas sobre uma transformacao fundamental na forma como vivemos, trabalhamos e nos relacionamos.
+            </p>
+
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    A Quarta Revolucao Industrial se distingue das anteriores por tres caracteristicas: velocidade (avanca exponencialmente, nao linearmente), amplitude (afeta todos os setores simultaneamente) e profundidade (transforma sistemas inteiros, nao apenas processos). Enquanto a Terceira Revolucao (digital) levou decadas para se consolidar, a Quarta esta se desdobrando em anos. A IA generativa e o catalisador que acelerou essa transicao — transformando o que era futuro distante em realidade presente.
+                </p>
+            </div>
+
+            <div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-blue-400 font-semibold mb-3">Dados e Pesquisa</h3>
+                <ul class="text-neutral-300 space-y-2">
+                    <li>A 1a Revolucao (vapor) transformou o mundo em ~100 anos; a 4a esta fazendo o mesmo em ~10</li>
+                    <li>86% dos CEOs globais dizem que a IA transformara significativamente seus negocios ate 2027</li>
+                    <li>O mercado global de IA generativa deve superar $1.3 trilhao ate 2032</li>
+                    <li>75% das empresas planejam adotar IA nos proximos 5 anos segundo o WEF</li>
+                </ul>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+                    <h3 class="text-emerald-400 font-semibold mb-3">Fazer</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Entender que esta revolucao ja comecou</li>
+                        <li>Mapear como afeta sua profissao</li>
+                        <li>Investir em aprendizado continuo agora</li>
+                        <li>Buscar sinergia entre tecnologia e sua area</li>
+                    </ul>
+                </div>
+                <div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+                    <h3 class="text-red-400 font-semibold mb-3">Evitar</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Esperar "a poeira baixar" para agir</li>
+                        <li>Achar que sua profissao esta imune</li>
+                        <li>Resistir a mudanca por conforto</li>
+                        <li>Ignorar sinais de transformacao no seu setor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topic 2 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">2</span>
+                <h2 class="text-2xl font-bold text-neutral-100">📊 A Grande Reestruturacao</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                O relatorio "Future of Jobs" do Forum Economico Mundial apresenta um panorama detalhado: ate 2027, estima-se que 9 milhoes de empregos serao eliminados pela automacao e IA, enquanto 11 milhoes de novas vagas serao criadas. O saldo e positivo, mas ha um problema critico: as pessoas que perderao seus empregos nao sao as mesmas que preencherao as novas vagas, a menos que passem por uma reciclagem profissional significativa.
+            </p>
+
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    A reestruturacao do mercado segue um padrao previsivel: tarefas rotineiras e baseadas em regras sao automatizadas primeiro, liberando humanos para trabalho criativo, estrategico e relacional. Isso nao significa que profissoes inteiras desaparecem — na maioria dos casos, partes do trabalho sao automatizadas, exigindo que os profissionais se reinventem. O conceito chave e "augmentation, not replacement" — a IA aumenta a capacidade humana, nao a substitui completamente.
+                </p>
+            </div>
+
+            <div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-blue-400 font-semibold mb-3">Dados e Pesquisa</h3>
+                <ul class="text-neutral-300 space-y-2">
+                    <li>Empregos em declinio: caixas de banco, operadores de entrada de dados, secretarias administrativas</li>
+                    <li>Empregos em crescimento: analistas de dados/IA, especialistas em ciberseguranca, engenheiros de prompt</li>
+                    <li>60% dos trabalhadores precisarao de reskilling ate 2027, mas apenas 50% tem acesso a treinamento</li>
+                    <li>McKinsey estima que ate 30% das horas trabalhadas nos EUA podem ser automatizadas ate 2030</li>
+                </ul>
+            </div>
+
+            <div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+                <h3 class="text-primary font-semibold mb-3">Dica Pratica</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Faca um exercicio: liste as 10 tarefas que voce mais faz no trabalho. Para cada uma, avalie: "Isso pode ser automatizado por IA nos proximos 3 anos?" Se mais de 50% das suas tarefas estiverem em risco, e hora de repensar seu posicionamento e investir em habilidades complementares a IA.
+                </p>
+            </div>
+        </div>
+
+        <!-- Topic 3 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">3</span>
+                <h2 class="text-2xl font-bold text-neutral-100">🎯 Mudanca de 70% das Habilidades</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                Pesquisas do LinkedIn e do WEF indicam que 70% das habilidades exigidas no mercado de trabalho mudarao significativamente ate 2030. A meia-vida de habilidades tecnicas — o tempo ate que metade do conhecimento se torne obsoleto — caiu de 10-15 anos para 2-5 anos. Isso significa que a formacao universitaria tradicional ja nao e suficiente: o aprendizado continuo deixou de ser opcao e tornou-se sobrevivencia.
+            </p>
+
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    As habilidades mais valorizadas no futuro se dividem em dois grupos. O primeiro sao as habilidades humanas que a IA nao replica bem: pensamento critico, criatividade, empatia, lideranca, comunicacao interpessoal e capacidade de resolver problemas ambiguos. O segundo grupo sao as habilidades de trabalhar COM a IA: engenharia de prompt, analise de dados, automacao de processos e design de sistemas inteligentes. O profissional ideal do futuro domina os dois grupos.
+                </p>
+            </div>
+
+            <div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-blue-400 font-semibold mb-3">Habilidades Mais Demandadas (WEF 2025)</h3>
+                <ul class="text-neutral-300 space-y-2">
+                    <li><strong>1. Pensamento analitico e inovacao</strong> — Resolver problemas complexos de formas novas</li>
+                    <li><strong>2. Aprendizado ativo</strong> — Capacidade de aprender continuamente</li>
+                    <li><strong>3. Alfabetizacao tecnologica</strong> — Incluindo IA e dados</li>
+                    <li><strong>4. Criatividade e originalidade</strong> — O que diferencia humanos de maquinas</li>
+                    <li><strong>5. Resiliencia e flexibilidade</strong> — Adaptacao a mudancas rapidas</li>
+                </ul>
+            </div>
+
+            <div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+                <h3 class="text-primary font-semibold mb-3">Dica Pratica</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Crie um "plano de desenvolvimento pessoal em IA" de 90 dias. Dedique 30 minutos por dia, alternando entre: aprender uma nova ferramenta de IA (segunda), praticar engenharia de prompt (terca), aplicar IA a uma tarefa real (quarta), estudar tendencias do seu setor (quinta) e criar conteudo sobre seus aprendizados (sexta). A consistencia supera a intensidade.
+                </p>
+            </div>
+        </div>
+
+        <!-- Topic 4 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">4</span>
+                <h2 class="text-2xl font-bold text-neutral-100">🏢 Setores Mais Impactados</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                Embora todos os setores sejam impactados pela IA, alguns estao sendo transformados mais rapidamente. O setor financeiro lidera a adocao, seguido por manufatura, saude, varejo e servicos profissionais. Entender como cada setor esta sendo reestruturado permite antecipar tendencias e identificar oportunidades independente da sua area.
+            </p>
+
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Cada setor segue um ciclo de transformacao: (1) Automacao de tarefas repetitivas, (2) Assistencia inteligente para decisoes, (3) Otimizacao de processos completos e (4) Criacao de novos modelos de negocio. O financeiro ja esta na fase 3-4, com trading algoritmico e banking totalmente digital. A saude esta entre 2-3, com diagnostico assistido por IA ganhando aprovacoes regulatorias. A educacao esta na fase 1-2, com tutores de IA comecando a se popularizar.
+                </p>
+            </div>
+
+            <div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-blue-400 font-semibold mb-3">Impacto por Setor</h3>
+                <ul class="text-neutral-300 space-y-2">
+                    <li><strong>Financeiro:</strong> Trading automatizado, deteccao de fraude em tempo real, analise de credito por IA, robo-advisors</li>
+                    <li><strong>Manufatura:</strong> Manutencao preditiva, controle de qualidade visual, gemeos digitais, supply chain inteligente</li>
+                    <li><strong>Saude:</strong> Diagnostico por imagem, descoberta de farmacos, medicina personalizada, monitoramento remoto</li>
+                    <li><strong>Varejo:</strong> Personalizacao em massa, precificacao dinamica, logistica preditiva, atendimento por chatbot</li>
+                    <li><strong>Juridico:</strong> Revisao automatizada de contratos, pesquisa jurisprudencial, predicao de resultados de processos</li>
+                </ul>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+                    <h3 class="text-emerald-400 font-semibold mb-3">Fazer</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Mapear aplicacoes de IA no seu setor</li>
+                        <li>Acompanhar cases de sucesso em sua area</li>
+                        <li>Conectar-se com pioneiros da IA no setor</li>
+                        <li>Propor projetos piloto na sua empresa</li>
+                    </ul>
+                </div>
+                <div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+                    <h3 class="text-red-400 font-semibold mb-3">Evitar</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Achar que "meu setor e diferente"</li>
+                        <li>Esperar que regulacao freie a mudanca</li>
+                        <li>Comparar seu setor com tecnologia pura</li>
+                        <li>Ignorar startups disruptivas na sua area</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topic 5 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">5</span>
+                <h2 class="text-2xl font-bold text-neutral-100">🧠 T-Shaped Skills</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                O conceito de profissional "T-Shaped" (em forma de T) descreve alguem que combina profundidade em uma area de especializacao (a barra vertical) com amplitude de conhecimento em areas complementares (a barra horizontal). Na era da IA, esse modelo ganha uma nova dimensao: a IA se torna a barra horizontal que amplia o alcance de qualquer especialista.
+            </p>
+
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    No modelo T-Shaped tradicional, um designer poderia ter profundidade em UX e amplitude em programacao, marketing e negocios. Na era da IA, esse mesmo designer ganha superpoderes: com IA, pode gerar prototipos rapidos, fazer pesquisa de usuarios automatizada, criar copys de marketing e ate analisar dados de comportamento. A IA funciona como um multiplicador que torna a barra horizontal do T significativamente mais poderosa. O profissional mais valioso do futuro sera o T-Shaped que domina IA como ferramenta horizontal.
+                </p>
+            </div>
+
+            <div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-primary font-semibold mb-3">Dica Pratica</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Desenhe seu proprio T. Na barra vertical, coloque sua area de maior expertise. Na barra horizontal, liste 5 areas complementares onde a IA pode ampliar seu alcance. Para cada area horizontal, identifique uma ferramenta de IA especifica que voce poderia aprender. Por exemplo: se voce e contador, a barra horizontal pode incluir "analise preditiva (com ChatGPT)", "automacao de relatorios (com Zapier)" e "visualizacao de dados (com ferramentas de IA)".
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+                    <h3 class="text-emerald-400 font-semibold mb-3">Fazer</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Manter profundidade na sua especialidade</li>
+                        <li>Usar IA para ampliar sua barra horizontal</li>
+                        <li>Criar combinacoes unicas de habilidades</li>
+                        <li>Posicionar-se como "especialista + IA"</li>
+                    </ul>
+                </div>
+                <div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+                    <h3 class="text-red-400 font-semibold mb-3">Evitar</h3>
+                    <ul class="text-neutral-300 space-y-2 text-sm">
+                        <li>Abandonar sua especialidade para "virar de IA"</li>
+                        <li>Ser superficial em tudo sem profundidade</li>
+                        <li>Ignorar habilidades humanas complementares</li>
+                        <li>Tratar IA como area separada do seu trabalho</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Topic 6 -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
+                <span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">6</span>
+                <h2 class="text-2xl font-bold text-neutral-100">📚 Alfabetizacao em IA</h2>
+            </div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">
+                Assim como a alfabetizacao em informatica foi essencial nos anos 1990-2000 e a alfabetizacao digital nos anos 2010, a alfabetizacao em IA (AI Literacy) e a competencia fundamental desta decada. Nao se trata de saber programar algoritmos de machine learning, mas de entender o que a IA pode e nao pode fazer, como usar ferramentas de IA eficazmente e como avaliar criticamente seus resultados.
+            </p>
+
+            <div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-emerald-400 font-semibold mb-3">Conceito Principal</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Alfabetizacao em IA envolve quatro dimensoes: (1) Compreender o que e IA e como funciona em termos gerais, (2) Saber usar ferramentas de IA para tarefas praticas, (3) Avaliar criticamente resultados da IA (detectar erros, vieses, alucinacoes) e (4) Entender as implicacoes eticas e sociais da IA. Um profissional "AI literate" nao precisa ser programador — precisa ser um usuario consciente, critico e eficaz de ferramentas de IA.
+                </p>
+            </div>
+
+            <div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+                <h3 class="text-blue-400 font-semibold mb-3">Dados e Pesquisa</h3>
+                <ul class="text-neutral-300 space-y-2">
+                    <li>Apenas 10% dos trabalhadores globais se consideram "proficientes" em IA (pesquisa Salesforce 2024)</li>
+                    <li>Empresas com equipes AI-literate reportam ganhos de produtividade de 20-40%</li>
+                    <li>A demanda por habilidades de IA cresceu 450% em anuncios de emprego desde 2022</li>
+                    <li>UNESCO recomenda alfabetizacao em IA como prioridade educacional global</li>
+                </ul>
+            </div>
+
+            <div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+                <h3 class="text-primary font-semibold mb-3">Dica Pratica</h3>
+                <p class="text-neutral-300 leading-relaxed">
+                    Avalie seu nivel atual de alfabetizacao em IA: (1) Voce consegue explicar a diferenca entre IA, Machine Learning e Deep Learning? (2) Voce usa alguma ferramenta de IA diariamente? (3) Voce sabe identificar quando a IA esta "alucinando"? (4) Voce entende os riscos eticos de IA? Se respondeu nao a mais de 2 perguntas, este curso e exatamente o que voce precisa. O fato de estar aqui ja e um otimo primeiro passo.
+                </p>
+            </div>
+        </div>
+
+        <!-- Resumo -->
+        <div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+            <h2 class="text-2xl font-bold text-neutral-100 mb-6">Resumo do Modulo</h2>
+            <div class="space-y-3 mb-8">
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Compreendi o conceito da Quarta Revolucao Industrial</span>
+                </label>
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Entendo a dinamica de 9M empregos eliminados vs 11M criados</span>
+                </label>
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Sei quais habilidades serao mais valorizadas ate 2030</span>
+                </label>
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Identifiquei como meu setor esta sendo impactado</span>
+                </label>
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Desenhei meu perfil T-Shaped com IA</span>
+                </label>
+                <label class="flex items-center gap-3 text-neutral-300">
+                    <input type="checkbox" class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700">
+                    <span>Avaliei meu nivel de alfabetizacao em IA</span>
+                </label>
+            </div>
+
+            <div class="bg-dark-700 rounded-xl p-4 mb-6">
+                <p class="text-neutral-400 text-sm">Proximo modulo:</p>
+                <p class="text-neutral-100 font-semibold">💬 1.3 — Engenharia de Prompt</p>
+            </div>
+
+            <div class="flex justify-start gap-3">
+                <a href="modulo-1-1.html" class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors">Modulo Anterior</a>
+                <a href="modulo-1-3.html" class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors">Proximo Modulo</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-dark-700 mt-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="flex items-center space-x-2 text-neutral-400 text-sm">
+                    <span>🎓</span>
+                    <span class="font-semibold">ATIA</span>
+                    <span>—</span>
+                    <span>Aceleracao em Tecnologia e Inteligencia Artificial</span>
+                </div>
+                <div class="text-neutral-500 text-sm">
+                    <a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300">INEMA.CLUB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Topic toggle
+        function toggleTopic(button) {
+            const topicItem = button.closest('.topic-item');
+            const explanation = topicItem.querySelector('.topic-explanation');
+            const moduleCard = button.closest('.bg-dark-800');
+            moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+                if (exp !== explanation) exp.classList.remove('active');
+            });
+            explanation.classList.toggle('active');
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const html = document.documentElement;
+        if (localStorage.getItem('theme') === 'light') {
+            themeToggleDarkIcon.classList.remove('hidden');
+            html.classList.remove('dark');
+        } else {
+            themeToggleLightIcon.classList.remove('hidden');
+        }
+        themeToggle.addEventListener('click', () => {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        }
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    </script>
+
+</body>
+</html>

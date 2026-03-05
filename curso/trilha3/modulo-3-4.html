@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulo 3.4 - Guia Pratico de Implementacao | ATIA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }</script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; } .dark body { background-color: #111827; }
+        html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; } html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; } html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; } html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; } html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; } html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    </style>
+</head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen">
+    <nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a href="../../index.html" class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">ATIA</span></a><span class="text-neutral-600">|</span><a href="https://inema.club" target="_blank" class="text-sky-400 hover:text-sky-300 text-sm font-medium">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a href="../trilha1/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a href="../trilha2/index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Aplicacao</span></a><a href="index.html" class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Estrategico</span></a><button id="theme-toggle" class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2"><svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-neutral-300" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg></button></div></div></div></nav>
+
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a href="../../index.html" class="hover:text-purple-400">Inicio</a><span>/</span><a href="index.html" class="hover:text-purple-400">Trilha 3</a><span>/</span><span class="text-purple-400">Modulo 3.4</span></div></nav>
+
+    <header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MODULO 3.4</span>
+            <h1 class="text-3xl sm:text-4xl font-bold mb-4">📋 Guia Pratico de Implementacao</h1>
+            <p class="text-lg text-neutral-400 max-w-3xl">Ferramentas, templates, plano de 90 dias e proximos passos para colocar tudo o que aprendeu em pratica imediatamente.</p>
+            <div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+                <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Topicos</div></div>
+                <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">25</div><div class="text-xs text-neutral-400">Minutos</div></div>
+                <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Todos</div><div class="text-xs text-neutral-400">Nivel</div></div>
+                <div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Pratica</div><div class="text-xs text-neutral-400">Tipo</div></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <section id="topico-1" class="mb-16">
+            <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">✅ Checklist de Inicio</h2></div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">Antes de mergulhar nas ferramentas, certifique-se de que voce tem a <strong class="text-purple-400">base necessaria</strong> para comecar a implementar IA de forma eficaz.</p>
+            <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+                <h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">📋</span> Checklist Essencial</h3>
+                <ul class="space-y-2 text-neutral-300">
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Criar conta no ChatGPT e Claude (versoes gratuitas)</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Experimentar 10 prompts diferentes no dia-a-dia</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Identificar 3 tarefas repetitivas no seu trabalho</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Mapear 1 processo completo para automacao</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Criar conta em ferramenta no-code (Zapier/Make)</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Configurar 1 automacao simples funcionando</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Compartilhar aprendizados com 1 colega</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="topico-2" class="mb-16">
+            <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🛠️ Kit de Ferramentas Essenciais</h2></div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">O kit basico de qualquer profissional que quer usar IA no dia-a-dia. Todas com <strong class="text-purple-400">opcoes gratuitas ou trials</strong>.</p>
+            <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+                <h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🧰</span> Ferramentas por Categoria</h3>
+                <ul class="space-y-2 text-neutral-300">
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>IA Conversacional:</strong> ChatGPT, Claude, Gemini</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Imagens:</strong> Midjourney, DALL-E, Ideogram</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Automacao:</strong> Zapier, Make.com, n8n</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Escrita:</strong> Jasper, Copy.ai, Writesonic</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Produtividade:</strong> Notion AI, Otter.ai, Gamma</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Codigo:</strong> GitHub Copilot, Cursor, Claude Code</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="topico-3" class="mb-16">
+            <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📄 Templates e Frameworks Prontos</h2></div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">Templates testados que voce pode <strong class="text-purple-400">copiar e adaptar</strong> para seu contexto imediatamente.</p>
+            <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+                <h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">📝</span> Templates de Prompt</h3>
+                <ul class="space-y-2 text-neutral-300">
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Analise SWOT:</strong> "Atue como consultor estrategico. Faca analise SWOT de [empresa/projeto] no setor [X]..."</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Email frio:</strong> "Voce e SDR experiente. Crie email personalizado para [cargo] da [empresa] sobre [dor]..."</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Post LinkedIn:</strong> "Crie post profissional sobre [tema] com gancho, valor e CTA. Tom: [autoridade/casual]..."</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Resumo de reuniao:</strong> "Analise esta transcricao e extraia: decisoes, action items, responsaveis e prazos..."</span></li>
+                </ul>
+            </div>
+            <div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+                <h3 class="text-lg font-semibold text-primary mb-3"><span class="mr-2">💡</span> Dica Pratica</h3>
+                <p class="text-neutral-300">Crie uma "biblioteca de prompts" pessoal. Salve seus melhores prompts num documento organizado por categoria. Refine-os com o tempo baseado nos resultados.</p>
+            </div>
+        </section>
+
+        <section id="topico-4" class="mb-16">
+            <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🎯 Plano de 90 Dias</h2></div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">Um roteiro pratico para <strong class="text-purple-400">transformar seu trabalho com IA</strong> em tres meses.</p>
+            <div class="space-y-6 mb-6">
+                <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">1-30</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Mes 1: Exploracao</h4><p class="text-neutral-300 text-sm">Use IA diariamente em pelo menos 3 tarefas. Teste diferentes ferramentas. Documente o que funciona. Foco: ganhar fluencia.</p></div></div>
+                <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">31-60</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Mes 2: Automacao</h4><p class="text-neutral-300 text-sm">Automatize 3-5 processos com no-code. Integre IA nos workflows existentes. Meca economia de tempo. Foco: produtividade.</p></div></div>
+                <div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">61-90</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Mes 3: Escala</h4><p class="text-neutral-300 text-sm">Compartilhe com a equipe. Implemente em projetos maiores. Documente ROI. Foco: impacto organizacional.</p></div></div>
+            </div>
+        </section>
+
+        <section id="topico-5" class="mb-16">
+            <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🤝 Comunidade e Networking</h2></div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">Aprender IA e um esporte coletivo. Conecte-se com <strong class="text-purple-400">comunidades de pratica</strong> para trocar experiencias, descobrir ferramentas e se manter atualizado.</p>
+            <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+                <h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🌐</span> Onde Conectar</h3>
+                <ul class="space-y-2 text-neutral-300">
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>LinkedIn:</strong> Siga criadores de conteudo sobre IA no Brasil</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>YouTube BR:</strong> Codigo Fonte TV, Filipe Deschamps, Asimov Academy</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Reddit:</strong> r/MachineLearning, r/artificial</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Discord:</strong> Comunidades de ferramentas especificas</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Eventos:</strong> Meetups locais, conferencias online sobre IA</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="topico-6" class="mb-16">
+            <div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🚀 Proximos Passos</h2></div>
+            <p class="text-neutral-300 mb-6 leading-relaxed">Voce completou o curso ATIA! Agora e hora de <strong class="text-purple-400">colocar em pratica</strong>. A IA evolui rapido - o aprendizado continuo e sua maior vantagem competitiva.</p>
+            <div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+                <h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🎯</span> Acoes Imediatas</h3>
+                <ul class="space-y-2 text-neutral-300">
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">1.</span><span>Escolha 1 ferramenta de IA e use todos os dias por 30 dias</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">2.</span><span>Automatize 1 processo repetitivo esta semana</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">3.</span><span>Compartilhe o que aprendeu com 3 pessoas</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">4.</span><span>Agende 1 hora/semana para explorar novas ferramentas</span></li>
+                    <li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">5.</span><span>Documente seus resultados e evolucao</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CONCLUSAO -->
+        <section class="mb-12">
+            <div class="bg-gradient-to-br from-primary/20 via-dark-800 to-dark-800 rounded-xl border border-primary/30 p-8">
+                <h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">🎓</span> Parabens! Voce concluiu o ATIA!</h2>
+                <p class="text-neutral-300 mb-6 leading-relaxed">Voce percorreu as 3 trilhas e dominou os fundamentos, aplicacoes e estrategias de IA. Agora voce tem o conhecimento necessario para prosperar na era da inteligencia artificial.</p>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-start space-x-3"><span class="text-primary mt-1">✓</span><div><strong class="text-white">Trilha 1</strong><span class="text-neutral-400"> - Fundamentos: Tsunami da IA, Prompt Engineering, Context Engineering, Automacao</span></div></div>
+                    <div class="flex items-start space-x-3"><span class="text-primary mt-1">✓</span><div><strong class="text-white">Trilha 2</strong><span class="text-neutral-400"> - Aplicacao: GPTs, Novas Profissoes, Marketing, Vendas, Educacao</span></div></div>
+                    <div class="flex items-start space-x-3"><span class="text-primary mt-1">✓</span><div><strong class="text-white">Trilha 3</strong><span class="text-neutral-400"> - Estrategico: Etica, Implementacao, Futuro do Trabalho, Guia Pratico</span></div></div>
+                </div>
+                <p class="text-lg text-primary font-semibold mb-8">A revolucao ja comecou. Agora e sua vez de surfar! 🏄</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="index.html" class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors">← Voltar para Trilha 3</a>
+                    <a href="../../index.html" class="flex-1 text-center px-6 py-3 bg-primary text-dark-900 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">Voltar ao Inicio 🎓</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>ATIA - Oportunidades Digitais com IA - 2026</p></div></footer>
+    <script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>

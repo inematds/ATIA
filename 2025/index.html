@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ATIA - Curso completo de IA e Oportunidades Digitais. Aprenda Engenharia de Prompt, Automação e as Profissões do Futuro.">
+    <meta name="keywords" content="IA, Inteligência Artificial, Curso IA, Engenharia de Prompt, Automação, Profissões Digitais">
+    <meta name="author" content="ATIA">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="ATIA - Oportunidades Digitais com IA">
+    <meta property="og:description" content="Do Tsunami Tecnológico às Novas Profissões: Curso Completo de IA Aplicada">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://seu-dominio.com">
+    <meta property="og:image" content="assets/images/capa_manual_ia.png">
+
+    <title>ATIA - Oportunidades Digitais com IA | Curso Completo</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'fundamentos': '#10B981',
+                        'aplicacao': '#3B82F6',
+                        'estrategico': '#8B5CF6',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="text-2xl font-bold text-aplicacao">
+                    🎓 ATIA
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#sobre" class="text-gray-700 hover:text-aplicacao transition">Sobre</a>
+                    <a href="#niveis" class="text-gray-700 hover:text-aplicacao transition">Níveis</a>
+                    <a href="#conteudo" class="text-gray-700 hover:text-aplicacao transition">Conteúdo</a>
+                    <a href="#recursos" class="text-gray-700 hover:text-aplicacao transition">Recursos</a>
+                    <a href="nivel-fundamentos.html" class="bg-aplicacao text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition font-semibold">
+                        Começar Agora →
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 hover:text-aplicacao">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#sobre" class="block py-2 text-gray-700 hover:text-aplicacao transition">Sobre</a>
+                <a href="#niveis" class="block py-2 text-gray-700 hover:text-aplicacao transition">Níveis</a>
+                <a href="#conteudo" class="block py-2 text-gray-700 hover:text-aplicacao transition">Conteúdo</a>
+                <a href="#recursos" class="block py-2 text-gray-700 hover:text-aplicacao transition">Recursos</a>
+                <a href="nivel-fundamentos.html" class="block mt-2 bg-aplicacao text-white px-6 py-2 rounded-lg text-center hover:bg-blue-600 transition font-semibold">
+                    Começar Agora →
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-aplicacao via-blue-700 to-estrategico text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+                ATIA - Oportunidades Digitais com IA
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
+                Do Tsunami Tecnológico às Novas Profissões: Curso Completo de IA Aplicada
+            </p>
+            <p class="text-lg mb-10 text-blue-200 max-w-2xl mx-auto">
+                Aprenda Engenharia de Prompt, Automação e as Profissões do Futuro - Da Teoria à Prática em 12-15 horas
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="nivel-fundamentos.html" class="bg-white text-aplicacao px-8 py-4 rounded-lg text-lg font-bold hover:bg-blue-50 transition transform hover:scale-105">
+                    🚀 Começar Curso Gratuito
+                </a>
+                <a href="#niveis" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white hover:text-aplicacao transition">
+                    📚 Ver Conteúdo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-white py-12 border-b">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stat-card">
+                    <div class="text-4xl font-bold text-aplicacao">14</div>
+                    <div class="text-gray-600 mt-2">Capítulos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-4xl font-bold text-fundamentos">12-15h</div>
+                    <div class="text-gray-600 mt-2">Duração Total</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-4xl font-bold text-estrategico">100%</div>
+                    <div class="text-gray-600 mt-2">Gratuito</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-4xl font-bold text-aplicacao">2025</div>
+                    <div class="text-gray-600 mt-2">Atualizado</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Níveis Section -->
+    <section id="niveis" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4 text-gray-900">
+                Três Níveis de Aprendizado
+            </h2>
+            <p class="text-xl text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Estruturado para levar você do básico ao avançado de forma progressiva
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Nível Fundamentos -->
+                <div class="level-card bg-gradient-to-br from-emerald-50 to-white border-2 border-emerald-200 rounded-2xl p-8 hover:border-emerald-400 hover:shadow-xl transition transform hover:-translate-y-2">
+                    <div class="text-6xl mb-4">🌟</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Fundamentos</h3>
+                    <div class="inline-block bg-fundamentos text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                        4-6 horas
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        Compreensão base da revolução IA, mercado de trabalho e engenharia de prompt
+                    </p>
+                    <ul class="text-sm text-gray-700 space-y-2 mb-6">
+                        <li>✓ O Tsunami da IA</li>
+                        <li>✓ Novo Mercado de Trabalho</li>
+                        <li>✓ Engenharia de Prompt</li>
+                        <li>✓ Engenharia de Contexto</li>
+                        <li>✓ Automação de Processos</li>
+                    </ul>
+                    <a href="nivel-fundamentos.html" class="block bg-fundamentos text-white text-center px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition">
+                        Iniciar Nível →
+                    </a>
+                </div>
+
+                <!-- Nível Aplicação -->
+                <div class="level-card bg-gradient-to-br from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-8 hover:border-blue-400 hover:shadow-xl transition transform hover:-translate-y-2">
+                    <div class="text-6xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Aplicação</h3>
+                    <div class="inline-block bg-aplicacao text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                        5-7 horas
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        Aplicação prática das tecnologias em marketing, vendas e educação
+                    </p>
+                    <ul class="text-sm text-gray-700 space-y-2 mb-6">
+                        <li>✓ GPTs Personalizados</li>
+                        <li>✓ Novas Profissões da IA</li>
+                        <li>✓ Marketing Digital com IA</li>
+                        <li>✓ Vendas Automatizadas</li>
+                        <li>✓ Educação na Era IA</li>
+                    </ul>
+                    <a href="nivel-aplicacao.html" class="block bg-aplicacao text-white text-center px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
+                        Iniciar Nível →
+                    </a>
+                </div>
+
+                <!-- Nível Estratégico -->
+                <div class="level-card bg-gradient-to-br from-purple-50 to-white border-2 border-purple-200 rounded-2xl p-8 hover:border-purple-400 hover:shadow-xl transition transform hover:-translate-y-2">
+                    <div class="text-6xl mb-4">👑</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Estratégico</h3>
+                    <div class="inline-block bg-estrategico text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                        3-4 horas
+                    </div>
+                    <p class="text-gray-600 mb-6">
+                        Liderança, ética e visão estratégica para implementação organizacional
+                    </p>
+                    <ul class="text-sm text-gray-700 space-y-2 mb-6">
+                        <li>✓ Ética e Governança</li>
+                        <li>✓ Implementação Estratégica</li>
+                        <li>✓ Futuro do Trabalho</li>
+                        <li>✓ Guia Prático Completo</li>
+                    </ul>
+                    <a href="nivel-estrategico.html" class="block bg-estrategico text-white text-center px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 transition">
+                        Iniciar Nível →
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-gray-900">
+                    Sobre o Curso
+                </h2>
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-xl text-gray-600 mb-6">
+                        O <strong>ATIA</strong> é um curso completo e atualizado sobre Inteligência Artificial e as novas oportunidades que ela cria no mercado digital. Baseado no manual "A Tsunami da Inteligência Artificial e as Novas Oportunidades Digitais", o curso foi atualizado com as mais recentes inovações de 2025.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-6 my-8">
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-aplicacao mb-3">📚 Conteúdo Rico</h3>
+                            <p class="text-gray-700">
+                                14 capítulos com texto dinâmico, exemplos práticos e recursos complementares atualizados para 2025.
+                            </p>
+                        </div>
+                        <div class="bg-emerald-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-fundamentos mb-3">🎯 100% Prático</h3>
+                            <p class="text-gray-700">
+                                Foco em aplicações reais com exercícios, checklists e ferramentas no-code.
+                            </p>
+                        </div>
+                        <div class="bg-purple-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-estrategico mb-3">🆕 Atualizado 2025</h3>
+                            <p class="text-gray-700">
+                                Inclui GPT-5, Claude 4, Gemini 2.5, novas profissões e regulamentação atual.
+                            </p>
+                        </div>
+                        <div class="bg-gray-100 p-6 rounded-lg">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">🎓 Certificado</h3>
+                            <p class="text-gray-700">
+                                Certificado digital ao completar o curso, verificável e compartilhável.
+                            </p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-bold mt-12 mb-4">Para Quem é Este Curso?</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li>✓ Profissionais em transição de carreira</li>
+                        <li>✓ Empresários e gestores buscando automação</li>
+                        <li>✓ Estudantes interessados em novas profissões</li>
+                        <li>✓ Desenvolvedores querendo entender IA</li>
+                        <li>✓ Qualquer pessoa que quer prosperar na era da IA</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-r from-aplicacao to-estrategico text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                Pronto para Dominar a IA?
+            </h2>
+            <p class="text-xl mb-8 text-blue-100">
+                Comece agora gratuitamente e transforme sua carreira
+            </p>
+            <a href="nivel-fundamentos.html" class="inline-block bg-white text-aplicacao px-10 py-4 rounded-lg text-lg font-bold hover:bg-blue-50 transition transform hover:scale-105">
+                🚀 Começar Curso Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ATIA</h3>
+                    <p class="text-gray-400">
+                        Aprendizado em Tecnologias de Inteligência Artificial
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#sobre" class="text-gray-400 hover:text-white transition">Sobre</a></li>
+                        <li><a href="#niveis" class="text-gray-400 hover:text-white transition">Níveis</a></li>
+                        <li><a href="nivel-fundamentos.html" class="text-gray-400 hover:text-white transition">Começar</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Recursos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="docs/proposta-curso-atia.md" class="text-gray-400 hover:text-white transition">Documentação</a></li>
+                        <li><a href="doc/frontend-specification.md" class="text-gray-400 hover:text-white transition">Especificação</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 ATIA. Powered by BMad Method.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
