@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 3.3 - El futuro del trabajo y de la sociedad | ATIA</title>
+<meta content="El futuro del trabajo y de la sociedad con IA. Tendencias, AGI, economía digital y convergencia tecnológica." name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+<link href="https://inematds.github.io/ATIA/curso/trilha3/modulo-3-3.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/curso/trilha3/modulo-3-3.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/curso/trilha3/modulo-3-3.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha3/modulo-3-3.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha3/modulo-3-3.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-3-3.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<!-- NAVIGATION -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🎓</span>
+<span class="font-bold text-lg hidden sm:inline">ATIA</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Aplicación</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Estratégico</span>
+</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- BREADCRUMB -->
+<div class="bg-dark-800 border-b border-dark-700">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+<nav class="text-sm text-neutral-400">
+<a class="hover:text-purple-400 transition-colors" href="../../index.html">Inicio</a>
+<span class="mx-2">/</span>
+<a class="hover:text-purple-400 transition-colors" href="index.html">Ruta 3</a>
+<span class="mx-2">/</span>
+<span class="text-purple-400 font-medium">Módulo 3.3</span>
+</nav>
+</div>
+</div>
+<!-- HEADER -->
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.3</span>
+<h1 class="text-2xl font-bold text-neutral-100 mb-3">🔮 El futuro del trabajo y de la sociedad</h1>
+<p class="text-neutral-400 mb-4">Tendencias, horizontes y las transformaciones que darán forma a la próxima década.</p>
+<div class="flex flex-wrap gap-3 text-sm">
+<span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full">📝 6 temas</span>
+<span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full">⏱️ ~30 min</span>
+<span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full">🎯 Avanzado</span>
+</div>
+</div>
+</header>
+<!-- CONTENT -->
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- TOPIC 1 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">1</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">🌊 Tendencias 2025-2030</h2>
+<p class="text-neutral-400 mt-1">Lo que viene</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">La velocidad de evolución de la IA no tiene precedentes en la historia de la tecnología. Lo que parecía ciencia ficción hace dos años ya es una realidad. Los agentes autónomos, la IA multimodal, los modelos de lenguaje cada vez más capaces y la democratización de estas herramientas están rediseñando todos los sectores de la economía. Entender las tendencias que se perfilan para los próximos cinco años es fundamental para posicionarte estratégicamente.</p>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">Las principales tendencias para 2025-2030 incluyen: (1) Agentes de IA: sistemas autónomos que ejecutan tareas complejas con mínima supervisión humana, combinando razonamiento, planificación y acción; (2) IA multimodal: modelos que procesan y generan texto, imagen, audio y video de forma integrada; (3) Small Language Models: modelos más pequeños y eficientes que se ejecutan localmente en dispositivos; (4) Edge AI: procesamiento de IA en dispositivos locales en lugar de la nube, para lograr latencia mínima y privacidad; (5) IA generativa para código: copilotos de programación cada vez más capaces que democratizan el desarrollo de software; (6) Personalización extrema: IA que se adapta a cada persona en salud, educación, entretenimiento y trabajo.</p>
+</div>
+<!-- Timeline -->
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-neutral-100 mb-4">📅 Horizonte tecnológico</h3>
+<div class="space-y-4">
+<div class="flex items-start space-x-4">
+<span class="flex-shrink-0 px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-full">2025</span>
+<p class="text-neutral-300 text-sm">Los agentes de IA se vuelven populares. La IA multimodal se integra en productos de uso cotidiano. Primeras regulaciones globales efectivas.</p>
+</div>
+<div class="flex items-start space-x-4">
+<span class="flex-shrink-0 px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-full">2026-27</span>
+<p class="text-neutral-300 text-sm">IA personificada en asistentes personales avanzados. Automatización de más del 40% de las tareas de oficina. Edge AI en todos los dispositivos.</p>
+</div>
+<div class="flex items-start space-x-4">
+<span class="flex-shrink-0 px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-full">2028-30</span>
+<p class="text-neutral-300 text-sm">Sistemas de IA con razonamiento avanzado. Convergencia con la robótica y la biotecnología. Nuevas categorías de empleo totalmente basadas en IA.</p>
+</div>
+</div>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-6">
+<h3 class="text-lg font-bold text-yellow-400 mb-3">💡 Consejo práctico</h3>
+<p class="text-neutral-300 text-sm">No intentes predecir el futuro con exactitud; en cambio, construye "antenas" para detectar cambios. Suscríbete a boletines especializados (The Batch, AI Weekly), sigue a investigadores clave en Twitter/LinkedIn, participa en comunidades y reserva 2 horas por semana para probar nuevas herramientas de IA.</p>
+</div>
+</section>
+<!-- TOPIC 2 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">2</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">🤖 AGI y superinteligencia</h2>
+<p class="text-neutral-400 mt-1">Horizontes de la IA</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">AGI (Artificial General Intelligence) es la idea de una IA que iguala o supera la inteligencia humana en todas las tareas cognitivas. A diferencia de la IA actual, que es "estrecha" (excelente en tareas específicas, pero incapaz de generalizar), la AGI tendría la capacidad de aprender cualquier cosa, razonar de forma abstracta y adaptarse a situaciones nuevas. Es uno de los temas más debatidos y controvertidos de la tecnología moderna, con profundas implicaciones para la humanidad.</p>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">Existen niveles de IA: (1) IA estrecha (ANI): lo que tenemos hoy, excelente para tareas específicas; (2) IA general (AGI): equivalente a la inteligencia humana en amplitud; (3) superinteligencia (ASI): supera la inteligencia humana en todas las dimensiones. El campo de AI Safety (seguridad de la IA) trabaja en el "problema de la alineación": cómo garantizar que una IA superinteligente actúe de acuerdo con los valores e intereses humanos. Investigadores como Stuart Russell y organizaciones como el AI Safety Institute estudian cómo construir una IA que sea fundamentalmente segura. Las estimaciones sobre cuándo (y si) alcanzaremos la AGI varían enormemente: algunos investigadores dicen que faltan 5-10 años, otros dicen que faltan décadas y algunos sostienen que quizá nunca ocurra con los enfoques actuales.</p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-blue-400 mb-3">📊 Datos importantes</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• En una investigación de 2024, la mediana de los investigadores de IA estimó la AGI para 2040-2060</li>
+<li>• Las inversiones en AI Safety crecieron de US$ 50M en 2020 a US$ 2B+ en 2025</li>
+<li>• OpenAI, Anthropic y DeepMind invierten 20-30% de sus recursos en seguridad de IA</li>
+<li>• El debate sobre la regulación de AGI ya involucra a gobiernos de más de 30 países</li>
+</ul>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
+<h4 class="font-bold text-emerald-400 mb-3">✅ Hacer</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Seguir los avances en AI Safety</li>
+<li>• Participar en debates sobre gobernanza</li>
+<li>• Desarrollar pensamiento crítico sobre IA</li>
+<li>• Prepararse para escenarios de cambios rápidos</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
+<h4 class="font-bold text-red-400 mb-3">❌ Evitar</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Entrar en pánico ante predicciones apocalípticas</li>
+<li>• Ignorar por completo los riesgos a largo plazo</li>
+<li>• Creer en cronogramas muy precisos</li>
+<li>• Confundir la IA actual con la AGI</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TOPIC 3 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">3</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">🏠 Trabajo remoto e IA</h2>
+<p class="text-neutral-400 mt-1">La nueva realidad profesional</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">La pandemia aceleró el trabajo remoto y la IA lo está llevando al siguiente nivel. Las herramientas de IA están transformando las reuniones, la colaboración, la gestión de proyectos y la productividad individual de formas que eran impensables hace pocos años. El profesional del futuro no será quien trabaje más horas, sino quien sepa usar la IA para multiplicar su impacto desde cualquier lugar del mundo.</p>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">El «digital workplace» potenciado por IA opera en cuatro dimensiones: (1) Comunicación inteligente: IA que resume reuniones, traduce en tiempo real, genera actas e identifica action items automáticamente; (2) Colaboración aumentada: copilotos de IA integrados en documentos, hojas de cálculo y presentaciones que sugieren contenido, corrigen errores y completan tareas; (3) Gestión autónoma: IA que programa, prioriza y monitorea proyectos, y alerta sobre riesgos automáticamente; (4) Productividad personal: asistentes que aprenden tus patrones de trabajo y optimizan tu rutina. El concepto de «trabajador aumentado» (human + IA) será la norma, no la excepción. Los profesionales que dominan las herramientas de IA pueden producir entre 2 y 5 veces más que sus colegas que no las usan.</p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-blue-400 mb-3">📊 Datos importantes</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• 73% de los trabajadores remotos ya usan alguna herramienta de IA a diario</li>
+<li>• La IA aplicada a las reuniones ahorra en promedio 5 horas por semana por profesional</li>
+<li>• Las empresas con trabajadores «potenciados por IA» reportan 40% más productividad</li>
+<li>• Se prevé que el mercado de herramientas de productividad con IA alcance los US$ 47B para 2028</li>
+</ul>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-6">
+<h3 class="text-lg font-bold text-yellow-400 mb-3">💡 Consejo práctico</h3>
+<p class="text-neutral-300 text-sm">Arma tu "stack de productividad con IA": (1) Asistente de escritura (Claude, ChatGPT) para correos, documentos y análisis; (2) Herramienta para resumir reuniones (Otter.ai, Fireflies); (3) Automatización de tareas repetitivas (Zapier, Make); (4) Organización personal con IA (Notion AI, Todoist). Empieza con una herramienta, domínala en dos semanas y agrega la siguiente.</p>
+</div>
+</section>
+<!-- TOPIC 4 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">4</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">🎓 Educación del futuro</h2>
+<p class="text-neutral-400 mt-1">Aprendizaje continuo con IA</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">La educación está atravesando su mayor transformación en siglos. El modelo de "estudiar durante 20 años y trabajar durante 40" está siendo reemplazado por el aprendizaje continuo a lo largo de toda la vida. La IA es al mismo tiempo la causa de esta necesidad (las habilidades quedan obsoletas más rápido) y la solución (las herramientas de IA personalizan y aceleran el aprendizaje de formas antes imposibles).</p>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">La educación del futuro se define por cuatro pilares: (1) Personalización: tutores de IA que adaptan el contenido, el ritmo y el estilo al perfil de cada estudiante. En vez de una clase para 30 estudiantes, 30 experiencias de aprendizaje únicas; (2) Aprendizaje activo: IA que genera ejercicios, simulaciones y proyectos prácticos bajo demanda, y transforma el consumo pasivo en práctica activa; (3) Competencias por encima del contenido: el foco pasa de memorizar información a desarrollar pensamiento crítico, creatividad, resolución de problemas y capacidad para trabajar con IA; (4) Lifelong learning: microcursos, certificaciones y aprendizaje just-in-time que permiten mantenerse al día continuamente a lo largo de la carrera. Las competencias más valiosas del futuro serán aquellas que la IA no pueda replicar fácilmente: empatía, creatividad original, criterio ético y liderazgo.</p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-yellow-400 mb-3">💡 Consejo práctico</h3>
+<p class="text-neutral-300 text-sm">Usa la IA como tu tutor personal: pídele a Claude o ChatGPT que te explique conceptos complejos de distintas maneras hasta que los entiendas; genera ejercicios prácticos sobre cualquier tema y crea planes de estudio personalizados. La regla 70-20-10 adaptada a la IA: 70% de práctica con herramientas, 20% de aprendizaje estructurado (cursos), 10% de reflexión y networking.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
+<h4 class="font-bold text-emerald-400 mb-3">✅ Hacer</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Reservar tiempo semanal para aprender</li>
+<li>• Usar la IA como herramienta de estudio</li>
+<li>• Enfocarse en competencias complementarias a la IA</li>
+<li>• Practicar el aprendizaje activo, no pasivo</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
+<h4 class="font-bold text-red-400 mb-3">❌ Evitar</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Creer que un título es suficiente para la carrera profesional</li>
+<li>• Acumular certificaciones sin aplicación práctica</li>
+<li>• Memorizar contenido que la IA puede buscar</li>
+<li>• Estudiar solo habilidades técnicas</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TOPIC 5 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">5</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">🌐 Economía digital</h2>
+<p class="text-neutral-400 mt-1">Nuevos modelos de negocio</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">La IA está creando una nueva economía con modelos de negocio que no existían hace dos años. Empresas que venden acceso a modelos de IA (AI-as-a-Service), creadores que monetizan contenido generado con IA, startups que automatizan sectores enteros con pocos empleados: las reglas del juego económico están cambiando radicalmente. Quienes entiendan estas nuevas dinámicas podrán aprovechar enormes oportunidades.</p>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">La economía digital impulsada por la IA crea oportunidades en varias capas: (1) Capa de infraestructura: empresas que proporcionan poder de cómputo, datos y modelos base (NVIDIA, proveedores de cloud, OpenAI, Anthropic); (2) Capa de plataforma: marketplaces y herramientas que permiten usar IA sin conocimientos técnicos especializados (Hugging Face, Replicate); (3) Capa de aplicación: soluciones verticales para sectores específicos (IA para salud, legal, finanzas); (4) Capa de servicios: consultorías, capacitaciones e implementaciones; (5) Creator economy: personas que usan IA para crear y monetizar contenido, servicios y productos digitales. El modelo "solopreneur con IA" permite que una sola persona opere negocios que antes requerían equipos de 10-20 personas.</p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-blue-400 mb-3">📊 Datos importantes</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Se prevé que el mercado global de IA generativa alcance US$ 1.3 billones para 2032</li>
+<li>• Las startups de IA captaron más de US$ 50 mil millones en capital de riesgo en 2024</li>
+<li>• 44% de los freelancers ya usan IA para ofrecer servicios más rápido y con mayor calidad</li>
+<li>• Las empresas «AI-native» crecen 2-3x más rápido que sus competidores tradicionales</li>
+</ul>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-6">
+<h3 class="text-lg font-bold text-yellow-400 mb-3">💡 Consejo práctico</h3>
+<p class="text-neutral-300 text-sm">Identifica un problema específico en un nicho que conozcas bien y resuélvelo con IA. Las mayores oportunidades están en la intersección entre el conocimiento del dominio (salud, derecho, educación, finanzas) y la IA. No necesitas ser programador: las herramientas de IA sin código permiten crear soluciones poderosas sin escribir una línea de código.</p>
+</div>
+</section>
+<!-- TOPIC 6 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">6</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">🧬 Convergencia tecnológica</h2>
+<p class="text-neutral-400 mt-1">IA, biotecnología, computación cuántica y más allá</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Las mayores revoluciones de la próxima década no surgirán de una sola tecnología, sino de la convergencia de varias. Cuando la IA se combina con la biotecnología, la computación cuántica, la robótica avanzada y la nanotecnología, las posibilidades se multiplican exponencialmente. Esta convergencia está creando soluciones para problemas que parecían insolubles y abriendo fronteras completamente nuevas para la humanidad.</p>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">La convergencia tecnológica opera en intersecciones poderosas: (1) IA + Biotecnología: descubrimiento de medicamentos acelerado de 10 años a meses, medicina personalizada basada en genómica, diagnóstico temprano de enfermedades. AlphaFold de DeepMind revolucionó la biología al predecir la estructura de las proteínas; (2) IA + Computación cuántica: las computadoras cuánticas resolverán problemas que tomarían miles de millones de años en computadoras clásicas, potenciando la IA para la optimización, la simulación molecular y la criptografía; (3) IA + Robótica: robots autónomos en logística, manufactura, cirugía y exploración espacial; (4) IA + IoT: miles de millones de sensores conectados que generan datos que la IA procesa en tiempo real para ciudades inteligentes, agricultura de precisión e industria 4.0; (5) IA + Realidad Extendida: experiencias inmersivas inteligentes en capacitación, educación y entretenimiento.</p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-blue-400 mb-3">📊 Datos importantes</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• La IA aceleró el descubrimiento de medicamentos: el primer fármaco diseñado por IA entró en ensayos clínicos en 2023</li>
+<li>• Se prevé que el mercado de la computación cuántica crezca de US$ 1.3B en 2024 a US$ 12B en 2032</li>
+<li>• Los robots autónomos con IA ya representan un mercado de US$ 30B, que crece 25% al año</li>
+<li>• La agricultura de precisión con IA puede aumentar la producción global en 20% con 30% menos recursos</li>
+</ul>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
+<h4 class="font-bold text-emerald-400 mb-3">✅ Hacer</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Seguir los avances en tecnologías convergentes</li>
+<li>• Identificar intersecciones relevantes para tu sector</li>
+<li>• Desarrollar pensamiento interdisciplinario</li>
+<li>• Construir una red en múltiples áreas tecnológicas</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
+<h4 class="font-bold text-red-400 mb-3">❌ Evitar</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Enfocarse solo en una tecnología aislada</li>
+<li>• Ignorar los impactos éticos de la convergencia</li>
+<li>• Invertir en tendencias sin fundamento científico</li>
+<li>• Ignorar los riesgos de las tecnologías combinadas</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="bg-dark-800 rounded-2xl border border-dark-600 p-6 sm:p-8">
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">📋 Resumen del módulo 3.3</h2>
+<div class="space-y-3 mb-8">
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">Los agentes de IA, la multimodalidad y la IA en el borde son las tendencias dominantes para 2025-2030</p>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">La AGI sigue siendo incierta, pero la AI Safety y la alineación son cruciales desde ahora</p>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">El trabajo remoto con IA crea al «trabajador aumentado», 2-5x más productivo</p>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">La educación evoluciona hacia un aprendizaje personalizado a lo largo de la vida y centrado en competencias</p>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">La economía digital con IA crea oportunidades en todas las capas del mercado</p>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">La convergencia de la IA con la biotecnología, la computación cuántica y la robótica abre fronteras sin precedentes</p>
+</div>
+</div>
+<div class="bg-purple-900/20 border border-purple-500/30 rounded-xl p-4 mb-6">
+<p class="text-purple-400 font-semibold text-sm">Próximo módulo: 📋 Guía Práctica de Implementación</p>
+<p class="text-neutral-400 text-xs mt-1">Herramientas, plantillas, plan de 90 días y próximos pasos para tu recorrido en IA.</p>
+</div>
+<div class="flex flex-wrap gap-3 justify-start">
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-3-2.html">
+          ← Módulo anterior
+        </a>
+<a class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-4.html">
+          Siguiente módulo →
+        </a>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="border-t border-dark-600 py-8 mt-12">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-500 text-sm">ATIA - Oportunidades Digitales con IA</p>
+<p class="text-neutral-500 text-xs mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</p>
+</div>
+</footer>
+<!-- SCRIPTS -->
+<script>
+    function toggleTopic(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('active');
+    }
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function updateIcons() {
+      if (document.documentElement.classList.contains('dark')) {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        darkIcon.classList.remove('hidden');
+        lightIcon.classList.add('hidden');
+      }
+    }
+
+    updateIcons();
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      updateIcons();
+    });
+  </script>
+</body>
+</html>

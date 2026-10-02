@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Módulo 1.3 - Ingeniería de prompts. Domina las técnicas esenciales para obtener resultados excepcionales de las herramientas de IA generativa." name="description"/>
+<title>Módulo 1.3 - Ingeniería de prompts | ATIA</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FACC15',
+                        'dark-900': '#111827',
+                        'dark-800': '#1f2937',
+                        'dark-700': '#374151',
+                        'dark-600': '#4b5563',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .dark body { background-color: #111827; }
+        .topic-explanation { display: none; }
+        .topic-explanation.active { display: block; }
+        html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    </style>
+<link href="https://inematds.github.io/ATIA/curso/trilha1/modulo-1-3.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/curso/trilha1/modulo-1-3.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/curso/trilha1/modulo-1-3.html" hreflang="es" rel="alternate"/></head>
+<body class="antialiased"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha1/modulo-1-3.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha1/modulo-1-3.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-1-3.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🎓</span>
+<span class="font-bold text-lg hidden sm:inline">ATIA</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Aplicación</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Estratégico</span>
+</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Breadcrumb -->
+<div class="bg-dark-900 border-b border-dark-700">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+<nav class="text-sm text-neutral-400">
+<a class="hover:text-emerald-400 transition-colors" href="../../index.html">Inicio</a>
+<span class="mx-2 text-neutral-600">/</span>
+<a class="hover:text-emerald-400 transition-colors" href="index.html">Ruta 1</a>
+<span class="mx-2 text-neutral-600">/</span>
+<span class="text-emerald-400 font-semibold">Módulo 1.3</span>
+</nav>
+</div>
+</div>
+<!-- Header -->
+<section class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-transparent"></div>
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="mb-4">
+<span class="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/20 border border-emerald-500/30 rounded-full">Módulo 1.3</span>
+</div>
+<h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-4">💬 Ingeniería de prompts</h1>
+<p class="text-lg text-neutral-300 max-w-3xl mb-8">
+                Saber comunicarse con la IA es hoy una competencia fundamental, como escribir en un teclado o usar una hoja de cálculo. Domina las técnicas esenciales de ingeniería de prompts y entiende cómo esta habilidad evolucionó hacia la ingeniería de contexto, la competencia más valorada en 2026.
+            </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">7</div>
+<div class="text-xs text-neutral-400 mt-1">Temas</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">50</div>
+<div class="text-xs text-neutral-400 mt-1">Minutos</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">Básico</div>
+<div class="text-xs text-neutral-400 mt-1">Nivel</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">Práctica</div>
+<div class="text-xs text-neutral-400 mt-1">Formato</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content -->
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- Topic 1 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">1</span>
+<h2 class="text-2xl font-bold text-neutral-100">🎯 Especificidad progresiva</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                La diferencia entre un resultado mediocre y uno excepcional de la IA casi siempre está en la calidad del prompt. La especificidad progresiva es la técnica de construir prompts que van de lo general a lo específico, agregando capas de contexto, restricciones y ejemplos hasta obtener exactamente el resultado deseado.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Un prompt eficaz suele contener 5 elementos: (1) Contexto: quién eres y cuál es la situación, (2) Tarea: qué quieres exactamente, (3) Formato: cómo debe estructurarse el resultado, (4) Restricciones: qué debe evitarse o respetarse, y (5) Ejemplos: referencias del resultado esperado. La especificidad progresiva sugiere empezar con la tarea e ir añadiendo los demás elementos de forma iterativa, refinando hasta obtener un resultado satisfactorio.
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-primary font-semibold mb-3">Consejo práctico</h3>
+<p class="text-neutral-300 leading-relaxed mb-4">
+                    Compara estos dos prompts y observa el salto de calidad en la respuesta:
+                </p>
+<div class="space-y-3">
+<div class="bg-dark-800 rounded-lg p-3 border border-dark-600">
+<p class="text-red-400 text-sm font-semibold mb-1">Prompt vago:</p>
+<p class="text-neutral-400 text-sm">"Escribe un correo profesional."</p>
+</div>
+<div class="bg-dark-800 rounded-lg p-3 border border-dark-600">
+<p class="text-emerald-400 text-sm font-semibold mb-1">Prompt específico:</p>
+<p class="text-neutral-400 text-sm">"Eres gerente de proyectos en una consultoría de tecnología. Escribe un correo profesional para el cliente informándole de un retraso de 2 semanas en el proyecto, explica los motivos (un problema técnico inesperado en la integración), presenta un plan de recuperación y mantén un tono seguro y proactivo. Máximo 200 palabras, 3 párrafos."</p>
+</div>
+</div>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Hacer</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Incluir contexto, tarea, formato y restricciones</li>
+<li>Iterar y perfeccionar el prompt progresivamente</li>
+<li>Especificar el público objetivo y el tono deseado</li>
+<li>Definir la extensión y la estructura de la respuesta</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+<h3 class="text-red-400 font-semibold mb-3">Evitar</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Prompts de una sola frase sin contexto</li>
+<li>Suponer que la IA «adivina» lo que quieres</li>
+<li>Aceptar la primera respuesta sin refinarla</li>
+<li>Usar términos ambiguos o vagos</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Topic 2 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">2</span>
+<h2 class="text-2xl font-bold text-neutral-100">🎭 Juego de roles</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                Una de las técnicas más potentes y sencillas de la ingeniería de prompts es asignarle un rol a la IA. Cuando dices "Eres un especialista en marketing digital con 15 años de experiencia", la IA activa patrones de conocimiento más especializados y profundos, y genera respuestas significativamente mejores que sin esa indicación.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    El role-playing funciona porque los LLM se entrenaron con textos de especialistas de todas las áreas. Al asignar un rol, esencialmente "filtras" el vasto conocimiento del modelo y priorizas los patrones lingüísticos y conceptuales de ese dominio específico. Puedes crear personas complejas: "Eres un CFO de una startup tecnológica que acaba de recibir una ronda Series A, con experiencia en consultoría en McKinsey". Cuanto más específica sea la persona, más enfocada y útil será la respuesta.
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-primary font-semibold mb-3">Consejo práctico</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Crea una biblioteca personal de perfiles útiles para tu trabajo. Ejemplos: «Eres un revisor editorial riguroso» para revisar textos, «Eres un abogado especialista en derecho tributario» para cuestiones fiscales, «Eres un coach de carrera especializado en tecnología» para recibir consejos profesionales. Guarda estos prompts para reutilizarlos y refínalos con el tiempo.
+                </p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6">
+<h3 class="text-blue-400 font-semibold mb-3">Técnica avanzada: debate de expertos</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Pídele a la IA que simule un debate entre dos especialistas con perspectivas diferentes. Por ejemplo: "Simula un debate entre un economista keynesiano y un economista liberal sobre el impacto de la IA en el empleo. Cada uno debe presentar 3 argumentos con datos." Esto genera análisis más ricos y equilibrados.
+                </p>
+</div>
+</div>
+<!-- Topic 3 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">3</span>
+<h2 class="text-2xl font-bold text-neutral-100">🔗 Chain-of-Thought</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                Chain-of-Thought (cadena de pensamiento) es una técnica que mejora drásticamente la capacidad de razonamiento de la IA al pedirle que "piense paso a paso" antes de llegar a una conclusión. Este simple agregado puede transformar respuestas incorrectas en correctas, especialmente en problemas lógicos, matemáticos y de análisis.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Cuando un LLM genera una respuesta directamente, en esencia está «disparando»: intenta predecir la respuesta final de una sola vez. Chain-of-Thought obliga al modelo a construir un razonamiento intermedio, paso a paso, antes de llegar a una conclusión. Investigaciones de Google Brain y otros laboratorios mostraron que esta técnica mejora la precisión entre un 20-40% en tareas de razonamiento. Existen variantes como Zero-shot CoT («Piensa paso a paso»), Few-shot CoT (con ejemplos de razonamiento) y Tree-of-Thought (explorando múltiples caminos).
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-primary font-semibold mb-3">Consejo práctico</h3>
+<p class="text-neutral-300 leading-relaxed mb-4">Agrega estas frases mágicas a tus prompts:</p>
+<ul class="text-neutral-300 space-y-2">
+<li>"Piensa paso a paso antes de responder."</li>
+<li>"Explica tu razonamiento antes de dar la respuesta final."</li>
+<li>"Primero analiza los pros y los contras; luego presenta tu recomendación."</li>
+<li>"Enumera tus premisas y luego construye la conclusión de forma lógica."</li>
+</ul>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Hacer</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Usar CoT para problemas lógicos y análisis</li>
+<li>Pedirle a la IA que muestre las premisas y el razonamiento</li>
+<li>Verificar cada paso del razonamiento</li>
+<li>Combinar con juegos de rol para obtener mejores resultados</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+<h3 class="text-red-400 font-semibold mb-3">Evitar</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Usar CoT para tareas simples y directas</li>
+<li>Confiar en el razonamiento sin verificarlo</li>
+<li>Ignorar cuando un paso parece incorrecto</li>
+<li>Pedir razonamiento sin especificar la profundidad</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Topic 4 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">4</span>
+<h2 class="text-2xl font-bold text-neutral-100">📋 Few-Shot Learning</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                Few-Shot Learning es la técnica de proporcionar ejemplos dentro del prompt para que la IA entienda exactamente el patrón deseado. En vez de describir con palabras lo que quieres, muestras ejemplos del resultado esperado. La IA aprende el patrón de los ejemplos y lo aplica a nuevas entradas con gran fidelidad.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Los términos se refieren al número de ejemplos proporcionados: zero-shot (ningún ejemplo), one-shot (un ejemplo) y few-shot (2-5 ejemplos). Cuanto más complejo sea el patrón deseado, más ejemplos se necesitan. Few-shot es especialmente eficaz para: formato específico, clasificación de datos, traducción de estilos, generación de contenido con un tono consistente y cualquier tarea en la que "mostrar" sea más fácil que "explicar".
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-primary font-semibold mb-3">Consejo práctico</h3>
+<p class="text-neutral-300 leading-relaxed mb-4">Ejemplo de few-shot para clasificar el sentimiento de reseñas:</p>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600 text-sm text-neutral-400 space-y-2">
+<p>"Clasifica las reseñas como Positiva, Negativa o Neutra:</p>
+<p>Evaluación: «¡Excelente producto, superó mis expectativas!». -&gt; Positiva</p>
+<p>Evaluación: «Llegó roto y la atención fue pésima». -&gt; Negativa</p>
+<p>Evaluación: «El producto está bien, hace lo que promete». -&gt; Neutra</p>
+<p>Ahora clasifica: 'Entrega rápida, pero la calidad podría ser mejor.' -&gt; "</p>
+</div>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6">
+<h3 class="text-blue-400 font-semibold mb-3">Cuándo Usar Few-Shot</h3>
+<ul class="text-neutral-300 space-y-2">
+<li><strong>Formato específico:</strong> Cuando necesitas una salida en un formato muy particular</li>
+<li><strong>Clasificación:</strong> Cuando quieres que la IA categorice datos de forma consistente</li>
+<li><strong>Estilo de escritura:</strong> Cuando quieres replicar un tono o una voz específicos</li>
+<li><strong>Traducción técnica:</strong> Cuando los términos deben traducirse de una forma específica para tu contexto</li>
+</ul>
+</div>
+</div>
+<!-- Topic 5 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">5</span>
+<h2 class="text-2xl font-bold text-neutral-100">✂️ Descomposición de tareas</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                Los LLM tienen limitaciones para tareas muy complejas. Cuando pides todo de una vez —"Crea un plan de negocios completo para una startup de IA"—, el resultado tiende a ser superficial y genérico. La descomposición de tareas lo resuelve: divides el problema en partes más pequeñas, resuelves cada una por separado y combinas los resultados.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    La descomposición sigue el principio de "divide y vencerás": (1) Identifica las subtareas del problema, (2) Resuelve cada una con un prompt enfocado y detallado, (3) Usa la salida de una etapa como entrada de la siguiente, (4) Combina y revisa el resultado final. Esto permite usar prompts más breves y enfocados, que generan respuestas de mayor calidad. También facilita identificar y corregir errores en etapas específicas.
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-primary font-semibold mb-3">Consejo práctico</h3>
+<p class="text-neutral-300 leading-relaxed mb-4">Para crear un plan de negocios, desglósalo así:</p>
+<ul class="text-neutral-300 space-y-2">
+<li><strong>Prompt 1:</strong> "Analiza el mercado de [sector] en Brasil. Tamaño, crecimiento, principales actores."</li>
+<li><strong>Prompt 2:</strong> "Con base en este análisis de mercado, identifica 3 oportunidades de nicho poco exploradas."</li>
+<li><strong>Prompt 3:</strong> "Para la oportunidad X, crea una propuesta de valor y un modelo de ingresos."</li>
+<li><strong>Prompt 4:</strong> "Proyecta costos, ingresos y punto de equilibrio para los primeros 18 meses."</li>
+<li><strong>Prompt 5:</strong> "Compila todo en un resumen ejecutivo de 1 página."</li>
+</ul>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Hacer</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Dividir problemas grandes en etapas claras</li>
+<li>Usar la salida de un prompt como entrada del siguiente</li>
+<li>Revisar cada etapa antes de avanzar</li>
+<li>Combinar con CoT en etapas complejas</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+<h3 class="text-red-400 font-semibold mb-3">Evitar</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Pedir todo en un único prompt gigante</li>
+<li>Dividir en partes demasiado pequeñas</li>
+<li>Avanzar sin validar la etapa anterior</li>
+<li>Perder de vista el panorama general en las subtareas</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Topic 6 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">6</span>
+<h2 class="text-2xl font-bold text-neutral-100">⚙️ Herramientas y plataformas</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                El ecosistema de herramientas de IA generativa es amplio y crece a diario. Cada plataforma tiene fortalezas y debilidades distintas. Conocer las opciones disponibles y saber elegir la herramienta adecuada para cada tarea es una habilidad que multiplica tu productividad y la calidad de tus resultados.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    El panorama de los modelos de IA en 2026 es el más competitivo hasta ahora. Las principales plataformas son: ChatGPT (OpenAI, familia GPT-5.x): versátil y popular, con modelos de razonamiento avanzado (o3, o4-mini); Claude (Anthropic, familia 4.x): líder en análisis de documentos extensos (hasta 1 millón de tokens), programación e instrucciones complejas; Gemini (Google, familia 3.x): integrado en el ecosistema de Google, con capacidades multimodales avanzadas; y DeepSeek (China, open-source): revolucionó el mercado al ofrecer un rendimiento de primer nivel con un costo de entrenamiento mucho menor. Además de texto, hay herramientas para imágenes (Midjourney, DALL-E 3, Canva AI), música (Suno, Udio) y video (Kling AI 3.0, Runway).
+                </p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-blue-400 font-semibold mb-3">Comparación de plataformas (2026)</h3>
+<ul class="text-neutral-300 space-y-2">
+<li><strong>ChatGPT (GPT-5.x):</strong> Conversación natural, razonamiento profundo (modelos «o»), generación de imágenes e integración con herramientas</li>
+<li><strong>Claude (Opus 4.x):</strong> Análisis de documentos largos (1M tokens), programación avanzada (Claude Code), seguridad e instrucciones complejas</li>
+<li><strong>Gemini (3.x):</strong> Integración con Google Workspace, búsqueda web en tiempo real, análisis multimodal, ventanas de contexto extensas</li>
+<li><strong>DeepSeek (V4):</strong> De código abierto y alto rendimiento, costo accesible, opción para privacidad y uso local</li>
+<li><strong>LLaMA 4 (Meta):</strong> De código abierto, con hasta 10M de tokens de contexto, ideal para personalización y uso corporativo</li>
+</ul>
+</div>
+<div class="bg-purple-900/20 border border-purple-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-purple-400 font-semibold mb-3">Modelos de razonamiento: la gran novedad</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Una de las mayores innovaciones de 2025-2026 fueron los modelos de razonamiento ("reasoning models"). A diferencia de los modelos tradicionales, que responden de inmediato, estos modelos usan cómputo adicional para "pensar" antes de responder y generan cadenas de razonamiento internas. Algunos ejemplos son o3 y o4-mini (OpenAI), Claude con extended thinking (Anthropic) y Gemini Thinking (Google). Se destacan en matemáticas, código y tareas complejas de varios pasos, lo que hace que Chain-of-Thought, que aprendiste en el Tema 3, sea aún más potente al combinarlo con estos modelos.
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+<h3 class="text-primary font-semibold mb-3">Consejo práctico</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    No te cases con una sola plataforma. Prueba al menos 3 herramientas y usa cada una según sus fortalezas: ChatGPT para lluvia de ideas y razonamiento complejo, Claude para analizar documentos extensos y programar, Gemini para investigar y consultar información reciente, y DeepSeek cuando necesites una alternativa gratuita y potente. Los modelos de código abierto (LLaMA, DeepSeek) permiten el uso local con total privacidad. Con el tiempo, desarrollarás intuición sobre qué herramienta usar para cada tipo de tarea.
+                </p>
+</div>
+</div>
+<!-- Topic 7 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">7</span>
+<h2 class="text-2xl font-bold text-neutral-100">🚀 Más allá del prompt: la evolución hacia Context Engineering</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                Las técnicas que aprendiste en este módulo son fundamentales, pero el campo ya ha avanzado más allá del prompt aislado. En 2025-2026, el mercado empezó a valorar una competencia más amplia llamada ingeniería de contexto (context engineering), que abarca todo lo relacionado con diseñar el entorno de información completo que recibe un modelo de IA para ejecutar una tarea.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Qué cambió</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    En 2024, «prompt engineer» se anunciaba como la profesión del futuro, con salarios de seis cifras. En 2026, Fortune y los analistas de mercado ya consideran obsoleto el cargo aislado de prompt engineer. El motivo: escribir buenos prompts se convirtió en una habilidad básica, como saber teclear. La diferencia ahora está en saber diseñar el contexto completo —memoria, datos recuperados, historial de conversaciones, instrucciones del sistema y resultados de herramientas— que hace que un agente de IA sea realmente útil. Gartner identificó la ingeniería de contexto como una competencia crítica para 2026.
+                </p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-blue-400 font-semibold mb-3">De Prompt al Contexto: la escala de la evolución</h3>
+<ul class="text-neutral-300 space-y-3">
+<li><strong>Nivel 1 — Prompt básico:</strong> Escribir buenas preguntas e instrucciones para la IA (lo que aprendiste en este módulo)</li>
+<li><strong>Nivel 2 — Prompt avanzado:</strong> Combinar técnicas (CoT + juegos de rol + few-shot) para tareas complejas</li>
+<li><strong>Nivel 3 — Ingeniería de contexto:</strong> Diseñar todo el ecosistema de información: instrucciones de sistema, memoria persistente, datos recuperados (RAG), herramientas conectadas mediante MCP y perfiles de usuario</li>
+<li><strong>Nivel 4 — Orquestación de agentes:</strong> Coordinar varios agentes de IA con roles distintos que trabajan juntos en tareas complejas</li>
+</ul>
+</div>
+<div class="bg-purple-900/20 border border-purple-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-purple-400 font-semibold mb-3">Ejemplo real: Vibe Coding</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    El vibe coding es un ejemplo perfecto de esta evolución. En lugar de escribir prompts para generar fragmentos de código, el desarrollador describe su intención en lenguaje natural y un agente de IA (como Cursor, Claude Code o GitHub Copilot) genera, ejecuta, depura e itera el código de forma autónoma. El enfoque pasa de "cómo escribir el prompt" a "cómo proporcionar el contexto adecuado": archivos relevantes, documentación, ejemplos de estilo y restricciones del proyecto. En 2026, el 95% de los desarrolladores usa herramientas de IA semanalmente, y el mercado del vibe coding representa el 25-30% del mercado de generación de código con IA (US$ 4,2 mil millones).
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+<h3 class="text-primary font-semibold mb-3">Consejo práctico</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Empieza dominando las técnicas de este módulo: son la base de todo. Después, en el siguiente módulo (1.4 — Ingeniería de Contexto), aprenderás cómo ir más allá del prompt y diseñar sistemas inteligentes completos. El recorrido es: primero, aprende a comunicarte bien con la IA; después, aprende a construir el entorno que hace que esa comunicación sea poderosa. Ambas habilidades se complementan y, juntas, forman al profesional más valorado por el mercado en 2026.
+                </p>
+</div>
+</div>
+<!-- Resumo -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">Resumen del módulo</h2>
+<div class="space-y-3 mb-8">
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>Domino la técnica de especificidad progresiva en prompts</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>Sé usar el role-playing para activar la experiencia de la IA</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>Aplico Chain-of-Thought para mejorar el razonamiento</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>Usar few-shot learning para obtener resultados consistentes</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>Sé descomponer tareas complejas en subprompts</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>Conozco las principales plataformas de 2026 y sus fortalezas</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>Entiendo la evolución de prompt engineering a context engineering</span>
+</label>
+</div>
+<div class="bg-dark-700 rounded-xl p-4 mb-6">
+<p class="text-neutral-400 text-sm">Siguiente módulo:</p>
+<p class="text-neutral-100 font-semibold">🧩 1.4 — Ingeniería de contexto</p>
+</div>
+<div class="flex justify-start gap-3">
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-2.html">Módulo anterior</a>
+<a class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" href="modulo-1-4.html">Siguiente módulo</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="border-t border-dark-700 mt-12">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+<div class="flex items-center space-x-2 text-neutral-400 text-sm">
+<span>🎓</span>
+<span class="font-semibold">ATIA</span>
+<span>—</span>
+<span>Aceleración en Tecnología e Inteligencia Artificial</span>
+</div>
+<div class="text-neutral-500 text-sm">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Topic toggle
+        function toggleTopic(button) {
+            const topicItem = button.closest('.topic-item');
+            const explanation = topicItem.querySelector('.topic-explanation');
+            const moduleCard = button.closest('.bg-dark-800');
+            moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+                if (exp !== explanation) exp.classList.remove('active');
+            });
+            explanation.classList.toggle('active');
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const html = document.documentElement;
+        if (localStorage.getItem('theme') === 'light') {
+            themeToggleDarkIcon.classList.remove('hidden');
+            html.classList.remove('dark');
+        } else {
+            themeToggleLightIcon.classList.remove('hidden');
+        }
+        themeToggle.addEventListener('click', () => {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        }
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+</html>

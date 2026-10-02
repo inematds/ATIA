@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 3.1 - Ética, gobernanza y responsabilidad | ATIA</title>
+<meta content="Ética, gobernanza y responsabilidad en IA. Dilemas éticos, regulación, privacidad e impacto social." name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+<link href="https://inematds.github.io/ATIA/curso/trilha3/modulo-3-1.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/curso/trilha3/modulo-3-1.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/curso/trilha3/modulo-3-1.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha3/modulo-3-1.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha3/modulo-3-1.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-3-1.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<!-- NAVIGATION -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🎓</span>
+<span class="font-bold text-lg hidden sm:inline">ATIA</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Aplicación</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Estratégico</span>
+</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- BREADCRUMB -->
+<div class="bg-dark-800 border-b border-dark-700">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+<nav class="text-sm text-neutral-400">
+<a class="hover:text-purple-400 transition-colors" href="../../index.html">Inicio</a>
+<span class="mx-2">/</span>
+<a class="hover:text-purple-400 transition-colors" href="index.html">Ruta 3</a>
+<span class="mx-2">/</span>
+<span class="text-purple-400 font-medium">Módulo 3.1</span>
+</nav>
+</div>
+</div>
+<!-- HEADER -->
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.1</span>
+<h1 class="text-2xl font-bold text-neutral-100 mb-3">⚖️ Ética, gobernanza y responsabilidad</h1>
+<p class="text-neutral-400 mb-4">Explora los desafíos éticos de la IA y aprende a implementar sistemas responsables.</p>
+<div class="flex flex-wrap gap-3 text-sm">
+<span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full">📝 6 temas</span>
+<span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full">⏱️ ~30 min</span>
+<span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full">🎯 Avanzado</span>
+</div>
+</div>
+</header>
+<!-- CONTENT -->
+<main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- TOPIC 1 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">1</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">🤔 Dilemas éticos de la IA</h2>
+<p class="text-neutral-400 mt-1">Sesgo, fairness y transparencia</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">La Inteligencia Artificial está tomando decisiones que afectan directamente la vida de miles de millones de personas: quién recibe crédito, quién es contratado, quién obtiene libertad condicional, quién tiene acceso a tratamientos médicos. Ese poder conlleva una enorme responsabilidad. Los dilemas éticos de la IA no son abstractos ni futuristas: están ocurriendo ahora, en sistemas que ya están en producción.</p>
+<!-- Conceito Principal -->
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">El sesgo algorítmico ocurre cuando los sistemas de IA reproducen o amplifican prejuicios presentes en los datos de entrenamiento. Un ejemplo clásico es el sistema de reclutamiento de Amazon, que penalizaba los currículums con la palabra "femenino" porque se entrenó con historiales de contratación predominantemente masculinos. Fairness (equidad) significa garantizar que las decisiones de la IA sean equitativas para todos los grupos demográficos, mientras que la transparencia exige que podamos entender y explicar cómo llegó la IA a una conclusión.</p>
+</div>
+<!-- Dados -->
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-blue-400 mb-3">📊 Datos importantes</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• 78% de los ejecutivos consideran que la ética en IA es una prioridad, pero solo 25% tienen políticas formales implementadas</li>
+<li>• Los sistemas de reconocimiento facial tienen tasas de error de hasta 34% para mujeres de piel oscura frente a 0.8% para hombres blancos</li>
+<li>• Se prevé que el mercado global de IA responsable alcance US$ 16 mil millones para 2028</li>
+</ul>
+</div>
+<!-- Dica Pratica -->
+<div class="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-yellow-400 mb-3">💡 Consejo práctico</h3>
+<p class="text-neutral-300 text-sm">Antes de implementar cualquier sistema de IA, hazte tres preguntas fundamentales: (1) ¿Quién podría verse perjudicado por esta decisión? (2) ¿Los datos de entrenamiento representan adecuadamente a todos los grupos afectados? (3) ¿Puedo explicar cómo llegó la IA a esta conclusión a alguien sin conocimientos técnicos?</p>
+</div>
+<!-- Fazer vs Evitar -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
+<h4 class="font-bold text-emerald-400 mb-3">✅ Hacer</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Auditar regularmente los datos de entrenamiento</li>
+<li>• Incluir equipos diversos en el desarrollo</li>
+<li>• Documentar las decisiones y limitaciones de los modelos</li>
+<li>• Implementar mecanismos de retroalimentación</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
+<h4 class="font-bold text-red-400 mb-3">❌ Evitar</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Suponer que los datos históricos son neutros</li>
+<li>• Ignorar las disparidades de rendimiento entre grupos</li>
+<li>• Usar la IA como una "caja negra" en decisiones críticas</li>
+<li>• Delegar toda la responsabilidad al algoritmo</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TOPIC 2 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">2</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">📜 Regulación global</h2>
+<p class="text-neutral-400 mt-1">EU AI Act y legislación brasileña</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">El mundo está regulando la IA a un ritmo acelerado. La Unión Europea lidera con el AI Act, cuya implementación comenzó en agosto de 2024. Corea del Sur lanza su Basic AI Act en enero de 2026, China ya aplica regulaciones de IA generativa desde septiembre de 2025 y Brasil avanza con el PL 2338/2023. En EE. UU., la administración Trump revocó órdenes ejecutivas anteriores sobre IA y priorizó una menor regulación. Entender este panorama es crucial para cualquier profesional o empresa que use IA.</p>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">El EU AI Act clasifica los sistemas de IA en cuatro niveles de riesgo: inaceptable (prohibido, como la puntuación social), alto riesgo (como la IA en salud, educación y justicia, que exige un cumplimiento riguroso), riesgo limitado (obligaciones de transparencia, como informar que los chatbots son IA) y riesgo mínimo (sin restricciones específicas). Las multas pueden llegar a 35 millones de euros o al 7% de la facturación global. El panorama regulatorio global en 2026 es diverso: la UE lidera con una regulación rigurosa, China aplica reglas específicas para la IA generativa, Corea del Sur adopta un enfoque de alcance extraterritorial, mientras que EE. UU. adoptó una postura de menor regulación bajo la administración Trump.</p>
+</div>
+<!-- Timeline -->
+<div class="bg-dark-800 border border-dark-600 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-neutral-100 mb-4">📅 Cronograma regulatorio</h3>
+<div class="space-y-4">
+<div class="flex items-start space-x-4">
+<span class="flex-shrink-0 px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-full">Ago 2024</span>
+<p class="text-neutral-300 text-sm">EU AI Act entra en vigor. Inicio del período de transición escalonado.</p>
+</div>
+<div class="flex items-start space-x-4">
+<span class="flex-shrink-0 px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-full">Feb 2025</span>
+<p class="text-neutral-300 text-sm">Prohibiciones de IA de riesgo inaceptable en vigor + obligaciones de alfabetización en IA para las organizaciones. China aplica regulaciones de IA generativa (Set 2025).</p>
+</div>
+<div class="flex items-start space-x-4">
+<span class="flex-shrink-0 px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-full">Ago 2025</span>
+<p class="text-neutral-300 text-sm">Reglas para modelos de IA de uso general (GPAI) aplicables en la UE.</p>
+</div>
+<div class="flex items-start space-x-4">
+<span class="flex-shrink-0 px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full">Ene 2026</span>
+<p class="text-neutral-300 text-sm">Corea del Sur: entra en vigor la Basic AI Act con aplicación extraterritorial.</p>
+</div>
+<div class="flex items-start space-x-4">
+<span class="flex-shrink-0 px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full">Mar 2026</span>
+<p class="text-neutral-300 text-sm">El Consejo Europeo acuerda simplificar mediante «Digital Omnibus» (alineando GDPR + AI Act + ePrivacy).</p>
+</div>
+<div class="flex items-start space-x-4">
+<span class="flex-shrink-0 px-3 py-1 bg-yellow-500/20 text-yellow-400 text-xs font-bold rounded-full">Ago 2026</span>
+<p class="text-neutral-300 text-sm">La mayoría de las reglas de la EU AI Act están activas: transparencia, etiquetado del contenido generado por IA, obligaciones para los casos de alto riesgo.</p>
+</div>
+<div class="flex items-start space-x-4">
+<span class="flex-shrink-0 px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-full">2026-27</span>
+<p class="text-neutral-300 text-sm">Brasil: PL 2338/2023 en trámite en el Senado. Aplicación plena de la EU AI Act para productos regulados (Ago 2027).</p>
+</div>
+</div>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-6">
+<h3 class="text-lg font-bold text-yellow-400 mb-3">💡 Consejo práctico</h3>
+<p class="text-neutral-300 text-sm">Aunque tu empresa no opere en Europa, la EU AI Act tiene efecto extraterritorial: si tus sistemas de IA afectan a ciudadanos europeos, debes cumplirla. Empieza ahora a clasificar tus sistemas de IA según su nivel de riesgo y documenta todo el proceso de desarrollo.</p>
+</div>
+</section>
+<!-- TOPIC 3 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">3</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">🛡️ Privacidad y protección de datos</h2>
+<p class="text-neutral-400 mt-1">LGPD e IA</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Los sistemas de IA son voraces consumidores de datos, y muchos de esos datos son personales. La LGPD (Ley General de Protección de Datos) brasileña y el GDPR europeo establecen reglas claras sobre cómo se pueden recopilar, procesar y utilizar los datos personales. La intersección entre la IA y la protección de datos es uno de los temas más críticos de la era digital, pues los modelos de IA suelen aprender patrones que pueden revelar información sensible incluso a partir de datos aparentemente anónimos.</p>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">Privacy by Design es el principio de que la protección de datos debe incorporarse desde la concepción del sistema, no añadirse después. En la práctica, esto significa usar técnicas como la anonimización, la seudonimización, la privacidad diferencial y el aprendizaje federado. La LGPD exige una base legal para el tratamiento de datos (como el consentimiento o el interés legítimo), transparencia sobre cómo se usan los datos y garantiza derechos como el acceso, la corrección y la eliminación. Para los sistemas de IA, esto significa que debes documentar qué datos alimentan tus modelos y garantizar que los titulares puedan ejercer sus derechos.</p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-blue-400 mb-3">📊 Datos importantes</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• La ANPD (Autoridad Nacional de Protección de Datos) ya ha impuesto multas en Brasil por violaciones de la LGPD</li>
+<li>• 92% de los consumidores brasileños se preocupan por la privacidad de sus datos personales</li>
+<li>• Las técnicas de reidentificación pueden identificar al 99.98% de las personas en conjuntos de datos "anonimizados" con solo 15 atributos</li>
+<li>• El aprendizaje federado puede reducir los riesgos de privacidad hasta en 90% en comparación con el entrenamiento centralizado</li>
+</ul>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
+<h4 class="font-bold text-emerald-400 mb-3">✅ Hacer</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Realizar evaluaciones de impacto en la protección de datos</li>
+<li>• Implementar la minimización de datos</li>
+<li>• Usar técnicas de privacidad diferencial</li>
+<li>• Mantener un registro de las operaciones de tratamiento</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
+<h4 class="font-bold text-red-400 mb-3">❌ Evitar</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Recopilar más datos de los necesarios</li>
+<li>• Suponer que una anonimización simple es suficiente</li>
+<li>• Usar datos personales sin una base legal clara</li>
+<li>• Ignorar las solicitudes de los titulares de datos</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TOPIC 4 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">4</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">🏛️ Gobernanza corporativa de IA</h2>
+<p class="text-neutral-400 mt-1">Frameworks y políticas</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">La gobernanza de IA es el conjunto de estructuras, procesos y políticas que una organización implementa para garantizar que la IA se desarrolle y utilice de forma responsable, ética y alineada con los objetivos de negocio. Sin una gobernanza adecuada, los proyectos de IA operan en un «salvaje oeste» que genera riesgos legales, reputacionales y operativos. Empresas líderes como Microsoft, Google e IBM ya cuentan con marcos sólidos de gobernanza de IA.</p>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">Un framework de gobernanza de IA eficaz tiene cuatro pilares: (1) Política y principios: pautas claras sobre el uso aceptable de la IA; (2) Estructura organizacional: comité de ética, roles y responsabilidades definidos, incluido un AI Ethics Officer; (3) Procesos operativos: evaluación de impacto, etapas de aprobación, monitoreo continuo; (4) Cultura y capacitación: formación en ética de IA para toda la organización. La gobernanza no debe ser tan burocrática que frene la innovación, pero sí lo suficientemente sólida para mitigar riesgos.</p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-yellow-400 mb-3">💡 Consejo práctico</h3>
+<p class="text-neutral-300 text-sm">Empieza con una versión simple de gobernanza: crea un documento de principios de IA (5-7 principios), define quién es responsable de las decisiones sobre IA en tu organización y establece un proceso de revisión para nuevos proyectos de IA. Puedes usar el NIST AI Risk Management Framework como referencia gratuita.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
+<h4 class="font-bold text-emerald-400 mb-3">✅ Hacer</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Crear un comité multidisciplinario de IA</li>
+<li>• Documentar todos los modelos en producción</li>
+<li>• Realizar evaluaciones periódicas de riesgos</li>
+<li>• Capacitar a todo el equipo en ética de IA</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
+<h4 class="font-bold text-red-400 mb-3">❌ Evitar</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Dejar las decisiones de IA sin una persona responsable definida</li>
+<li>• Crear gobernanza solo en el papel</li>
+<li>• Ignorar la shadow AI (uso no autorizado)</li>
+<li>• Tratar la gobernanza como una barrera a la innovación</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- TOPIC 5 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">5</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">🎯 IA responsable en la práctica</h2>
+<p class="text-neutral-400 mt-1">Implementación de principios éticos</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Tener principios éticos escritos en un documento es necesario, pero insuficiente. El verdadero desafío es traducir esos principios en prácticas concretas en el día a día del desarrollo y uso de la IA. La IA responsable en la práctica significa incorporar la ética en cada etapa del ciclo de vida de un modelo: desde la definición del problema, pasando por la recopilación de datos, el entrenamiento, la validación, la implementación y el monitoreo continuo.</p>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">Las Model Cards son documentos estandarizados que describen un modelo de IA, incluidos su propósito, los datos de entrenamiento, las métricas de rendimiento por grupo demográfico, las limitaciones conocidas y los casos de uso adecuados e inadecuados. Google las propuso en 2018 y se convirtieron en una práctica fundamental de IA responsable. Junto con las Datasheets for Datasets (documentación de los datos utilizados en el entrenamiento), crean una cadena de transparencia que permite la auditoría, la reproducción y la rendición de cuentas. Herramientas como AI Fairness 360 (IBM) y Fairlearn (Microsoft) permiten detectar y corregir sesgos automáticamente.</p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-blue-400 mb-3">📊 Datos importantes</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Las empresas con prácticas de IA responsable tienen 2.5x más probabilidades de mantener la confianza de sus clientes</li>
+<li>• 67% de los consumidores dicen que dejarían de usar un servicio si supieran que usa IA de forma irresponsable</li>
+<li>• El costo promedio de un incidente de ética en IA es de US$ 3.7 millones para una gran empresa</li>
+</ul>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-6">
+<h3 class="text-lg font-bold text-yellow-400 mb-3">💡 Consejo práctico</h3>
+<p class="text-neutral-300 text-sm">Crea una lista de verificación de IA responsable para cada proyecto: (1) ¿El problema está bien definido y se justifica el uso de IA? (2) ¿Los datos son representativos y se recopilaron de forma ética? (3) ¿Se probó el modelo para detectar sesgos en distintos grupos? (4) ¿Existe un mecanismo para que las personas afectadas puedan impugnar las decisiones? (5) ¿Hay una supervisión humana adecuada? (6) ¿Está documentado el modelo con una Model Card?</p>
+</div>
+</section>
+<!-- TOPIC 6 -->
+<section class="mb-16">
+<div class="flex items-start space-x-4 mb-6">
+<div class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-xl font-bold">6</div>
+<div>
+<h2 class="text-2xl font-bold text-neutral-100">🌍 Impacto social</h2>
+<p class="text-neutral-400 mt-1">Desigualdad, empleo y sostenibilidad</p>
+</div>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">La IA no existe en el vacío: es una fuerza transformadora que está reconfigurando la sociedad de formas profundas y no siempre previsibles. Aunque trae enormes beneficios potenciales (como avances en salud y ciencia), también puede amplificar las desigualdades existentes, desplazar a trabajadores y consumir recursos naturales significativos. Comprender estos impactos es fundamental para cualquier profesional que quiera liderar de forma responsable.</p>
+<div class="bg-gradient-to-r from-purple-900/30 to-dark-800 border border-purple-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-purple-400 mb-3">Concepto principal</h3>
+<p class="text-neutral-300 leading-relaxed">El impacto social de la IA opera en tres dimensiones principales. En la dimensión económica, los estudios estiman que la IA puede automatizar hasta el 30% de las actividades laborales actuales para 2030 y, al mismo tiempo, crear nuevas categorías de empleo. En la dimensión de la igualdad, la brecha digital puede profundizarse: los países y las comunidades sin acceso a la IA quedan aún más rezagados. En la dimensión ambiental, entrenar un solo modelo grande de IA puede emitir el equivalente a cinco veces las emisiones de un automóvil durante toda su vida útil. La IA también puede ser una fuerza para el bien: detección temprana de enfermedades, optimización energética, monitoreo ambiental y democratización del acceso al conocimiento.</p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6 mb-6">
+<h3 class="text-lg font-bold text-blue-400 mb-3">📊 Datos importantes</h3>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• La IA puede contribuir con US$ 15.7 billones a la economía global para 2030 (PwC)</li>
+<li>• 375 millones de trabajadores necesitarán cambiar de categoría ocupacional para 2030 (McKinsey)</li>
+<li>• El entrenamiento de GPT-3 consumió cerca de 1.287 MWh de energía y generó 552 toneladas de CO2</li>
+<li>• La IA aplicada a la salud puede salvar hasta 400.000 vidas al año en el mundo para 2030</li>
+</ul>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-5">
+<h4 class="font-bold text-emerald-400 mb-3">✅ Hacer</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Considerar los impactos sociales en los proyectos de IA</li>
+<li>• Invertir en la recapacitación de los colaboradores</li>
+<li>• Medir la huella ambiental de los modelos</li>
+<li>• Buscar aplicaciones de IA para el bien social</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/30 rounded-xl p-5">
+<h4 class="font-bold text-red-400 mb-3">❌ Evitar</h4>
+<ul class="space-y-2 text-neutral-300 text-sm">
+<li>• Ignorar el impacto en el empleo de los colaboradores</li>
+<li>• Ignorar a las comunidades marginadas</li>
+<li>• Usar modelos más grandes de lo necesario</li>
+<li>• Tratar la IA como una solución neutral y sin consecuencias</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- RESUMO -->
+<section class="bg-dark-800 rounded-2xl border border-dark-600 p-6 sm:p-8">
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">📋 Resumen del módulo 3.1</h2>
+<div class="space-y-3 mb-8">
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">El sesgo algorítmico y la transparencia son los dilemas éticos centrales de la IA</p>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">El EU AI Act es el marco regulatorio más integral y sirve de referencia global</p>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">La privacidad de los datos y la IA exigen Privacy by Design y el cumplimiento de la LGPD</p>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">La gobernanza corporativa de IA necesita comités, políticas y procesos claros</p>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">La IA responsable se implementa con Model Cards, pruebas de equidad y listas de verificación</p>
+</div>
+<div class="flex items-start space-x-3">
+<span class="text-purple-400 mt-0.5">✅</span>
+<p class="text-neutral-300 text-sm">El impacto social de la IA abarca el empleo, la desigualdad y la sostenibilidad ambiental</p>
+</div>
+</div>
+<div class="bg-purple-900/20 border border-purple-500/30 rounded-xl p-4 mb-6">
+<p class="text-purple-400 font-semibold text-sm">Siguiente módulo: 🏗️ Implementación estratégica de IA</p>
+<p class="text-neutral-400 text-xs mt-1">Aprende a crear roadmaps, preparar la cultura organizacional y medir el ROI de proyectos de IA.</p>
+</div>
+<div class="flex flex-wrap gap-3 justify-start">
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="index.html">
+          ← Volver a la ruta 3
+        </a>
+<a class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-2.html">
+          Siguiente módulo →
+        </a>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="border-t border-dark-600 py-8 mt-12">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-500 text-sm">ATIA - Oportunidades Digitales con IA</p>
+<p class="text-neutral-500 text-xs mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</p>
+</div>
+</footer>
+<!-- SCRIPTS -->
+<script>
+    function toggleTopic(id) {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('active');
+    }
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function updateIcons() {
+      if (document.documentElement.classList.contains('dark')) {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        darkIcon.classList.remove('hidden');
+        lightIcon.classList.add('hidden');
+      }
+    }
+
+    updateIcons();
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      updateIcons();
+    });
+  </script>
+</body>
+</html>

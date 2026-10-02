@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Module 1.2 - Digital Transformation and the Job Market. Learn how AI is reshaping jobs, skills, and entire sectors of the economy." name="description"/>
+<title>Module 1.2 - Digital Transformation and the Job Market | ATIA</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FACC15',
+                        'dark-900': '#111827',
+                        'dark-800': '#1f2937',
+                        'dark-700': '#374151',
+                        'dark-600': '#4b5563',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .dark body { background-color: #111827; }
+        .topic-explanation { display: none; }
+        .topic-explanation.active { display: block; }
+        html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    </style>
+<link href="https://inematds.github.io/ATIA/curso/trilha1/modulo-1-2.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/curso/trilha1/modulo-1-2.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/curso/trilha1/modulo-1-2.html" hreflang="es" rel="alternate"/></head>
+<body class="antialiased"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha1/modulo-1-2.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="modulo-1-2.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/curso/trilha1/modulo-1-2.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🎓</span>
+<span class="font-bold text-lg hidden sm:inline">ATIA</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Application</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Strategic</span>
+</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Breadcrumb -->
+<div class="bg-dark-900 border-b border-dark-700">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+<nav class="text-sm text-neutral-400">
+<a class="hover:text-emerald-400 transition-colors" href="../../index.html">Start</a>
+<span class="mx-2 text-neutral-600">/</span>
+<a class="hover:text-emerald-400 transition-colors" href="index.html">Track 1</a>
+<span class="mx-2 text-neutral-600">/</span>
+<span class="text-emerald-400 font-semibold">Module 1.2</span>
+</nav>
+</div>
+</div>
+<!-- Header -->
+<section class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-transparent"></div>
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="mb-4">
+<span class="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/20 border border-emerald-500/30 rounded-full">Module 1.2</span>
+</div>
+<h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-4">💼 Digital Transformation and the Job Market</h1>
+<p class="text-lg text-neutral-300 max-w-3xl mb-8">
+                Artificial intelligence is redrawing the job market. Millions of jobs will be transformed, new roles will emerge, and the most valued skills will change radically. Understand this restructuring and prepare to thrive in it.
+            </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">6</div>
+<div class="text-xs text-neutral-400 mt-1">Topics</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">35</div>
+<div class="text-xs text-neutral-400 mt-1">Minutes</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">Basic</div>
+<div class="text-xs text-neutral-400 mt-1">Level</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">Theory</div>
+<div class="text-xs text-neutral-400 mt-1">Format</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content -->
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- Topic 1 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">1</span>
+<h2 class="text-2xl font-bold text-neutral-100">🔄 Fourth Industrial Revolution</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                Klaus Schwab, founder of the World Economic Forum, coined the term "Fourth Industrial Revolution" to describe the fusion of technologies that blur the boundaries between the physical, digital, and biological worlds. Unlike previous revolutions — steam, electricity, computers — this is not just about new tools, but about a fundamental transformation in how we live, work, and relate to one another.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    The Fourth Industrial Revolution differs from earlier ones in three ways: speed (it advances exponentially, not linearly), breadth (it affects all sectors simultaneously), and depth (it transforms entire systems, not just processes). While the Third Revolution (digital) took decades to take hold, the Fourth is unfolding in years. Generative AI is the catalyst that has accelerated this transition—turning what was once a distant future into present-day reality.
+                </p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-blue-400 font-semibold mb-3">Data and Research</h3>
+<ul class="text-neutral-300 space-y-2">
+<li>The 1st Revolution (steam) transformed the world in ~100 years; the 4th is doing the same in ~10</li>
+<li>86% of global CEOs say AI will significantly transform their businesses by 2027</li>
+<li>The global generative AI market is expected to exceed $1.3 trillion by 2032</li>
+<li>75% of companies plan to adopt AI in the next 5 years, according to the WEF</li>
+</ul>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Do</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Understand that this revolution has already begun</li>
+<li>Map how it affects your profession</li>
+<li>Invest in continuous learning now</li>
+<li>Look for synergies between technology and your field</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+<h3 class="text-red-400 font-semibold mb-3">Avoid</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Wait for "the dust to settle" before taking action</li>
+<li>Thinking your profession is immune</li>
+<li>Resisting change for comfort</li>
+<li>Ignoring signs of transformation in your industry</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Topic 2 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">2</span>
+<h2 class="text-2xl font-bold text-neutral-100">📊 The Great Restructuring</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                The World Economic Forum's "Future of Jobs 2025" report presents an updated and more optimistic outlook than the previous one: by 2030, 170 million new jobs will be created and 92 million displaced, for a net gain of 78 million jobs. However, the challenge remains critical: people who lose their jobs won't be the same people who fill the new positions unless they undergo significant reskilling. 77% of employers plan to invest in upskilling their teams.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    The job market is following a predictable pattern of restructuring: routine, rule-based tasks are automated first, freeing people to do creative, strategic, and relationship-focused work. This doesn’t mean entire professions disappear — in most cases, parts of the work are automated, requiring professionals to reinvent themselves. The key concept is "augmentation, not replacement" — AI expands human capabilities; it doesn’t replace people completely.
+                </p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-blue-400 font-semibold mb-3">Data and Research</h3>
+<ul class="text-neutral-300 space-y-2">
+<li>Declining jobs: bank tellers, data entry operators, administrative secretaries, routine roles (-13% since ChatGPT launched)</li>
+<li>Growing jobs: AI engineers, context engineers, agent architects, cybersecurity specialists (+20% in analytical and technical roles)</li>
+<li>Professionals with advanced AI skills earn 56% more than peers without these skills (IMF, 2026)</li>
+<li>39% of current skills will be transformed or obsolete by 2030 (WEF 2025)</li>
+<li>Workers in roles requiring AI fluency: from 1 million (2023) to 7 million (2025) — 7x growth</li>
+</ul>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+<h3 class="text-primary font-semibold mb-3">Practical Tip</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Try an exercise: list the 10 tasks you do most often at work. For each one, assess: "Could this be automated by AI in the next 3 years?" If more than 50% of your tasks are at risk, it's time to rethink your position and invest in skills that complement AI.
+                </p>
+</div>
+</div>
+<!-- Topic 3 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">3</span>
+<h2 class="text-2xl font-bold text-neutral-100">🎯 70% Skills Shift</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                Research by LinkedIn and the WEF indicates that 70% of the skills required in the job market will change significantly by 2030. The half-life of technical skills—the time it takes for half of what you know to become obsolete—has fallen from 10-15 years to 2-5 years. This means traditional university education is no longer enough: continuous learning is no longer optional; it has become a matter of survival.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    The most valued skills of the future fall into two groups. The first includes human skills that AI does not replicate well: critical thinking, creativity, empathy, leadership, interpersonal communication, and the ability to solve ambiguous problems. The second group includes skills for working WITH AI: prompt engineering, data analysis, process automation, and intelligent systems design. The ideal professional of the future masters both groups.
+                </p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-blue-400 font-semibold mb-3">Most In-Demand Skills (WEF 2025-2026)</h3>
+<ul class="text-neutral-300 space-y-2">
+<li><strong>1. Analytical thinking and innovation</strong> — Solve complex problems in new ways</li>
+<li><strong>2. AI and Data Fluency</strong> — Context engineering, working with agents, evaluating AI outputs</li>
+<li><strong>3. Active learning</strong> — Ability to learn continuously (half-life of technical skills: 2-5 years)</li>
+<li><strong>4. Creativity and originality</strong> — What distinguishes humans from machines</li>
+<li><strong>5. Resilience and flexibility</strong> — Adapting to exponential change</li>
+</ul>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+<h3 class="text-primary font-semibold mb-3">Practical Tip</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Create a 90-day “personal AI development plan.” Spend 30 minutes a day, alternating between: learning a new AI tool (Monday), practicing prompt engineering (Tuesday), applying AI to a real task (Wednesday), studying trends in your industry (Thursday), and creating content about what you’ve learned (Friday). Consistency beats intensity.
+                </p>
+</div>
+</div>
+<!-- Topic 4 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">4</span>
+<h2 class="text-2xl font-bold text-neutral-100">🏢 Most Affected Sectors</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                Although every industry is affected by AI, some are being transformed more quickly. The financial sector leads adoption, followed by manufacturing, healthcare, retail, and professional services. Understanding how each sector is being reshaped lets you anticipate trends and identify opportunities regardless of your field.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Each industry follows a transformation cycle: (1) Automating repetitive tasks, (2) Providing intelligent decision support, (3) Optimizing end-to-end processes, and (4) Creating new business models. Finance is already in phases 3–4, with algorithmic trading and fully digital banking. Healthcare is between phases 2–3, with AI-assisted diagnosis gaining regulatory approval. Education is in phases 1–2, with AI tutors beginning to gain popularity.
+                </p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-blue-400 font-semibold mb-3">Impact by Industry</h3>
+<ul class="text-neutral-300 space-y-2">
+<li><strong>Financial:</strong> Automated trading, real-time fraud detection, AI credit analysis, robo-advisors</li>
+<li><strong>Manufacturing:</strong> Predictive maintenance, visual quality control, digital twins, intelligent supply chain</li>
+<li><strong>Healthcare:</strong> Image-based diagnosis, drug discovery, personalized medicine, remote monitoring</li>
+<li><strong>Retail:</strong> Mass personalization, dynamic pricing, predictive logistics, chatbot support</li>
+<li><strong>Legal:</strong> Automated contract review, case law research, lawsuit outcome prediction</li>
+</ul>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Do</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Map AI applications in your industry</li>
+<li>Follow success stories in your field</li>
+<li>Connect with AI pioneers in the industry</li>
+<li>Propose pilot projects at your company</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+<h3 class="text-red-400 font-semibold mb-3">Avoid</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Thinking "my industry is different"</li>
+<li>Wait for regulation to slow the change</li>
+<li>Compare your industry with pure technology</li>
+<li>Ignoring disruptive startups in your field</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Topic 5 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">5</span>
+<h2 class="text-2xl font-bold text-neutral-100">🧠 T-Shaped Skills</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                The concept of a "T-shaped" professional describes someone who combines depth in one area of expertise (the vertical bar) with breadth of knowledge in complementary areas (the horizontal bar). In the age of AI, this model gains a new dimension: AI becomes the horizontal bar that expands the reach of any specialist.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    In the traditional T-shaped model, a designer might have deep expertise in UX and broad knowledge of programming, marketing, and business. In the AI era, that same designer gains superpowers: with AI, they can quickly generate prototypes, automate user research, create marketing copy, and even analyze behavioral data. AI acts as a multiplier that makes the T's horizontal bar significantly more powerful. The most valuable professional of the future will be the T-shaped professional who masters AI as a horizontal tool.
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-primary font-semibold mb-3">Practical Tip</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Design your own T. On the vertical bar, put the area where you have the most expertise. On the horizontal bar, list 5 complementary areas where AI can expand your reach. For each horizontal area, identify a specific AI tool you could learn. For example: if you are an accountant, the horizontal bar could include "predictive analysis (with ChatGPT)", "report automation (with Zapier)", and "data visualization (with AI tools)".
+                </p>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Do</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Maintain depth in your area of expertise</li>
+<li>Use AI to expand your horizontal bar</li>
+<li>Create unique combinations of skills</li>
+<li>Position yourself as an “expert + AI”</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+<h3 class="text-red-400 font-semibold mb-3">Avoid</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Abandoning your specialty to "become an AI person"</li>
+<li>Being superficial about everything without depth</li>
+<li>Ignoring complementary human skills</li>
+<li>Treating AI as a separate area from your work</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Topic 6 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">6</span>
+<h2 class="text-2xl font-bold text-neutral-100">📚 AI Literacy</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                Just as computer literacy was essential in the 1990s-2000s and digital literacy in the 2010s, AI literacy (AI Literacy) is the fundamental skill of this decade. It is not about knowing how to program machine learning algorithms, but about understanding what AI can and cannot do, how to use AI tools effectively, and how to critically evaluate their results.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    AI literacy involves four dimensions: (1) Understanding what AI is and how it works in general terms, (2) Knowing how to use AI tools for practical tasks, (3) Critically evaluating AI results (detecting errors, biases, hallucinations), and (4) Understanding the ethical and social implications of AI. An “AI literate” professional doesn’t need to be a programmer—they need to be a conscious, critical, and effective user of AI tools.
+                </p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-blue-400 font-semibold mb-3">Data and Research</h3>
+<ul class="text-neutral-300 space-y-2">
+<li>Only 10% of workers worldwide consider themselves “proficient” in AI (Salesforce 2024 survey)</li>
+<li>Companies with AI-literate teams report productivity gains of 20-40%</li>
+<li>Demand for AI skills in job postings has grown 450% since 2022</li>
+<li>UNESCO recommends AI literacy as a global educational priority</li>
+</ul>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+<h3 class="text-primary font-semibold mb-3">Practical Tip</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Assess your current level of AI literacy: (1) Can you explain the difference between AI, Machine Learning, and Deep Learning? (2) Do you use any AI tool daily? (3) Can you identify when AI is "hallucinating"? (4) Do you understand the ethical risks of AI? If you answered no to more than 2 questions, this course is exactly what you need. The fact that you are here is already a great first step.
+                </p>
+</div>
+</div>
+<!-- Resumo -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">Module Summary</h2>
+<div class="space-y-3 mb-8">
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I understood the concept of the Fourth Industrial Revolution</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I understand the dynamic of 9M jobs eliminated versus 11M created</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I know which skills will be most valued by 2030</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I identified how my industry is being impacted</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I designed my T-shaped profile with AI</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I assessed my AI literacy level</span>
+</label>
+</div>
+<div class="bg-dark-700 rounded-xl p-4 mb-6">
+<p class="text-neutral-400 text-sm">Next module:</p>
+<p class="text-neutral-100 font-semibold">💬 1.3 — Prompt Engineering</p>
+</div>
+<div class="flex justify-start gap-3">
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-1.html">Previous Module</a>
+<a class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" href="modulo-1-3.html">Next Module</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="border-t border-dark-700 mt-12">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+<div class="flex items-center space-x-2 text-neutral-400 text-sm">
+<span>🎓</span>
+<span class="font-semibold">ATIA</span>
+<span>—</span>
+<span>Acceleration in Technology and Artificial Intelligence</span>
+</div>
+<div class="text-neutral-500 text-sm">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Topic toggle
+        function toggleTopic(button) {
+            const topicItem = button.closest('.topic-item');
+            const explanation = topicItem.querySelector('.topic-explanation');
+            const moduleCard = button.closest('.bg-dark-800');
+            moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+                if (exp !== explanation) exp.classList.remove('active');
+            });
+            explanation.classList.toggle('active');
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const html = document.documentElement;
+        if (localStorage.getItem('theme') === 'light') {
+            themeToggleDarkIcon.classList.remove('hidden');
+            html.classList.remove('dark');
+        } else {
+            themeToggleLightIcon.classList.remove('hidden');
+        }
+        themeToggle.addEventListener('click', () => {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        }
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+</html>

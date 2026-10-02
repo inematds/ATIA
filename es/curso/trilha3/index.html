@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ruta 3 - Estrategia y futuro de la IA | ATIA</title>
+<meta content="Ruta estratégica de ATIA - Ética, gobernanza, implementación estratégica y el futuro del trabajo con IA." name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+<link href="https://inematds.github.io/ATIA/curso/trilha3/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/curso/trilha3/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/curso/trilha3/" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha3/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha3/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<!-- NAVIGATION -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🎓</span>
+<span class="font-bold text-lg hidden sm:inline">ATIA</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Aplicación</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Estratégico</span>
+</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- HEADER -->
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-16 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<span class="inline-block px-4 py-1.5 bg-purple-500/20 text-purple-400 text-sm font-semibold rounded-full mb-6">RUTA 3</span>
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+        👑 Estrategia y futuro de la <span class="text-purple-400">IA</span>
+</h1>
+<p class="text-lg text-neutral-400 max-w-3xl mx-auto mb-8">
+        Domina la ética, la gobernanza y la implementación estratégica, y prepárate para el futuro del trabajo con inteligencia artificial.
+      </p>
+<div class="flex flex-wrap justify-center gap-4 text-sm">
+<span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full font-medium">📚 4 módulos</span>
+<span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full font-medium">📝 24 temas</span>
+<span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full font-medium">⏱️ ~4h</span>
+<span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full font-medium">🎯 Avanzado</span>
+</div>
+</div>
+</header>
+<!-- MODULES -->
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+<!-- MODULE 3.1 -->
+<div class="bg-dark-800 rounded-2xl border border-dark-600 overflow-hidden">
+<div class="p-6 sm:p-8">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-3">MÓDULO 3.1</span>
+<h2 class="text-2xl font-bold text-neutral-100 mb-2">⚖️ Ética, gobernanza y responsabilidad</h2>
+<p class="text-neutral-400 text-sm">~30 min</p>
+</div>
+<a class="hidden sm:inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-1.html">
+            Acceder →
+          </a>
+</div>
+<p class="text-neutral-300 mb-6">Explora los desafíos éticos de la IA, comprende las regulaciones globales y la privacidad de los datos, y aprende a implementar IA responsable en la práctica.</p>
+<div class="space-y-2">
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t1')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">1</span>
+<span class="text-neutral-300 text-sm font-medium">🤔 Dilemas éticos de la IA - Sesgo, equidad y transparencia</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t1">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Desafíos morales y éticos que surgen del desarrollo y el uso de sistemas de IA, incluidos los problemas de sesgo algorítmico, justicia en las decisiones automatizadas y transparencia sobre cómo funciona la IA.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Las decisiones de IA afectan vidas reales en los ámbitos del crédito, la salud y la justicia. Entender los dilemas éticos es esencial para evitar daños y construir sistemas confiables.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Sesgo algorítmico, fairness, transparencia, explicabilidad, confianza en la IA, accountability.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t2')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">2</span>
+<span class="text-neutral-300 text-sm font-medium">📜 Regulación global - EU AI Act y legislación brasileña</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t2">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Panorama de las leyes y regulaciones sobre IA en todo el mundo, con énfasis en la Ley de IA de la UE y el marco regulatorio brasileño en desarrollo.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> La regulación avanza rápidamente y las empresas que no se adapten enfrentarán multas elevadas y barreras de mercado.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> EU AI Act, clasificación de riesgos, LGPD, marco regulatorio brasileño, compliance, sandbox regulatorio.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t3')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">3</span>
+<span class="text-neutral-300 text-sm font-medium">🛡️ Privacidad y protección de datos - LGPD e IA</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t3">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Cómo los sistemas de IA recopilan, procesan y utilizan datos personales, y cuáles son los derechos de los ciudadanos y las obligaciones de las empresas según la LGPD y legislaciones similares.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Los datos son el combustible de la IA, y proteger la privacidad es tanto una obligación legal como una ventaja competitiva.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> LGPD, datos personales, consentimiento, anonimización, privacy by design, DPO, evaluación de impacto.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t4')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">4</span>
+<span class="text-neutral-300 text-sm font-medium">🏛️ Gobernanza corporativa de IA - Marcos y políticas</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t4">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Estructuras organizacionales, comités y políticas internas que garantizan el uso responsable y estratégico de la IA dentro de las empresas.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Sin una gobernanza clara, los proyectos de IA fracasan o generan riesgos reputacionales y legales importantes.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Comité de ética, política de uso de IA, evaluación de impacto, auditoría interna, gestión de riesgos, rendición de cuentas.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t5')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">5</span>
+<span class="text-neutral-300 text-sm font-medium">🎯 IA responsable en la práctica - Implementación de principios éticos</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t5">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Metodologías y herramientas prácticas para traducir principios éticos en acciones concretas durante el desarrollo y la implementación de sistemas de IA.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Los principios éticos sin implementación práctica son solo teoría. El mercado valora a los profesionales que saben poner en práctica la ética en IA.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Ética desde el diseño, listas de verificación de ética, pruebas de equidad, monitoreo de sesgos, documentación de modelos, model cards.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t6')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">6</span>
+<span class="text-neutral-300 text-sm font-medium">🌍 Impacto social - Desigualdad, empleo y sostenibilidad</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t6">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Análisis de los amplios impactos sociales de la IA, incluidos sus efectos en el mercado laboral, la desigualdad económica, el acceso a la tecnología y la sostenibilidad ambiental.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> La IA está transformando la sociedad y comprender sus impactos sociales es fundamental para liderar esta transformación de forma responsable.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Brecha digital, automatización y empleo, ingreso básico universal, huella de carbono de la IA, IA para el bien social, inclusión digital.</p>
+</div>
+</div>
+<div class="mt-6 sm:hidden">
+<a class="inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-1.html">
+            Acceder al módulo →
+          </a>
+</div>
+</div>
+</div>
+<!-- MODULE 3.2 -->
+<div class="bg-dark-800 rounded-2xl border border-dark-600 overflow-hidden">
+<div class="p-6 sm:p-8">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-3">MÓDULO 3.2</span>
+<h2 class="text-2xl font-bold text-neutral-100 mb-2">🏗️ Implementación estratégica de IA</h2>
+<p class="text-neutral-400 text-sm">~35 min</p>
+</div>
+<a class="hidden sm:inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-2.html">
+            Acceder →
+          </a>
+</div>
+<p class="text-neutral-300 mb-6">Del diagnóstico a la escala: aprende a crear hojas de ruta, preparar la cultura organizacional, formar equipos y medir el ROI de proyectos de IA.</p>
+<div class="space-y-2">
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t1')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">1</span>
+<span class="text-neutral-300 text-sm font-medium">🗺️ Hoja de ruta de implementación - Del diagnóstico a la escala</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t1">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Plan estructurado y por fases para implementar IA en una organización, desde la evaluación inicial de madurez hasta la escala en producción.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> El 85% de los proyectos de IA fracasa sin una hoja de ruta clara. Un plan bien estructurado marca la diferencia entre el éxito y el desperdicio de recursos.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Evaluación de madurez, POC, MVP, piloto, escalamiento, fases de implementación, hitos y entregables.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t2')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">2</span>
+<span class="text-neutral-300 text-sm font-medium">🏢 Cultura organizacional - Preparando la empresa para la IA</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t2">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Transformación cultural necesaria para que una organización adopte la IA de manera eficaz, incluyendo una mentalidad data-driven, experimentación y gestión del cambio.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> La tecnología por sí sola no transforma las empresas: la cultura es el principal factor de éxito o fracaso en la adopción de IA.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Gestión del cambio, cultura basada en datos, experimentación, liderazgo digital, resistencia al cambio, comunicación interna.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t3')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">3</span>
+<span class="text-neutral-300 text-sm font-medium">👥 Gestión de talentos - Equipos de IA y upskilling</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t3">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Estrategias para formar, desarrollar y retener equipos con competencias en IA, además de programas de capacitación para los colaboradores actuales.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> La escasez de talento en IA es global. Saber cómo desarrollar y atraer profesionales calificados es una ventaja competitiva fundamental.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Upskilling, reskilling, equipos multidisciplinarios, alfabetización en datos, rutas de desarrollo, retención de talento.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t4')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">4</span>
+<span class="text-neutral-300 text-sm font-medium">💰 Business Case - ROI y métricas de éxito</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t4">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Cómo estructurar un caso de negocio sólido para proyectos de IA, definiendo métricas de retorno de la inversión y criterios de éxito medibles.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Sin un caso de negocio convincente, los proyectos de IA no reciben financiación. Saber demostrar el valor es esencial para cualquier líder.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> ROI, TCO, período de recuperación, métricas de valor, reducción de costos, aumento de ingresos, eficiencia operativa.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t5')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">5</span>
+<span class="text-neutral-300 text-sm font-medium">⚙️ Infraestructura técnica - Cloud, datos y herramientas</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t5">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Requisitos de infraestructura para proyectos de IA, incluidas plataformas cloud, pipelines de datos, entornos de desarrollo y herramientas de MLOps.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> La infraestructura adecuada es la base de cualquier proyecto de IA. Las decisiones equivocadas generan costos excesivos y cuellos de botella técnicos.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Computación en la nube, data lake, data warehouse, MLOps, GPU/TPU, APIs, entornos de producción.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t6')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">6</span>
+<span class="text-neutral-300 text-sm font-medium">📊 KPIs y monitoreo - Medición del impacto de la IA</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t6">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Definición y seguimiento de indicadores clave de desempeño para proyectos de IA, incluidas métricas técnicas, de negocio y de impacto.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Lo que no se mide no se puede gestionar. Los KPI bien definidos garantizan que los proyectos de IA generen valor real.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> KPI de IA, dashboards, monitoreo de modelos, detección de drift, métricas de negocio, A/B testing.</p>
+</div>
+</div>
+<div class="mt-6 sm:hidden">
+<a class="inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-2.html">
+            Acceder al módulo →
+          </a>
+</div>
+</div>
+</div>
+<!-- MODULE 3.3 -->
+<div class="bg-dark-800 rounded-2xl border border-dark-600 overflow-hidden">
+<div class="p-6 sm:p-8">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-3">MÓDULO 3.3</span>
+<h2 class="text-2xl font-bold text-neutral-100 mb-2">🔮 El futuro del trabajo y de la sociedad</h2>
+<p class="text-neutral-400 text-sm">~30 min</p>
+</div>
+<a class="hidden sm:inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-3.html">
+            Acceder →
+          </a>
+</div>
+<p class="text-neutral-300 mb-6">Explora las tendencias que moldearán el futuro: AGI, trabajo remoto con IA, educación del futuro, economía digital y convergencia tecnológica.</p>
+<div class="space-y-2">
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t1')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">1</span>
+<span class="text-neutral-300 text-sm font-medium">🌊 Tendencias 2025-2030 - Lo que viene</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t1">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Principales tendencias tecnológicas y de mercado en IA para los próximos años, incluidos los agentes autónomos, la IA multimodal y la democratización de la tecnología.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Anticipar tendencias permite que profesionales y empresas se posicionen estratégicamente y aprovechen oportunidades antes que la competencia.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Agentes de IA, IA multimodal, modelos pequeños de lenguaje, IA en el borde, IA generativa, democratización.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t2')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">2</span>
+<span class="text-neutral-300 text-sm font-medium">🤖 AGI y superinteligencia - Horizontes de la IA</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t2">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Debate sobre la Inteligencia Artificial General (AGI) y la superinteligencia, sus posibles impactos en la humanidad y las discusiones sobre seguridad y alineación.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Comprender los horizontes de la IA es fundamental para tomar decisiones estratégicas a largo plazo y participar en debates críticos sobre el futuro.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> AGI, superinteligencia, AI safety, alineación, riesgos existenciales, singularidad tecnológica.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t3')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">3</span>
+<span class="text-neutral-300 text-sm font-medium">🏠 Trabajo remoto e IA - La nueva realidad profesional</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t3">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Cómo la IA está transformando el trabajo remoto e híbrido, con herramientas de colaboración inteligente, asistentes virtuales y nuevas dinámicas profesionales.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> El trabajo remoto potenciado por IA es una realidad cada vez más extendida. Dominar estas herramientas es esencial para la productividad y la competitividad.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Trabajo híbrido, herramientas de colaboración, asistentes de IA, productividad remota, gestión asíncrona, lugar de trabajo digital.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t4')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">4</span>
+<span class="text-neutral-300 text-sm font-medium">🎓 Educación del futuro - Aprendizaje continuo con IA</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t4">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Transformación de la educación y el aprendizaje mediante la IA, con personalización, tutores inteligentes y nuevos enfoques pedagógicos.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> La educación continua es indispensable en la era de la IA. Quienes sepan aprender con IA tendrán una ventaja competitiva permanente.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Aprendizaje personalizado, tutores de IA, aprendizaje permanente, microaprendizaje, competencias del futuro, adaptive learning.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t5')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">5</span>
+<span class="text-neutral-300 text-sm font-medium">🌐 Economía digital - Nuevos modelos de negocio</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t5">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Nuevos modelos de negocio y oportunidades económicas creados por la IA, incluidas plataformas, marketplaces de IA y economía creativa potenciada.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> La IA está creando nuevos mercados y destruyendo modelos tradicionales. Entender esta dinámica es vital para emprendedores y profesionales.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> AI-as-a-Service, economía de plataformas, creator economy, monetización con IA, startups de IA, venture capital.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t6')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">6</span>
+<span class="text-neutral-300 text-sm font-medium">🧬 Convergencia tecnológica - IA, biotecnología, computación cuántica y más</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t6">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Intersección de la IA con otras tecnologías emergentes, como la biotecnología, la computación cuántica, la robótica y la realidad extendida, que crea innovaciones sin precedentes.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Las mayores revoluciones surgirán de la convergencia de tecnologías. Quienes entiendan estas intersecciones estarán a la vanguardia de la innovación.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Computación cuántica + IA, biotecnología + IA, robótica avanzada, XR, nanotecnología, Internet de las Cosas, convergencia tecnológica.</p>
+</div>
+</div>
+<div class="mt-6 sm:hidden">
+<a class="inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-3.html">
+            Acceder al módulo →
+          </a>
+</div>
+</div>
+</div>
+<!-- MODULE 3.4 -->
+<div class="bg-dark-800 rounded-2xl border border-dark-600 overflow-hidden">
+<div class="p-6 sm:p-8">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-3">MÓDULO 3.4</span>
+<h2 class="text-2xl font-bold text-neutral-100 mb-2">📋 Guía práctica de implementación</h2>
+<p class="text-neutral-400 text-sm">~25 min</p>
+</div>
+<a class="hidden sm:inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-4.html">
+            Acceder →
+          </a>
+</div>
+<p class="text-neutral-300 mb-6">Herramientas, plantillas, listas de verificación y un plan de 90 días para iniciar tu transformación personal y profesional con IA.</p>
+<div class="space-y-2">
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t1')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">1</span>
+<span class="text-neutral-300 text-sm font-medium">✅ Lista de verificación inicial - Primeros pasos con IA</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t1">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Lista estructurada de acciones iniciales para quienes quieren empezar a usar la IA de forma estratégica, ya sea como profesionales individuales o como organización.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Tener una lista de verificación clara elimina la parálisis por análisis y garantiza que los primeros pasos se den de manera organizada y eficaz.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Diagnóstico inicial, mapeo de oportunidades, priorización, quick wins, plan de acción, hitos iniciales.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t2')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">2</span>
+<span class="text-neutral-300 text-sm font-medium">🛠️ Herramientas esenciales - Kit básico del profesional de IA</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t2">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Selección de las principales herramientas de IA disponibles en el mercado, organizadas por categoría de uso y nivel de complejidad.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Con cientos de herramientas de IA disponibles, saber elegir las adecuadas ahorra tiempo y dinero, y aumenta la productividad de inmediato.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> ChatGPT, Claude, Midjourney, herramientas de automatización, IA no-code, stack de productividad.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t3')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">3</span>
+<span class="text-neutral-300 text-sm font-medium">📄 Plantillas y frameworks - Modelos listos para usar</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t3">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Modelos, plantillas y frameworks listos para usar en proyectos de IA, desde prompts estructurados hasta planes de proyecto completos.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Las plantillas agilizan la ejecución y reducen los errores. Contar con modelos probados y validados te da una ventaja inmediata en la implementación.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Plantillas de prompts, canvas de proyecto de IA, marco de evaluación, modelo de caso de negocio, plan de comunicación.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t4')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">4</span>
+<span class="text-neutral-300 text-sm font-medium">🎯 Plan de 90 días - Hoja de ruta de transformación personal</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t4">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Guion detallado de 90 días para la transformación personal y profesional con IA, con metas semanales, acciones prácticas e hitos de progreso.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> Un plan estructurado de 90 días transforma las intenciones en hábitos concretos y resultados medibles.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Metas SMART, hábitos diarios, hitos de 30/60/90 días, métricas personales, autoevaluación, iteración.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t5')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">5</span>
+<span class="text-neutral-300 text-sm font-medium">🤝 Comunidad y networking - Dónde aprender y conectar</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t5">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Mapa de comunidades, eventos, conferencias y plataformas para seguir aprendiendo y construir una red de contactos en IA.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> El networking y las comunidades multiplican el aprendizaje. Las mejores oportunidades surgen de conexiones estratégicas.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Comunidades en línea, eventos de IA, encuentros, LinkedIn, mentoría, aprendizaje colaborativo, código abierto.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t6')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">6</span>
+<span class="text-neutral-300 text-sm font-medium">🚀 Próximos pasos - Continúa tu recorrido en IA</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t6">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Qué es:</strong> Orientación para seguir avanzando después del curso, con sugerencias de especializaciones, certificaciones y trayectorias profesionales en IA.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Por qué aprender:</strong> El aprendizaje sobre IA es continuo. Tener claros los próximos pasos evita el estancamiento y mantiene el impulso de crecimiento.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Conceptos clave:</strong> Especializaciones en IA, certificaciones, portafolio, proyectos prácticos, contribución open-source, carrera en IA.</p>
+</div>
+</div>
+<div class="mt-6 sm:hidden">
+<a class="inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-4.html">
+            Acceder al módulo →
+          </a>
+</div>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="border-t border-dark-600 py-8 mt-12">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-500 text-sm">ATIA - Oportunidades Digitales con IA</p>
+<p class="text-neutral-500 text-xs mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</p>
+</div>
+</footer>
+<!-- SCRIPTS -->
+<script>
+    function toggleTopic(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.toggle('active');
+      }
+    }
+
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function updateIcons() {
+      if (document.documentElement.classList.contains('dark')) {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        darkIcon.classList.remove('hidden');
+        lightIcon.classList.add('hidden');
+      }
+    }
+
+    updateIcons();
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      updateIcons();
+    });
+  </script>
+</body>
+</html>

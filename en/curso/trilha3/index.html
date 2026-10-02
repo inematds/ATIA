@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Track 3 - AI Strategy and Future | ATIA</title>
+<meta content="ATIA Strategic Track - Ethics, governance, strategic implementation, and the future of work with AI." name="description"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+    html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+<link href="https://inematds.github.io/ATIA/curso/trilha3/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/curso/trilha3/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/curso/trilha3/" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha3/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/curso/trilha3/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<!-- NAVIGATION -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🎓</span>
+<span class="font-bold text-lg hidden sm:inline">ATIA</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Application</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Strategic</span>
+</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- HEADER -->
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-16 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<span class="inline-block px-4 py-1.5 bg-purple-500/20 text-purple-400 text-sm font-semibold rounded-full mb-6">TRACK 3</span>
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+        👑 Strategy and the Future of <span class="text-purple-400">AI</span>
+</h1>
+<p class="text-lg text-neutral-400 max-w-3xl mx-auto mb-8">
+        Master ethics, governance, and strategic implementation, and prepare for the future of work with artificial intelligence.
+      </p>
+<div class="flex flex-wrap justify-center gap-4 text-sm">
+<span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full font-medium">📚 4 Modules</span>
+<span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full font-medium">📝 24 Topics</span>
+<span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full font-medium">⏱️ ~4h</span>
+<span class="px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full font-medium">🎯 Advanced</span>
+</div>
+</div>
+</header>
+<!-- MODULES -->
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+<!-- MODULE 3.1 -->
+<div class="bg-dark-800 rounded-2xl border border-dark-600 overflow-hidden">
+<div class="p-6 sm:p-8">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-3">MODULE 3.1</span>
+<h2 class="text-2xl font-bold text-neutral-100 mb-2">⚖️ Ethics, Governance, and Accountability</h2>
+<p class="text-neutral-400 text-sm">~30 min</p>
+</div>
+<a class="hidden sm:inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-1.html">
+            Access →
+          </a>
+</div>
+<p class="text-neutral-300 mb-6">Navigate AI's ethical challenges, understand global regulations and data privacy, and learn how to implement responsible AI in practice.</p>
+<div class="space-y-2">
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t1')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">1</span>
+<span class="text-neutral-300 text-sm font-medium">🤔 Ethical Dilemmas of AI - Bias, Fairness, and Transparency</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t1">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Moral and ethical challenges that arise from developing and using AI systems, including issues of algorithmic bias, fairness in automated decisions, and transparency about how AI works.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> AI decisions affect real lives in credit, healthcare, and justice. Understanding ethical dilemmas is essential to prevent harm and build trustworthy systems.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Algorithmic bias, fairness, transparency, explainability, trust in AI, accountability.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t2')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">2</span>
+<span class="text-neutral-300 text-sm font-medium">📜 Global Regulation - EU AI Act and Brazilian Legislation</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t2">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> An overview of AI laws and regulations around the world, highlighting Europe's EU AI Act and Brazil's developing regulatory framework.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Regulation is advancing rapidly, and companies that fail to comply will face heavy fines and market barriers.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> EU AI Act, risk classification, LGPD, Brazilian regulatory framework, compliance, regulatory sandbox.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t3')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">3</span>
+<span class="text-neutral-300 text-sm font-medium">🛡️ Privacy and Data Protection - LGPD and AI</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t3">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> How AI systems collect, process, and use personal data, and what rights citizens and obligations companies have under the LGPD and similar laws.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Data is the fuel for AI, and protecting privacy is both a legal obligation and a competitive advantage.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> LGPD, personal data, consent, anonymization, privacy by design, DPO, impact assessment.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t4')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">4</span>
+<span class="text-neutral-300 text-sm font-medium">🏛️ Corporate AI Governance - Frameworks and Policies</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t4">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Organizational structures, committees, and internal policies that ensure the responsible and strategic use of AI within companies.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Without clear governance, AI projects fail or create significant reputational and legal risks.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Ethics committee, AI use policy, impact assessment, internal audit, risk management, accountability.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t5')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">5</span>
+<span class="text-neutral-300 text-sm font-medium">🎯 Responsible AI in Practice - Implementing Ethical Principles</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t5">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Practical methodologies and tools for translating ethical principles into concrete actions in the development and deployment of AI systems.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Ethical principles without practical implementation are just theory. The market values professionals who know how to put AI ethics into practice.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Ethics by design, ethics checklists, fairness testing, bias monitoring, model documentation, model cards.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m31-t6')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">6</span>
+<span class="text-neutral-300 text-sm font-medium">🌍 Social Impact - Inequality, Employment, and Sustainability</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m31-t6">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Analysis of AI’s broad social impacts, including effects on the job market, economic inequality, access to technology, and environmental sustainability.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> AI is reshaping society, and understanding its social impacts is essential to leading this transformation responsibly.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Digital divide, automation and employment, universal basic income, AI’s carbon footprint, AI for social good, digital inclusion.</p>
+</div>
+</div>
+<div class="mt-6 sm:hidden">
+<a class="inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-1.html">
+            Access Module →
+          </a>
+</div>
+</div>
+</div>
+<!-- MODULE 3.2 -->
+<div class="bg-dark-800 rounded-2xl border border-dark-600 overflow-hidden">
+<div class="p-6 sm:p-8">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-3">MODULE 3.2</span>
+<h2 class="text-2xl font-bold text-neutral-100 mb-2">🏗️ Strategic AI Implementation</h2>
+<p class="text-neutral-400 text-sm">~35 min</p>
+</div>
+<a class="hidden sm:inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-2.html">
+            Access →
+          </a>
+</div>
+<p class="text-neutral-300 mb-6">From diagnosis to scale: learn to create roadmaps, prepare organizational culture, build teams, and measure the ROI of AI projects.</p>
+<div class="space-y-2">
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t1')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">1</span>
+<span class="text-neutral-300 text-sm font-medium">🗺️ Implementation Roadmap - From Diagnosis to Scale</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t1">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> A structured, phased plan for implementing AI in an organization, from the initial maturity assessment through scaling in production.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> 85% of AI projects fail without a clear roadmap. A well-structured plan is the difference between success and wasted resources.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Maturity assessment, POC, MVP, pilot, scale, implementation phases, milestones, and deliverables.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t2')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">2</span>
+<span class="text-neutral-300 text-sm font-medium">🏢 Organizational Culture - Preparing the Company for AI</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t2">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> The cultural transformation needed for an organization to adopt AI effectively, including a data-driven mindset, experimentation, and change management.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Technology alone doesn’t transform companies — culture is the number one factor in the success or failure of AI adoption.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Change management, data-driven culture, experimentation, digital leadership, resistance to change, internal communications.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t3')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">3</span>
+<span class="text-neutral-300 text-sm font-medium">👥 Talent Management - AI Teams and Upskilling</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t3">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Strategies for building, developing, and retaining teams with AI skills, as well as training programs for existing employees.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> The AI talent shortage is global. Knowing how to develop and attract qualified professionals is a critical competitive advantage.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Upskilling, reskilling, multidisciplinary teams, data literacy, development paths, talent retention.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t4')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">4</span>
+<span class="text-neutral-300 text-sm font-medium">💰 Business Case - ROI and Success Metrics</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t4">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> How to build a solid business case for AI projects by defining return-on-investment metrics and measurable success criteria.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Without a convincing business case, AI projects don't receive funding. Knowing how to demonstrate value is essential for any leader.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> ROI, TCO, payback, value metrics, cost reduction, revenue growth, operational efficiency.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t5')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">5</span>
+<span class="text-neutral-300 text-sm font-medium">⚙️ Technical Infrastructure - Cloud, data, and tools</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t5">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Infrastructure requirements for AI projects, including cloud platforms, data pipelines, development environments, and MLOps tools.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> The right infrastructure is the foundation of any AI project. Poor choices lead to excessive costs and technical bottlenecks.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Cloud computing, data lake, data warehouse, MLOps, GPU/TPU, APIs, production environments.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m32-t6')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">6</span>
+<span class="text-neutral-300 text-sm font-medium">📊 KPIs and Monitoring - Measuring AI's Impact</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m32-t6">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Defining and tracking key performance indicators for AI projects, including technical, business, and impact metrics.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> What isn't measured can't be managed. Well-defined KPIs ensure AI projects deliver real value.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> AI KPIs, dashboards, model monitoring, drift detection, business metrics, A/B testing.</p>
+</div>
+</div>
+<div class="mt-6 sm:hidden">
+<a class="inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-2.html">
+            Access Module →
+          </a>
+</div>
+</div>
+</div>
+<!-- MODULE 3.3 -->
+<div class="bg-dark-800 rounded-2xl border border-dark-600 overflow-hidden">
+<div class="p-6 sm:p-8">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-3">MODULE 3.3</span>
+<h2 class="text-2xl font-bold text-neutral-100 mb-2">🔮 The Future of Work and Society</h2>
+<p class="text-neutral-400 text-sm">~30 min</p>
+</div>
+<a class="hidden sm:inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-3.html">
+            Access →
+          </a>
+</div>
+<p class="text-neutral-300 mb-6">Explore the trends that will shape the future: AGI, remote work with AI, the future of education, the digital economy, and technological convergence.</p>
+<div class="space-y-2">
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t1')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">1</span>
+<span class="text-neutral-300 text-sm font-medium">🌊 Trends 2025-2030 - What Lies Ahead</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t1">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Key technology and market trends in AI for the coming years, including autonomous agents, multimodal AI, and the democratization of technology.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Anticipating trends allows professionals and businesses to position themselves strategically and capture opportunities before the competition.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> AI agents, multimodal AI, small language models, edge AI, generative AI, democratization.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t2')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">2</span>
+<span class="text-neutral-300 text-sm font-medium">🤖 AGI and Superintelligence - Horizons of AI</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t2">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Discussion of Artificial General Intelligence (AGI) and superintelligence, their potential impacts on humanity, and debates about safety and alignment.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Understanding the horizons of AI is essential for making long-term strategic decisions and taking part in critical debates about the future.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> AGI, superintelligence, AI safety, alignment, existential risks, technological singularity.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t3')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">3</span>
+<span class="text-neutral-300 text-sm font-medium">🏠 Remote Work and AI - The New Professional Reality</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t3">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> How AI is transforming remote and hybrid work, with intelligent collaboration tools, virtual assistants, and new professional dynamics.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Remote work enhanced by AI is increasingly common. Mastering these tools is essential for productivity and competitiveness.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Hybrid work, collaboration tools, AI assistants, remote productivity, asynchronous management, digital workplace.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t4')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">4</span>
+<span class="text-neutral-300 text-sm font-medium">🎓 Education of the Future - Continuous Learning with AI</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t4">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> The transformation of education and learning through AI, with personalization, intelligent tutors, and new pedagogical approaches.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Continuous education is essential in the age of AI. Those who know how to learn with AI will have a lasting competitive advantage.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Personalized learning, AI tutors, lifelong learning, microlearning, future skills, adaptive learning.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t5')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">5</span>
+<span class="text-neutral-300 text-sm font-medium">🌐 Digital Economy - New Business Models</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t5">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> New business models and economic opportunities created by AI, including AI platforms, marketplaces, and an AI-powered creative economy.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> AI is creating new markets and disrupting traditional business models. Understanding this dynamic is vital for entrepreneurs and professionals.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> AI-as-a-Service, platform economy, creator economy, AI monetization, AI startups, venture capital.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m33-t6')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">6</span>
+<span class="text-neutral-300 text-sm font-medium">🧬 Technological Convergence - AI, Biotech, Quantum, and Beyond</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m33-t6">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> The intersection of AI with other emerging technologies such as biotechnology, quantum computing, robotics, and extended reality, creating unprecedented innovations.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> The biggest revolutions will come from the convergence of technologies. Those who understand these intersections will be at the forefront of innovation.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Quantum computing + AI, biotech + AI, advanced robotics, XR, nanotechnology, Internet of Things, technological convergence.</p>
+</div>
+</div>
+<div class="mt-6 sm:hidden">
+<a class="inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-3.html">
+            Access Module →
+          </a>
+</div>
+</div>
+</div>
+<!-- MODULE 3.4 -->
+<div class="bg-dark-800 rounded-2xl border border-dark-600 overflow-hidden">
+<div class="p-6 sm:p-8">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-3">MODULE 3.4</span>
+<h2 class="text-2xl font-bold text-neutral-100 mb-2">📋 Practical Implementation Guide</h2>
+<p class="text-neutral-400 text-sm">~25 min</p>
+</div>
+<a class="hidden sm:inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-4.html">
+            Access →
+          </a>
+</div>
+<p class="text-neutral-300 mb-6">Tools, templates, checklists, and a 90-day plan to begin your personal and professional transformation with AI.</p>
+<div class="space-y-2">
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t1')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">1</span>
+<span class="text-neutral-300 text-sm font-medium">✅ Getting Started Checklist - First steps with AI</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t1">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Structured list of initial actions for anyone who wants to start using AI strategically, either as an individual professional or as an organization.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Having a clear checklist eliminates analysis paralysis and ensures that the first steps are taken in an organized and effective way.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Initial assessment, opportunity mapping, prioritization, quick wins, action plan, initial milestones.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t2')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">2</span>
+<span class="text-neutral-300 text-sm font-medium">🛠️ Essential Tools - The Basic AI Professional Toolkit</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t2">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> A curated selection of the leading AI tools available on the market, organized by use category and complexity level.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> With hundreds of AI tools available, knowing how to choose the right ones saves time and money and immediately boosts productivity.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> ChatGPT, Claude, Midjourney, automation tools, no-code AI, productivity stack.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t3')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">3</span>
+<span class="text-neutral-300 text-sm font-medium">📄 Templates and Frameworks - Ready-to-Use Templates</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t3">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Ready-to-use models, templates, and frameworks for AI projects, from structured prompts to complete project plans.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Templates speed up execution and reduce errors. Having tested and validated models gives you an immediate advantage in implementation.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Prompt templates, AI project canvas, evaluation framework, business case template, communication plan.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t4')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">4</span>
+<span class="text-neutral-300 text-sm font-medium">🎯 90-Day Plan - Personal Transformation Roadmap</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t4">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> A detailed 90-day roadmap for personal and professional transformation with AI, with weekly goals, practical actions, and progress milestones.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> A structured 90-day plan turns intentions into concrete habits and measurable results.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> SMART goals, daily habits, 30/60/90-day milestones, personal metrics, self-assessment, iteration.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t5')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">5</span>
+<span class="text-neutral-300 text-sm font-medium">🤝 Community and Networking - Where to Learn and Connect</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t5">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Map of communities, events, conferences, and platforms for continuing to learn and building a network of contacts in AI.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Networking and community multiply what you learn. The best opportunities come from strategic connections.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> Online communities, AI events, meetups, LinkedIn, mentorship, collaborative learning, open source.</p>
+</div>
+<button class="flex items-center space-x-3 w-full text-left px-3 py-2 rounded-lg hover:bg-dark-700 transition-colors" onclick="toggleTopic('m34-t6')">
+<span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-purple-500/20 text-purple-400 text-sm font-bold">6</span>
+<span class="text-neutral-300 text-sm font-medium">🚀 Next Steps - Continuing Your AI Journey</span>
+</button>
+<div class="topic-explanation ml-11 p-4 bg-dark-700 rounded-lg border-l-4 border-purple-500/30" id="m34-t6">
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">What it is:</strong> Guidance for continuing to grow after the course, with suggestions for specializations, certifications, and AI career paths.</p>
+<p class="text-sm text-neutral-300 mb-1.5"><strong class="text-purple-400">Why learn:</strong> Learning about AI is ongoing. Knowing what steps to take next prevents stagnation and keeps your growth momentum going.</p>
+<p class="text-sm text-neutral-300"><strong class="text-purple-400">Key concepts:</strong> AI specializations, certifications, portfolio, hands-on projects, open-source contributions, AI career.</p>
+</div>
+</div>
+<div class="mt-6 sm:hidden">
+<a class="inline-flex px-4 py-2 bg-purple-500/20 text-purple-400 rounded-lg text-sm font-semibold hover:bg-purple-500/30 transition-colors" href="modulo-3-4.html">
+            Access Module →
+          </a>
+</div>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="border-t border-dark-600 py-8 mt-12">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<p class="text-neutral-500 text-sm">ATIA - Digital Opportunities with AI</p>
+<p class="text-neutral-500 text-xs mt-2">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</p>
+</div>
+</footer>
+<!-- SCRIPTS -->
+<script>
+    function toggleTopic(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.classList.toggle('active');
+      }
+    }
+
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const darkIcon = document.getElementById('theme-toggle-dark-icon');
+    const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+    function updateIcons() {
+      if (document.documentElement.classList.contains('dark')) {
+        lightIcon.classList.remove('hidden');
+        darkIcon.classList.add('hidden');
+      } else {
+        darkIcon.classList.remove('hidden');
+        lightIcon.classList.add('hidden');
+      }
+    }
+
+    updateIcons();
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      updateIcons();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Track 1 - AI Fundamentals. Learn the fundamentals of artificial intelligence, prompt engineering, and process automation." name="description"/>
+<title>Track 1 - Fundamentals | ATIA</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FACC15',
+                        'dark-900': '#111827',
+                        'dark-800': '#1f2937',
+                        'dark-700': '#374151',
+                        'dark-600': '#4b5563',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .dark body { background-color: #111827; }
+        .topic-explanation { display: none; }
+        .topic-explanation.active { display: block; }
+        html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    </style>
+<link href="https://inematds.github.io/ATIA/curso/trilha1/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/curso/trilha1/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/curso/trilha1/" hreflang="es" rel="alternate"/></head>
+<body class="antialiased"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha1/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="./" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/curso/trilha1/" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🎓</span>
+<span class="font-bold text-lg hidden sm:inline">ATIA</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Application</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Strategic</span>
+</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Header -->
+<section class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-transparent"></div>
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="mb-4">
+<span class="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/20 border border-emerald-500/30 rounded-full">Track 1</span>
+</div>
+<h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-4">🌱 AI Fundamentals</h1>
+<p class="text-lg text-neutral-300 max-w-3xl mb-8">
+                Build a solid foundation in artificial intelligence. Understand the current landscape, master prompt engineering, and learn about context and automation to transform your career and projects.
+            </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">5</div>
+<div class="text-xs text-neutral-400 mt-1">Modules</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">30</div>
+<div class="text-xs text-neutral-400 mt-1">Topics</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">~6h</div>
+<div class="text-xs text-neutral-400 mt-1">Duration</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">Basic</div>
+<div class="text-xs text-neutral-400 mt-1">Level</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Module Cards -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+<!-- Module 1.1 -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<span class="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full">1.1</span>
+<span class="text-xs text-neutral-500">~30 min</span>
+</div>
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">🌊 The AI Tsunami</h2>
+<div class="space-y-3">
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">1</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🤖 Large Language Models <span class="text-neutral-500 text-sm">— How AI processes language</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Large language models (LLMs) are neural networks trained on vast text datasets to understand, generate, and manipulate human language. Examples include GPT, Claude, LLaMA, and Gemini.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">LLMs are the foundation of the current generative AI revolution. Understanding how they work helps you use these tools more efficiently and identify real opportunities to apply them in your work.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Tokens and tokenization, context window, pre-training and fine-tuning, attention mechanism (Transformers), inference and temperature.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">2</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📈 Exponential Growth <span class="text-neutral-500 text-sm">— The rapid pace of change</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Exponential growth describes the pace of AI's progress—significantly more capable models emerge every 6-12 months, costs fall, and access increases.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Understanding the exponential nature of change prevents surprises. Those who underestimate how quickly things change fall behind. Those who understand it can position themselves strategically.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Moore's Law applied to AI, scaling laws, benchmark improvements, model commoditization, adoption speed compared with previous technologies.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">3</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📜 History of AI <span class="text-neutral-500 text-sm">— From the early days to generative models</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">The history of AI begins in the 1950s with Alan Turing and the Turing Test, passes through winters and revivals, and reaches the era of Transformers (2017) and today’s generative AI.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Knowing the history helps you understand how we got to this point and avoid repeating past mistakes. It also provides context for evaluating the technology's promises and limitations.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Turing test, AI winters, classical machine learning, deep learning, Transformers, GPT and the generative era, historical milestones (AlphaGo, ChatGPT).</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">4</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🌐 Technological Convergence <span class="text-neutral-500 text-sm">— Why things are different now</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Technological convergence refers to the simultaneous combination of advances in AI, cloud computing, big data, IoT, and connectivity, which together create an unprecedented landscape for transformation.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">AI doesn’t exist in isolation. Understanding the converging forces helps you identify innovation opportunities where technologies intersect.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Cloud computing, big data, APIs, 5G and connectivity, platform economy, digital ecosystems, network effects.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">5</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🏭 Sectoral Impacts <span class="text-neutral-500 text-sm">— Finance, healthcare, education, and more</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">AI is transforming nearly every sector of the economy. Finance uses AI for fraud detection, healthcare for diagnostic imaging, education for personalized learning, and so on.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Regardless of your field, AI will have a direct impact. Understanding sector-specific impacts helps you anticipate changes and prepare professionally.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">FinTech and AI, HealthTech, EdTech, AgriTech, LegalTech, industrial automation, smart logistics, predictive marketing.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">6</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🏄 Riding the Tsunami <span class="text-neutral-500 text-sm">— Preparing for change</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Practical strategies for positioning yourself advantageously in the face of the AI wave: adopt a continuous learning mindset, experiment with tools, and build real projects.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Knowing change is coming isn't enough—you need to act. This topic turns knowledge into concrete action for your career.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Growth mindset, continuous learning, project portfolio, networking in AI, practical first steps, an experimental mindset.</span></div>
+</div>
+</div>
+</div>
+<div class="flex justify-start gap-3 mt-6">
+<button class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" onclick="openModal('modal-1-1')">View in Modal</button>
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-1.html">View Full</a>
+</div>
+</div>
+<!-- Module 1.2 -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<span class="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full">1.2</span>
+<span class="text-xs text-neutral-500">~35 min</span>
+</div>
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">💼 Digital Transformation and the Job Market</h2>
+<div class="space-y-3">
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">1</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🔄 Fourth Industrial Revolution <span class="text-neutral-500 text-sm">— The fusion of emerging technologies</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">The Fourth Industrial Revolution (Industry 4.0) is the fusion of physical, digital, and biological technologies—AI, robotics, IoT, biotechnology, and quantum computing are converging to transform every aspect of society.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">We are living through this revolution now. Unlike previous ones, it is advancing exponentially and affecting every profession at the same time.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Industry 4.0 (Klaus Schwab), physical-digital convergence, cyber-physical systems, technological disruption, speed vs. breadth of impact.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">2</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📊 The Great Restructuring <span class="text-neutral-500 text-sm">— 9M eliminated, 11M created</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">According to the World Economic Forum, by 2027, 9 million jobs will be eliminated by automation, while 11 million new positions will be created—resulting in a net gain but requiring massive reskilling.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Knowing which jobs are at risk and which are emerging lets you plan your career strategically and invest in the right skills.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Future of Jobs Report (WEF), reskilling and upskilling, jobs at risk, emerging jobs, career transition, skills gap.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">3</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🎯 70% Skills Shift <span class="text-neutral-500 text-sm">— What changes by 2030</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Research indicates that 70% of the skills required in the job market will change significantly by 2030. Technical skills will have increasingly shorter lifespans, while human skills will become more important.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Investing in the right skills is the best protection against professional obsolescence. Understanding this dynamic is essential for any career plan.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Half-life of skills, hard skills vs. soft skills, critical thinking, creativity, emotional intelligence, adaptability, digital literacy.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">4</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🏢 Most Affected Sectors <span class="text-neutral-500 text-sm">— Finance, manufacturing, healthcare</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Some sectors are being transformed more rapidly: finance (algorithmic trading, risk analysis), manufacturing (robotics and predictive maintenance), healthcare (AI-assisted diagnosis), and services (automated customer support).</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">If you work in one of these sectors, the need to adapt is even more urgent. If not, understanding these cases can help you anticipate what’s coming to your field.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Financial automation, Industry 4.0 in manufacturing, AI in medical diagnosis, chatbots and customer service, retail transformation, impact on the legal sector.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">5</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🧠 T-Shaped Skills <span class="text-neutral-500 text-sm">— Depth + breadth</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">The T-shaped model describes professionals with depth in one area of expertise (the vertical bar of the T) and breadth of knowledge in complementary areas (the horizontal bar), including AI.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">In today's market, being only a specialist or only a generalist isn't enough. The T-shaped + AI model is the formula for becoming indispensable.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">T-shaped professional, Pi-shaped professional, specialization vs. generalization, unique combination of skills, AI as a multiplier of skills.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">6</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📚 AI Literacy <span class="text-neutral-500 text-sm">— The new essential skill</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">AI literacy is the ability to understand, use, and critically evaluate AI tools. It doesn't mean knowing how to code, but knowing how to interact effectively with intelligent systems.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Just as digital literacy was essential in the 2000s, AI literacy is the defining skill of this decade. Those who do not develop it will be at a significant disadvantage.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">AI Literacy, advanced digital literacy, critical use of AI, algorithmic bias, AI ethics, digital citizenship in the age of AI.</span></div>
+</div>
+</div>
+</div>
+<div class="flex justify-start gap-3 mt-6">
+<button class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" onclick="openModal('modal-1-2')">View in Modal</button>
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-2.html">View Full</a>
+</div>
+</div>
+<!-- Module 1.3 -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<span class="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full">1.3</span>
+<span class="text-xs text-neutral-500">~40 min</span>
+</div>
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">💬 Prompt Engineering</h2>
+<div class="space-y-3">
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">1</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🎯 Progressive Specificity <span class="text-neutral-500 text-sm">— From vague to precise</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">A prompt-building technique that starts with general instructions and progressively refines them until they reach the level of detail needed to get precise responses from AI.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Most users get mediocre results because they ask vague questions. Mastering progressive specificity dramatically improves the quality of AI responses.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Context, persona, output format, constraints, examples, tone and style, prompt iteration, progressive refinement.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">2</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🎭 Role-Playing <span class="text-neutral-500 text-sm">— Activating AI expertise</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">A technique that assigns a role or persona to AI—such as "You are a digital marketing expert with 20 years of experience"—activating more specific and relevant knowledge patterns.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Role-playing is one of the most powerful and simple prompt engineering techniques. It significantly improves the quality, depth, and relevance of responses.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">System prompts, personas, simulated expertise, professional tone, multiple perspectives, simulated debate among experts.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">3</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🔗 Chain-of-Thought <span class="text-neutral-500 text-sm">— Step-by-step reasoning</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Chain-of-Thought (CoT) is a technique that asks AI to “think step by step,” spelling out its reasoning before reaching a conclusion. This significantly improves accuracy on complex tasks.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">For problems involving logic, math, analysis, or complex decisions, CoT can be the difference between a wrong answer and a correct one.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Explicit reasoning, zero-shot CoT, few-shot CoT, Tree-of-Thought, reasoning verification, logical decomposition.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">4</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📋 Few-Shot Learning <span class="text-neutral-500 text-sm">— Learning from examples</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Few-Shot Learning is the technique of providing examples within the prompt so the AI understands exactly the desired input and output pattern, with no additional training required.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">When you need specific formats, consistent styles, or complex response patterns, few-shot is the most reliable technique for getting consistent results.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Zero-shot, one-shot, few-shot, positive and negative examples, example-based formatting, output consistency, reusable templates.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">5</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">✂️ Task Decomposition <span class="text-neutral-500 text-sm">— Breaking down complex problems</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">A technique that breaks complex problems into smaller, manageable subtasks, each solved separately by AI, with the results combined at the end.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">LLMs have limitations with very complex tasks in a single prompt. Breaking tasks down improves quality and makes it possible to solve problems that seemed impossible.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Divide and conquer, sub-prompts, prompt pipelines, orchestration, sequencing, intermediate validation.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">6</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">⚙️ Tools and Platforms <span class="text-neutral-500 text-sm">— ChatGPT, Claude, and more</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">An overview of the main generative AI platforms available: ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google), Copilot (Microsoft), and specialized tools for images, video, and audio.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Each platform has different strengths and weaknesses. Knowing how to choose the right tool for each task multiplies your productivity and the quality of your results.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">ChatGPT vs. Claude vs. Gemini, open-source models, APIs, playgrounds, costs and limits, multimodal tools (DALL-E, Midjourney, Suno).</span></div>
+</div>
+</div>
+</div>
+<div class="flex justify-start gap-3 mt-6">
+<button class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" onclick="openModal('modal-1-3')">View in Modal</button>
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-3.html">View Full</a>
+</div>
+</div>
+<!-- Module 1.4 -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<span class="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full">1.4</span>
+<span class="text-xs text-neutral-500">~35 min</span>
+</div>
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">🧩 Context Engineering</h2>
+<div class="space-y-3">
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">1</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🏗️ Contextual Architecture <span class="text-neutral-500 text-sm">— The 4 pillars of context engineering</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Context engineering is the discipline of structuring and providing relevant information to AI in an optimized way. Its 4 pillars are: context selection, compression, ordering, and dynamic updating.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">The quality of an AI’s response depends directly on the quality of the context you provide. Context engineering is the next level beyond prompt engineering.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Context window, contextual relevance, information compression, context window management, meta-prompting, system instructions.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">2</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🔍 RAG <span class="text-neutral-500 text-sm">— Retrieval-Augmented Generation</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">RAG is an architecture that combines searches across external databases with AI text generation, enabling answers grounded in current, specific data.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">RAG solves two of the biggest problems with LLMs: hallucinations and outdated knowledge. It's the most widely used technique in enterprise AI applications.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Retrieval, indexing, chunking, knowledge bases, vector databases, semantic search, grounding responses, hallucination reduction.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">3</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📐 Vector Embeddings <span class="text-neutral-500 text-sm">— Semantic search</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Embeddings are numerical representations (vectors) of text that capture semantic meaning. Texts with similar meanings are close together in vector space, enabling similarity searches.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Embeddings are the foundation of RAG systems, recommendation engines, and intelligent search. Understanding the concept is essential for building advanced AI applications.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Vectors, vector space, cosine similarity, embedding models, Pinecone, Weaviate, FAISS, semantic vs. lexical search.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">4</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🕸️ Knowledge Graphs <span class="text-neutral-500 text-sm">— Intelligent connections</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Knowledge graphs organize information as networks of entities and relationships, allowing AI to understand complex connections between concepts and make more sophisticated inferences.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">For applications that require reasoning about complex relationships (e.g., compliance, scientific research), knowledge graphs complement embeddings and significantly improve quality.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Nodes and edges, triples (subject-predicate-object), Neo4j, GraphRAG, ontologies, relational inference, Knowledge Graph + LLM.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">5</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">⚡ Function Calling <span class="text-neutral-500 text-sm">— AI that takes action</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Function Calling allows LLMs to invoke external functions — query APIs, access databases, perform calculations — transforming AI from a text generator into an agent that performs real actions.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Function Calling is the bridge between conversational AI and real automation. It is the foundation of autonomous agents and assistants that actually do things for you.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Tool use, function definition, structured parameters, APIs, webhooks, autonomous agents, tool orchestration.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">6</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🧠 Memory Systems <span class="text-neutral-500 text-sm">— Short-term, long-term, episodic</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Memory systems for AI replicate concepts from human memory: short-term (conversation context), long-term (persistent knowledge), and episodic (history of past interactions).</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Memory is what turns a simple chatbot into a truly useful assistant that knows you, your preferences, and your history over time.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Short-term memory (buffer), long-term memory (vector store), episodic memory, conversation summarization, user profiles, progressive personalization.</span></div>
+</div>
+</div>
+</div>
+<div class="flex justify-start gap-3 mt-6">
+<button class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" onclick="openModal('modal-1-4')">View in Modal</button>
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-4.html">View Full</a>
+</div>
+</div>
+<!-- Module 1.5 -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<span class="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full">1.5</span>
+<span class="text-xs text-neutral-500">~35 min</span>
+</div>
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">🤖 Process Automation</h2>
+<div class="space-y-3">
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">1</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🔧 Intelligent Automation <span class="text-neutral-500 text-sm">— Beyond rigid rules</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Intelligent automation combines traditional rule-based automation with artificial intelligence, enabling the automation of processes involving judgment, natural language interpretation, and decision-making.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Intelligent automation is the biggest productivity multiplier available today. It lets one person do the work of an entire team in certain tasks.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">RPA vs. intelligent automation, IPA (Intelligent Process Automation), automated decision-making, document processing, intelligent classification.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">2</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🔄 Process Mapping <span class="text-neutral-500 text-sm">— Identifying opportunities</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">A methodology for documenting and analyzing existing processes, identifying which steps are repetitive, time-consuming, or prone to errors—and therefore ideal candidates for automation.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Automating the wrong process wastes resources. Mapping ensures you automate what truly generates impact and returns.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Process mining, flowcharts, bottlenecks, cycle time, prioritization matrix, quick wins, complexity vs. impact.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">3</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🛠️ No-Code Tools <span class="text-neutral-500 text-sm">— Zapier, Make.com, n8n</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">No-code/low-code platforms that let you create visual automations by dragging and connecting blocks, with no programming required. They integrate hundreds of apps and services.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">No-code tools democratize automation. Any professional can automate their processes without relying on developers, saving hours each week.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Zapier (ease of use), Make.com (flexibility), n8n (open source), triggers and actions, webhooks, API integration, automation templates.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">4</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📊 RPA + AI <span class="text-neutral-500 text-sm">— Empowered robotic automation</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Combining RPA (Robotic Process Automation) with AI creates software robots that don’t just follow scripts, but also understand documents, make decisions, and learn over time.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">RPA + AI is one of the fastest-growing areas in enterprise technology. Professionals who master this combination are highly valued in the market.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">UiPath, Automation Anywhere, document understanding, intelligent OCR, process discovery, attended vs unattended bots, hyperautomation.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">5</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📈 Automation ROI <span class="text-neutral-500 text-sm">— Measuring results</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">Framework for calculating the return on investment of automation projects, considering implementation costs, time savings, error reduction, and scalability gains.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">To justify investments in automation (personal or business), you need to demonstrate concrete returns. Knowing how to measure ROI turns automation from a "hobby" into a strategy.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">TCO (Total Cost of Ownership), payback period, hours saved, error reduction, customer satisfaction, productivity metrics, business case.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">6</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🚀 Gradual Implementation <span class="text-neutral-500 text-sm">— From pilot to scale</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">What it is:</span> <span class="text-neutral-300">A phased implementation methodology: start with a small pilot project, validate results, make adjustments, and expand gradually, minimizing risks and maximizing learning.</span></div>
+<div><span class="text-emerald-400 font-semibold">Why learn:</span> <span class="text-neutral-300">Most automation projects fail because they try to do everything at once. Gradual implementation is the approach with the highest proven success rate.</span></div>
+<div><span class="text-emerald-400 font-semibold">Key concepts:</span> <span class="text-neutral-300">Automation MVP, pilot project, validation metrics, change management, scaling, center of excellence (CoE), automation governance.</span></div>
+</div>
+</div>
+</div>
+<div class="flex justify-start gap-3 mt-6">
+<button class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" onclick="openModal('modal-1-5')">View in Modal</button>
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-5.html">View Full</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="border-t border-dark-700 mt-12">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+<div class="flex items-center space-x-2 text-neutral-400 text-sm">
+<span>🎓</span>
+<span class="font-semibold">ATIA</span>
+<span>—</span>
+<span>Acceleration in Technology and Artificial Intelligence</span>
+</div>
+<div class="text-neutral-500 text-sm">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Modals -->
+<div class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4" id="modal-1-1">
+<div class="absolute inset-0 bg-black/70" onclick="closeModal()"></div>
+<div class="relative bg-dark-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-dark-600">
+<div class="flex justify-between items-center p-4 border-b border-dark-700">
+<h3 class="text-lg font-bold text-neutral-100">🌊 Module 1.1 — The AI Tsunami</h3>
+<button class="text-neutral-400 hover:text-neutral-100 text-2xl" onclick="closeModal()">×</button>
+</div>
+<iframe class="w-full h-[80vh]" src="modulo-1-1.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4" id="modal-1-2">
+<div class="absolute inset-0 bg-black/70" onclick="closeModal()"></div>
+<div class="relative bg-dark-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-dark-600">
+<div class="flex justify-between items-center p-4 border-b border-dark-700">
+<h3 class="text-lg font-bold text-neutral-100">💼 Module 1.2 — Digital Transformation and the Job Market</h3>
+<button class="text-neutral-400 hover:text-neutral-100 text-2xl" onclick="closeModal()">×</button>
+</div>
+<iframe class="w-full h-[80vh]" src="modulo-1-2.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4" id="modal-1-3">
+<div class="absolute inset-0 bg-black/70" onclick="closeModal()"></div>
+<div class="relative bg-dark-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-dark-600">
+<div class="flex justify-between items-center p-4 border-b border-dark-700">
+<h3 class="text-lg font-bold text-neutral-100">💬 Module 1.3 — Prompt Engineering</h3>
+<button class="text-neutral-400 hover:text-neutral-100 text-2xl" onclick="closeModal()">×</button>
+</div>
+<iframe class="w-full h-[80vh]" src="modulo-1-3.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4" id="modal-1-4">
+<div class="absolute inset-0 bg-black/70" onclick="closeModal()"></div>
+<div class="relative bg-dark-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-dark-600">
+<div class="flex justify-between items-center p-4 border-b border-dark-700">
+<h3 class="text-lg font-bold text-neutral-100">🧩 Module 1.4 — Context Engineering</h3>
+<button class="text-neutral-400 hover:text-neutral-100 text-2xl" onclick="closeModal()">×</button>
+</div>
+<iframe class="w-full h-[80vh]" src="modulo-1-4.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4" id="modal-1-5">
+<div class="absolute inset-0 bg-black/70" onclick="closeModal()"></div>
+<div class="relative bg-dark-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-dark-600">
+<div class="flex justify-between items-center p-4 border-b border-dark-700">
+<h3 class="text-lg font-bold text-neutral-100">🤖 Module 1.5 — Process Automation</h3>
+<button class="text-neutral-400 hover:text-neutral-100 text-2xl" onclick="closeModal()">×</button>
+</div>
+<iframe class="w-full h-[80vh]" src="modulo-1-5.html"></iframe>
+</div>
+</div>
+<script>
+        // Topic toggle
+        function toggleTopic(button) {
+            const topicItem = button.closest('.topic-item');
+            const explanation = topicItem.querySelector('.topic-explanation');
+            const moduleCard = button.closest('.bg-dark-800');
+            moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+                if (exp !== explanation) exp.classList.remove('active');
+            });
+            explanation.classList.toggle('active');
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const html = document.documentElement;
+        if (localStorage.getItem('theme') === 'light') {
+            themeToggleDarkIcon.classList.remove('hidden');
+            html.classList.remove('dark');
+        } else {
+            themeToggleLightIcon.classList.remove('hidden');
+        }
+        themeToggle.addEventListener('click', () => {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        }
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+</html>

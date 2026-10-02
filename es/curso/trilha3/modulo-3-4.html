@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Módulo 3.4 - Guía práctica de implementación | ATIA</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#FACC15', dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' } } } } }</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; } .dark body { background-color: #111827; }
+        html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; } html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; } html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; } html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; } html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; } html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    </style>
+<link href="https://inematds.github.io/ATIA/curso/trilha3/modulo-3-4.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/curso/trilha3/modulo-3-4.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/curso/trilha3/modulo-3-4.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha3/modulo-3-4.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha3/modulo-3-4.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="modulo-3-4.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex justify-between items-center h-14"><div class="flex items-center space-x-4"><a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html"><span class="text-2xl">🎓</span><span class="font-bold text-lg hidden sm:inline">ATIA</span></a><span class="text-neutral-600">|</span><a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a></div><div class="flex items-center space-x-1 sm:space-x-2"><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html"><span class="sm:hidden">T1</span><span class="hidden sm:inline">Fundamentos</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html"><span class="sm:hidden">T2</span><span class="hidden sm:inline">Aplicación</span></a><a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-purple-400 bg-purple-500/10" href="index.html"><span class="sm:hidden">T3</span><span class="hidden sm:inline">Estratégico</span></a><button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle"><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg></button></div></div></div></nav>
+<nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div class="flex items-center space-x-2 text-sm text-neutral-400"><a class="hover:text-purple-400" href="../../index.html">Inicio</a><span>/</span><a class="hover:text-purple-400" href="index.html">Ruta 3</a><span>/</span><span class="text-purple-400">Módulo 3.4</span></div></nav>
+<header class="bg-gradient-to-br from-purple-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full mb-4">MÓDULO 3.4</span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">📋 Guía práctica de implementación</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">Herramientas, plantillas, plan de 90 días y próximos pasos para poner en práctica de inmediato todo lo que aprendiste.</p>
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">6</div><div class="text-xs text-neutral-400">Temas</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">25</div><div class="text-xs text-neutral-400">Minutos</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Todos</div><div class="text-xs text-neutral-400">Nivel</div></div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600"><div class="text-xl font-bold text-purple-400">Práctica</div><div class="text-xs text-neutral-400">Tipo</div></div>
+</div>
+</div>
+</header>
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<section class="mb-16" id="topico-1">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">1</span><h2 class="text-2xl font-bold">✅ Lista de verificación inicial</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Antes de sumergirte en las herramientas, asegúrate de tener la <strong class="text-purple-400">base necesaria</strong> para empezar a implementar IA de forma eficaz.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">📋</span> Lista de verificación esencial</h3>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Crear una cuenta en ChatGPT y Claude (versiones gratuitas)</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Experimentar con 10 prompts distintos en el día a día</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Identificar 3 tareas repetitivas en tu trabajo</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Mapear 1 proceso completo para automatizarlo</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Crear una cuenta en una herramienta no-code (Zapier/Make)</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Configurar 1 automatización simple y funcional</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">□</span><span>Compartir aprendizajes con 1 colega</span></li>
+</ul>
+</div>
+</section>
+<section class="mb-16" id="topico-2">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">2</span><h2 class="text-2xl font-bold">🛠️ Kit de herramientas esenciales</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">El kit básico para cualquier profesional que quiera usar IA en su día a día. Todas con <strong class="text-purple-400">opciones gratuitas o pruebas</strong>.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🧰</span> Herramientas por categoría</h3>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>IA conversacional:</strong> ChatGPT, Claude, Gemini</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Imágenes:</strong> Midjourney, DALL-E, Ideogram</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Automatización:</strong> Zapier, Make.com, n8n</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Escritura:</strong> Jasper, Copy.ai, Writesonic</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Productividad:</strong> Notion AI, Otter.ai, Gamma</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Código:</strong> GitHub Copilot, Cursor, Claude Code</span></li>
+</ul>
+</div>
+</section>
+<section class="mb-16" id="topico-3">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">3</span><h2 class="text-2xl font-bold">📄 Plantillas y frameworks listos</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Plantillas probadas que puedes <strong class="text-purple-400">copiar y adaptar</strong> para tu contexto de inmediato.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">📝</span> Plantillas de prompts</h3>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Análisis SWOT:</strong> "Actúa como consultor estratégico. Haz un análisis SWOT de [empresa/proyecto] en el sector [X]..."</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Email frío:</strong> "Eres un SDR con experiencia. Crea un correo personalizado para [cargo] de [empresa] sobre [problema]..."</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Publicación de LinkedIn:</strong> "Crea una publicación profesional sobre [tema] con gancho, valor y CTA. Tono: [autoridad/casual]..."</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Resumen de reunión:</strong> "Analiza esta transcripción y extrae: decisiones, tareas pendientes, responsables y plazos..."</span></li>
+</ul>
+</div>
+<div class="bg-primary/10 rounded-xl border border-primary/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-primary mb-3"><span class="mr-2">💡</span> Consejo práctico</h3>
+<p class="text-neutral-300">Crea una «biblioteca de prompts» personal. Guarda tus mejores prompts en un documento organizado por categoría. Refínalos con el tiempo según los resultados.</p>
+</div>
+</section>
+<section class="mb-16" id="topico-4">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">4</span><h2 class="text-2xl font-bold">🎯 Plan de 90 días</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Una guía práctica para <strong class="text-purple-400">transformar tu trabajo con IA</strong> en tres meses.</p>
+<div class="space-y-6 mb-6">
+<div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">1-30</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Mes 1: Exploración</h4><p class="text-neutral-300 text-sm">Usa IA diariamente en al menos 3 tareas. Prueba distintas herramientas. Documenta lo que funciona. Enfoque: ganar fluidez.</p></div></div>
+<div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">31-60</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Mes 2: Automatización</h4><p class="text-neutral-300 text-sm">Automatiza 3-5 procesos con herramientas no-code. Integra la IA en los workflows existentes. Mide el ahorro de tiempo. Enfoque: productividad.</p></div></div>
+<div class="flex items-start space-x-4"><div class="flex-shrink-0 w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center"><span class="text-purple-400 font-bold text-sm">61-90</span></div><div class="flex-1 bg-dark-800 rounded-xl p-6 border border-dark-600"><h4 class="font-semibold text-white mb-2">Mes 3: Escala</h4><p class="text-neutral-300 text-sm">Compártelo con el equipo. Impleméntalo en proyectos más grandes. Documenta el ROI. Enfoque: impacto organizacional.</p></div></div>
+</div>
+</section>
+<section class="mb-16" id="topico-5">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">5</span><h2 class="text-2xl font-bold">🤝 Comunidad y networking</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">Aprender IA es un deporte colectivo. Conéctate con <strong class="text-purple-400">comunidades de práctica</strong> para intercambiar experiencias, descubrir herramientas y mantenerte al día.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🌐</span> Dónde conectar</h3>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>LinkedIn:</strong> Sigue a creadores de contenido sobre IA en Brasil</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>YouTube BR:</strong> Codigo Fonte TV, Filipe Deschamps, Asimov Academy</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Reddit:</strong> r/MachineLearning, r/artificial</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Discord:</strong> Comunidades de herramientas específicas</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">•</span><span><strong>Eventos:</strong> Meetups locales, conferencias en línea sobre IA</span></li>
+</ul>
+</div>
+</section>
+<section class="mb-16" id="topico-6">
+<div class="flex items-center space-x-4 mb-6"><span class="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500/20 text-purple-400 font-bold text-xl">6</span><h2 class="text-2xl font-bold">🚀 Próximos pasos</h2></div>
+<p class="text-neutral-300 mb-6 leading-relaxed">¡Completaste el curso ATIA! Ahora es hora de <strong class="text-purple-400">poner en práctica</strong>. La IA evoluciona rápido: el aprendizaje continuo es tu mayor ventaja competitiva.</p>
+<div class="bg-gradient-to-br from-purple-900/30 to-dark-800 rounded-xl border border-purple-500/30 p-6 mb-6">
+<h3 class="text-lg font-semibold text-purple-400 mb-4"><span class="mr-2">🎯</span> Acciones inmediatas</h3>
+<ul class="space-y-2 text-neutral-300">
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">1.</span><span>Elige 1 herramienta de IA y úsala todos los días durante 30 días</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">2.</span><span>Automatiza 1 proceso repetitivo esta semana</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">3.</span><span>Comparte lo que aprendiste con 3 personas</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">4.</span><span>Reserva 1 hora/semana para explorar nuevas herramientas</span></li>
+<li class="flex items-start space-x-2"><span class="text-purple-400 mt-1">5.</span><span>Documenta tus resultados y evolución</span></li>
+</ul>
+</div>
+</section>
+<!-- CONCLUSAO -->
+<section class="mb-12">
+<div class="bg-gradient-to-br from-primary/20 via-dark-800 to-dark-800 rounded-xl border border-primary/30 p-8">
+<h2 class="text-2xl font-bold mb-6 flex items-center"><span class="mr-3">🎓</span> ¡Felicidades! ¡Completaste el ATIA!</h2>
+<p class="text-neutral-300 mb-6 leading-relaxed">Recorriste las 3 rutas y dominaste los fundamentos, las aplicaciones y las estrategias de IA. Ahora tienes los conocimientos necesarios para prosperar en la era de la inteligencia artificial.</p>
+<div class="space-y-4 mb-8">
+<div class="flex items-start space-x-3"><span class="text-primary mt-1">✓</span><div><strong class="text-white">Ruta 1</strong><span class="text-neutral-400"> - Fundamentos: tsunami de la IA, Prompt Engineering, Context Engineering, automatización</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-primary mt-1">✓</span><div><strong class="text-white">Ruta 2</strong><span class="text-neutral-400"> - Aplicación: GPTs, nuevas profesiones, marketing, ventas, educación</span></div></div>
+<div class="flex items-start space-x-3"><span class="text-primary mt-1">✓</span><div><strong class="text-white">Ruta 3</strong><span class="text-neutral-400"> - Estratégico: ética, implementación, futuro del trabajo, guía práctica</span></div></div>
+</div>
+<p class="text-lg text-primary font-semibold mb-8">¡La revolución ya comenzó. ¡Ahora te toca surfearla! 🏄</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="index.html">← Volver a la ruta 3</a>
+<a class="flex-1 text-center px-6 py-3 bg-primary text-dark-900 rounded-lg font-semibold hover:bg-yellow-300 transition-colors" href="../../index.html">Volver al inicio 🎓</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="border-t border-dark-600 py-8 mt-16"><div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm"><p>ATIA - Oportunidades Digitales con IA - 2026</p></div></footer>
+<script>const themeToggle=document.getElementById('theme-toggle'),themeToggleDarkIcon=document.getElementById('theme-toggle-dark-icon'),themeToggleLightIcon=document.getElementById('theme-toggle-light-icon'),html=document.documentElement;if(localStorage.getItem('theme')==='light'){themeToggleDarkIcon.classList.remove('hidden');html.classList.remove('dark')}else{themeToggleLightIcon.classList.remove('hidden')}themeToggle.addEventListener('click',()=>{themeToggleDarkIcon.classList.toggle('hidden');themeToggleLightIcon.classList.toggle('hidden');html.classList.toggle('dark');localStorage.setItem('theme',html.classList.contains('dark')?'dark':'light')});</script>
+</body>
+</html>

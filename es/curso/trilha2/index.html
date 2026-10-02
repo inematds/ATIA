@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ruta 2 - Aplicación práctica de IA | ATIA</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FACC15',
+            dark: { 900: '#111827', 800: '#1f2937', 700: '#374151', 600: '#4b5563' }
+          }
+        }
+      }
+    }
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+    .dark body { background-color: #111827; }
+    .topic-explanation { display: none; }
+    .topic-explanation.active { display: block; }
+
+    /* Light mode overrides */
+    html:not(.dark) body {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
+    }
+    html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+    html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+    html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+    html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+    html:not(.dark) .text-neutral-100 { color: #111827; }
+    html:not(.dark) .text-neutral-300 { color: #4b5563; }
+    html:not(.dark) .text-neutral-400 { color: #6b7280; }
+    html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+    html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+    html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+  </style>
+<link href="https://inematds.github.io/ATIA/curso/trilha2/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/curso/trilha2/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/curso/trilha2/" hreflang="es" rel="alternate"/></head>
+<body class="bg-dark-900 text-neutral-100 min-h-screen"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha2/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha2/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<!-- NAVIGATION -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🎓</span>
+<span class="font-bold text-lg hidden sm:inline">ATIA</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-emerald-400 hover:bg-emerald-500/10 transition-colors" href="../trilha1/index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-blue-400 bg-blue-500/10" href="index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Aplicación</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Estratégico</span>
+</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- HEADER -->
+<header class="bg-gradient-to-br from-blue-900/30 via-dark-800 to-dark-800 py-12 border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<span class="inline-block px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full mb-4">
+        RUTA 2
+      </span>
+<h1 class="text-3xl sm:text-4xl font-bold mb-4">⚡ Aplicación práctica de IA</h1>
+<p class="text-lg text-neutral-400 max-w-3xl">
+        Domina las herramientas y estrategias para aplicar la inteligencia artificial en tu día a día profesional. Desde GPT personalizados hasta ventas automatizadas, transforma el conocimiento en resultados concretos.
+      </p>
+<!-- Stats Grid -->
+<div class="grid grid-cols-4 gap-4 mt-8 max-w-2xl">
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+<div class="text-xl font-bold text-blue-400">5</div>
+<div class="text-xs text-neutral-400">Módulos</div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+<div class="text-xl font-bold text-blue-400">30</div>
+<div class="text-xs text-neutral-400">Temas</div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+<div class="text-xl font-bold text-blue-400">~7h</div>
+<div class="text-xs text-neutral-400">Duración</div>
+</div>
+<div class="bg-dark-800/50 rounded-lg p-3 border border-dark-600">
+<div class="text-xl font-bold text-blue-400">Interm.</div>
+<div class="text-xs text-neutral-400">Nivel</div>
+</div>
+</div>
+</div>
+</header>
+<!-- CONTEUDO -->
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- Divisor -->
+<div class="flex items-center space-x-4 mb-8">
+<div class="h-px flex-1 bg-dark-600"></div>
+<span class="text-neutral-400 text-sm font-medium">Contenido detallado</span>
+<div class="h-px flex-1 bg-dark-600"></div>
+</div>
+<!-- ============================================ -->
+<!-- MODULO 2.1 -->
+<!-- ============================================ -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2">
+<span class="text-blue-400 font-bold">2.1</span>
+<span class="text-xs text-neutral-500">~35 min</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">🤖 Asistentes personalizados y agentes autónomos</h3>
+<p class="text-neutral-400 text-sm">Aprende a crear asistentes de IA a medida y agentes autónomos que usan herramientas mediante MCP. Mercado de agentes: US$ 7,8 bi (2025) → proyección de US$ 52,6 bi (2030).</p>
+</div>
+<div class="divide-y divide-dark-600">
+<!-- Topico 1 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">🧠</span>
+<div>
+<span class="font-medium">Asistentes de IA personalizados</span>
+<span class="text-neutral-500 text-sm ml-2">- GPTs, Claude Projects, Gems y más</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Los GPT personalizados son versiones adaptadas de modelos de lenguaje, entrenadas para atender necesidades específicas. A diferencia de usar el ChatGPT genérico, defines las instrucciones, el tono de voz y tu propia base de conocimiento.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Las empresas están reemplazando a los consultores generalistas por GPT especializados. Crear un GPT personalizado permite ampliar la experiencia y la atención sin aumentar el equipo.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Custom Instructions, System Prompt, Knowledge Base, temperatura de respuesta, perfiles de IA, especialización vertical.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Topico 2 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">⚙️</span>
+<div>
+<span class="font-medium">Configurar tu GPT</span>
+<span class="text-neutral-500 text-sm ml-2">- Instrucciones, conocimiento y acciones</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">El proceso técnico para configurar un GPT personalizado tiene tres pilares: instrucciones detalladas sobre su comportamiento, carga de documentos como base de conocimiento y definición de las acciones que el GPT puede ejecutar.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">La diferencia entre un GPT mediocre y uno excelente está en la calidad de la configuración. Dominar este proceso garantiza resultados consistentes y profesionales.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Instruction tuning, RAG (Retrieval-Augmented Generation), actions y plugins, conversation starters, límites y guardrails.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Topico 3 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">🤝</span>
+<div>
+<span class="font-medium">Agentes de IA</span>
+<span class="text-neutral-500 text-sm ml-2">- Autonomía y toma de decisiones</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Los agentes de IA son sistemas que van más allá de responder preguntas: planifican, ejecutan tareas y toman decisiones de forma autónoma. A diferencia de los chatbots, los agentes interactúan con herramientas y entornos externos.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los agentes representan la próxima frontera de la IA. Las empresas que dominan los agentes autónomos pueden automatizar flujos de trabajo completos, no solo tareas aisladas.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Agentes autónomos, planificación y ejecución, uso de herramientas, cadena de razonamiento (CoT), multiagentes, orquestación.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Topico 4 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">🔗</span>
+<div>
+<span class="font-medium">Integraciones y APIs</span>
+<span class="text-neutral-500 text-sm ml-2">- Conectando GPTs con el mundo real</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Las APIs permiten que los GPT se conecten a sistemas externos como CRM, hojas de cálculo, bases de datos y servicios web. Esta integración transforma el GPT de un asistente de texto en una herramienta operativa completa.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Un GPT conectado a APIs puede consultar inventarios, programar reuniones, enviar correos electrónicos y actualizar sistemas automáticamente. Esta capacidad multiplica el valor de la IA en el entorno corporativo.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">API REST, webhooks, Zapier y Make, autenticación OAuth, endpoints, esquemas JSON, integración con Google Workspace y Microsoft 365.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Topico 5 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">💡</span>
+<div>
+<span class="font-medium">Casos de uso</span>
+<span class="text-neutral-500 text-sm ml-2">- Atención, análisis y automatización</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Casos reales de aplicación de GPT personalizados en diferentes sectores: atención al cliente con respuestas consistentes, análisis de datos con interpretación automatizada y automatización de procesos repetitivos.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Estudiar casos de uso concretos acelera la implementación y evita errores comunes. Aprendes qué funciona y qué no en escenarios reales de mercado.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Atención automatizada, análisis de sentimientos, clasificación inteligente, generación de informes, asistente jurídico, consultor financiero de IA.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Topico 6 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">🚀</span>
+<div>
+<span class="font-medium">Publicación y Monetización</span>
+<span class="text-neutral-500 text-sm ml-2">- Del prototipo al mercado</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">El proceso de llevar un GPT personalizado de la etapa de prototipo a un producto comercializable. Incluye publicación en la GPT Store, estrategias de precios y modelos de negocio basados en IA.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">La GPT Store y los marketplaces similares están creando un nuevo ecosistema económico. Los profesionales que saben crear y monetizar GPTs tienen una ventaja competitiva significativa.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">GPT Store, SaaS con IA, modelos freemium, white-label, licenciamiento, métricas de uso, retención de usuarios, iteración basada en feedback.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Botoes -->
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-2-1')">
+          Ver en modal
+        </button>
+<a class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors" href="modulo-2-1.html">
+          Ver completo
+        </a>
+</div>
+</div>
+<!-- ============================================ -->
+<!-- MODULO 2.2 -->
+<!-- ============================================ -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2">
+<span class="text-blue-400 font-bold">2.2</span>
+<span class="text-xs text-neutral-500">~35 min</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">💼 Las nuevas profesiones de la era de la IA</h3>
+<p class="text-neutral-400 text-sm">Descubre las carreras más prometedoras creadas por la revolución de la inteligencia artificial y cómo posicionarte para aprovechar estas oportunidades.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<!-- Topico 1 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">🎯</span>
+<div>
+<span class="font-medium">De Prompt Engineer a Context Engineer</span>
+<span class="text-neutral-500 text-sm ml-2">- La evolución de la profesión</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">En 2026, el cargo aislado de Prompt Engineer evolucionó a Context Engineer: el profesional que diseña el ecosistema completo de información (memoria, RAG, MCP, instrucciones del sistema) que hace que los agentes de IA sean realmente eficaces.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los profesionales con habilidades avanzadas en IA ganan un 56 % más que sus pares sin estas competencias (IMF, 2026). Gartner identificó la ingeniería de contexto como una competencia crítica.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Ingeniería de contexto, MCP, diseño de flujos de trabajo con agentes, memoria y RAG, orquestación de agentes, evaluación de resultados.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Topico 2 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">⚖️</span>
+<div>
+<span class="font-medium">AI Ethics Specialist</span>
+<span class="text-neutral-500 text-sm ml-2">- Guardián de la IA responsable</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">El especialista en ética de IA garantiza que los sistemas de inteligencia artificial operen de forma justa, transparente y responsable. Evalúa sesgos algorítmicos, impactos sociales y cumplimiento normativo.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Con regulaciones como el AI Act europeo y la LGPD brasileña, las empresas necesitan profesionales que garanticen el cumplimiento normativo en IA. Es un área con una demanda creciente y pocos especialistas.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Sesgo algorítmico, fairness, explicabilidad, auditoría de IA, AI Act, gobernanza de datos, impacto social.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Topico 3 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">🔧</span>
+<div>
+<span class="font-medium">Ingeniero de MLOps</span>
+<span class="text-neutral-500 text-sm ml-2">- Operaciones de machine learning</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">El MLOps Engineer es responsable de poner modelos de machine learning en producción y mantenerlos funcionando de forma confiable. Combina habilidades de ingeniería de software con conocimientos de ML.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Se estima que el 87% de los proyectos de ML nunca llegan a producción. Los MLOps Engineers resuelven este problema y son esenciales para cualquier empresa que trabaja con IA a escala.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">CI/CD para ML, monitoreo de modelos, feature stores, pipelines de datos, versionado de modelos, deploy automatizado.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Topico 4 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">📊</span>
+<div>
+<span class="font-medium">AI Product Manager</span>
+<span class="text-neutral-500 text-sm ml-2">- Gestión de productos de IA</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">El AI Product Manager traduce las necesidades del negocio en productos basados en inteligencia artificial. Gestiona el ciclo de vida del producto, desde la concepción hasta el lanzamiento, y garantiza que la IA resuelva problemas reales.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Las empresas necesitan profesionales que entiendan tanto el lado técnico de la IA como el de los negocios. El AI PM es el puente entre los equipos de ingeniería y los stakeholders.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Product discovery, hoja de ruta de IA, métricas de éxito, MVP con IA, gestión de expectativas, compensaciones entre aspectos técnicos y comerciales.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Topico 5 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">🎨</span>
+<div>
+<span class="font-medium">AI Creative Director</span>
+<span class="text-neutral-500 text-sm ml-2">- Creatividad aumentada</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">El AI Creative Director utiliza herramientas de IA generativa para crear contenido visual, textual y audiovisual a escala. Combina visión artística con dominio de herramientas como Midjourney, DALL-E y Runway.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Las agencias de publicidad y los equipos de marketing están adoptando la IA generativa a un ritmo acelerado. Los profesionales que dominan la dirección creativa con IA producen 10x más contenido y de mejor calidad.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">IA generativa, creación de prompts artísticos, coherencia visual, directrices de marca con IA, flujo de trabajo creativo, selección de resultados.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Topico 6 -->
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">🌐</span>
+<div>
+<span class="font-medium">Oportunidades emergentes</span>
+<span class="text-neutral-500 text-sm ml-2">- Profesiones que aún no existen</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">El campo de la IA está creando profesiones inéditas: AI Trainer, Data Curator, AI Safety Researcher, Synthetic Data Engineer. Son carreras que no existían hace dos años y que ya ofrecen salarios competitivos.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Quien se posiciona pronto en una profesión emergente obtiene una ventaja competitiva duradera. Entender las tendencias permite anticiparse al mercado y desarrollar experiencia antes que la competencia.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">AI Trainer, Data Curator, AI Safety, Synthetic Data, AI Auditor, Human-AI Interaction Designer, profesiones híbridas.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-2-2')">
+          Ver en modal
+        </button>
+<a class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors" href="modulo-2-2.html">
+          Ver completo
+        </a>
+</div>
+</div>
+<!-- ============================================ -->
+<!-- MODULO 2.3 -->
+<!-- ============================================ -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2">
+<span class="text-blue-400 font-bold">2.3</span>
+<span class="text-xs text-neutral-500">~40 min</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">📱 Marketing digital con IA</h3>
+<p class="text-neutral-400 text-sm">Aprende a usar la inteligencia artificial para crear contenido, segmentar audiencias, analizar datos y automatizar campañas de marketing con mejores resultados.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">✍️</span>
+<div>
+<span class="font-medium">Generación de contenido</span>
+<span class="text-neutral-500 text-sm ml-2">- Textos, imágenes y videos con IA</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Uso de herramientas de IA generativa para producir textos para blogs, redes sociales y anuncios, imágenes para campañas visuales y videos promocionales a escala y con calidad profesional.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los equipos de marketing que usan IA producen hasta 5 veces más contenido manteniendo la calidad. La generación de contenido con IA reduce los costos de producción hasta en un 70% en muchos casos.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Redacción publicitaria con IA, generación de imágenes, video con IA, reutilización de contenido, calendario editorial automatizado, voz de marca.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">🎯</span>
+<div>
+<span class="font-medium">Segmentación inteligente</span>
+<span class="text-neutral-500 text-sm ml-2">- Público adecuado, mensaje adecuado</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Uso de algoritmos de IA para identificar y agrupar audiencias según comportamientos, intereses y patrones de compra, y crear segmentos hiperpersonalizados para campañas más eficaces.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Las campañas segmentadas con IA presentan tasas de conversión hasta 3 veces mayores que las campañas tradicionales. La personalización a escala es la ventaja competitiva del marketing moderno.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Lookalike audiences, segmentación por comportamiento, clustering, propensión de compra, marketing del ciclo de vida, personalización dinámica.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">📊</span>
+<div>
+<span class="font-medium">Analytics con IA</span>
+<span class="text-neutral-500 text-sm ml-2">- Insights automatizados</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Herramientas de IA que analizan automáticamente grandes volúmenes de datos de marketing e identifican patrones, anomalías y oportunidades que a los analistas humanos les llevaría semanas descubrir.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Las decisiones basadas en datos son hasta 23 veces más eficaces. Con IA, transformas datos sin procesar en insights accionables en minutos, lo que permite hacer ajustes rápidos en las campañas.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Analítica predictiva, atribución multitáctil, detección de anomalías, paneles inteligentes, NLP para analizar comentarios, pruebas A/B automatizadas.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">🤖</span>
+<div>
+<span class="font-medium">Chatbots de marketing</span>
+<span class="text-neutral-500 text-sm ml-2">- Conversión automatizada</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Chatbots con IA que interactúan con los visitantes del sitio web, califican leads, responden preguntas y guían al usuario hasta la conversión, funcionando las 24 horas del día sin intervención humana.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los chatbots con IA aumentan las tasas de conversión hasta un 45% y reducen el costo de adquisición de clientes. Capturan leads que de otro modo se perderían fuera del horario comercial.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Marketing conversacional, nurturing de leads, calificación automática, flujos conversacionales, integración con CRM, transferencia a agentes humanos.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">📧</span>
+<div>
+<span class="font-medium">Email marketing con IA</span>
+<span class="text-neutral-500 text-sm ml-2">- Personalización a escala</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Aplicación de IA para personalizar asuntos, contenido y horarios de envío de correos electrónicos, creando comunicaciones únicas para cada destinatario según su historial de interacciones y preferencias.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los emails personalizados con IA tienen tasas de apertura un 26% mayores y tasas de clics un 41% superiores. La IA elimina el trabajo manual de segmentación y personalización.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Optimización del horario de envío, generación de asuntos, contenido dinámico, secuencias automatizadas, campañas para recuperar clientes, interacción predictiva.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">📈</span>
+<div>
+<span class="font-medium">ROI y Métricas</span>
+<span class="text-neutral-500 text-sm ml-2">- Medición de resultados con IA</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Metodologías y herramientas de IA para medir el retorno de la inversión de las campañas de marketing digital, atribuyendo correctamente cada conversión al canal y la acción que la generaron.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los profesionales que dominan las métricas con IA pueden optimizar los presupuestos de marketing en tiempo real, eliminando el desperdicio y dirigiendo la inversión a los canales más eficaces.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">ROAS, CAC, LTV, atribución algorítmica, optimización del presupuesto, predicción de churn, modelado del mix de medios con IA.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-2-3')">
+          Ver en modal
+        </button>
+<a class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors" href="modulo-2-3.html">
+          Ver completo
+        </a>
+</div>
+</div>
+<!-- ============================================ -->
+<!-- MODULO 2.4 -->
+<!-- ============================================ -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2">
+<span class="text-blue-400 font-bold">2.4</span>
+<span class="text-xs text-neutral-500">~35 min</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">🎯 Ventas automatizadas con IA</h3>
+<p class="text-neutral-400 text-sm">Domina las herramientas de IA para prospectar leads, calificar oportunidades, automatizar el outreach y predecir resultados de ventas con precisión.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">🔍</span>
+<div>
+<span class="font-medium">Prospección inteligente</span>
+<span class="text-neutral-500 text-sm ml-2">- Encontrando leads calificados</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Uso de IA para identificar y encontrar clientes potenciales que coincidan con el perfil ideal de comprador, mediante el análisis automatizado de datos públicos, conductuales y demográficos.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los equipos de ventas que usan IA para la prospección encuentran leads 3 veces más calificados y reducen el tiempo de prospección en un 60%. La IA elimina el trabajo manual de investigación.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">ICP (perfil de cliente ideal), enriquecimiento de leads, datos de intención, prospección basada en cuentas, señales de compra, puntuación predictiva.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">💬</span>
+<div>
+<span class="font-medium">Calificación Automática</span>
+<span class="text-neutral-500 text-sm ml-2">- Scoring y priorización</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Sistemas de IA que evalúan y califican leads automáticamente según criterios como la interacción, el perfil demográfico y el comportamiento, y priorizan aquellos con mayor probabilidad de conversión.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los vendedores dedican en promedio 65% de su tiempo a actividades que no están relacionadas con las ventas. La calificación automática dirige la atención hacia los leads listos para comprar y aumenta la productividad.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Lead scoring, MQL vs. SQL, BANT automatizado, propensión de compra, señales de intención, priorización con IA.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">📞</span>
+<div>
+<span class="font-medium">Automatización de outreach</span>
+<span class="text-neutral-500 text-sm ml-2">- Secuencias personalizadas</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Creación de secuencias automatizadas de contacto (correo electrónico, LinkedIn, teléfono), personalizadas con IA para cada lead, que ajustan el tono, el contenido y el momento según el perfil del prospecto.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">El contacto automatizado con IA alcanza tasas de respuesta hasta 2x mayores que los enfoques manuales genéricos. La personalización a escala es el secreto de los equipos de ventas de alto rendimiento.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Sales engagement, secuencias multicanal, personalización dinámica, timing optimizado, seguimiento automático, pruebas A/B en outreach.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">🤝</span>
+<div>
+<span class="font-medium">CRM con IA</span>
+<span class="text-neutral-500 text-sm ml-2">- Gestión inteligente de relaciones</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Sistemas de CRM potenciados por IA que registran interacciones automáticamente, sugieren próximas acciones, predicen riesgos de abandono y recomiendan oportunidades de ventas adicionales y cruzadas.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los CRM con IA aumentan los ingresos por vendedor hasta un 30%. La gestión inteligente de las relaciones garantiza que no se pierda ninguna oportunidad por falta de seguimiento.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Salesforce Einstein, HubSpot AI, registro automático, siguiente mejor acción, inteligencia de relaciones, información sobre acuerdos, captura de actividades.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">📊</span>
+<div>
+<span class="font-medium">Pronóstico de ventas</span>
+<span class="text-neutral-500 text-sm ml-2">- Forecasting con machine learning</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Uso de modelos de machine learning para predecir resultados de ventas a partir de datos históricos, pipeline actual, estacionalidad y factores externos del mercado.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Las predicciones de ventas con IA son hasta un 50 % más precisas que los métodos tradicionales. Esto permite una planificación financiera más confiable y una asignación optimizada de recursos.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Pronóstico de ventas, análisis del pipeline, probabilidad de ganar, velocidad de los acuerdos, ajustes estacionales, planificación de escenarios con IA.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">🔄</span>
+<div>
+<span class="font-medium">Pipeline automatizado</span>
+<span class="text-neutral-500 text-sm ml-2">- Del lead al cierre</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Automatización completa del pipeline de ventas con IA, desde la captación del lead hasta el cierre de la venta, con avance automático entre etapas, alertas inteligentes y acciones preprogramadas.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los pipelines automatizados reducen el ciclo de ventas hasta en un 40% y evitan que se olviden leads. La IA garantiza que cada oportunidad reciba la atención necesaria en el momento adecuado.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Gestión de pipelines, automatización de etapas, asignación de oportunidades, activadores de flujos de trabajo, reglas de escalamiento, operaciones de ingresos (RevOps).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-2-4')">
+          Ver en modal
+        </button>
+<a class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors" href="modulo-2-4.html">
+          Ver completo
+        </a>
+</div>
+</div>
+<!-- ============================================ -->
+<!-- MODULO 2.5 -->
+<!-- ============================================ -->
+<div class="bg-dark-800 rounded-xl border border-dark-600 mb-6">
+<div class="p-6 border-b border-dark-600">
+<div class="flex items-center justify-between mb-2">
+<span class="text-blue-400 font-bold">2.5</span>
+<span class="text-xs text-neutral-500">~30 min</span>
+</div>
+<h3 class="text-2xl font-bold mb-2">🎓 Educación en la era de la IA</h3>
+<p class="text-neutral-400 text-sm">Explora cómo la inteligencia artificial está transformando la educación con tutoría personalizada, contenido adaptativo y evaluación inteligente.</p>
+</div>
+<div class="divide-y divide-dark-600">
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">1</span>
+<span class="text-lg">🧑‍🏫</span>
+<div>
+<span class="font-medium">Tutoría personalizada</span>
+<span class="text-neutral-500 text-sm ml-2">- IA como profesor particular</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Sistemas de IA que actúan como tutores individuales y adaptan las explicaciones, los ejemplos y el ritmo de enseñanza al nivel y estilo de aprendizaje de cada alumno en tiempo real.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los estudios muestran que la tutoría individualizada mejora el rendimiento hasta en 2 desviaciones estándar. La IA hace posible ofrecer esta experiencia a millones de estudiantes simultáneamente.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Tutoría adaptativa, zona de desarrollo próximo, andamiaje con IA, retroalimentación personalizada, learning analytics.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">2</span>
+<span class="text-lg">📚</span>
+<div>
+<span class="font-medium">Contenido adaptativo</span>
+<span class="text-neutral-500 text-sm ml-2">- Aprendizaje a tu ritmo</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Plataformas que ajustan automáticamente el contenido educativo, la dificultad y el formato según el progreso y el desempeño del estudiante, creando rutas de aprendizaje únicas.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">El aprendizaje adaptativo aumenta la retención de conocimientos hasta un 60% en comparación con los métodos tradicionales. Los alumnos aprenden más rápido cuando el contenido se adapta a su nivel.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Aprendizaje adaptativo, grafos de conocimiento, repetición espaciada, progresión basada en el dominio y rutas de aprendizaje dinámicas.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">3</span>
+<span class="text-lg">📝</span>
+<div>
+<span class="font-medium">Evaluación inteligente</span>
+<span class="text-neutral-500 text-sm ml-2">- Feedback en tiempo real</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Sistemas de IA que evalúan trabajos, redacciones y ejercicios automáticamente, y ofrecen comentarios detallados y constructivos en segundos, no en días o semanas.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los profesores dedican en promedio el 40 % de su tiempo a corregir. La evaluación con IA libera ese tiempo para actividades de mayor valor pedagógico, como la mentoría y los proyectos.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Calificación automática, evaluación basada en rúbricas, evaluación formativa, detección de plagio con IA, portafolio digital.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">4</span>
+<span class="text-lg">🎮</span>
+<div>
+<span class="font-medium">Gamificación con IA</span>
+<span class="text-neutral-500 text-sm ml-2">- Participación y motivación</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Integración de mecánicas de juego con IA para crear experiencias educativas envolventes, con desafíos adaptativos, recompensas personalizadas y narrativas dinámicas.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">La gamificación con IA aumenta la participación de los alumnos hasta un 80%. La IA ajusta la dificultad de los desafíos para mantener al alumno en estado de flow, maximizando el aprendizaje y la motivación.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">Aprendizaje basado en juegos, dificultad dinámica, insignias y logros, tablas de clasificación adaptativas, narrativas ramificadas, motivación intrínseca.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">5</span>
+<span class="text-lg">🌐</span>
+<div>
+<span class="font-medium">Democratización de la enseñanza</span>
+<span class="text-neutral-500 text-sm ml-2">- IA para todos</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">El potencial de la IA para eliminar las barreras de acceso a una educación de calidad, al ofrecer traducción automática, accesibilidad para personas con discapacidad y contenido gratuito personalizado.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">La IA puede nivelar las oportunidades educativas a escala global. Entender esta tendencia permite crear soluciones que impacten a millones de personas y representen importantes oportunidades de negocio.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">EdTech inclusiva, traducción en tiempo real, accesibilidad con IA, MOOCs inteligentes, reducción de la desigualdad educativa.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="topic-item">
+<button class="w-full px-6 py-4 flex items-center space-x-3 hover:bg-dark-700/50 transition-colors text-left" onclick="toggleTopic(this)">
+<span class="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 text-sm font-bold flex items-center justify-center flex-shrink-0">6</span>
+<span class="text-lg">🔮</span>
+<div>
+<span class="font-medium">Futuro de la educación</span>
+<span class="text-neutral-500 text-sm ml-2">- Tendencias y previsiones</span>
+</div>
+</button>
+<div class="topic-explanation px-6 pb-4">
+<div class="bg-dark-700/50 rounded-lg p-4 space-y-3 ml-9">
+<div>
+<span class="text-blue-400 font-semibold">Qué es:</span>
+<p class="text-neutral-300 text-sm">Las tendencias emergentes que están moldeando el futuro de la educación: realidad virtual educativa, asistentes de IA, certificaciones basadas en competencias y el fin del modelo tradicional de aula.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Por qué aprender:</span>
+<p class="text-neutral-300 text-sm">Los profesionales de la educación que entienden estas tendencias pueden anticiparse a los cambios y liderar la transformación en sus instituciones, evitando la obsolescencia.</p>
+</div>
+<div>
+<span class="text-blue-400 font-semibold">Conceptos clave:</span>
+<p class="text-neutral-300 text-sm">VR/AR educativo, AI companions, micro-credentials, competency-based education, lifelong learning, futuro del trabajo.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-dark-700/30 flex justify-start space-x-3">
+<button class="px-4 py-2 text-sm bg-dark-600 hover:bg-dark-500 rounded-lg transition-colors" onclick="openModal('modal-2-5')">
+          Ver en modal
+        </button>
+<a class="px-4 py-2 text-sm bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-colors" href="modulo-2-5.html">
+          Ver completo
+        </a>
+</div>
+</div>
+<!-- NAVEGACAO -->
+<div class="flex flex-col sm:flex-row gap-4 mt-12">
+<a class="flex-1 text-center px-6 py-3 bg-dark-700 text-neutral-300 rounded-lg font-semibold hover:bg-dark-600 transition-colors" href="../trilha1/index.html">
+        ← Ruta 1: Fundamentos
+      </a>
+<a class="flex-1 text-center px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-500 transition-colors" href="../trilha3/index.html">
+        Ruta 3: Estratégica →
+      </a>
+</div>
+</main>
+<!-- MODALS -->
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-2-1" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3">
+<span class="text-blue-400 font-bold">2.1</span>
+<span class="font-semibold">Asistentes personalizados y agentes autónomos</span>
+</div>
+<button class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-2-1.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-2-2" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3">
+<span class="text-blue-400 font-bold">2.2</span>
+<span class="font-semibold">Las nuevas profesiones de la era de la IA</span>
+</div>
+<button class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-2-2.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-2-3" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3">
+<span class="text-blue-400 font-bold">2.3</span>
+<span class="font-semibold">Marketing digital con IA</span>
+</div>
+<button class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-2-3.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-2-4" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3">
+<span class="text-blue-400 font-bold">2.4</span>
+<span class="font-semibold">Ventas automatizadas con IA</span>
+</div>
+<button class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-2-4.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80" id="modal-2-5" onclick="if(event.target === this) closeModal()">
+<div class="bg-dark-800 rounded-xl w-full max-w-6xl h-[95vh] flex flex-col border border-dark-600">
+<div class="p-4 border-b border-dark-600 flex justify-between items-center flex-shrink-0">
+<div class="flex items-center space-x-3">
+<span class="text-blue-400 font-bold">2.5</span>
+<span class="font-semibold">La educación en la era de la IA</span>
+</div>
+<button class="text-neutral-400 hover:text-white text-2xl leading-none" onclick="closeModal()">×</button>
+</div>
+<iframe class="flex-1 w-full rounded-b-xl" src="modulo-2-5.html"></iframe>
+</div>
+</div>
+<!-- FOOTER -->
+<footer class="border-t border-dark-600 py-8 mt-16">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-neutral-500 text-sm">
+<p>ATIA - Curso de IA y Oportunidades Digitales - 2026</p>
+</div>
+</footer>
+<!-- SCRIPTS -->
+<script>
+    // Toggle de Topicos
+    function toggleTopic(button) {
+      const topicItem = button.closest('.topic-item');
+      const explanation = topicItem.querySelector('.topic-explanation');
+      const moduleCard = button.closest('.bg-dark-800');
+
+      moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+        if (exp !== explanation) {
+          exp.classList.remove('active');
+        }
+      });
+
+      explanation.classList.toggle('active');
+    }
+
+    // Theme Toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !html.classList.contains('dark'))) {
+      themeToggleDarkIcon.classList.remove('hidden');
+      html.classList.remove('dark');
+    } else {
+      themeToggleLightIcon.classList.remove('hidden');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      themeToggleDarkIcon.classList.toggle('hidden');
+      themeToggleLightIcon.classList.toggle('hidden');
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Modal
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal() {
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.classList.add('hidden');
+      });
+      document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Module 1.3 - Prompt Engineering. Master the essential techniques for getting exceptional results from generative AI tools." name="description"/>
+<title>Module 1.3 - Prompt Engineering | ATIA</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FACC15',
+                        'dark-900': '#111827',
+                        'dark-800': '#1f2937',
+                        'dark-700': '#374151',
+                        'dark-600': '#4b5563',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .dark body { background-color: #111827; }
+        .topic-explanation { display: none; }
+        .topic-explanation.active { display: block; }
+        html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    </style>
+<link href="https://inematds.github.io/ATIA/curso/trilha1/modulo-1-3.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/curso/trilha1/modulo-1-3.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/curso/trilha1/modulo-1-3.html" hreflang="es" rel="alternate"/></head>
+<body class="antialiased"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha1/modulo-1-3.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="modulo-1-3.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../../es/curso/trilha1/modulo-1-3.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🎓</span>
+<span class="font-bold text-lg hidden sm:inline">ATIA</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentals</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Application</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Strategic</span>
+</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Breadcrumb -->
+<div class="bg-dark-900 border-b border-dark-700">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+<nav class="text-sm text-neutral-400">
+<a class="hover:text-emerald-400 transition-colors" href="../../index.html">Start</a>
+<span class="mx-2 text-neutral-600">/</span>
+<a class="hover:text-emerald-400 transition-colors" href="index.html">Track 1</a>
+<span class="mx-2 text-neutral-600">/</span>
+<span class="text-emerald-400 font-semibold">Module 1.3</span>
+</nav>
+</div>
+</div>
+<!-- Header -->
+<section class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-transparent"></div>
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="mb-4">
+<span class="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/20 border border-emerald-500/30 rounded-full">Module 1.3</span>
+</div>
+<h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-4">💬 Prompt Engineering</h1>
+<p class="text-lg text-neutral-300 max-w-3xl mb-8">
+                Knowing how to communicate with AI is now a fundamental skill—like typing or using a spreadsheet. Master the essential prompt engineering techniques and understand how this skill has evolved into context engineering, the most valued skill in 2026.
+            </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">7</div>
+<div class="text-xs text-neutral-400 mt-1">Topics</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">50</div>
+<div class="text-xs text-neutral-400 mt-1">Minutes</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">Basic</div>
+<div class="text-xs text-neutral-400 mt-1">Level</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">Practice</div>
+<div class="text-xs text-neutral-400 mt-1">Format</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content -->
+<section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- Topic 1 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">1</span>
+<h2 class="text-2xl font-bold text-neutral-100">🎯 Progressive Specificity</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                The difference between a mediocre AI result and an exceptional one almost always comes down to prompt quality. Progressive specificity is the technique of building prompts from general to specific, adding layers of context, constraints, and examples until you get exactly the result you want.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    An effective prompt generally contains 5 elements: (1) Context — who you are and what the situation is, (2) Task — exactly what you want, (3) Format — how the result should be structured, (4) Constraints — what should be avoided or respected, and (5) Examples — references for the expected result. Progressive specificity suggests starting with the task and iteratively adding the other elements, refining until the result is satisfactory.
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-primary font-semibold mb-3">Practical Tip</h3>
+<p class="text-neutral-300 leading-relaxed mb-4">
+                    Compare these two prompts and see the leap in response quality:
+                </p>
+<div class="space-y-3">
+<div class="bg-dark-800 rounded-lg p-3 border border-dark-600">
+<p class="text-red-400 text-sm font-semibold mb-1">Vague prompt:</p>
+<p class="text-neutral-400 text-sm">"Write a professional email."</p>
+</div>
+<div class="bg-dark-800 rounded-lg p-3 border border-dark-600">
+<p class="text-emerald-400 text-sm font-semibold mb-1">Specific prompt:</p>
+<p class="text-neutral-400 text-sm">"You are a project manager at a technology consulting firm. Write a professional email to the client informing them of a 2-week delay in the project, explaining the reasons (an unexpected technical issue with the integration), presenting a recovery plan, and maintaining a confident, proactive tone. Maximum 200 words, 3 paragraphs."</p>
+</div>
+</div>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Do</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Include context, task, format, and constraints</li>
+<li>Iterate and refine the prompt progressively</li>
+<li>Specify the target audience and desired tone</li>
+<li>Define the response length and structure</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+<h3 class="text-red-400 font-semibold mb-3">Avoid</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>One-sentence prompts without context</li>
+<li>Assuming that AI "guesses" what you want</li>
+<li>Accepting the first answer without refining it</li>
+<li>Use ambiguous or vague terms</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Topic 2 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">2</span>
+<h2 class="text-2xl font-bold text-neutral-100">🎭 Role-Playing</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                One of the most powerful and simple prompt engineering techniques is assigning a role to AI. When you say "You are a digital marketing expert with 15 years of experience," AI activates more specialized and deeper knowledge patterns, generating significantly better responses than without that direction.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Role-playing works because LLMs were trained on texts by experts in every field. By assigning a role, you essentially "filter" the model's vast knowledge, prioritizing linguistic and conceptual patterns from that specific domain. You can create complex personas: "You are a CFO at a tech startup that just received Series A funding, with a background in McKinsey consulting." The more specific the persona, the more focused and useful the response will be.
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-primary font-semibold mb-3">Practical Tip</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Create a personal library of personas that are useful for your work. Examples: “You are a rigorous copy editor” for reviewing text, “You are a tax attorney” for tax questions, “You are a career coach specializing in technology” for professional advice. Save these prompts to reuse and refine them over time.
+                </p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6">
+<h3 class="text-blue-400 font-semibold mb-3">Advanced Technique: Expert Debate</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Ask AI to simulate a debate between two experts with different perspectives. For example: "Simulate a debate between a Keynesian economist and a classical liberal economist on AI's impact on employment. Each should present 3 arguments supported by data." This produces richer, more balanced analyses.
+                </p>
+</div>
+</div>
+<!-- Topic 3 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">3</span>
+<h2 class="text-2xl font-bold text-neutral-100">🔗 Chain-of-Thought</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                Chain-of-Thought (CoT) is a technique that dramatically improves AI’s reasoning ability by asking it to “think step by step” before reaching a conclusion. This simple addition can turn incorrect answers into correct ones, especially for logical, mathematical, and analytical problems.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    When an LLM generates a response directly, it's essentially "taking a shot"—trying to predict the final answer all at once. Chain-of-Thought forces the model to build intermediate reasoning step by step before reaching a conclusion. Research from Google Brain and other labs has shown that this technique improves accuracy by 20-40% on reasoning tasks. There are variants such as Zero-shot CoT ("Think step by step"), Few-shot CoT (with reasoning examples), and Tree-of-Thought (exploring multiple paths).
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-primary font-semibold mb-3">Practical Tip</h3>
+<p class="text-neutral-300 leading-relaxed mb-4">Add these magic phrases to your prompts:</p>
+<ul class="text-neutral-300 space-y-2">
+<li>"Think step by step before answering."</li>
+<li>"Explain your reasoning before giving the final answer."</li>
+<li>"First analyze the pros and cons, then present your recommendation."</li>
+<li>"List your assumptions, then build the conclusion logically."</li>
+</ul>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Do</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Use CoT for logical problems and analyses</li>
+<li>Ask AI to show its assumptions and reasoning</li>
+<li>Verify each reasoning step</li>
+<li>Combine with role-playing for better results</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+<h3 class="text-red-400 font-semibold mb-3">Avoid</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Use CoT for simple, straightforward tasks</li>
+<li>Trust the reasoning without checking</li>
+<li>Ignoring it when a step seems wrong</li>
+<li>Ask for reasoning without specifying depth</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Topic 4 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">4</span>
+<h2 class="text-2xl font-bold text-neutral-100">📋 Few-Shot Learning</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                Few-Shot Learning is the technique of providing examples within the prompt so the AI understands exactly the desired pattern. Instead of describing what you want in words, you show examples of the expected result. The AI learns the pattern from the examples and applies it to new inputs with high fidelity.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    The terms refer to the number of examples provided: zero-shot (no examples), one-shot (one example), and few-shot (2-5 examples). The more complex the desired pattern, the more examples are needed. Few-shot is especially powerful for specific formatting, data classification, style translation, generating content with a consistent tone, and any task where "showing" is easier than "explaining."
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-primary font-semibold mb-3">Practical Tip</h3>
+<p class="text-neutral-300 leading-relaxed mb-4">Few-shot example for classifying review sentiment:</p>
+<div class="bg-dark-800 rounded-lg p-4 border border-dark-600 text-sm text-neutral-400 space-y-2">
+<p>"Classify the reviews as Positive, Negative, or Neutral:</p>
+<p>Review: 'Excellent product, exceeded my expectations!' -&gt; Positive</p>
+<p>Review: 'It arrived broken and the service was terrible.' -&gt; Negative</p>
+<p>Review: 'The product is okay; it does what it promises.' -&gt; Neutral</p>
+<p>Now classify: 'Fast delivery, but the quality could be better.' -&gt; "</p>
+</div>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6">
+<h3 class="text-blue-400 font-semibold mb-3">When to Use Few-Shot</h3>
+<ul class="text-neutral-300 space-y-2">
+<li><strong>Specific formatting:</strong> When you need output in a very specific format</li>
+<li><strong>Classification:</strong> When you want AI to categorize data consistently</li>
+<li><strong>Writing style:</strong> When you want to replicate a specific tone or voice</li>
+<li><strong>Technical translation:</strong> When terms need to be translated in a way that's specific to your context</li>
+</ul>
+</div>
+</div>
+<!-- Topic 5 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">5</span>
+<h2 class="text-2xl font-bold text-neutral-100">✂️ Task Decomposition</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                LLMs have limitations with very complex tasks. When you ask for everything at once — "Create a complete business plan for an AI startup" — the result tends to be superficial and generic. Breaking tasks down solves this: you divide the problem into smaller parts, solve each one separately, and combine the results.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Decomposition follows the “divide and conquer” principle: (1) Identify the problem’s subtasks, (2) Solve each one with a focused, detailed prompt, (3) Use one step’s output as the next step’s input, (4) Combine and review the final result. This enables shorter, more focused prompts that produce higher-quality responses. It also makes it easier to identify and correct errors at specific steps.
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-primary font-semibold mb-3">Practical Tip</h3>
+<p class="text-neutral-300 leading-relaxed mb-4">To create a business plan, break it down like this:</p>
+<ul class="text-neutral-300 space-y-2">
+<li><strong>Prompt 1:</strong> "Analyze the [sector] market in Brazil. Size, growth, key players."</li>
+<li><strong>Prompt 2:</strong> "Based on this market analysis, identify 3 underexplored niche opportunities."</li>
+<li><strong>Prompt 3:</strong> "For opportunity X, create a value proposition and revenue model."</li>
+<li><strong>Prompt 4:</strong> "Project costs, revenue, and break-even point for the first 18 months."</li>
+<li><strong>Prompt 5:</strong> "Compile everything into a 1-page executive summary."</li>
+</ul>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<div class="bg-emerald-900/20 border border-emerald-500/20 rounded-xl p-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Do</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Break big problems into clear steps</li>
+<li>Use the output of one prompt as the input for the next</li>
+<li>Review each step before moving on</li>
+<li>Combine with CoT for complex steps</li>
+</ul>
+</div>
+<div class="bg-red-900/20 border border-red-500/20 rounded-xl p-6">
+<h3 class="text-red-400 font-semibold mb-3">Avoid</h3>
+<ul class="text-neutral-300 space-y-2 text-sm">
+<li>Ask for everything in one giant prompt</li>
+<li>Breaking things down into excessively small parts</li>
+<li>Move on without validating the previous step</li>
+<li>Lose sight of the big picture across subtasks</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Topic 6 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">6</span>
+<h2 class="text-2xl font-bold text-neutral-100">⚙️ Tools and Platforms</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                The generative AI tool ecosystem is vast and grows daily. Each platform has distinct strengths and weaknesses. Knowing the available options and how to choose the right tool for each task is a skill that multiplies your productivity and the quality of your results.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">Main Concept</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    The AI model landscape in 2026 is more competitive than ever. The leading platforms are: ChatGPT (OpenAI, GPT-5.x family) — versatile and popular, with advanced reasoning models (o3, o4-mini); Claude (Anthropic, 4.x family) — a leader in long-document analysis (up to 1 million tokens), coding, and complex instructions; Gemini (Google, 3.x family) — integrated with the Google ecosystem, with advanced multimodal capabilities; and DeepSeek (China, open source) — which revolutionized the market by delivering cutting-edge performance at a much lower training cost. Beyond text, there are tools for images (Midjourney, DALL-E 3, Canva AI), music (Suno, Udio), and video (Kling AI 3.0, Runway).
+                </p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-blue-400 font-semibold mb-3">Platform Comparison (2026)</h3>
+<ul class="text-neutral-300 space-y-2">
+<li><strong>ChatGPT (GPT-5.x):</strong> Natural conversation, deep reasoning (“o” models), image generation, and integration with tools</li>
+<li><strong>Claude (Opus 4.x):</strong> Analysis of long documents (1M tokens), advanced coding (Claude Code), security, and complex instructions</li>
+<li><strong>Gemini (3.x):</strong> Integration with Google Workspace, real-time web search, multimodal analysis, extended context windows</li>
+<li><strong>DeepSeek (V4):</strong> High-performance open source, affordable, with an option for privacy and local use</li>
+<li><strong>LLaMA 4 (Meta):</strong> Open source with up to 10M context tokens, ideal for customization and corporate use</li>
+</ul>
+</div>
+<div class="bg-purple-900/20 border border-purple-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-purple-400 font-semibold mb-3">Reasoning Models: The Big Breakthrough</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    One of the biggest innovations of 2025-2026 was reasoning models ("reasoning models"). Unlike traditional models that respond immediately, these models use extra computation to "think" before responding, generating internal reasoning chains. Examples include o3 and o4-mini (OpenAI), Claude with extended thinking (Anthropic), and Gemini Thinking (Google). They excel at math, coding, and complex multi-step tasks — making the Chain-of-Thought you learned in Topic 3 even more powerful when combined with these models.
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+<h3 class="text-primary font-semibold mb-3">Practical Tip</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Don't commit to a single platform. Try at least 3 tools and use each for its strengths: ChatGPT for brainstorming and complex reasoning, Claude for analyzing long documents and coding, Gemini for research and up-to-date information, and DeepSeek when you need a powerful free alternative. Open-source models (LLaMA, DeepSeek) allow local use with complete privacy. Over time, you'll develop an intuition for which tool to use for each type of task.
+                </p>
+</div>
+</div>
+<!-- Topic 7 -->
+<div class="mb-16">
+<div class="flex items-center gap-4 mb-6">
+<span class="flex-shrink-0 w-12 h-12 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-lg font-bold text-emerald-400">7</span>
+<h2 class="text-2xl font-bold text-neutral-100">🚀 Beyond the Prompt: The Evolution Toward Context Engineering</h2>
+</div>
+<p class="text-neutral-300 mb-6 leading-relaxed">
+                The techniques you learned in this module are fundamental — but the field has already moved beyond isolated prompts. In 2025-2026, the market began to value a broader skill called context engineering, which encompasses everything involved in designing the complete information environment an AI model receives to perform a task.
+            </p>
+<div class="bg-gradient-to-r from-emerald-900/30 to-dark-800 border border-emerald-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-emerald-400 font-semibold mb-3">What Changed</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    In 2024, “prompt engineer” was touted as the profession of the future, with six-figure salaries. In 2026, Fortune and market analysts already consider the standalone prompt engineer role obsolete. The reason: writing good prompts has become a basic skill, like knowing how to type. The differentiator now is knowing how to design the complete context—memory, retrieved data, conversation history, system instructions, and tool outputs—that makes an AI agent truly useful. Gartner identified context engineering as a critical skill for 2026.
+                </p>
+</div>
+<div class="bg-blue-900/20 border border-blue-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-blue-400 font-semibold mb-3">From Prompt to Context: The Scale of Evolution</h3>
+<ul class="text-neutral-300 space-y-3">
+<li><strong>Level 1 — Basic prompt:</strong> Write good questions and instructions for AI (what you learned in this module)</li>
+<li><strong>Level 2 — Advanced prompt:</strong> Combine techniques (CoT + role-playing + few-shot) for complex tasks</li>
+<li><strong>Level 3 — Context engineering:</strong> Design the entire information ecosystem: system instructions, persistent memory, retrieved data (RAG), tools connected via MCP, and user profiles</li>
+<li><strong>Level 4 — Agent orchestration:</strong> Coordinate multiple AI agents with distinct roles, working together on complex tasks</li>
+</ul>
+</div>
+<div class="bg-purple-900/20 border border-purple-500/20 rounded-xl p-6 mb-6">
+<h3 class="text-purple-400 font-semibold mb-3">Real Example: Vibe Coding</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Vibe coding is a perfect example of this evolution. Instead of writing prompts to generate snippets of code, the developer describes their intent in natural language, and an AI agent (such as Cursor, Claude Code, or GitHub Copilot) autonomously generates, runs, debugs, and iterates on the code. The focus shifts from "how to write the prompt" to "how to provide the right context"—relevant files, documentation, style examples, and project constraints. In 2026, 95% of developers use AI tools weekly, and the vibe coding market accounts for 25-30% of the AI code generation market (US$ 4,2 billion).
+                </p>
+</div>
+<div class="bg-yellow-900/20 border border-yellow-500/20 rounded-xl p-6">
+<h3 class="text-primary font-semibold mb-3">Practical Tip</h3>
+<p class="text-neutral-300 leading-relaxed">
+                    Start by mastering the techniques in this module — they're the foundation for everything. Then, in the next module (1.4 — Context Engineering), you'll learn how to go beyond the prompt and design complete intelligent systems. The journey is: first, learn to communicate well with AI; then, learn to build the environment that makes that communication powerful. The two skills complement each other and together make you the professional most valued by the market in 2026.
+                </p>
+</div>
+</div>
+<!-- Resumo -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">Module Summary</h2>
+<div class="space-y-3 mb-8">
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I know the progressive specificity technique for prompts</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I know how to use role-playing to activate AI expertise</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I apply Chain-of-Thought to improve reasoning</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>Use few-shot learning for consistent results</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I can break complex tasks into sub-prompts</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I know the leading platforms of 2026 and their strengths</span>
+</label>
+<label class="flex items-center gap-3 text-neutral-300">
+<input class="w-4 h-4 rounded border-dark-600 text-emerald-500 focus:ring-emerald-500 bg-dark-700" type="checkbox"/>
+<span>I understand the evolution from prompt engineering to context engineering</span>
+</label>
+</div>
+<div class="bg-dark-700 rounded-xl p-4 mb-6">
+<p class="text-neutral-400 text-sm">Next module:</p>
+<p class="text-neutral-100 font-semibold">🧩 1.4 — Context Engineering</p>
+</div>
+<div class="flex justify-start gap-3">
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-2.html">Previous Module</a>
+<a class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" href="modulo-1-4.html">Next Module</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="border-t border-dark-700 mt-12">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+<div class="flex items-center space-x-2 text-neutral-400 text-sm">
+<span>🎓</span>
+<span class="font-semibold">ATIA</span>
+<span>—</span>
+<span>Acceleration in Technology and Artificial Intelligence</span>
+</div>
+<div class="text-neutral-500 text-sm">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Topic toggle
+        function toggleTopic(button) {
+            const topicItem = button.closest('.topic-item');
+            const explanation = topicItem.querySelector('.topic-explanation');
+            const moduleCard = button.closest('.bg-dark-800');
+            moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+                if (exp !== explanation) exp.classList.remove('active');
+            });
+            explanation.classList.toggle('active');
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const html = document.documentElement;
+        if (localStorage.getItem('theme') === 'light') {
+            themeToggleDarkIcon.classList.remove('hidden');
+            html.classList.remove('dark');
+        } else {
+            themeToggleLightIcon.classList.remove('hidden');
+        }
+        themeToggle.addEventListener('click', () => {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        }
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+</html>

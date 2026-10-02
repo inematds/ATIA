@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Ruta 1 - Fundamentos de la IA. Aprende los fundamentos de la inteligencia artificial, la ingeniería de prompts y la automatización de procesos." name="description"/>
+<title>Ruta 1 - Fundamentos | ATIA</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FACC15',
+                        'dark-900': '#111827',
+                        'dark-800': '#1f2937',
+                        'dark-700': '#374151',
+                        'dark-600': '#4b5563',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .dark body { background-color: #111827; }
+        .topic-explanation { display: none; }
+        .topic-explanation.active { display: block; }
+        html:not(.dark) body { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); }
+        html:not(.dark) .bg-dark-900 { background-color: #ffffff; }
+        html:not(.dark) .bg-dark-800 { background-color: #f9fafb; }
+        html:not(.dark) .bg-dark-700 { background-color: #f3f4f6; }
+        html:not(.dark) .bg-dark-600 { background-color: #e5e7eb; }
+        html:not(.dark) .text-neutral-100 { color: #111827; }
+        html:not(.dark) .text-neutral-300 { color: #4b5563; }
+        html:not(.dark) .text-neutral-400 { color: #6b7280; }
+        html:not(.dark) .text-neutral-500 { color: #9ca3af; }
+        html:not(.dark) .border-dark-600 { border-color: #d1d5db; }
+        html:not(.dark) .border-dark-700 { border-color: #e5e7eb; }
+    </style>
+<link href="https://inematds.github.io/ATIA/curso/trilha1/" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/curso/trilha1/" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/curso/trilha1/" hreflang="es" rel="alternate"/></head>
+<body class="antialiased"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../../curso/trilha1/" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="../../../en/curso/trilha1/" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="./" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">ES</a></div>
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-dark-900/95 backdrop-blur-sm border-b border-dark-600">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-14">
+<div class="flex items-center space-x-4">
+<a class="flex items-center space-x-2 text-yellow-400 hover:text-yellow-300" href="../../index.html">
+<span class="text-2xl">🎓</span>
+<span class="font-bold text-lg hidden sm:inline">ATIA</span>
+</a>
+<span class="text-neutral-600">|</span>
+<a class="text-sky-400 hover:text-sky-300 text-sm font-medium" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+<div class="flex items-center space-x-1 sm:space-x-2">
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-emerald-400 bg-emerald-500/10" href="index.html">
+<span class="sm:hidden">T1</span>
+<span class="hidden sm:inline">Fundamentos</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-blue-400 hover:bg-blue-500/10 transition-colors" href="../trilha2/index.html">
+<span class="sm:hidden">T2</span>
+<span class="hidden sm:inline">Aplicación</span>
+</a>
+<a class="px-3 py-1.5 rounded-lg text-sm font-semibold text-neutral-400 hover:text-purple-400 hover:bg-purple-500/10 transition-colors" href="../trilha3/index.html">
+<span class="sm:hidden">T3</span>
+<span class="hidden sm:inline">Estratégico</span>
+</a>
+<button class="p-2 rounded-lg bg-dark-700 hover:bg-dark-600 transition-colors ml-2" id="theme-toggle">
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-dark-icon" viewbox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+<svg class="hidden w-5 h-5 text-neutral-300" fill="currentColor" id="theme-toggle-light-icon" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<!-- Header -->
+<section class="relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-emerald-900/30 to-transparent"></div>
+<div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="mb-4">
+<span class="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/20 border border-emerald-500/30 rounded-full">Ruta 1</span>
+</div>
+<h1 class="text-3xl sm:text-4xl font-bold text-neutral-100 mb-4">🌱 Fundamentos de la IA</h1>
+<p class="text-lg text-neutral-300 max-w-3xl mb-8">
+                Construye una base sólida en inteligencia artificial. Comprende el panorama actual, domina la ingeniería de prompts y aprende sobre contexto y automatización para transformar tu carrera y tus proyectos.
+            </p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">5</div>
+<div class="text-xs text-neutral-400 mt-1">Módulos</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">30</div>
+<div class="text-xs text-neutral-400 mt-1">Temas</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">~6h</div>
+<div class="text-xs text-neutral-400 mt-1">Duración</div>
+</div>
+<div class="bg-dark-800 border border-dark-700 rounded-xl p-4 text-center">
+<div class="text-2xl font-bold text-emerald-400">Básico</div>
+<div class="text-xs text-neutral-400 mt-1">Nivel</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Module Cards -->
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+<!-- Module 1.1 -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<span class="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full">1.1</span>
+<span class="text-xs text-neutral-500">~30 min</span>
+</div>
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">🌊 El tsunami de la IA</h2>
+<div class="space-y-3">
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">1</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🤖 Large Language Models <span class="text-neutral-500 text-sm">— Cómo procesa el lenguaje la IA</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Los modelos de lenguaje de gran escala (LLM) son redes neuronales entrenadas con vastos conjuntos de texto para comprender, generar y manipular el lenguaje humano. Algunos ejemplos son GPT, Claude, LLaMA y Gemini.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Los LLM son la base de la revolución actual en IA generativa. Comprender cómo funcionan te permite usar estas herramientas con más eficiencia e identificar oportunidades reales de aplicación en tu trabajo.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Tokens y tokenización, ventana de contexto, preentrenamiento y fine-tuning, mecanismo de atención (Transformers), inferencia y temperatura.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">2</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📈 Crecimiento exponencial <span class="text-neutral-500 text-sm">— La naturaleza acelerada del cambio</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">El crecimiento exponencial describe la velocidad con la que ha avanzado la IA: cada 6-12 meses aparecen modelos mucho más capaces, con costos en descenso y mayor accesibilidad.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Entender la naturaleza exponencial evita sorpresas. Quienes subestiman la velocidad del cambio se quedan atrás. Quienes la comprenden pueden posicionarse estratégicamente.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Ley de Moore aplicada a la IA, scaling laws, mejoras en benchmarks, comoditización de modelos, velocidad de adopción comparada con tecnologías anteriores.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">3</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📜 Historia de la IA <span class="text-neutral-500 text-sm">— Desde los orígenes hasta los modelos generativos</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">La historia de la IA comienza en los años 1950 con Alan Turing y el Test de Turing, pasa por inviernos y renacimientos, hasta llegar a la era de los Transformers (2017) y de la IA generativa actual.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Conocer la historia ayuda a entender por qué estamos en este punto y a no repetir errores del pasado. También aporta contexto para evaluar las promesas y los límites de la tecnología.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Prueba de Turing, inviernos de la IA, machine learning clásico, deep learning, Transformers, GPT y la era generativa, hitos históricos (AlphaGo, ChatGPT).</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">4</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🌐 Convergencia tecnológica <span class="text-neutral-500 text-sm">— Por qué ahora es diferente</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">La convergencia tecnológica se refiere a la combinación simultánea de avances en IA, computación en la nube, big data, IoT y conectividad, que juntos crean un escenario de transformación sin precedentes.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">La IA no existe de forma aislada. Entender las fuerzas convergentes permite identificar oportunidades de innovación donde se cruzan las tecnologías.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Computación en la nube, macrodatos, APIs, 5G y conectividad, economía de plataformas, ecosistemas digitales, efectos de red.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">5</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🏭 Impactos sectoriales <span class="text-neutral-500 text-sm">— Finanzas, salud, educación y más</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">La IA está transformando prácticamente todos los sectores de la economía. Las finanzas usan IA para detectar fraudes, la salud para el diagnóstico por imágenes, la educación para personalizar la enseñanza, y así sucesivamente.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Independientemente de tu área de trabajo, la IA tendrá un impacto directo. Conocer los impactos sectoriales te permite anticipar cambios y prepararte profesionalmente.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">FinTech e IA, HealthTech, EdTech, AgriTech, LegalTech, automatización industrial, logística inteligente, marketing predictivo.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">6</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🏄 Surfeando el tsunami <span class="text-neutral-500 text-sm">— Preparándose para el cambio</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Estrategias prácticas para posicionarte de forma ventajosa ante la ola de IA: adoptar una mentalidad de aprendizaje continuo, experimentar con herramientas y crear proyectos reales.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Saber que el cambio se acerca no basta: hay que actuar. Este tema transforma el conocimiento en acciones concretas para tu carrera.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Mentalidad de crecimiento, aprendizaje continuo, portafolio de proyectos, networking en IA, primeros pasos prácticos, mentalidad de experimentación.</span></div>
+</div>
+</div>
+</div>
+<div class="flex justify-start gap-3 mt-6">
+<button class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" onclick="openModal('modal-1-1')">Ver en modal</button>
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-1.html">Ver completo</a>
+</div>
+</div>
+<!-- Module 1.2 -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<span class="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full">1.2</span>
+<span class="text-xs text-neutral-500">~35 min</span>
+</div>
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">💼 Transformación digital y mercado laboral</h2>
+<div class="space-y-3">
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">1</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🔄 Cuarta Revolución Industrial <span class="text-neutral-500 text-sm">— La fusión de tecnologías emergentes</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">La Cuarta Revolución Industrial (Industria 4.0) es la fusión de tecnologías físicas, digitales y biológicas: IA, robótica, IoT, biotecnología y computación cuántica convergen para transformar todos los aspectos de la sociedad.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Estamos viviendo esta revolución ahora. A diferencia de las anteriores, avanza de forma exponencial y afecta a todas las profesiones simultáneamente.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Industria 4.0 (Klaus Schwab), convergencia físico-digital, sistemas ciberfísicos, disrupción tecnológica, velocidad vs. amplitud del impacto.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">2</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📊 La gran reestructuración <span class="text-neutral-500 text-sm">— 9M eliminados, 11M creados</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Según el Foro Económico Mundial, para 2027 la automatización eliminará 9 millones de empleos y creará 11 millones de nuevos puestos, lo que dará como resultado un saldo positivo, pero exigirá una recapacitación masiva.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Saber qué empleos están en riesgo y cuáles están surgiendo te permite planificar tu carrera estratégicamente e invertir en las habilidades adecuadas.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Future of Jobs Report (WEF), reskilling y upskilling, empleos en riesgo, empleos emergentes, transición de carrera, brecha de habilidades.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">3</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🎯 Cambio del 70% de las habilidades <span class="text-neutral-500 text-sm">— Qué cambia hasta 2030</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Las investigaciones indican que el 70% de las habilidades que exige el mercado laboral cambiará significativamente para 2030. Las habilidades técnicas tendrán una vida útil cada vez más corta, mientras que las habilidades humanas cobrarán importancia.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Invertir en las habilidades adecuadas es la mejor protección contra la obsolescencia profesional. Entender esta dinámica es esencial para cualquier plan de carrera.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Vida media de las habilidades, habilidades duras vs. habilidades blandas, pensamiento crítico, creatividad, inteligencia emocional, adaptabilidad, alfabetización digital.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">4</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🏢 Sectores más impactados <span class="text-neutral-500 text-sm">— Finanzas, manufactura, salud</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Algunos sectores están transformándose más rápidamente: finanzas (trading algorítmico, análisis de riesgos), manufactura (robótica y mantenimiento predictivo), salud (diagnóstico asistido por IA) y servicios (atención automatizada).</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Si trabajas en alguno de estos sectores, la urgencia de adaptarte es aún mayor. Si no, entender estos casos te ayuda a anticipar lo que llegará a tu área.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Automatización financiera, Industria 4.0 en la manufactura, IA en el diagnóstico médico, chatbots y atención al cliente, transformación en el comercio minorista, impacto en el sector jurídico.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">5</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🧠 Habilidades en forma de T <span class="text-neutral-500 text-sm">— Profundidad + amplitud</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">El modelo T-Shaped describe a profesionales con profundidad en un área de especialización (la barra vertical de la T) y amplitud de conocimientos en áreas complementarias (la barra horizontal), incluida la IA.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">En el mercado actual, ser solo especialista o solo generalista no basta. El modelo T-Shaped + IA es la fórmula para volverte indispensable.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Profesional en T, profesional en Pi, especialización frente a generalización, combinación única de habilidades, IA como multiplicador de competencias.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">6</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📚 Alfabetización en IA <span class="text-neutral-500 text-sm">— La nueva competencia esencial</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">La alfabetización en IA (AI Literacy) es la capacidad de entender, usar y evaluar críticamente herramientas de IA. No se trata de saber programar, sino de saber interactuar eficazmente con sistemas inteligentes.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Así como la alfabetización digital fue esencial en la década de 2000, la alfabetización en IA es la competencia que define esta década. Quienes no la desarrollen quedarán en una desventaja significativa.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">AI Literacy, alfabetización digital avanzada, uso crítico de la IA, sesgos algorítmicos, ética de la IA, ciudadanía digital en la era de la IA.</span></div>
+</div>
+</div>
+</div>
+<div class="flex justify-start gap-3 mt-6">
+<button class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" onclick="openModal('modal-1-2')">Ver en modal</button>
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-2.html">Ver completo</a>
+</div>
+</div>
+<!-- Module 1.3 -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<span class="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full">1.3</span>
+<span class="text-xs text-neutral-500">~40 min</span>
+</div>
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">💬 Ingeniería de prompts</h2>
+<div class="space-y-3">
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">1</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🎯 Especificidad progresiva <span class="text-neutral-500 text-sm">— De lo vago a lo preciso</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Técnica de creación de prompts que parte de instrucciones generales y las va refinando progresivamente hasta alcanzar el nivel de detalle necesario para obtener respuestas precisas de la IA.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">La mayoría de los usuarios obtiene resultados mediocres porque hace preguntas vagas. Dominar la especificidad progresiva transforma drásticamente la calidad de las respuestas de la IA.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Contexto, persona, formato de salida, restricciones, ejemplos, tono y estilo, iteración de prompts, refinamiento progresivo.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">2</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🎭 Juego de roles <span class="text-neutral-500 text-sm">— Activando la experiencia de la IA</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Técnica que asigna un papel o una persona a la IA —como «Eres un especialista en marketing digital con 20 años de experiencia»— para activar patrones de conocimiento más específicos y relevantes.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">El role-playing es una de las técnicas más poderosas y sencillas de ingeniería de prompts. Mejora significativamente la calidad, profundidad y relevancia de las respuestas.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Prompts de sistema, personas, experiencia simulada, tono profesional, perspectivas múltiples, debate simulado entre expertos.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">3</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🔗 Chain-of-Thought <span class="text-neutral-500 text-sm">— Razonamiento paso a paso</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Chain-of-Thought (CoT) es una técnica que le pide a la IA que "piense paso a paso" y explicite su razonamiento antes de llegar a una conclusión. Esto mejora significativamente la precisión en tareas complejas.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Para problemas que implican lógica, matemáticas, análisis o decisiones complejas, CoT puede marcar la diferencia entre una respuesta incorrecta y una correcta.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Razonamiento explícito, zero-shot CoT, few-shot CoT, Tree-of-Thought, verificación del razonamiento, descomposición lógica.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">4</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📋 Few-Shot Learning <span class="text-neutral-500 text-sm">— Aprendizaje por ejemplos</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Few-Shot Learning es la técnica de proporcionar ejemplos dentro del prompt para que la IA entienda exactamente el patrón de entrada y salida deseado, sin necesidad de entrenamiento adicional.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Cuando necesitas formatos específicos, estilos consistentes o patrones complejos de respuesta, few-shot es la técnica más confiable para obtener resultados consistentes.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Zero-shot, one-shot, few-shot, ejemplos positivos y negativos, formato mediante ejemplos, consistencia de salida, plantillas reutilizables.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">5</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">✂️ Descomposición de tareas <span class="text-neutral-500 text-sm">— Descomponiendo problemas complejos</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Técnica que divide problemas complejos en subtareas más pequeñas y manejables, cada una resuelta por separado por la IA, y combina los resultados al final.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Los LLM tienen limitaciones para tareas muy complejas en un solo prompt. Descomponer las tareas mejora la calidad y permite resolver problemas que parecían imposibles.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Divide and conquer, subprompts, pipeline de prompts, orquestación, secuenciación, validación intermedia.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">6</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">⚙️ Herramientas y plataformas <span class="text-neutral-500 text-sm">— ChatGPT, Claude y más</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Panorama de las principales plataformas de IA generativa disponibles: ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google), Copilot (Microsoft) y herramientas especializadas para imagen, video y audio.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Cada plataforma tiene fortalezas y debilidades diferentes. Saber elegir la herramienta adecuada para cada tarea multiplica tu productividad y la calidad de los resultados.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">ChatGPT vs. Claude vs. Gemini, modelos de código abierto, APIs, playgrounds, costos y límites, herramientas multimodales (DALL-E, Midjourney, Suno).</span></div>
+</div>
+</div>
+</div>
+<div class="flex justify-start gap-3 mt-6">
+<button class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" onclick="openModal('modal-1-3')">Ver en modal</button>
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-3.html">Ver completo</a>
+</div>
+</div>
+<!-- Module 1.4 -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<span class="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full">1.4</span>
+<span class="text-xs text-neutral-500">~35 min</span>
+</div>
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">🧩 Ingeniería de contexto</h2>
+<div class="space-y-3">
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">1</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🏗️ Arquitectura contextual <span class="text-neutral-500 text-sm">— Los 4 pilares de la ingeniería de contexto</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">La arquitectura contextual es la disciplina de estructurar y proporcionar información relevante a la IA de forma optimizada. Sus 4 pilares son: selección del contexto, compresión, ordenamiento y actualización dinámica.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">La calidad de la respuesta de una IA depende directamente de la calidad del contexto que le proporcionas. La ingeniería de contexto es el siguiente nivel después de la ingeniería de prompts.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Ventana de contexto, relevancia contextual, compresión de información, gestión de context window, meta-prompting, instrucciones de sistema.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">2</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🔍 RAG <span class="text-neutral-500 text-sm">— Generación aumentada por recuperación</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">RAG es una arquitectura que combina la búsqueda de información en bases de datos externas con la generación de texto por IA, lo que permite dar respuestas basadas en datos actualizados y específicos.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">RAG resuelve dos de los mayores problemas de los LLM: las alucinaciones y el conocimiento desactualizado. Es la técnica más usada en aplicaciones empresariales de IA.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Retrieval, indexación, chunking, bases de conocimiento, bases de datos vectoriales, búsqueda semántica, fundamentación de respuestas, reducción de alucinaciones.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">3</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📐 Embeddings vectoriales <span class="text-neutral-500 text-sm">— Búsqueda semántica</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Los embeddings son representaciones numéricas (vectores) de texto que capturan el significado semántico. Los textos con significados similares quedan cerca en el espacio vectorial, lo que permite buscar por similitud.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Los embeddings son la base de los sistemas RAG, los motores de recomendación y la búsqueda inteligente. Entender el concepto es fundamental para crear aplicaciones avanzadas de IA.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Vectores, espacio vectorial, similitud del coseno, modelos de embedding, Pinecone, Weaviate, FAISS, búsqueda semántica vs. léxica.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">4</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🕸️ Grafos de conocimiento <span class="text-neutral-500 text-sm">— Conexiones inteligentes</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Los grafos de conocimiento (Knowledge Graphs) organizan la información como redes de entidades y relaciones, lo que permite que la IA entienda conexiones complejas entre conceptos y haga inferencias más sofisticadas.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Para aplicaciones que requieren razonar sobre relaciones complejas (por ejemplo, cumplimiento normativo e investigación científica), los grafos de conocimiento complementan los embeddings y mejoran significativamente la calidad.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Nodos y aristas, tripletas (sujeto-predicado-objeto), Neo4j, GraphRAG, ontologías, inferencia relacional, Knowledge Graph + LLM.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">5</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">⚡ Function Calling <span class="text-neutral-500 text-sm">— IA que ejecuta acciones</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Function Calling permite que los LLM invoquen funciones externas —consultar APIs, acceder a bases de datos, realizar cálculos—, transformando la IA de un generador de texto en un agente que ejecuta acciones reales.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Function Calling es el puente entre la IA conversacional y la automatización real. Es la base de los agentes autónomos y asistentes que realmente hacen cosas por ti.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Tool use, definición de funciones, parámetros estructurados, APIs, webhooks, agentes autónomos, orquestación de herramientas.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">6</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🧠 Sistemas de memoria <span class="text-neutral-500 text-sm">— Corto plazo, largo plazo, episódica</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Los sistemas de memoria para IA replican conceptos de la memoria humana: corto plazo (contexto de la conversación), largo plazo (conocimiento persistente) y episódica (historial de interacciones pasadas).</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">La memoria es lo que transforma un chatbot simple en un asistente verdaderamente útil que te conoce, conoce tus preferencias y tu historial a lo largo del tiempo.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Memoria a corto plazo (buffer), memoria a largo plazo (vector store), memoria episódica, resumen de conversaciones, perfiles de usuario, personalización progresiva.</span></div>
+</div>
+</div>
+</div>
+<div class="flex justify-start gap-3 mt-6">
+<button class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" onclick="openModal('modal-1-4')">Ver en modal</button>
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-4.html">Ver completo</a>
+</div>
+</div>
+<!-- Module 1.5 -->
+<div class="bg-dark-800 border border-dark-700 rounded-2xl p-6 sm:p-8">
+<div class="flex flex-wrap items-center gap-3 mb-2">
+<span class="text-xs font-bold text-emerald-400 bg-emerald-500/20 px-2.5 py-1 rounded-full">1.5</span>
+<span class="text-xs text-neutral-500">~35 min</span>
+</div>
+<h2 class="text-2xl font-bold text-neutral-100 mb-6">🤖 Automatización de procesos</h2>
+<div class="space-y-3">
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">1</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🔧 Automatización inteligente <span class="text-neutral-500 text-sm">— Más allá de las reglas rígidas</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">La automatización inteligente combina la automatización tradicional basada en reglas con la inteligencia artificial, lo que permite automatizar procesos que implican criterio, interpretación del lenguaje natural y toma de decisiones.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">La automatización inteligente es el mayor multiplicador de productividad disponible hoy. Permite que una persona haga el trabajo de todo un equipo en ciertas tareas.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">RPA vs. automatización inteligente, IPA (Intelligent Process Automation), toma de decisiones automatizada, procesamiento de documentos, clasificación inteligente.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">2</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🔄 Mapeo de procesos <span class="text-neutral-500 text-sm">— Identificando oportunidades</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Metodología para documentar y analizar los procesos existentes, identificando qué etapas son repetitivas, requieren mucho tiempo o son propensas a errores y, por lo tanto, son candidatas ideales para la automatización.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Automatizar el proceso equivocado es desperdiciar recursos. El mapeo garantiza que automatices lo que realmente genera impacto y retorno.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Minería de procesos, diagramas de flujo, cuellos de botella, tiempo de ciclo, matriz de priorización, victorias rápidas, complejidad frente a impacto.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">3</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🛠️ Herramientas No-Code <span class="text-neutral-500 text-sm">— Zapier, Make.com, n8n</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Plataformas no-code/low-code que permiten crear automatizaciones visuales arrastrando y conectando bloques, sin necesidad de programar. Integran cientos de aplicaciones y servicios.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Las herramientas no-code democratizan la automatización. Cualquier profesional puede automatizar sus procesos sin depender de desarrolladores y ahorrar horas por semana.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">Zapier (facilidad), Make.com (flexibilidad), n8n (open-source), triggers y acciones, webhooks, integración de APIs, plantillas de automatización.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">4</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📊 RPA + IA <span class="text-neutral-500 text-sm">— Automatización robótica potenciada</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">La combinación de RPA (Robotic Process Automation) con IA crea robots de software que no solo siguen scripts, sino que también entienden documentos, toman decisiones y aprenden con el tiempo.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">RPA + IA es una de las áreas de mayor crecimiento en tecnología empresarial. Los profesionales que dominan esta combinación son muy valorados en el mercado.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">UiPath, Automation Anywhere, comprensión de documentos, OCR inteligente, descubrimiento de procesos, bots attended vs unattended, hyperautomation.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">5</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">📈 ROI de la automatización <span class="text-neutral-500 text-sm">— Midiendo resultados</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Framework para calcular el retorno de la inversión de proyectos de automatización, considerando los costos de implementación, el ahorro de tiempo, la reducción de errores y las ganancias de escalabilidad.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">Para justificar inversiones en automatización (personales o empresariales), necesitas demostrar un retorno concreto. Saber medir el ROI convierte la automatización de un "pasatiempo" en una estrategia.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">TCO (costo total de propiedad), período de recuperación, horas ahorradas, reducción de errores, satisfacción del cliente, métricas de productividad, caso de negocio.</span></div>
+</div>
+</div>
+<div class="topic-item">
+<button class="flex items-center gap-3 w-full text-left group" onclick="toggleTopic(this)">
+<span class="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-sm font-bold text-emerald-400">6</span>
+<span class="text-neutral-100 group-hover:text-emerald-400 transition-colors">🚀 Implementación gradual <span class="text-neutral-500 text-sm">— Del piloto a la escala</span></span>
+</button>
+<div class="topic-explanation ml-11 mt-3 p-4 bg-dark-700 rounded-xl border border-dark-600 space-y-3">
+<div><span class="text-emerald-400 font-semibold">Qué es:</span> <span class="text-neutral-300">Metodología de implementación por fases: empieza con un proyecto piloto pequeño, valida los resultados, haz ajustes y amplía gradualmente, minimizando los riesgos y maximizando el aprendizaje.</span></div>
+<div><span class="text-emerald-400 font-semibold">Por qué aprender:</span> <span class="text-neutral-300">La mayoría de los proyectos de automatización fracasa por intentar hacerlo todo de una vez. La implementación gradual es el enfoque con la mayor tasa de éxito comprobada.</span></div>
+<div><span class="text-emerald-400 font-semibold">Conceptos clave:</span> <span class="text-neutral-300">MVP de automatización, proyecto piloto, métricas de validación, gestión del cambio, escalamiento, centro de excelencia (CoE), gobernanza de la automatización.</span></div>
+</div>
+</div>
+</div>
+<div class="flex justify-start gap-3 mt-6">
+<button class="px-4 py-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-lg text-sm font-semibold hover:bg-emerald-500/30 transition-colors" onclick="openModal('modal-1-5')">Ver en modal</button>
+<a class="px-4 py-2 bg-dark-700 text-neutral-300 border border-dark-600 rounded-lg text-sm font-semibold hover:bg-dark-600 transition-colors" href="modulo-1-5.html">Ver completo</a>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="border-t border-dark-700 mt-12">
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+<div class="flex items-center space-x-2 text-neutral-400 text-sm">
+<span>🎓</span>
+<span class="font-semibold">ATIA</span>
+<span>—</span>
+<span>Aceleración en Tecnología e Inteligencia Artificial</span>
+</div>
+<div class="text-neutral-500 text-sm">
+<a class="text-sky-400 hover:text-sky-300" href="https://inema.club" target="_blank">INEMA.CLUB</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Modals -->
+<div class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4" id="modal-1-1">
+<div class="absolute inset-0 bg-black/70" onclick="closeModal()"></div>
+<div class="relative bg-dark-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-dark-600">
+<div class="flex justify-between items-center p-4 border-b border-dark-700">
+<h3 class="text-lg font-bold text-neutral-100">🌊 Módulo 1.1 — El tsunami de la IA</h3>
+<button class="text-neutral-400 hover:text-neutral-100 text-2xl" onclick="closeModal()">×</button>
+</div>
+<iframe class="w-full h-[80vh]" src="modulo-1-1.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4" id="modal-1-2">
+<div class="absolute inset-0 bg-black/70" onclick="closeModal()"></div>
+<div class="relative bg-dark-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-dark-600">
+<div class="flex justify-between items-center p-4 border-b border-dark-700">
+<h3 class="text-lg font-bold text-neutral-100">💼 Módulo 1.2 — Transformación digital y mercado laboral</h3>
+<button class="text-neutral-400 hover:text-neutral-100 text-2xl" onclick="closeModal()">×</button>
+</div>
+<iframe class="w-full h-[80vh]" src="modulo-1-2.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4" id="modal-1-3">
+<div class="absolute inset-0 bg-black/70" onclick="closeModal()"></div>
+<div class="relative bg-dark-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-dark-600">
+<div class="flex justify-between items-center p-4 border-b border-dark-700">
+<h3 class="text-lg font-bold text-neutral-100">💬 Módulo 1.3 — Ingeniería de prompts</h3>
+<button class="text-neutral-400 hover:text-neutral-100 text-2xl" onclick="closeModal()">×</button>
+</div>
+<iframe class="w-full h-[80vh]" src="modulo-1-3.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4" id="modal-1-4">
+<div class="absolute inset-0 bg-black/70" onclick="closeModal()"></div>
+<div class="relative bg-dark-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-dark-600">
+<div class="flex justify-between items-center p-4 border-b border-dark-700">
+<h3 class="text-lg font-bold text-neutral-100">🧩 Módulo 1.4 — Ingeniería de contexto</h3>
+<button class="text-neutral-400 hover:text-neutral-100 text-2xl" onclick="closeModal()">×</button>
+</div>
+<iframe class="w-full h-[80vh]" src="modulo-1-4.html"></iframe>
+</div>
+</div>
+<div class="modal hidden fixed inset-0 z-[100] flex items-center justify-center p-4" id="modal-1-5">
+<div class="absolute inset-0 bg-black/70" onclick="closeModal()"></div>
+<div class="relative bg-dark-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-dark-600">
+<div class="flex justify-between items-center p-4 border-b border-dark-700">
+<h3 class="text-lg font-bold text-neutral-100">🤖 Módulo 1.5 — Automatización de procesos</h3>
+<button class="text-neutral-400 hover:text-neutral-100 text-2xl" onclick="closeModal()">×</button>
+</div>
+<iframe class="w-full h-[80vh]" src="modulo-1-5.html"></iframe>
+</div>
+</div>
+<script>
+        // Topic toggle
+        function toggleTopic(button) {
+            const topicItem = button.closest('.topic-item');
+            const explanation = topicItem.querySelector('.topic-explanation');
+            const moduleCard = button.closest('.bg-dark-800');
+            moduleCard.querySelectorAll('.topic-explanation.active').forEach(exp => {
+                if (exp !== explanation) exp.classList.remove('active');
+            });
+            explanation.classList.toggle('active');
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const html = document.documentElement;
+        if (localStorage.getItem('theme') === 'light') {
+            themeToggleDarkIcon.classList.remove('hidden');
+            html.classList.remove('dark');
+        } else {
+            themeToggleLightIcon.classList.remove('hidden');
+        }
+        themeToggle.addEventListener('click', () => {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) { modal.classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+        }
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    </script>
+</body>
+</html>
