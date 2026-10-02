@@ -1,0 +1,395 @@
+{
+  "curso": "ATIA - Oportunidades Digitais com IA",
+  "versao": "1.0.0",
+  "atualizado": "2025-11-04",
+  "nota": "Estrutura de referências de vídeos curados. URLs específicos do YouTube devem ser preenchidos após busca direta na plataforma.",
+
+  "canais_recomendados": {
+    "pt_br": [
+      {
+        "nome": "Código Fonte TV",
+        "url": "https://www.youtube.com/@codigofontetv",
+        "foco": "IA, tecnologia, programação",
+        "idioma": "pt-BR"
+      },
+      {
+        "nome": "Filipe Deschamps",
+        "url": "https://www.youtube.com/@FilipeDeschamps",
+        "foco": "Desenvolvimento, IA, carreira tech",
+        "idioma": "pt-BR"
+      },
+      {
+        "nome": "Hashtag Treinamentos",
+        "url": "https://www.youtube.com/@HashtagTreinamentos",
+        "foco": "Tutoriais práticos, prompt engineering",
+        "idioma": "pt-BR"
+      },
+      {
+        "nome": "Asimov Academy",
+        "url": "https://hub.asimov.academy",
+        "foco": "História da IA, educação técnica",
+        "idioma": "pt-BR"
+      },
+      {
+        "nome": "Alura",
+        "url": "https://www.youtube.com/@AluraCursosOnline",
+        "foco": "Cursos tech, IA, desenvolvimento",
+        "idioma": "pt-BR"
+      }
+    ],
+    "en_legendas": [
+      {
+        "nome": "Two Minute Papers",
+        "url": "https://www.youtube.com/@TwoMinutePapers",
+        "foco": "Papers acadêmicos explicados",
+        "idioma": "en",
+        "legendas_pt": true
+      },
+      {
+        "nome": "Lex Fridman",
+        "url": "https://www.youtube.com/@lexfridman",
+        "foco": "Entrevistas com líderes de IA",
+        "idioma": "en",
+        "legendas_pt": true
+      },
+      {
+        "nome": "Andrej Karpathy",
+        "url": "https://www.youtube.com/@AndrejKarpathy",
+        "foco": "Deep learning técnico",
+        "idioma": "en",
+        "legendas_pt": true
+      }
+    ]
+  },
+
+  "capitulos": {
+    "capitulo1": {
+      "id": "cap1-tsunami-ia",
+      "titulo": "O Tsunami da IA - Compreendendo a Revolução Digital",
+      "videos": [
+        {
+          "titulo": "História da Inteligência Artificial - De Alan Turing aos Dias Atuais",
+          "descricao": "Explicação visual da evolução da IA desde os pioneiros até as inovações atuais",
+          "canal": "Asimov Academy",
+          "duracao_estimada": "10-15 min",
+          "temas": ["história", "evolução", "timeline"],
+          "idioma": "pt-BR",
+          "url_youtube": "[BUSCAR: história inteligência artificial Alan Turing português]",
+          "nota_busca": "Buscar vídeos sobre história da IA mencionando Alan Turing, evolução e estado atual"
+        },
+        {
+          "titulo": "A Revolução da IA Generativa em 2024-2025",
+          "descricao": "Panorama das mudanças recentes e impacto da IA generativa",
+          "canal": "Código Fonte TV ou Filipe Deschamps",
+          "duracao_estimada": "15-20 min",
+          "temas": ["IA generativa", "2024", "2025", "tendências"],
+          "idioma": "pt-BR",
+          "url_youtube": "[BUSCAR: IA generativa 2024 2025 revolução português]",
+          "nota_busca": "Buscar vídeos recentes sobre IA generativa e suas mudanças"
+        },
+        {
+          "titulo": "Entendendo Crescimento Exponencial vs Linear",
+          "descricao": "Demonstração visual de como tecnologias exponenciais diferem das lineares",
+          "canal": "Khan Academy ou similar",
+          "duracao_estimada": "8-10 min",
+          "temas": ["matemática", "exponencial", "crescimento"],
+          "idioma": "pt-BR ou en com legendas",
+          "url_youtube": "[BUSCAR: crescimento exponencial vs linear visual]",
+          "nota_busca": "Buscar explicações visuais de crescimento exponencial"
+        }
+      ],
+      "links_uteis": [
+        {
+          "titulo": "AI Index Report 2025 - Stanford HAI",
+          "url": "https://aiindex.stanford.edu/report/",
+          "tipo": "report",
+          "descricao": "Relatório anual completo sobre o estado da IA"
+        },
+        {
+          "titulo": "História da IA - Asimov Academy",
+          "url": "https://hub.asimov.academy/blog/historia-da-inteligencia-artificial/",
+          "tipo": "artigo",
+          "descricao": "Artigo completo sobre a história da IA"
+        },
+        {
+          "titulo": "Timeline Interativa da IA",
+          "url": "https://www.ibm.com/think/topics/history-of-artificial-intelligence",
+          "tipo": "interativo",
+          "descricao": "Linha do tempo visual da evolução da IA pela IBM"
+        }
+      ],
+      "downloads": [
+        {
+          "titulo": "Linha do Tempo IA (1950-2025)",
+          "arquivo": "assets/downloads/timeline-ia.pdf",
+          "tipo": "pdf",
+          "status": "a_criar"
+        }
+      ]
+    },
+
+    "capitulo2": {
+      "id": "cap2-mercado-trabalho",
+      "titulo": "Transformação Digital e o Novo Mercado de Trabalho",
+      "videos": [
+        {
+          "titulo": "As Profissões do Futuro com IA",
+          "descricao": "Análise das profissões emergentes e habilidades necessárias",
+          "canal": "Código Fonte TV ou Filipe Deschamps",
+          "duracao_estimada": "12-18 min",
+          "temas": ["profissões", "mercado", "futuro"],
+          "idioma": "pt-BR",
+          "url_youtube": "[BUSCAR: profissões futuro IA mercado trabalho]",
+          "nota_busca": "Buscar vídeos sobre novas profissões e transformação do mercado"
+        },
+        {
+          "titulo": "Impacto da IA no Mercado de Trabalho Brasileiro",
+          "descricao": "Análise específica do contexto brasileiro",
+          "canal": "Exame, InfoMoney ou similar",
+          "duracao_estimada": "10-15 min",
+          "temas": ["Brasil", "emprego", "automação"],
+          "idioma": "pt-BR",
+          "url_youtube": "[BUSCAR: IA impacto mercado trabalho Brasil]",
+          "nota_busca": "Buscar análises sobre IA e emprego no contexto brasileiro"
+        },
+        {
+          "titulo": "Automação: Quais Empregos Serão Substituídos?",
+          "descricao": "Discussão sobre automação e requalificação profissional",
+          "canal": "TEDx Talks (português) ou canais tech BR",
+          "duracao_estimada": "15-20 min",
+          "temas": ["automação", "substituição", "requalificação"],
+          "idioma": "pt-BR ou en com legendas",
+          "url_youtube": "[BUSCAR: automação empregos substituição IA]",
+          "nota_busca": "Buscar palestras ou análises sobre automação e empregos"
+        }
+      ],
+      "links_uteis": [
+        {
+          "titulo": "Future of Jobs Report 2025 - World Economic Forum",
+          "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2025/",
+          "tipo": "report",
+          "descricao": "Relatório sobre o futuro do trabalho e profissões emergentes"
+        },
+        {
+          "titulo": "Profissões do Futuro - Exame",
+          "url": "https://exame.com/carreira/futuro-do-trabalho-veja-as-10-profissoes-que-estao-decolando-com-a-inteligencia-artificial/",
+          "tipo": "artigo",
+          "descricao": "10 profissões que estão crescendo com IA"
+        },
+        {
+          "titulo": "IA no Mercado de Trabalho - Gupy",
+          "url": "https://www.gupy.io/blog/ia-mercado-trabalho",
+          "tipo": "artigo",
+          "descricao": "Impactos e desafios da IA no mercado"
+        }
+      ],
+      "downloads": [
+        {
+          "titulo": "Checklist: Avalie Seu Perfil Profissional",
+          "arquivo": "assets/downloads/checklist-perfil-profissional.pdf",
+          "tipo": "pdf",
+          "status": "a_criar"
+        }
+      ]
+    },
+
+    "capitulo3": {
+      "id": "cap3-engenharia-prompt",
+      "titulo": "Engenharia de Prompt - A Nova Linguagem do Futuro",
+      "videos": [
+        {
+          "titulo": "Guia Completo de Prompt Engineering para Iniciantes",
+          "descricao": "Tutorial passo a passo de como criar prompts eficazes",
+          "canal": "Hashtag Treinamentos ou Alura",
+          "duracao_estimada": "15-25 min",
+          "temas": ["prompt", "ChatGPT", "tutorial"],
+          "idioma": "pt-BR",
+          "url_youtube": "[BUSCAR: prompt engineering tutorial português ChatGPT]",
+          "nota_busca": "Buscar tutoriais completos de prompt engineering em português"
+        },
+        {
+          "titulo": "Técnicas Avançadas de Prompt Engineering",
+          "descricao": "Técnicas como Chain-of-Thought, Few-Shot, Zero-Shot",
+          "canal": "DIO.me, Alura ou canais técnicos",
+          "duracao_estimada": "12-18 min",
+          "temas": ["técnicas avançadas", "Chain-of-Thought", "Few-Shot"],
+          "idioma": "pt-BR",
+          "url_youtube": "[BUSCAR: prompt engineering técnicas avançadas português]",
+          "nota_busca": "Buscar vídeos sobre técnicas avançadas de prompting"
+        },
+        {
+          "titulo": "Diferença entre Prompt Engineering e Context Engineering",
+          "descricao": "Explicação das duas abordagens e quando usar cada uma",
+          "canal": "Canais técnicos especializados",
+          "duracao_estimada": "10-15 min",
+          "temas": ["contexto", "diferenças", "aplicações"],
+          "idioma": "pt-BR ou en com legendas",
+          "url_youtube": "[BUSCAR: prompt vs context engineering diferença]",
+          "nota_busca": "Buscar explicações sobre prompt engineering vs context engineering"
+        },
+        {
+          "titulo": "Exemplos Práticos: Do Prompt Ruim ao Excelente",
+          "descricao": "Demonstrações práticas de melhoria de prompts",
+          "canal": "Hashtag Treinamentos ou similar",
+          "duracao_estimada": "10-12 min",
+          "temas": ["exemplos", "prática", "melhoria"],
+          "idioma": "pt-BR",
+          "url_youtube": "[BUSCAR: exemplos práticos prompt engineering antes depois]",
+          "nota_busca": "Buscar vídeos com exemplos práticos de prompts ruins vs bons"
+        }
+      ],
+      "links_uteis": [
+        {
+          "titulo": "Prompt Engineering Guide (Português)",
+          "url": "https://www.promptingguide.ai/pt",
+          "tipo": "guia",
+          "descricao": "Guia completo de engenharia de prompt em português"
+        },
+        {
+          "titulo": "ChatGPT Prompt Engineering Course - Alura",
+          "url": "https://www.alura.com.br/conteudo/engenharia-prompt-criando-prompts-eficazes-ia-generativa",
+          "tipo": "curso",
+          "descricao": "Curso completo de engenharia de prompt"
+        },
+        {
+          "titulo": "Guia Básico de Engenharia de Prompts - ChatGPT Brasil",
+          "url": "https://chatgptbrasil.com.br/2024/02/02/guia-basico-de-engenharia-de-prompts/",
+          "tipo": "guia",
+          "descricao": "Guia prático para iniciantes em português"
+        },
+        {
+          "titulo": "ChatGPT Playground (OpenAI)",
+          "url": "https://platform.openai.com/playground",
+          "tipo": "ferramenta",
+          "descricao": "Ambiente para testar prompts"
+        }
+      ],
+      "downloads": [
+        {
+          "titulo": "Template: Estrutura de Prompts Eficazes",
+          "arquivo": "assets/downloads/template-prompts.pdf",
+          "tipo": "pdf",
+          "status": "a_criar"
+        },
+        {
+          "titulo": "100 Exemplos de Prompts Práticos",
+          "arquivo": "assets/downloads/100-prompts-exemplos.pdf",
+          "tipo": "pdf",
+          "status": "a_criar"
+        }
+      ]
+    },
+
+    "capitulo4": {
+      "id": "cap4-engenharia-contexto",
+      "titulo": "Engenharia de Contexto - Criando Ecossistemas Inteligentes",
+      "videos": [],
+      "links_uteis": [],
+      "downloads": [],
+      "status": "pendente_curadoria"
+    },
+
+    "capitulo5": {
+      "id": "cap5-automacao-processos",
+      "titulo": "Automação de Processos Empresariais com IA",
+      "videos": [],
+      "links_uteis": [],
+      "downloads": [],
+      "status": "pendente_curadoria"
+    },
+
+    "capitulo6": {
+      "id": "cap6-gpts-personalizados",
+      "titulo": "GPTs Personalizados e Agentes de IA",
+      "videos": [],
+      "links_uteis": [],
+      "downloads": [],
+      "status": "pendente_curadoria"
+    },
+
+    "capitulo7": {
+      "id": "cap7-novas-profissoes",
+      "titulo": "As Novas Profissões da Era da IA",
+      "videos": [],
+      "links_uteis": [],
+      "downloads": [],
+      "status": "pendente_curadoria"
+    },
+
+    "capitulo8": {
+      "id": "cap8-marketing-digital",
+      "titulo": "Criação de Conteúdo e Marketing Digital com IA",
+      "videos": [],
+      "links_uteis": [],
+      "downloads": [],
+      "status": "pendente_curadoria"
+    },
+
+    "capitulo9": {
+      "id": "cap9-vendas-automatizadas",
+      "titulo": "Prospecção e Vendas Automatizadas",
+      "videos": [],
+      "links_uteis": [],
+      "downloads": [],
+      "status": "pendente_curadoria"
+    },
+
+    "capitulo10": {
+      "id": "cap10-educacao-ia",
+      "titulo": "Educação e Desenvolvimento de Habilidades na Era IA",
+      "videos": [],
+      "links_uteis": [],
+      "downloads": [],
+      "status": "pendente_curadoria"
+    },
+
+    "capitulo11": {
+      "id": "cap11-etica-governanca",
+      "titulo": "Ética, Governança e Responsabilidade em IA",
+      "videos": [],
+      "links_uteis": [],
+      "downloads": [],
+      "status": "pendente_curadoria"
+    },
+
+    "capitulo12": {
+      "id": "cap12-implementacao-estrategica",
+      "titulo": "Implementação Estratégica de IA nas Organizações",
+      "videos": [],
+      "links_uteis": [],
+      "downloads": [],
+      "status": "pendente_curadoria"
+    },
+
+    "capitulo13": {
+      "id": "cap13-futuro-trabalho",
+      "titulo": "O Futuro do Trabalho e da Sociedade",
+      "videos": [],
+      "links_uteis": [],
+      "downloads": [],
+      "status": "pendente_curadoria"
+    },
+
+    "capitulo14": {
+      "id": "cap14-guia-pratico",
+      "titulo": "Guia Prático de Implementação",
+      "videos": [],
+      "links_uteis": [],
+      "downloads": [],
+      "status": "pendente_curadoria"
+    }
+  },
+
+  "instrucoes_busca": {
+    "youtube": "Para preencher as URLs dos vídeos, busque no YouTube usando os termos sugeridos em 'nota_busca' de cada vídeo. Priorize vídeos em português (pt-BR) com boa qualidade de produção, views relevantes e publicados em 2023-2025.",
+    "criterios_qualidade": [
+      "Vídeos de 2023-2025 (preferencial)",
+      "Idioma português brasileiro",
+      "Duração: 8-20 minutos ideal",
+      "Qualidade de produção profissional",
+      "Canais verificados ou reconhecidos",
+      "Conteúdo educacional, não promocional"
+    ],
+    "formato_url": "https://youtube.com/watch?v=[VIDEO_ID]"
+  }
+}

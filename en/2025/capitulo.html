@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chapter - ATIA</title>
+<meta content="ATIA Course - Learn About AI and Digital Opportunities" name="description"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind Typography Plugin -->
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        fundamentos: '#10B981',
+                        aplicacao: '#3B82F6',
+                        estrategico: '#8B5CF6'
+                    }
+                }
+            },
+            plugins: []
+        }
+    </script>
+<!-- Prose Styles for Markdown -->
+<style>
+        /* Markdown content styling */
+        #chapter-content h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: #1a202c;
+        }
+        #chapter-content h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: #2d3748;
+        }
+        #chapter-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            color: #2d3748;
+        }
+        #chapter-content h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+        }
+        #chapter-content p {
+            margin-bottom: 1.25rem;
+            line-height: 1.75;
+            color: #4a5568;
+            text-align: justify;
+        }
+        #chapter-content strong {
+            font-weight: 600;
+            color: #2d3748;
+        }
+        #chapter-content ul, #chapter-content ol {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+        }
+        #chapter-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.75;
+            color: #4a5568;
+        }
+        #chapter-content ul li {
+            list-style-type: disc;
+        }
+        #chapter-content ol li {
+            list-style-type: decimal;
+        }
+        #chapter-content blockquote {
+            border-left: 4px solid #3B82F6;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #4a5568;
+        }
+        #chapter-content code {
+            background-color: #f7fafc;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            font-family: 'Courier New', monospace;
+            color: #e53e3e;
+        }
+        #chapter-content pre {
+            background-color: #2d3748;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        #chapter-content pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #e2e8f0;
+        }
+        #chapter-content a {
+            color: #3B82F6;
+            text-decoration: underline;
+        }
+        #chapter-content a:hover {
+            color: #2563eb;
+        }
+        #chapter-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        #chapter-content hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid #e2e8f0;
+        }
+        #chapter-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        #chapter-content th, #chapter-content td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        #chapter-content th {
+            background-color: #f7fafc;
+            font-weight: 600;
+        }
+
+        /* Tópicos Expansíveis (Estilo FEP) */
+        .topico-expandivel {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .topico-expandivel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .topico-expandivel h3 {
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .topico-expandivel .icon {
+            transition: transform 0.3s ease;
+            font-size: 1.5rem;
+        }
+        .topico-expandivel.active .icon {
+            transform: rotate(180deg);
+        }
+        .topico-conteudo {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        .topico-conteudo.show {
+            max-height: 1000px;
+            transition: max-height 0.6s ease-in;
+        }
+        .topico-item {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+        .topico-item h4 {
+            color: #667eea;
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .topico-item p {
+            color: #4a5568;
+            margin: 0;
+            line-height: 1.6;
+        }
+    </style>
+<!-- Custom CSS -->
+<link href="../../2025/css/main.css" rel="stylesheet"/>
+<!-- Marked.js for Markdown parsing -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<!-- Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #E5E7EB;
+            z-index: 9999;
+        }
+        .reading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #10B981, #3B82F6, #8B5CF6);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .toc-sticky {
+            position: sticky;
+            top: 80px;
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+        }
+        .toc-h2 {
+            font-weight: 600;
+            color: #1F2937;
+            padding: 0.5rem 0;
+            display: block;
+            transition: color 0.3s;
+        }
+        .toc-h2:hover {
+            color: #3B82F6;
+        }
+        .toc-h3 {
+            font-weight: 400;
+            color: #6B7280;
+            padding: 0.4rem 0 0.4rem 1rem;
+            display: block;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .toc-h3:hover {
+            color: #3B82F6;
+        }
+    </style>
+<link href="https://inematds.github.io/ATIA/2025/capitulo.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/2025/capitulo.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/2025/capitulo.html" hreflang="es" rel="alternate"/></head>
+<body class="bg-gray-50"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="../../2025/capitulo.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">PT</a><a href="capitulo.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">EN</a><a href="../../es/2025/capitulo.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<!-- Reading Progress Bar -->
+<div class="reading-progress">
+<div class="reading-progress-bar"></div>
+</div>
+<!-- Navigation -->
+<nav class="bg-white shadow-md sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<a class="text-xl font-bold text-gray-900" href="index.html">
+                        ATIA
+                    </a>
+</div>
+<div class="hidden md:flex space-x-8">
+<a class="text-gray-700 hover:text-aplicacao transition" href="index.html">Home</a>
+<a class="text-gray-700 hover:text-fundamentos transition" href="nivel-fundamentos.html">Fundamentals</a>
+<a class="text-gray-700 hover:text-aplicacao transition" href="nivel-aplicacao.html">Application</a>
+<a class="text-gray-700 hover:text-estrategico transition" href="nivel-estrategico.html">Strategic</a>
+</div>
+<button class="md:hidden p-2" id="mobile-menu-button">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Mobile Menu -->
+<div class="hidden md:hidden bg-white border-t" id="mobile-menu">
+<div class="px-2 pt-2 pb-3 space-y-1">
+<a class="block px-3 py-2 text-gray-700 hover:bg-gray-50" href="index.html">Home</a>
+<a class="block px-3 py-2 text-gray-700 hover:bg-gray-50" href="nivel-fundamentos.html">Fundamentals</a>
+<a class="block px-3 py-2 text-gray-700 hover:bg-gray-50" href="nivel-aplicacao.html">Application</a>
+<a class="block px-3 py-2 text-gray-700 hover:bg-gray-50" href="nivel-estrategico.html">Strategic</a>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<!-- Breadcrumb -->
+<nav class="mb-6 text-sm" id="breadcrumb">
+<a class="text-aplicacao hover:underline" href="index.html">Home</a>
+<span class="mx-2 text-gray-400">/</span>
+<span class="text-gray-600" id="breadcrumb-level">Loading...</span>
+<span class="mx-2 text-gray-400">/</span>
+<span class="text-gray-900 font-semibold" id="breadcrumb-chapter">Chapter</span>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<!-- Table of Contents Sidebar -->
+<aside class="lg:col-span-1 order-2 lg:order-1">
+<div class="bg-white rounded-lg shadow-md p-6 toc-sticky">
+<h3 class="text-lg font-bold text-gray-900 mb-4">Chapter Index</h3>
+<ul class="space-y-1 border-l-2 border-gray-200 pl-4" id="toc-list">
+<!-- TOC will be generated dynamically -->
+</ul>
+</div>
+</aside>
+<!-- Main Content Area -->
+<article class="lg:col-span-3 order-1 lg:order-2">
+<!-- Chapter Metadata -->
+<div class="bg-white rounded-lg shadow-md p-6 mb-6">
+<div class="flex items-center justify-between flex-wrap gap-4">
+<div>
+<span class="inline-block px-3 py-1 rounded-full text-xs font-semibold text-white mb-2" id="chapter-badge">
+                                Chapter
+                            </span>
+<h1 class="text-3xl md:text-4xl font-bold text-gray-900" id="chapter-title">
+                                Loading...
+                            </h1>
+</div>
+<div class="flex items-center gap-4 text-sm text-gray-600">
+<span id="reading-time">📖 -- min</span>
+<button class="p-2 hover:bg-gray-100 rounded-full transition" id="bookmark-btn" title="Mark as complete">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<!-- Chapter Content -->
+<div class="bg-white rounded-lg shadow-md p-8 mb-6" id="chapter-content">
+<!-- Markdown content will be loaded here -->
+<div class="text-center py-12">
+<div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-aplicacao"></div>
+<p class="mt-4 text-gray-600">Loading chapter...</p>
+</div>
+</div>
+<!-- Video References and Resources -->
+<div id="chapter-references">
+<!-- Video references will be loaded here -->
+</div>
+<!-- Chapter Navigation -->
+<div class="flex justify-between items-center mt-8">
+<button class="flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed" id="prev-chapter">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Previous</span>
+</button>
+<a class="px-6 py-3 text-aplicacao hover:underline" href="#" id="back-to-level">
+                        Back to Level
+                    </a>
+<button class="flex items-center gap-2 px-6 py-3 bg-aplicacao hover:bg-blue-600 text-white rounded-lg transition disabled:opacity-50 disabled:cursor-not-allowed" id="next-chapter">
+<span>Next</span>
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</article>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12 mt-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<h3 class="text-xl font-bold mb-4">ATIA</h3>
+<p class="text-gray-400">Learn how to transform your work and career with Artificial Intelligence.</p>
+</div>
+<div>
+<h4 class="font-semibold mb-4">Quick Links</h4>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-white transition" href="index.html">Home</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="nivel-fundamentos.html">Fundamentals</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="nivel-aplicacao.html">Application</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="nivel-estrategico.html">Strategic</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold mb-4">Contact</h4>
+<p class="text-gray-400">inematds@gmail.com</p>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+<p>© 2025 ATIA - Digital Opportunities with AI. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<!-- Scripts -->
+<script src="../../2025/js/app.js"></script>
+<script src="js/markdown-loader.js"></script>
+<script>
+        // Chapter Navigation Logic
+        const chapterMap = {
+            'capitulo-01-tsunami-ia': { num: 1, level: 'fundamentos', prev: null, next: 'capitulo-02-mercado-trabalho' },
+            'capitulo-02-mercado-trabalho': { num: 2, level: 'fundamentos', prev: 'capitulo-01-tsunami-ia', next: 'capitulo-03-engenharia-prompt' },
+            'capitulo-03-engenharia-prompt': { num: 3, level: 'fundamentos', prev: 'capitulo-02-mercado-trabalho', next: 'capitulo-04-engenharia-contexto' },
+            'capitulo-04-engenharia-contexto': { num: 4, level: 'fundamentos', prev: 'capitulo-03-engenharia-prompt', next: 'capitulo-05-automacao-processos' },
+            'capitulo-05-automacao-processos': { num: 5, level: 'fundamentos', prev: 'capitulo-04-engenharia-contexto', next: 'capitulo-06-gpts-personalizados' },
+            'capitulo-06-gpts-personalizados': { num: 6, level: 'aplicacao', prev: 'capitulo-05-automacao-processos', next: 'capitulo-07-novas-profissoes' },
+            'capitulo-07-novas-profissoes': { num: 7, level: 'aplicacao', prev: 'capitulo-06-gpts-personalizados', next: 'capitulo-08-marketing-digital' },
+            'capitulo-08-marketing-digital': { num: 8, level: 'aplicacao', prev: 'capitulo-07-novas-profissoes', next: 'capitulo-09-vendas-automatizadas' },
+            'capitulo-09-vendas-automatizadas': { num: 9, level: 'aplicacao', prev: 'capitulo-08-marketing-digital', next: 'capitulo-10-educacao-ia' },
+            'capitulo-10-educacao-ia': { num: 10, level: 'aplicacao', prev: 'capitulo-09-vendas-automatizadas', next: 'capitulo-11-etica-governanca' },
+            'capitulo-11-etica-governanca': { num: 11, level: 'estrategico', prev: 'capitulo-10-educacao-ia', next: 'capitulo-12-implementacao-estrategica' },
+            'capitulo-12-implementacao-estrategica': { num: 12, level: 'estrategico', prev: 'capitulo-11-etica-governanca', next: 'capitulo-13-futuro-trabalho' },
+            'capitulo-13-futuro-trabalho': { num: 13, level: 'estrategico', prev: 'capitulo-12-implementacao-estrategica', next: 'capitulo-14-guia-pratico' },
+            'capitulo-14-guia-pratico': { num: 14, level: 'estrategico', prev: 'capitulo-13-futuro-trabalho', next: null }
+        };
+
+        const levelNames = {
+            'fundamentos': 'Fundamentals',
+            'aplicacao': 'Application',
+            'estrategico': 'Strategic'
+        };
+
+        const levelColors = {
+            'fundamentos': '#10B981',
+            'aplicacao': '#3B82F6',
+            'estrategico': '#8B5CF6'
+        };
+
+        // Get current chapter from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentChapterId = urlParams.get('id');
+
+        if (currentChapterId && chapterMap[currentChapterId]) {
+            const chapter = chapterMap[currentChapterId];
+
+            // Update badge color
+            const badge = document.getElementById('chapter-badge');
+            badge.style.backgroundColor = levelColors[chapter.level];
+            badge.textContent = `Chapter ${chapter.num}`;
+
+            // Update breadcrumb
+            const levelName = levelNames[chapter.level];
+            document.getElementById('breadcrumb-level').innerHTML = `<a href="nivel-${chapter.level}.html" class="text-aplicacao hover:underline">${levelName}</a>`;
+            document.getElementById('breadcrumb-chapter').textContent = `Chapter ${chapter.num}`;
+
+            // Update back to level link
+            document.getElementById('back-to-level').href = `nivel-${chapter.level}.html`;
+
+            // Setup navigation buttons
+            const prevBtn = document.getElementById('prev-chapter');
+            const nextBtn = document.getElementById('next-chapter');
+
+            if (chapter.prev) {
+                prevBtn.onclick = () => window.location.href = `capitulo.html?id=${chapter.prev}`;
+            } else {
+                prevBtn.disabled = true;
+            }
+
+            if (chapter.next) {
+                nextBtn.onclick = () => window.location.href = `capitulo.html?id=${chapter.next}`;
+            } else {
+                nextBtn.disabled = true;
+            }
+
+            // Estimate reading time (rough estimate: 200 words per minute)
+            setTimeout(() => {
+                const content = document.getElementById('chapter-content');
+                const text = content.textContent;
+                const wordCount = text.split(/\s+/).length;
+                const minutes = Math.ceil(wordCount / 200);
+                document.getElementById('reading-time').textContent = `📖 ${minutes} min`;
+            }, 2000);
+
+            // Bookmark functionality
+            const bookmarkBtn = document.getElementById('bookmark-btn');
+            const updateBookmarkUI = () => {
+                if (isChapterCompleted(currentChapterId)) {
+                    bookmarkBtn.innerHTML = '<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>';
+                    bookmarkBtn.classList.add('text-aplicacao');
+                } else {
+                    bookmarkBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>';
+                    bookmarkBtn.classList.remove('text-aplicacao');
+                }
+            };
+
+            updateBookmarkUI();
+
+            bookmarkBtn.onclick = () => {
+                markChapterAsRead(currentChapterId);
+                updateBookmarkUI();
+            };
+        }
+    </script>
+</body>
+</html>

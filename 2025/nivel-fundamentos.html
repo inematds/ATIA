@@ -1,24 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Nível Fundamentos - ATIA. Aprenda os fundamentos da IA, engenharia de prompt e automação de processos.">
-    <title>Nível Fundamentos | ATIA - Curso de IA</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/main.css">
-
-    <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Nível Fundamentos - ATIA. Aprenda os fundamentos da IA, engenharia de prompt e automação de processos." name="description"/>
+<title>Nível Fundamentos | ATIA - Curso de IA</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Custom CSS -->
+<link href="css/main.css" rel="stylesheet"/>
+<script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -34,701 +30,641 @@
             }
         }
     </script>
-</head>
-<body class="font-sans antialiased bg-gray-50">
-
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="text-2xl font-bold text-aplicacao">
+<link href="https://inematds.github.io/ATIA/2025/nivel-fundamentos.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/2025/nivel-fundamentos.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/2025/nivel-fundamentos.html" hreflang="es" rel="alternate"/></head>
+<body class="font-sans antialiased bg-gray-50"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="nivel-fundamentos.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="../en/2025/nivel-fundamentos.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="../es/2025/nivel-fundamentos.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="container mx-auto px-4 py-4">
+<div class="flex items-center justify-between">
+<a class="text-2xl font-bold text-aplicacao" href="index.html">
                     🎓 ATIA
                 </a>
-
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-aplicacao transition">Início</a>
-                    <a href="nivel-fundamentos.html" class="text-fundamentos font-semibold">Fundamentos</a>
-                    <a href="nivel-aplicacao.html" class="text-gray-700 hover:text-aplicacao transition">Aplicação</a>
-                    <a href="nivel-estrategico.html" class="text-gray-700 hover:text-aplicacao transition">Estratégico</a>
-                </div>
-
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="index.html" class="block py-2 text-gray-700">Início</a>
-                <a href="nivel-fundamentos.html" class="block py-2 text-fundamentos font-semibold">Fundamentos</a>
-                <a href="nivel-aplicacao.html" class="block py-2 text-gray-700">Aplicação</a>
-                <a href="nivel-estrategico.html" class="block py-2 text-gray-700">Estratégico</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Reading Progress Bar -->
-    <div class="reading-progress">
-        <div class="reading-progress-bar" style="width: 0%"></div>
-    </div>
-
-    <!-- Breadcrumb -->
-    <div class="bg-white border-b">
-        <div class="container mx-auto px-4 py-3">
-            <nav class="text-sm text-gray-600">
-                <a href="index.html" class="hover:text-fundamentos transition">Início</a>
-                <span class="mx-2">/</span>
-                <span class="text-fundamentos font-semibold">Nível Fundamentos</span>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-emerald-500 via-emerald-600 to-green-700 text-white py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="text-6xl mb-4">🌟</div>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-gray-700 hover:text-aplicacao transition" href="index.html">Início</a>
+<a class="text-fundamentos font-semibold" href="nivel-fundamentos.html">Fundamentos</a>
+<a class="text-gray-700 hover:text-aplicacao transition" href="nivel-aplicacao.html">Aplicação</a>
+<a class="text-gray-700 hover:text-aplicacao transition" href="nivel-estrategico.html">Estratégico</a>
+</div>
+<button class="md:hidden text-gray-700" id="mobile-menu-btn">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<div class="hidden md:hidden mt-4 pb-4" id="mobile-menu">
+<a class="block py-2 text-gray-700" href="index.html">Início</a>
+<a class="block py-2 text-fundamentos font-semibold" href="nivel-fundamentos.html">Fundamentos</a>
+<a class="block py-2 text-gray-700" href="nivel-aplicacao.html">Aplicação</a>
+<a class="block py-2 text-gray-700" href="nivel-estrategico.html">Estratégico</a>
+</div>
+</div>
+</nav>
+<!-- Reading Progress Bar -->
+<div class="reading-progress">
+<div class="reading-progress-bar" style="width: 0%"></div>
+</div>
+<!-- Breadcrumb -->
+<div class="bg-white border-b">
+<div class="container mx-auto px-4 py-3">
+<nav class="text-sm text-gray-600">
+<a class="hover:text-fundamentos transition" href="index.html">Início</a>
+<span class="mx-2">/</span>
+<span class="text-fundamentos font-semibold">Nível Fundamentos</span>
+</nav>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-emerald-500 via-emerald-600 to-green-700 text-white py-16">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<div class="text-6xl mb-4">🌟</div>
+<h1 class="text-4xl md:text-5xl font-bold mb-4">
                     Nível Fundamentos
                 </h1>
-                <p class="text-xl md:text-2xl mb-6 text-emerald-100">
+<p class="text-xl md:text-2xl mb-6 text-emerald-100">
                     Compreensão base da revolução IA, mercado de trabalho e engenharia de prompt
                 </p>
-                <div class="flex flex-wrap justify-center gap-4 text-sm">
-                    <div class="bg-white/20 px-4 py-2 rounded-full">
+<div class="flex flex-wrap justify-center gap-4 text-sm">
+<div class="bg-white/20 px-4 py-2 rounded-full">
                         📚 5 Capítulos
                     </div>
-                    <div class="bg-white/20 px-4 py-2 rounded-full">
+<div class="bg-white/20 px-4 py-2 rounded-full">
                         ⏱️ 4-6 horas
                     </div>
-                    <div class="bg-white/20 px-4 py-2 rounded-full">
+<div class="bg-white/20 px-4 py-2 rounded-full">
                         🎯 Iniciante
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Progress Section -->
-    <section class="bg-white py-8 border-b">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-sm font-semibold text-gray-700">Seu Progresso</span>
-                    <span class="text-sm text-gray-600" id="progress-text">0/5 capítulos</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Chapters Section -->
-    <section class="py-12">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-
-                <!-- Capítulo 1 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-fundamentos">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-fundamentos text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+</div>
+</div>
+</section>
+<!-- Progress Section -->
+<section class="bg-white py-8 border-b">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-semibold text-gray-700">Seu Progresso</span>
+<span class="text-sm text-gray-600" id="progress-text">0/5 capítulos</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Chapters Section -->
+<section class="py-12">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto">
+<!-- Capítulo 1 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-fundamentos">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-fundamentos text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 1
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 O Tsunami da IA - Compreendendo a Revolução Digital
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo1_tsunami_ia (3).png" alt="Tsunami IA" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Tsunami IA" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo1_tsunami_ia (3).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Vivemos em um momento histórico sem precedentes. A inteligência artificial não é mais uma promessa futurista, ela é uma realidade presente remodelando fundamentalmente como trabalhamos, vivemos e nos relacionamos com a tecnologia.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 45-60 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 3 vídeos</span>
-                    </div>
-
-                    <!-- Tópicos Expandíveis -->
-                    <div class="mb-4">
-                        <h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
-
-                        <ul class="topics-list space-y-0.5">
-                            <!-- Tópico 1: Crescimento Exponencial -->
-                            <li class="topic-item" data-topic="cap1-exponencial">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 45-60 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 3 vídeos</span>
+</div>
+<!-- Tópicos Expandíveis -->
+<div class="mb-4">
+<h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<!-- Tópico 1: Crescimento Exponencial -->
+<li class="topic-item" data-topic="cap1-exponencial">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     📈 Crescimento Exponencial da IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Diferente de tecnologias anteriores com crescimento linear, a IA está em expansão exponencial - começa devagar mas acelera dramaticamente, criando mudanças que parecem surgir "do nada".
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Diferente de tecnologias anteriores com crescimento linear, a IA está em expansão exponencial - começa devagar mas acelera dramaticamente, criando mudanças que parecem surgir "do nada".
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Entender a natureza exponencial ajuda a antecipar mudanças futuras e evitar ser pego de surpresa pela velocidade das transformações tecnológicas.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Entender a natureza exponencial ajuda a antecipar mudanças futuras e evitar ser pego de surpresa pela velocidade das transformações tecnológicas.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Lei de Moore, aceleração de mudanças, curva exponencial, efeito multiplicador.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Lei de Moore, aceleração de mudanças, curva exponencial, efeito multiplicador.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 2: História da IA -->
-                            <li class="topic-item" data-topic="cap1-historia">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 2: História da IA -->
+<li class="topic-item" data-topic="cap1-historia">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     📜 História e Evolução da IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> A jornada da IA desde os primórdios (1950) com Turing e McCarthy, passando pelos "invernos da IA", até a revolução atual dos modelos generativos como ChatGPT.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> A jornada da IA desde os primórdios (1950) com Turing e McCarthy, passando pelos "invernos da IA", até a revolução atual dos modelos generativos como ChatGPT.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Conhecer a história ajuda a contextualizar o momento atual, entender por que agora é diferente e evitar erros do passado.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Conhecer a história ajuda a contextualizar o momento atual, entender por que agora é diferente e evitar erros do passado.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Teste de Turing, sistemas especialistas, machine learning, deep learning, IA generativa.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Teste de Turing, sistemas especialistas, machine learning, deep learning, IA generativa.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 3: Convergência Tecnológica -->
-                            <li class="topic-item" data-topic="cap1-convergencia">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 3: Convergência Tecnológica -->
+<li class="topic-item" data-topic="cap1-convergencia">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔄 Convergência Tecnológica
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> A combinação simultânea de poder computacional massivo (cloud, GPUs), algoritmos avançados (deep learning), big data e interfaces intuitivas - criando um efeito sinérgico sem precedentes.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> A combinação simultânea de poder computacional massivo (cloud, GPUs), algoritmos avançados (deep learning), big data e interfaces intuitivas - criando um efeito sinérgico sem precedentes.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Compreender esta convergência explica por que a IA atual é fundamentalmente diferente de ondas tecnológicas anteriores e por que agora é o momento crítico.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Compreender esta convergência explica por que a IA atual é fundamentalmente diferente de ondas tecnológicas anteriores e por que agora é o momento crítico.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Cloud computing, GPUs, big data, deep learning, efeito sinérgico.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Cloud computing, GPUs, big data, deep learning, efeito sinérgico.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 4: Democratização da IA -->
-                            <li class="topic-item" data-topic="cap1-democratizacao">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 4: Democratização da IA -->
+<li class="topic-item" data-topic="cap1-democratizacao">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🌍 Democratização e Acesso Universal
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Ferramentas de IA avançada (ChatGPT, DALL-E, Midjourney) estão disponíveis para qualquer pessoa com internet, não mais limitadas a grandes corporações ou especialistas.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Ferramentas de IA avançada (ChatGPT, DALL-E, Midjourney) estão disponíveis para qualquer pessoa com internet, não mais limitadas a grandes corporações ou especialistas.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Esta democratização significa que você não precisa ser um cientista de dados para aproveitar IA - mas precisa entender como usar essas ferramentas efetivamente.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Esta democratização significa que você não precisa ser um cientista de dados para aproveitar IA - mas precisa entender como usar essas ferramentas efetivamente.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Acesso universal, ferramentas no-code, APIs acessíveis, ciclo de feedback positivo.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Acesso universal, ferramentas no-code, APIs acessíveis, ciclo de feedback positivo.
                                     </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-01-tsunami-ia" class="inline-block bg-fundamentos text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition w-full md:w-auto text-center">
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-fundamentos text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-01-tsunami-ia">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-                <!-- Capítulo 2 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-fundamentos">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-fundamentos text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+<!-- Capítulo 2 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-fundamentos">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-fundamentos text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 2
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 Transformação Digital e o Novo Mercado de Trabalho
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo2_mercado_trabalho (2).png" alt="Mercado de Trabalho" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Mercado de Trabalho" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo2_mercado_trabalho (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         A IA está redefinindo o conceito de trabalho. Compreenda as estatísticas: 9 milhões de empregos eliminados, mas 11 milhões criados até 2030. Descubra os setores mais impactados e as habilidades do futuro.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 50-65 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 3 vídeos</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Checklist</span>
-                    </div>
-
-                    <div class="callout callout-warning mb-4">
-                        <span class="callout-icon">⚠️</span>
-                        <div class="callout-content">
-                            <strong>Mudança de paradigma:</strong> 70% das habilidades profissionais mudarão até 2030
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 50-65 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 3 vídeos</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Checklist</span>
+</div>
+<div class="callout callout-warning mb-4">
+<span class="callout-icon">⚠️</span>
+<div class="callout-content">
+<strong>Mudança de paradigma:</strong> 70% das habilidades profissionais mudarão até 2030
                         </div>
-                    </div>
-
-                    <!-- Tópicos Expandíveis -->
-                    <div class="mb-4">
-                        <h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
-
-                        <ul class="topics-list space-y-0.5">
-                            <!-- Tópico 1: Quarta Revolução Industrial -->
-                            <li class="topic-item" data-topic="cap2-rev4">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+<!-- Tópicos Expandíveis -->
+<div class="mb-4">
+<h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<!-- Tópico 1: Quarta Revolução Industrial -->
+<li class="topic-item" data-topic="cap2-rev4">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔄 Quarta Revolução Industrial
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> A fusão de tecnologias emergentes (IA, IoT, robótica, blockchain) que está transformando fundamentalmente como vivemos, trabalhamos e nos relacionamos, borrando as linhas entre os mundos físico, digital e biológico.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> A fusão de tecnologias emergentes (IA, IoT, robótica, blockchain) que está transformando fundamentalmente como vivemos, trabalhamos e nos relacionamos, borrando as linhas entre os mundos físico, digital e biológico.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Compreender este contexto maior te ajuda a antecipar mudanças no mercado de trabalho e posicionar-se estrategicamente para aproveitar oportunidades emergentes.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Compreender este contexto maior te ajuda a antecipar mudanças no mercado de trabalho e posicionar-se estrategicamente para aproveitar oportunidades emergentes.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Automação de trabalho cognitivo, convergência tecnológica, velocidade exponencial de mudança, transformação de indústrias inteiras.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Automação de trabalho cognitivo, convergência tecnológica, velocidade exponencial de mudança, transformação de indústrias inteiras.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 2: Indústria 4.0 -->
-                            <li class="topic-item" data-topic="cap2-ind40">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 2: Indústria 4.0 -->
+<li class="topic-item" data-topic="cap2-ind40">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🏭 Indústria 4.0
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> A quarta geração da manufatura que integra sistemas ciberfísicos, IoT, computação em nuvem e IA para criar fábricas inteligentes e autônomas com produção adaptativa e otimização em tempo real.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> A quarta geração da manufatura que integra sistemas ciberfísicos, IoT, computação em nuvem e IA para criar fábricas inteligentes e autônomas com produção adaptativa e otimização em tempo real.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Compreender Indústria 4.0 é essencial não apenas para quem trabalha em manufatura, mas para todos os profissionais, pois seus princípios estão sendo aplicados em praticamente todos os setores.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Compreender Indústria 4.0 é essencial não apenas para quem trabalha em manufatura, mas para todos os profissionais, pois seus princípios estão sendo aplicados em praticamente todos os setores.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Sistemas ciberfísicos, gêmeos digitais, manutenção preditiva, robôs colaborativos, produção adaptativa.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Sistemas ciberfísicos, gêmeos digitais, manutenção preditiva, robôs colaborativos, produção adaptativa.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 3: T-Shaped Skills -->
-                            <li class="topic-item" data-topic="cap2-tshaped">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 3: T-Shaped Skills -->
+<li class="topic-item" data-topic="cap2-tshaped">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔀 T-Shaped Skills
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Um modelo de habilidades que combina profundidade vertical em uma área de especialização (a haste vertical do "T") com amplitude horizontal em múltiplas disciplinas (a barra horizontal do "T"), permitindo colaboração interdisciplinar.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Um modelo de habilidades que combina profundidade vertical em uma área de especialização (a haste vertical do "T") com amplitude horizontal em múltiplas disciplinas (a barra horizontal do "T"), permitindo colaboração interdisciplinar.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Profissionais T-shaped são mais resilientes a mudanças, podem se adaptar a múltiplos contextos e são extremamente valiosos em equipes multidisciplinares que trabalham com IA.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Profissionais T-shaped são mais resilientes a mudanças, podem se adaptar a múltiplos contextos e são extremamente valiosos em equipes multidisciplinares que trabalham com IA.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Especialização profunda, conhecimento amplo, versatilidade, capacidade de integração entre domínios, adaptabilidade.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Especialização profunda, conhecimento amplo, versatilidade, capacidade de integração entre domínios, adaptabilidade.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 4: Alfabetização em IA -->
-                            <li class="topic-item" data-topic="cap2-alfaia">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 4: Alfabetização em IA -->
+<li class="topic-item" data-topic="cap2-alfaia">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     📚 Alfabetização em IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> A capacidade de compreender conceitos fundamentais de IA, avaliar criticamente outputs de sistemas inteligentes, identificar oportunidades de aplicação e trabalhar efetivamente com ferramentas de IA, sem necessariamente ser um especialista técnico.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> A capacidade de compreender conceitos fundamentais de IA, avaliar criticamente outputs de sistemas inteligentes, identificar oportunidades de aplicação e trabalhar efetivamente com ferramentas de IA, sem necessariamente ser um especialista técnico.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> A alfabetização em IA está se tornando tão fundamental quanto alfabetização digital foi na década passada - essencial para praticamente qualquer profissional independente do setor ou função.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> A alfabetização em IA está se tornando tão fundamental quanto alfabetização digital foi na década passada - essencial para praticamente qualquer profissional independente do setor ou função.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Compreensão de capacidades e limitações, avaliação crítica de outputs, identificação de vieses, ética em IA, prompt engineering básico.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Compreensão de capacidades e limitações, avaliação crítica de outputs, identificação de vieses, ética em IA, prompt engineering básico.
                                     </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-02-mercado-trabalho" class="inline-block bg-fundamentos text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition w-full md:w-auto text-center">
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-fundamentos text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-02-mercado-trabalho">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-                <!-- Capítulo 3 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-fundamentos">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-fundamentos text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+<!-- Capítulo 3 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-fundamentos">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-fundamentos text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 3
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 Engenharia de Prompt - A Nova Linguagem do Futuro
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo3_engenharia_prompt (2).png" alt="Prompt Engineering" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Prompt Engineering" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo3_engenharia_prompt (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Domine a habilidade mais valiosa da era da IA: criar prompts eficazes. Aprenda técnicas avançadas como Chain-of-Thought, Few-Shot Learning e mais. Inclui 100+ exemplos práticos.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 55-70 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 4 vídeos</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Template + 100 Exemplos</span>
-                    </div>
-
-                    <div class="callout callout-tip mb-4">
-                        <span class="callout-icon">💡</span>
-                        <div class="callout-content">
-                            <strong>Salários de Prompt Engineers:</strong> US$ 100k - 335k/ano. Mercado de $280M → $2.5B até 2032
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 55-70 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 4 vídeos</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Template + 100 Exemplos</span>
+</div>
+<div class="callout callout-tip mb-4">
+<span class="callout-icon">💡</span>
+<div class="callout-content">
+<strong>Salários de Prompt Engineers:</strong> US$ 100k - 335k/ano. Mercado de $280M → $2.5B até 2032
                         </div>
-                    </div>
-
-                    <!-- Tópicos Expandíveis Cap 3 -->
-                    <div class="mb-4">
-                        <h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
-
-                        <ul class="topics-list space-y-0.5">
-                            <!-- Tópico 1: Chain-of-Thought -->
-                            <li class="topic-item" data-topic="cap3-cot">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+<!-- Tópicos Expandíveis Cap 3 -->
+<div class="mb-4">
+<h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<!-- Tópico 1: Chain-of-Thought -->
+<li class="topic-item" data-topic="cap3-cot">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🧠 Chain-of-Thought
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Uma técnica de prompt engineering que instrui a IA a explicar seu raciocínio passo a passo antes de chegar a uma conclusão, similar a "mostrar o trabalho" em matemática, melhorando significativamente a qualidade e precisão das respostas.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Uma técnica de prompt engineering que instrui a IA a explicar seu raciocínio passo a passo antes de chegar a uma conclusão, similar a "mostrar o trabalho" em matemática, melhorando significativamente a qualidade e precisão das respostas.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Chain-of-Thought melhora dramaticamente a capacidade da IA de resolver problemas complexos, permite verificar a lógica do raciocínio e reduz erros em tarefas que requerem múltiplas etapas de pensamento.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Chain-of-Thought melhora dramaticamente a capacidade da IA de resolver problemas complexos, permite verificar a lógica do raciocínio e reduz erros em tarefas que requerem múltiplas etapas de pensamento.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Raciocínio explícito, decomposição de problemas, verificação de lógica, transparência de processo, melhoria de precisão.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Raciocínio explícito, decomposição de problemas, verificação de lógica, transparência de processo, melhoria de precisão.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 2: Few-Shot Learning -->
-                            <li class="topic-item" data-topic="cap3-fsl">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 2: Few-Shot Learning -->
+<li class="topic-item" data-topic="cap3-fsl">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     📝 Few-Shot Learning
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Uma técnica onde você fornece alguns exemplos (geralmente 2-5) do tipo de output desejado dentro do próprio prompt, permitindo que a IA aprenda o padrão, formato ou estilo esperado através desses exemplos concretos.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Uma técnica onde você fornece alguns exemplos (geralmente 2-5) do tipo de output desejado dentro do próprio prompt, permitindo que a IA aprenda o padrão, formato ou estilo esperado através desses exemplos concretos.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Few-shot learning é uma das maneiras mais eficazes de obter outputs consistentes em formato e estilo específicos, sem precisar de treinamento adicional do modelo.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Few-shot learning é uma das maneiras mais eficazes de obter outputs consistentes em formato e estilo específicos, sem precisar de treinamento adicional do modelo.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Aprendizado por exemplos, consistência de formato, transferência de padrões, especificação implícita, qualidade de output.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Aprendizado por exemplos, consistência de formato, transferência de padrões, especificação implícita, qualidade de output.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 3: Role-Playing -->
-                            <li class="topic-item" data-topic="cap3-role">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 3: Role-Playing -->
+<li class="topic-item" data-topic="cap3-role">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🎭 Role-Playing
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Uma técnica que instrui a IA a assumir uma persona específica, papel profissional ou perspectiva particular (como "atue como um CEO experiente"), ativando conhecimento relevante e ajustando tom e profundidade das respostas.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Uma técnica que instrui a IA a assumir uma persona específica, papel profissional ou perspectiva particular (como "atue como um CEO experiente"), ativando conhecimento relevante e ajustando tom e profundidade das respostas.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Role-playing permite acessar expertise especializada da IA, ajusta automaticamente o nível de complexidade e tom das respostas, e pode melhorar significativamente a relevância e utilidade dos outputs.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Role-playing permite acessar expertise especializada da IA, ajusta automaticamente o nível de complexidade e tom das respostas, e pode melhorar significativamente a relevância e utilidade dos outputs.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Personas especializadas, ativação de conhecimento, ajuste de tom, perspectivas múltiplas, contexto profissional.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Personas especializadas, ativação de conhecimento, ajuste de tom, perspectivas múltiplas, contexto profissional.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 4: Context vs Prompt Engineering -->
-                            <li class="topic-item" data-topic="cap3-ctx">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 4: Context vs Prompt Engineering -->
+<li class="topic-item" data-topic="cap3-ctx">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     ⚖️ Context vs Prompt Engineering
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Prompt Engineering foca em como você instrui a IA (a pergunta/comando), enquanto Context Engineering foca em quais informações você fornece à IA (dados, ferramentas, memória). São complementares: um bom prompt sem contexto adequado é limitado, e muito contexto sem um bom prompt é ineficiente.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Prompt Engineering foca em como você instrui a IA (a pergunta/comando), enquanto Context Engineering foca em quais informações você fornece à IA (dados, ferramentas, memória). São complementares: um bom prompt sem contexto adequado é limitado, e muito contexto sem um bom prompt é ineficiente.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Dominar ambos permite criar sistemas de IA muito mais poderosos - você saberá tanto como perguntar (prompt) quanto quais informações fornecer (context) para obter os melhores resultados possíveis.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Dominar ambos permite criar sistemas de IA muito mais poderosos - você saberá tanto como perguntar (prompt) quanto quais informações fornecer (context) para obter os melhores resultados possíveis.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Instruções vs informações, sistemas RAG, gestão de memória, integração de ferramentas, arquitetura de informação.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Instruções vs informações, sistemas RAG, gestão de memória, integração de ferramentas, arquitetura de informação.
                                     </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-03-engenharia-prompt" class="inline-block bg-fundamentos text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition w-full md:w-auto text-center">
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-fundamentos text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-03-engenharia-prompt">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-                <!-- Capítulo 4 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-fundamentos">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-fundamentos text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+<!-- Capítulo 4 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-fundamentos">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-fundamentos text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 4
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 Engenharia de Contexto - Criando Ecossistemas Inteligentes
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo4_engenharia_contexto (2).png" alt="Context Engineering" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Context Engineering" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo4_engenharia_contexto (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Vá além dos prompts: aprenda a construir sistemas completos que fornecem informações relevantes à IA. Integração de dados, ferramentas e memória para aplicações profissionais.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 45-55 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
-                    </div>
-
-                    <!-- Tópicos Expandíveis Cap 4 -->
-                    <div class="mb-4">
-                        <h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
-
-                        <ul class="topics-list space-y-0.5">
-                            <!-- Tópico 1: RAG -->
-                            <li class="topic-item" data-topic="cap4-rag">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 45-55 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
+</div>
+<!-- Tópicos Expandíveis Cap 4 -->
+<div class="mb-4">
+<h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<!-- Tópico 1: RAG -->
+<li class="topic-item" data-topic="cap4-rag">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔍 RAG (Retrieval-Augmented Generation)
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Uma arquitetura que combina busca de informações (retrieval) com geração de texto pela IA - primeiro o sistema busca documentos/dados relevantes em uma base de conhecimento, depois usa essas informações como contexto para gerar respostas precisas e atualizadas.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Uma arquitetura que combina busca de informações (retrieval) com geração de texto pela IA - primeiro o sistema busca documentos/dados relevantes em uma base de conhecimento, depois usa essas informações como contexto para gerar respostas precisas e atualizadas.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> RAG resolve um dos maiores problemas da IA: conhecimento desatualizado e alucinações. Permite que a IA acesse informações atualizadas, específicas da sua empresa, e forneça respostas com fontes verificáveis.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> RAG resolve um dos maiores problemas da IA: conhecimento desatualizado e alucinações. Permite que a IA acesse informações atualizadas, específicas da sua empresa, e forneça respostas com fontes verificáveis.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Busca semântica, bases de conhecimento externas, grounding em fatos, redução de alucinações, informações atualizadas.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Busca semântica, bases de conhecimento externas, grounding em fatos, redução de alucinações, informações atualizadas.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 2: Embeddings Vetoriais -->
-                            <li class="topic-item" data-topic="cap4-emb">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 2: Embeddings Vetoriais -->
+<li class="topic-item" data-topic="cap4-emb">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔢 Embeddings Vetoriais
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Técnica que converte texto em vetores numéricos que capturam o significado semântico, permitindo que o computador "entenda" que "cachorro" e "cão" são similares, possibilitando busca por significado em vez de palavras exatas.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Técnica que converte texto em vetores numéricos que capturam o significado semântico, permitindo que o computador "entenda" que "cachorro" e "cão" são similares, possibilitando busca por significado em vez de palavras exatas.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> É a tecnologia fundamental por trás de sistemas RAG, busca inteligente e IA contextual - essencial para quem quer implementar sistemas que entendem o que usuários realmente querem.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> É a tecnologia fundamental por trás de sistemas RAG, busca inteligente e IA contextual - essencial para quem quer implementar sistemas que entendem o que usuários realmente querem.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Representações vetoriais, similaridade semântica, modelos de embedding, busca por vetores, bancos de dados vetoriais.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Representações vetoriais, similaridade semântica, modelos de embedding, busca por vetores, bancos de dados vetoriais.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 3: Grafos de Conhecimento -->
-                            <li class="topic-item" data-topic="cap4-kg">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 3: Grafos de Conhecimento -->
+<li class="topic-item" data-topic="cap4-kg">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🕸️ Grafos de Conhecimento
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Uma estrutura de dados que representa informações como uma rede de entidades conectadas por relacionamentos, similar a como o cérebro humano organiza conhecimento, permitindo à IA entender conexões complexas.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Uma estrutura de dados que representa informações como uma rede de entidades conectadas por relacionamentos, similar a como o cérebro humano organiza conhecimento, permitindo à IA entender conexões complexas.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Grafos de conhecimento permitem que sistemas de IA façam inferências sofisticadas, descubram relações ocultas e respondam perguntas complexas que requerem conectar múltiplas peças de informação.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Grafos de conhecimento permitem que sistemas de IA façam inferências sofisticadas, descubram relações ocultas e respondam perguntas complexas que requerem conectar múltiplas peças de informação.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Entidades e relacionamentos, triplas RDF, ontologias, inferência lógica, navegação de grafos.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Entidades e relacionamentos, triplas RDF, ontologias, inferência lógica, navegação de grafos.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 4: Function Calling -->
-                            <li class="topic-item" data-topic="cap4-fc">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 4: Function Calling -->
+<li class="topic-item" data-topic="cap4-fc">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     ⚙️ Function Calling
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Capacidade da IA de identificar quando precisa usar uma ferramenta externa e automaticamente chamar essa função com os parâmetros corretos, transformando IA de apenas conversacional em IA que pode executar ações concretas.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Capacidade da IA de identificar quando precisa usar uma ferramenta externa e automaticamente chamar essa função com os parâmetros corretos, transformando IA de apenas conversacional em IA que pode executar ações concretas.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Function calling transforma IA de um chatbot passivo em um agente ativo que pode realizar tarefas - buscar dados em tempo real, fazer cálculos precisos, integrar com sistemas empresariais.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Function calling transforma IA de um chatbot passivo em um agente ativo que pode realizar tarefas - buscar dados em tempo real, fazer cálculos precisos, integrar com sistemas empresariais.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Tool use, API integration, parameter extraction, orquestração de agentes, automação de workflows, IA agentic.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Tool use, API integration, parameter extraction, orquestração de agentes, automação de workflows, IA agentic.
                                     </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-04-engenharia-contexto" class="inline-block bg-fundamentos text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition w-full md:w-auto text-center">
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-fundamentos text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-04-engenharia-contexto">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-                <!-- Capítulo 5 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-fundamentos">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-fundamentos text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+<!-- Capítulo 5 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-fundamentos">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-fundamentos text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 5
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 Automação de Processos Empresariais com IA
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo5_automacao_processos (2).png" alt="Automação" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Automação" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo5_automacao_processos (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Identifique processos automatizáveis, use ferramentas no-code (Zapier Agents, Make.com), implemente chatbots e calcule ROI. Análises preditivas e tomada de decisão automatizada.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 60-75 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🛠️ Ferramentas</span>
-                    </div>
-
-                    <div class="callout callout-exercise mb-4">
-                        <span class="callout-icon">✏️</span>
-                        <div class="callout-content">
-                            <strong>Exercício prático:</strong> Mapeie 5 processos no seu trabalho que poderiam ser automatizados
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 60-75 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🛠️ Ferramentas</span>
+</div>
+<div class="callout callout-exercise mb-4">
+<span class="callout-icon">✏️</span>
+<div class="callout-content">
+<strong>Exercício prático:</strong> Mapeie 5 processos no seu trabalho que poderiam ser automatizados
                         </div>
-                    </div>
-
-                    <!-- Tópicos Expandíveis Cap 5 -->
-                    <div class="mb-4">
-                        <h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
-
-                        <ul class="topics-list space-y-0.5">
-                            <!-- Tópico 1: RPA -->
-                            <li class="topic-item" data-topic="cap5-rpa">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+<!-- Tópicos Expandíveis Cap 5 -->
+<div class="mb-4">
+<h3 class="font-semibold text-gray-900 mb-3">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<!-- Tópico 1: RPA -->
+<li class="topic-item" data-topic="cap5-rpa">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🤖 RPA (Robotic Process Automation)
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Tecnologia que usa "robôs de software" para automatizar tarefas repetitivas baseadas em regras, simulando ações humanas em interfaces de usuário (clicar, digitar, copiar/colar), permitindo automação mesmo sem APIs.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Tecnologia que usa "robôs de software" para automatizar tarefas repetitivas baseadas em regras, simulando ações humanas em interfaces de usuário (clicar, digitar, copiar/colar), permitindo automação mesmo sem APIs.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> RPA é frequentemente o caminho mais rápido e econômico para automatizar processos existentes sem reescrever sistemas, especialmente útil com sistemas legados. Com IA moderna, RPA evoluiu para automação inteligente.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> RPA é frequentemente o caminho mais rápido e econômico para automatizar processos existentes sem reescrever sistemas, especialmente útil com sistemas legados. Com IA moderna, RPA evoluiu para automação inteligente.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Bots de software, automação de UI, processos baseados em regras, sistemas legados, automação attended vs unattended.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Bots de software, automação de UI, processos baseados em regras, sistemas legados, automação attended vs unattended.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 2: No-Code/Low-Code -->
-                            <li class="topic-item" data-topic="cap5-nocode">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 2: No-Code/Low-Code -->
+<li class="topic-item" data-topic="cap5-nocode">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🎨 Plataformas No-Code/Low-Code
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Ferramentas que permitem criar automações e aplicações através de interfaces visuais (arrastar e soltar) sem escrever código tradicional, democratizando o desenvolvimento para profissionais de negócio.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Ferramentas que permitem criar automações e aplicações através de interfaces visuais (arrastar e soltar) sem escrever código tradicional, democratizando o desenvolvimento para profissionais de negócio.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> No-code está revolucionando quem pode criar automação - em vez de esperar meses por TI, você pode construir soluções em dias ou horas. Reduz tempo de implementação em 70-90%.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> No-code está revolucionando quem pode criar automação - em vez de esperar meses por TI, você pode construir soluções em dias ou horas. Reduz tempo de implementação em 70-90%.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Desenvolvimento visual, citizen developers, democratização de tecnologia, redução de backlog de TI, agilidade organizacional.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Desenvolvimento visual, citizen developers, democratização de tecnologia, redução de backlog de TI, agilidade organizacional.
                                     </p>
-                                </div>
-                            </li>
-
-                            <!-- Tópico 3: Automação Preditiva -->
-                            <li class="topic-item" data-topic="cap5-pred">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+</div>
+</li>
+<!-- Tópico 3: Automação Preditiva -->
+<li class="topic-item" data-topic="cap5-pred">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔮 Automação Preditiva
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">O que é:</strong> Sistemas que não apenas executam tarefas automaticamente, mas usam machine learning para prever necessidades futuras e tomar ações proativas - como prever quando uma máquina vai quebrar e agendar manutenção antes da falha.
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-fundamentos">
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">O que é:</strong> Sistemas que não apenas executam tarefas automaticamente, mas usam machine learning para prever necessidades futuras e tomar ações proativas - como prever quando uma máquina vai quebrar e agendar manutenção antes da falha.
                                     </p>
-                                    <p class="text-sm mb-1.5">
-                                        <strong class="text-fundamentos">Por que aprender:</strong> Automação preditiva move organizações de reativas para proativas, reduzindo custos (manutenção preventiva), melhorando experiência do cliente (antecipar necessidades) e otimizando recursos.
+<p class="text-sm mb-1.5">
+<strong class="text-fundamentos">Por que aprender:</strong> Automação preditiva move organizações de reativas para proativas, reduzindo custos (manutenção preventiva), melhorando experiência do cliente (antecipar necessidades) e otimizando recursos.
                                     </p>
-                                    <p class="text-sm">
-                                        <strong class="text-fundamentos">Conceitos chave:</strong> Machine learning aplicado, análise preditiva, manutenção preditiva, otimização proativa, tomada de decisão baseada em dados.
+<p class="text-sm">
+<strong class="text-fundamentos">Conceitos chave:</strong> Machine learning aplicado, análise preditiva, manutenção preditiva, otimização proativa, tomada de decisão baseada em dados.
                                     </p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-05-automacao-processos" class="inline-block bg-fundamentos text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition w-full md:w-auto text-center">
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-fundamentos text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-05-automacao-processos">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Next Level CTA -->
-    <section class="bg-gradient-to-r from-aplicacao to-blue-700 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">
+</div>
+</div>
+</div>
+</section>
+<!-- Next Level CTA -->
+<section class="bg-gradient-to-r from-aplicacao to-blue-700 text-white py-16">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl font-bold mb-4">
                 Completou o Nível Fundamentos?
             </h2>
-            <p class="text-xl mb-8 text-blue-100">
+<p class="text-xl mb-8 text-blue-100">
                 Continue sua jornada no Nível Aplicação
             </p>
-            <a href="nivel-aplicacao.html" class="inline-block bg-white text-aplicacao px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition">
+<a class="inline-block bg-white text-aplicacao px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition" href="nivel-aplicacao.html">
                 ⚡ Ir para Nível Aplicação →
             </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">ATIA</h3>
-                    <p class="text-gray-400">
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<h3 class="text-xl font-bold mb-4">ATIA</h3>
+<p class="text-gray-400">
                         Aprendizado em Tecnologias de Inteligência Artificial
                     </p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Níveis</h3>
-                    <ul class="space-y-2">
-                        <li><a href="nivel-fundamentos.html" class="text-fundamentos hover:text-emerald-400 transition">🌟 Fundamentos</a></li>
-                        <li><a href="nivel-aplicacao.html" class="text-gray-400 hover:text-white transition">⚡ Aplicação</a></li>
-                        <li><a href="nivel-estrategico.html" class="text-gray-400 hover:text-white transition">👑 Estratégico</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Recursos</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Início</a></li>
-                        <li><a href="https://github.com/inematds/ITIA" target="_blank" class="text-gray-400 hover:text-white transition">GitHub</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 ATIA. Powered by BMad Method.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/app.js"></script>
-    <script>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4">Níveis</h3>
+<ul class="space-y-2">
+<li><a class="text-fundamentos hover:text-emerald-400 transition" href="nivel-fundamentos.html">🌟 Fundamentos</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="nivel-aplicacao.html">⚡ Aplicação</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="nivel-estrategico.html">👑 Estratégico</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4">Recursos</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-white transition" href="index.html">Início</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="https://github.com/inematds/ITIA" target="_blank">GitHub</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+<p>© 2025 ATIA. Powered by BMad Method.</p>
+</div>
+</div>
+</footer>
+<script src="js/app.js"></script>
+<script>
         // Simple progress tracking (can be enhanced with localStorage)
         const progressFill = document.getElementById('progress-fill');
         const progressText = document.getElementById('progress-text');
@@ -759,8 +695,7 @@
             }
         }
     </script>
-
-    <style>
+<style>
         /* Topics Container */
         .topics-container {
             margin-top: 1rem;
@@ -846,6 +781,5 @@
             letter-spacing: 0.05em;
         }
     </style>
-
 </body>
 </html>

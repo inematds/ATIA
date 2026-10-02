@@ -1,7 +1,7 @@
 # **CAPÍTULO 1**
 # O Tsunami da IA - Compreendendo a Revolução Digital
 
-![Tsunami Digital da IA](doc/imagens/capitulo1_tsunami_ia (3).png)
+![Tsunami Digital da IA](../doc/imagens/capitulo1_tsunami_ia (3).png)
 
 ## Introdução: A Metáfora que Define Nossa Era
 

@@ -1,7 +1,7 @@
 # **CAPÍTULO 6**
 # GPTs Personalizados e Agentes de IA
 
-![GPTs Personalizados e Agentes de IA](doc/imagens/capitulo6_gpts_personalizados (2).png)
+![GPTs Personalizados e Agentes de IA](../doc/imagens/capitulo6_gpts_personalizados (2).png)
 
 ## Introdução: A Era da IA Sob Medida
 
@@ -578,7 +578,7 @@ Projete um agente autônomo para um processo específico:
 
 # As Novas Profissões da Era da IA
 
-![Novas Profissões da Era da IA](doc/imagens/capitulo7_novas_profissoes (2).png)
+![Novas Profissões da Era da IA](../doc/imagens/capitulo7_novas_profissoes (2).png)
 
 ## Introdução: O Nascimento de Uma Nova Economia Profissional
 

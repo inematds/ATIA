@@ -1,7 +1,7 @@
 # **CAPÍTULO 4**
 # Engenharia de Contexto - Criando Ecossistemas Inteligentes
 
-![Engenharia de Contexto](doc/imagens/capitulo4_engenharia_contexto (2).png)
+![Engenharia de Contexto](../doc/imagens/capitulo4_engenharia_contexto (2).png)
 
 ## Introdução: Além dos Prompts - Construindo Inteligência Contextual
 

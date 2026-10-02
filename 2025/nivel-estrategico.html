@@ -1,24 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Nível Estratégico - ATIA. Aprenda os estrategico da IA, engenharia de prompt e automação de processos.">
-    <title>Nível Estratégico | ATIA - Curso de IA</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/main.css">
-
-    <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Nível Estratégico - ATIA. Aprenda os estrategico da IA, engenharia de prompt e automação de processos." name="description"/>
+<title>Nível Estratégico | ATIA - Curso de IA</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Custom CSS -->
+<link href="css/main.css" rel="stylesheet"/>
+<script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -34,498 +30,465 @@
             }
         }
     </script>
-</head>
-<body class="font-sans antialiased bg-gray-50">
-
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="text-2xl font-bold text-aplicacao">
+<link href="https://inematds.github.io/ATIA/2025/nivel-estrategico.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/2025/nivel-estrategico.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/2025/nivel-estrategico.html" hreflang="es" rel="alternate"/></head>
+<body class="font-sans antialiased bg-gray-50"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="nivel-estrategico.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="../en/2025/nivel-estrategico.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="../es/2025/nivel-estrategico.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="container mx-auto px-4 py-4">
+<div class="flex items-center justify-between">
+<a class="text-2xl font-bold text-aplicacao" href="index.html">
                     🎓 ATIA
                 </a>
-
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-aplicacao transition">Início</a>
-                    <a href="nivel-fundamentos.html" class="text-gray-700 hover:text-fundamentos transition">Fundamentos</a>
-                    <a href="nivel-aplicacao.html" class="text-gray-700 hover:text-aplicacao transition">Aplicação</a>
-                    <a href="nivel-estrategico.html" class="text-estrategico font-semibold">Estratégico</a>
-                </div>
-
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="index.html" class="block py-2 text-gray-700">Início</a>
-                <a href="nivel-fundamentos.html" class="block py-2 text-gray-700">Fundamentos</a>
-                <a href="nivel-aplicacao.html" class="block py-2 text-gray-700">Aplicação</a>
-                <a href="nivel-estrategico.html" class="block py-2 text-estrategico font-semibold">Estratégico</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Reading Progress Bar -->
-    <div class="reading-progress">
-        <div class="reading-progress-bar" style="width: 0%"></div>
-    </div>
-
-    <!-- Breadcrumb -->
-    <div class="bg-white border-b">
-        <div class="container mx-auto px-4 py-3">
-            <nav class="text-sm text-gray-600">
-                <a href="index.html" class="hover:text-estrategico transition">Início</a>
-                <span class="mx-2">/</span>
-                <span class="text-estrategico font-semibold">Nível Estratégico</span>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-purple-500 via-purple-600 to-purple-800 text-white py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="text-6xl mb-4">🌟</div>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-gray-700 hover:text-aplicacao transition" href="index.html">Início</a>
+<a class="text-gray-700 hover:text-fundamentos transition" href="nivel-fundamentos.html">Fundamentos</a>
+<a class="text-gray-700 hover:text-aplicacao transition" href="nivel-aplicacao.html">Aplicação</a>
+<a class="text-estrategico font-semibold" href="nivel-estrategico.html">Estratégico</a>
+</div>
+<button class="md:hidden text-gray-700" id="mobile-menu-btn">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<div class="hidden md:hidden mt-4 pb-4" id="mobile-menu">
+<a class="block py-2 text-gray-700" href="index.html">Início</a>
+<a class="block py-2 text-gray-700" href="nivel-fundamentos.html">Fundamentos</a>
+<a class="block py-2 text-gray-700" href="nivel-aplicacao.html">Aplicação</a>
+<a class="block py-2 text-estrategico font-semibold" href="nivel-estrategico.html">Estratégico</a>
+</div>
+</div>
+</nav>
+<!-- Reading Progress Bar -->
+<div class="reading-progress">
+<div class="reading-progress-bar" style="width: 0%"></div>
+</div>
+<!-- Breadcrumb -->
+<div class="bg-white border-b">
+<div class="container mx-auto px-4 py-3">
+<nav class="text-sm text-gray-600">
+<a class="hover:text-estrategico transition" href="index.html">Início</a>
+<span class="mx-2">/</span>
+<span class="text-estrategico font-semibold">Nível Estratégico</span>
+</nav>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-purple-500 via-purple-600 to-purple-800 text-white py-16">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<div class="text-6xl mb-4">🌟</div>
+<h1 class="text-4xl md:text-5xl font-bold mb-4">
                     Nível Estratégico
                 </h1>
-                <p class="text-xl md:text-2xl mb-6 text-purple-100">
+<p class="text-xl md:text-2xl mb-6 text-purple-100">
                     Compreensão base da revolução IA, mercado de trabalho e engenharia de prompt
                 </p>
-                <div class="flex flex-wrap justify-center gap-4 text-sm">
-                    <div class="bg-white/20 px-4 py-2 rounded-full">
+<div class="flex flex-wrap justify-center gap-4 text-sm">
+<div class="bg-white/20 px-4 py-2 rounded-full">
                         📚 4 Capítulos
                     </div>
-                    <div class="bg-white/20 px-4 py-2 rounded-full">
+<div class="bg-white/20 px-4 py-2 rounded-full">
                         ⏱️ 3-4 horas
                     </div>
-                    <div class="bg-white/20 px-4 py-2 rounded-full">
+<div class="bg-white/20 px-4 py-2 rounded-full">
                         🎯 Avançado
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Progress Section -->
-    <section class="bg-white py-8 border-b">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-sm font-semibold text-gray-700">Seu Progresso</span>
-                    <span class="text-sm text-gray-600" id="progress-text">0/4 capítulos</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Chapters Section -->
-    <section class="py-12">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-
-                <!-- Capítulo 11 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-estrategico">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-estrategico text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+</div>
+</div>
+</section>
+<!-- Progress Section -->
+<section class="bg-white py-8 border-b">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-semibold text-gray-700">Seu Progresso</span>
+<span class="text-sm text-gray-600" id="progress-text">0/4 capítulos</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Chapters Section -->
+<section class="py-12">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto">
+<!-- Capítulo 11 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-estrategico">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-estrategico text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 11
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 Ética, Governança e Responsabilidade em IA
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo11_etica_ia (2).png" alt="Ética em IA" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Ética em IA" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo11_etica_ia (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Navegue os desafios éticos da IA. Aprenda sobre transparência algorítmica, frameworks de governança, regulamentação global (EU AI Act, Brazil AI Act) e responsabilidade corporativa. Ética como vantagem competitiva duradoura.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 50-65 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
-                    </div>
-
-                    <div class="mb-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
-                        <ul class="topics-list space-y-0.5">
-                            <li class="topic-item" data-topic="cap11-xai">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 50-65 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
+</div>
+<div class="mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item" data-topic="cap11-xai">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔍 XAI (Explainable AI - IA Explicável)
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Técnicas e abordagens que tornam decisões de sistemas de IA compreensíveis para humanos - explicando por que uma IA fez determinada decisão, quais fatores foram importantes e como o modelo funciona.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> XAI está se tornando obrigatório regulatoriamente (EU AI Act, etc.) e é essencial para confiança, auditoria e compliance - você não pode usar IA em áreas críticas sem poder explicar suas decisões.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Interpretabilidade, transparência algorítmica, LIME/SHAP, feature importance, auditabilidade, confiança em IA.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap11-bias">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Técnicas e abordagens que tornam decisões de sistemas de IA compreensíveis para humanos - explicando por que uma IA fez determinada decisão, quais fatores foram importantes e como o modelo funciona.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> XAI está se tornando obrigatório regulatoriamente (EU AI Act, etc.) e é essencial para confiança, auditoria e compliance - você não pode usar IA em áreas críticas sem poder explicar suas decisões.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Interpretabilidade, transparência algorítmica, LIME/SHAP, feature importance, auditabilidade, confiança em IA.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap11-bias">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     ⚖️ Viés Algorítmico e Justiça
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Identificação e mitigação de preconceitos em sistemas de IA que podem discriminar grupos demográficos, perpetuando desigualdades sociais existentes ou criando novas formas de discriminação.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Viés algorítmico é responsável por falhas reais (recrutamento discriminatório, decisões de crédito injustas, justiça criminal desigual) - compreender e mitigar viés é obrigatório para IA responsável e competitivamente essencial.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Viés de dados, viés histórico, paridade demográfica, equalized odds, auditoria de fairness, métricas de justiça, mitigação de viés.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap11-governance">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Identificação e mitigação de preconceitos em sistemas de IA que podem discriminar grupos demográficos, perpetuando desigualdades sociais existentes ou criando novas formas de discriminação.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Viés algorítmico é responsável por falhas reais (recrutamento discriminatório, decisões de crédito injustas, justiça criminal desigual) - compreender e mitigar viés é obrigatório para IA responsável e competitivamente essencial.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Viés de dados, viés histórico, paridade demográfica, equalized odds, auditoria de fairness, métricas de justiça, mitigação de viés.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap11-governance">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🏛️ Governança de IA e Estruturas Organizacionais
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Estruturas organizacionais, comitês multidisciplinares e processos que garantem que princípios éticos sejam traduzidos em práticas operacionais concretas, com roles, responsabilidades e accountability claramente definidos.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> A governança eficaz diferencia organizações responsáveis de irresponsáveis - estruturas de governança robustas garantem oversight apropriado, detectam e mitigam riscos precocemente, e constroem confiança com stakeholders.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Comitês de ética em IA, responsabilidades definidas, avaliações de impacto ético, gates de qualidade, integração em processos de desenvolvimento, monitoramento contínuo.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap11-regulation">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Estruturas organizacionais, comitês multidisciplinares e processos que garantem que princípios éticos sejam traduzidos em práticas operacionais concretas, com roles, responsabilidades e accountability claramente definidos.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> A governança eficaz diferencia organizações responsáveis de irresponsáveis - estruturas de governança robustas garantem oversight apropriado, detectam e mitigam riscos precocemente, e constroem confiança com stakeholders.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Comitês de ética em IA, responsabilidades definidas, avaliações de impacto ético, gates de qualidade, integração em processos de desenvolvimento, monitoramento contínuo.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap11-regulation">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     📜 Regulamentação e Compliance
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Paisagem regulatória global em evolução rápida (EU AI Act, GDPR, AI Acts emergentes) que estabelece requisitos legais, direitos dos indivíduos, e responsabilidades das organizações em desenvolvimento e uso de IA.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Regulamentação está se tornando cada vez mais rigorosa - conhecer requisitos aplicáveis é essencial para evitar multas massivas (até 6% do revenue no EU AI Act), sanções regulatórias e danos reputacionais.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> EU AI Act (classificação baseada em risco), GDPR, LGPD, requisitos de conformidade setoriais, frameworks regulatórios nacionais, gestão de compliance, auditoria regulatória, documentação e rastreabilidade.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap11-privacy">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Paisagem regulatória global em evolução rápida (EU AI Act, GDPR, AI Acts emergentes) que estabelece requisitos legais, direitos dos indivíduos, e responsabilidades das organizações em desenvolvimento e uso de IA.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Regulamentação está se tornando cada vez mais rigorosa - conhecer requisitos aplicáveis é essencial para evitar multas massivas (até 6% do revenue no EU AI Act), sanções regulatórias e danos reputacionais.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> EU AI Act (classificação baseada em risco), GDPR, LGPD, requisitos de conformidade setoriais, frameworks regulatórios nacionais, gestão de compliance, auditoria regulatória, documentação e rastreabilidade.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap11-privacy">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔐 Privacidade por Design
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Princípios e práticas que incorporam proteção de privacidade desde o início do desenvolvimento de IA, incluindo minimização de dados, consentimento informado, técnicas de preservação de privacidade (differential privacy, federated learning).</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Violações de privacidade têm custos significativos (multas, perda de confiança do cliente) - privacy by design não é apenas compliance, é estratégia competitiva e direito humano fundamental.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Privacidade diferencial, aprendizado federado, anonimização, criptografia homomórfica, gestão de consentimento, controle do usuário sobre dados pessoais.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-11-etica-governanca" class="inline-block bg-estrategico text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 transition w-full md:w-auto text-center">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Princípios e práticas que incorporam proteção de privacidade desde o início do desenvolvimento de IA, incluindo minimização de dados, consentimento informado, técnicas de preservação de privacidade (differential privacy, federated learning).</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Violações de privacidade têm custos significativos (multas, perda de confiança do cliente) - privacy by design não é apenas compliance, é estratégia competitiva e direito humano fundamental.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Privacidade diferencial, aprendizado federado, anonimização, criptografia homomórfica, gestão de consentimento, controle do usuário sobre dados pessoais.</p>
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-estrategico text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-11-etica-governanca">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-                <!-- Capítulo 12 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-estrategico">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-estrategico text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+<!-- Capítulo 12 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-estrategico">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-estrategico text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 12
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 Implementação Estratégica de IA nas Organizações
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo12_implementacao_estrategica (2).png" alt="Implementação Estratégica" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Implementação Estratégica" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo12_implementacao_estrategica (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Framework completo para transformação organizacional com IA. Avaliação de maturidade, roadmap de implementação e gestão de mudança. Construa vantagens competitivas duradouras integrando IA em sua estratégia.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 60-75 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Framework + Checklist</span>
-                    </div>
-
-                    <div class="mb-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
-                        <ul class="topics-list space-y-0.5">
-                            <li class="topic-item" data-topic="cap12-roadmap">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 60-75 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Framework + Checklist</span>
+</div>
+<div class="mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item" data-topic="cap12-roadmap">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🗺️ Roadmap de Implementação de IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Plano estratégico faseado para adoção organizacional de IA que define etapas sequenciais (piloto → escala → transformação), prioriza casos de uso, aloca recursos e estabelece métricas de sucesso.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Implementações de IA falham frequentemente por falta de estratégia clara - roadmaps estruturados aumentam probabilidade de sucesso, garantem alinhamento organizacional e demonstram ROI progressivo.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Faseamento estratégico, priorização de casos de uso, desenvolvimento de capacidades, gestão de mudança, métricas de maturidade.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap12-maturity">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Plano estratégico faseado para adoção organizacional de IA que define etapas sequenciais (piloto → escala → transformação), prioriza casos de uso, aloca recursos e estabelece métricas de sucesso.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Implementações de IA falham frequentemente por falta de estratégia clara - roadmaps estruturados aumentam probabilidade de sucesso, garantem alinhamento organizacional e demonstram ROI progressivo.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Faseamento estratégico, priorização de casos de uso, desenvolvimento de capacidades, gestão de mudança, métricas de maturidade.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap12-maturity">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     📊 Avaliação de Maturidade Organizacional
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Framework estruturado de cinco níveis (Inicial → Gerenciado → Definido → Quantitativamente Gerenciado → Otimizado) que avalia capacidade organizacional atual em IA através de múltiplas dimensões: estratégia, tecnologia, pessoas, processos, cultura.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Muitas organizações subestimam ou superestimam sua prontidão para IA - avaliação acurada de maturidade é fundamental para desenvolvimento de estratégias realistas, alocação apropriada de recursos e definição de expectativas realistas.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Framework de cinco níveis, dimensões de maturidade, assessment tools, identificação de gaps, benchmarking, evolução progressiva de capacidades.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap12-change">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Framework estruturado de cinco níveis (Inicial → Gerenciado → Definido → Quantitativamente Gerenciado → Otimizado) que avalia capacidade organizacional atual em IA através de múltiplas dimensões: estratégia, tecnologia, pessoas, processos, cultura.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Muitas organizações subestimam ou superestimam sua prontidão para IA - avaliação acurada de maturidade é fundamental para desenvolvimento de estratégias realistas, alocação apropriada de recursos e definição de expectativas realistas.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Framework de cinco níveis, dimensões de maturidade, assessment tools, identificação de gaps, benchmarking, evolução progressiva de capacidades.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap12-change">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔄 Gestão de Mudança Organizacional
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Abordagens estruturadas para gerenciar transformação cultural profunda necessária para implementação bem-sucedida de IA, incluindo transformação de mindsets, comportamentos, estruturas organizacionais e evolução cultural.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Implementações de IA falham frequentemente não por razões técnicas, mas por resistência organizacional e cultural - gestão de mudança eficaz é crítica para transformar intenção estratégica em ação organizacional.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Transformação de mindset, mudanças comportamentais, adaptações estruturais, evolução cultural, estratégias de comunicação, engajamento de stakeholders, medição de adoption.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap12-talent">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Abordagens estruturadas para gerenciar transformação cultural profunda necessária para implementação bem-sucedida de IA, incluindo transformação de mindsets, comportamentos, estruturas organizacionais e evolução cultural.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Implementações de IA falham frequentemente não por razões técnicas, mas por resistência organizacional e cultural - gestão de mudança eficaz é crítica para transformar intenção estratégica em ação organizacional.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Transformação de mindset, mudanças comportamentais, adaptações estruturais, evolução cultural, estratégias de comunicação, engajamento de stakeholders, medição de adoption.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap12-talent">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     👥 Desenvolvimento de Talentos e Competências
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Estratégia integrada para desenvolver competências necessárias em toda organização, incluindo contratação de talent crítico, desenvolvimento interno, parcerias estratégicas e retenção de expertise.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Escassez de talentos em IA é desafio crítico - organizações que conseguem atrair, desenvolver e reter talento em IA ganham vantagens competitivas significativas e executam iniciativas com maior sucesso.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Estratégia de contratação, desenvolvimento interno de competências, caminhos de carreira em IA, parcerias acadêmicas e com consultores, retenção de talento, cultura de aprendizagem contínua.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap12-infra">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Estratégia integrada para desenvolver competências necessárias em toda organização, incluindo contratação de talent crítico, desenvolvimento interno, parcerias estratégicas e retenção de expertise.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Escassez de talentos em IA é desafio crítico - organizações que conseguem atrair, desenvolver e reter talento em IA ganham vantagens competitivas significativas e executam iniciativas com maior sucesso.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Estratégia de contratação, desenvolvimento interno de competências, caminhos de carreira em IA, parcerias acadêmicas e com consultores, retenção de talento, cultura de aprendizagem contínua.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap12-infra">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🏗️ Infraestrutura Tecnológica e Plataformas
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Arquitetura técnica robusta que suporta desenvolvimento, deployment e operação de sistemas de IA em produção, incluindo data lakes/warehouses, plataformas ML/AI, integração, segurança e observabilidade.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Infraestrutura inadequada é fator crítico de falha em iniciativas de IA - arquitetura bem-planejada permite escalabilidade, confiabilidade, segurança e custo-eficácia essenciais para sucesso operacional.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Arquitetura de dados, plataformas de ML/AI, cloud computing, pipelines de dados, MLOps, monitoramento e observabilidade, segurança de IA, otimização de custos.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-12-implementacao-estrategica" class="inline-block bg-estrategico text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 transition w-full md:w-auto text-center">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Arquitetura técnica robusta que suporta desenvolvimento, deployment e operação de sistemas de IA em produção, incluindo data lakes/warehouses, plataformas ML/AI, integração, segurança e observabilidade.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Infraestrutura inadequada é fator crítico de falha em iniciativas de IA - arquitetura bem-planejada permite escalabilidade, confiabilidade, segurança e custo-eficácia essenciais para sucesso operacional.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Arquitetura de dados, plataformas de ML/AI, cloud computing, pipelines de dados, MLOps, monitoramento e observabilidade, segurança de IA, otimização de custos.</p>
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-estrategico text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-12-implementacao-estrategica">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-                <!-- Capítulo 13 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-estrategico">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-estrategico text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+<!-- Capítulo 13 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-estrategico">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-estrategico text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 13
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 O Futuro do Trabalho e da Sociedade
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo13_futuro_trabalho (2).png" alt="Futuro do Trabalho" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Futuro do Trabalho" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo13_futuro_trabalho (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Como a IA está redefinindo trabalho e sociedade. 40% dos empregos transformados até 2040, mas 60-70% dos empregos de 2040 ainda não existem. Augmentação humana vs substituição. O futuro que estamos construindo.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 55-70 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Análise de Tendências</span>
-                    </div>
-
-                    <div class="mb-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
-                        <ul class="topics-list space-y-0.5">
-                            <li class="topic-item" data-topic="cap13-colaboracao">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 55-70 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Análise de Tendências</span>
+</div>
+<div class="mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item" data-topic="cap13-colaboracao">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🤝 Colaboração Humano-IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Modelo de trabalho onde humanos e IA combinam suas forças complementares em sinergia - IA cuida de análise de dados e tarefas repetitivas enquanto humanos focam em criatividade, julgamento ético e decisões complexas.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> O futuro não é IA substituindo humanos, mas humanos augmentados por IA - profissionais que dominam colaboração humano-IA são exponencialmente mais produtivos e valiosos.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Augmentação humana, divisão inteligente de trabalho, forças complementares, interfaces naturais, aprendizagem mútua contínua.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap13-transformacao">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Modelo de trabalho onde humanos e IA combinam suas forças complementares em sinergia - IA cuida de análise de dados e tarefas repetitivas enquanto humanos focam em criatividade, julgamento ético e decisões complexas.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> O futuro não é IA substituindo humanos, mas humanos augmentados por IA - profissionais que dominam colaboração humano-IA são exponencialmente mais produtivos e valiosos.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Augmentação humana, divisão inteligente de trabalho, forças complementares, interfaces naturais, aprendizagem mútua contínua.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap13-transformacao">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     💼 Transformação de Profissões e Mercado
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Análise de como IA está transformando profissões existentes através de augmentação (não substituição), criando novas categorias profissionais inteiras, e redefinindo competências valorizadas no mercado de trabalho moderno.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Compreender dinâmicas de transformação profissional é essencial para adaptação pessoal e profissional - profissionais que entendem tendências podem posicionar-se estrategicamente para prosperar na economia transformada.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Augmentação vs. substituição, super-profissionalismo híbrido, competências valorizadas (criatividade, pensamento crítico, inteligência emocional), profissões emergentes, redefinição de valor econômico.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap13-equidade">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Análise de como IA está transformando profissões existentes através de augmentação (não substituição), criando novas categorias profissionais inteiras, e redefinindo competências valorizadas no mercado de trabalho moderno.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Compreender dinâmicas de transformação profissional é essencial para adaptação pessoal e profissional - profissionais que entendem tendências podem posicionar-se estrategicamente para prosperar na economia transformada.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Augmentação vs. substituição, super-profissionalismo híbrido, competências valorizadas (criatividade, pensamento crítico, inteligência emocional), profissões emergentes, redefinição de valor econômico.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap13-equidade">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     ⚖️ Desigualdade e Inclusão Digital
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Riscos de que IA possa amplificar desigualdades existentes se acesso a ferramentas, educação e oportunidades for distribuído desigualmente; estratégias para democratização de IA e distribuição equitativa de benefícios.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Exclusão digital é risco social e econômico significativo - organizações e sociedades que implementam IA de forma inclusiva criam mercados maiores, reduzem resistência social e constroem legitimidade a longo prazo.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Digital divide, acesso desigual a IA, iniciativas "AI for Good", educação em IA para comunidades underserved, distribuição de benefícios de automação, programas de reskilling, políticas inclusivas.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap13-sustentabilidade">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Riscos de que IA possa amplificar desigualdades existentes se acesso a ferramentas, educação e oportunidades for distribuído desigualmente; estratégias para democratização de IA e distribuição equitativa de benefícios.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Exclusão digital é risco social e econômico significativo - organizações e sociedades que implementam IA de forma inclusiva criam mercados maiores, reduzem resistência social e constroem legitimidade a longo prazo.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Digital divide, acesso desigual a IA, iniciativas "AI for Good", educação em IA para comunidades underserved, distribuição de benefícios de automação, programas de reskilling, políticas inclusivas.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap13-sustentabilidade">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🌍 Sustentabilidade Ambiental e IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Tanto oportunidades (IA otimizando sistemas para eficiência energética, acelerando desenvolvimento de tecnologias limpas, monitoramento ambiental) quanto desafios (consumo energético de treinamento de modelos grandes) de IA em relação à sustentabilidade ambiental.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Sustentabilidade é imperador competitivo e moral - organizações que usam IA para abordar desafios ambientais enquanto gerenciam seu próprio footprint de carbono estão posicionadas para liderança futura.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Green AI, eficiência de modelos, otimização de consumo energético, IA para mudança climática, smart cities, desenvolvimento de tecnologias limpas, carbon footprint de IA, tradeoffs ambientais.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap13-emergentes">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Tanto oportunidades (IA otimizando sistemas para eficiência energética, acelerando desenvolvimento de tecnologias limpas, monitoramento ambiental) quanto desafios (consumo energético de treinamento de modelos grandes) de IA em relação à sustentabilidade ambiental.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Sustentabilidade é imperador competitivo e moral - organizações que usam IA para abordar desafios ambientais enquanto gerenciam seu próprio footprint de carbono estão posicionadas para liderança futura.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Green AI, eficiência de modelos, otimização de consumo energético, IA para mudança climática, smart cities, desenvolvimento de tecnologias limpas, carbon footprint de IA, tradeoffs ambientais.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap13-emergentes">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🚀 Profissões Emergentes AI-Native
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Setores e profissões inteiramente novos criados pela revolução de IA (AI Safety, Human-AI Interaction Design, AI Ethics, Synthetic Media, Personalized AI Services) que representam fronteiras de crescimento econômico.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Empreendedores e profissionais que identificam e se posicionam em profissões emergentes conseguem vantagens de first-mover significativas - compreender oportunidades de nicho permite criar valor em mercados nascentes.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> AI Safety and Alignment, Human-AI Interaction Designers, AI Ethicists, Data Storytellers, Synthetic Media creators, novas profissões híbridas, opportunidades de empreendedorismo, early-mover advantages.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-13-futuro-trabalho" class="inline-block bg-estrategico text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 transition w-full md:w-auto text-center">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Setores e profissões inteiramente novos criados pela revolução de IA (AI Safety, Human-AI Interaction Design, AI Ethics, Synthetic Media, Personalized AI Services) que representam fronteiras de crescimento econômico.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Empreendedores e profissionais que identificam e se posicionam em profissões emergentes conseguem vantagens de first-mover significativas - compreender oportunidades de nicho permite criar valor em mercados nascentes.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> AI Safety and Alignment, Human-AI Interaction Designers, AI Ethicists, Data Storytellers, Synthetic Media creators, novas profissões híbridas, opportunidades de empreendedorismo, early-mover advantages.</p>
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-estrategico text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-13-futuro-trabalho">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-                <!-- Capítulo 14 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-estrategico">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-estrategico text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+<!-- Capítulo 14 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-estrategico">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-estrategico text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 14
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 Guia Prático de Implementação
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo14_guia_pratico (2).png" alt="Guia Prático" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Guia Prático" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo14_guia_pratico (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Da teoria à prática. Roadmaps concretos, checklists detalhados e frameworks acionáveis para implementar IA em sua vida pessoal e profissional. Seu plano de ação completo para transformação digital.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 45-60 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Roadmap + Checklists</span>
-                    </div>
-
-                    <div class="mb-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
-                        <ul class="topics-list space-y-0.5">
-                            <li class="topic-item" data-topic="cap14-pratico">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 45-60 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Roadmap + Checklists</span>
+</div>
+<div class="mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item" data-topic="cap14-pratico">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🚀 Roadmap de Implementação Prática
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Plano passo a passo acionável para integrar IA em sua vida profissional ou organização - desde autoavaliação e aprendizado inicial até implementação de projetos piloto, escala e transformação completa.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> A maioria das iniciativas de IA falha por falta de planejamento estruturado - um roadmap claro transforma intenções vagas em ações concretas e maximiza probabilidade de sucesso.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Faseamento (aprendizado → piloto → escala), autoavaliação de competências, projetos práticos, métricas de progresso, desenvolvimento contínuo.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap14-decisoes">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Plano passo a passo acionável para integrar IA em sua vida profissional ou organização - desde autoavaliação e aprendizado inicial até implementação de projetos piloto, escala e transformação completa.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> A maioria das iniciativas de IA falha por falta de planejamento estruturado - um roadmap claro transforma intenções vagas em ações concretas e maximiza probabilidade de sucesso.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Faseamento (aprendizado → piloto → escala), autoavaliação de competências, projetos práticos, métricas de progresso, desenvolvimento contínuo.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap14-decisoes">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🎯 Frameworks de Decisão Estratégica
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Frameworks estruturados para tomar decisões sobre projetos, investimentos e iniciativas de IA, considerando múltiplas dimensões: impacto de negócio, viabilidade técnica, riscos, compliance e alinhamento estratégico.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Decisões inadequadas sobre projetos de IA resultam em desperdício de recursos - frameworks estruturados garantem que decisões sejam objetivas, baseadas em evidência e alinhadas com estratégia organizacional.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Critérios de avaliação multidimensionais, análise custo-benefício, scoring models, stakeholder engagement, análise de trade-offs, documentação de decisões, proceso de tomada de decisão colaborativo.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap14-metricas">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Frameworks estruturados para tomar decisões sobre projetos, investimentos e iniciativas de IA, considerando múltiplas dimensões: impacto de negócio, viabilidade técnica, riscos, compliance e alinhamento estratégico.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Decisões inadequadas sobre projetos de IA resultam em desperdício de recursos - frameworks estruturados garantem que decisões sejam objetivas, baseadas em evidência e alinhadas com estratégia organizacional.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Critérios de avaliação multidimensionais, análise custo-benefício, scoring models, stakeholder engagement, análise de trade-offs, documentação de decisões, proceso de tomada de decisão colaborativo.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap14-metricas">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     📊 Métricas de Sucesso e KPIs
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Sistemas abrangentes de medição que capturam sucesso de iniciativas de IA em múltiplas dimensões: performance técnica de modelos, impacto de negócio, adoção organizacional e transformação cultural.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> O que não é medido não pode ser gerenciado - métricas claras garantem accountability, permitem detecção precoce de problemas, informam decisões de scaling e demonstram ROI.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Métricas técnicas (accuracy, drift, latency), métricas de negócio (ROI, adoption rate, customer satisfaction), métricas organizacionais (capability development, cultural transformation), dashboards de monitoramento, alertas automáticos.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap14-ferramentas">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Sistemas abrangentes de medição que capturam sucesso de iniciativas de IA em múltiplas dimensões: performance técnica de modelos, impacto de negócio, adoção organizacional e transformação cultural.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> O que não é medido não pode ser gerenciado - métricas claras garantem accountability, permitem detecção precoce de problemas, informam decisões de scaling e demonstram ROI.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Métricas técnicas (accuracy, drift, latency), métricas de negócio (ROI, adoption rate, customer satisfaction), métricas organizacionais (capability development, cultural transformation), dashboards de monitoramento, alertas automáticos.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap14-ferramentas">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🛠️ Ferramentas, Plataformas e Recursos
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Panorama de ferramentas, plataformas e recursos disponíveis para desenvolvimento de IA, desde plataformas no-code/low-code até ferramentas profissionais especializadas, comunidades e oportunidades de aprendizagem.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Landscape de ferramentas é vasto e complexo - conhecimento de opções apropriadas para contextos específicos acelera desenvolvimento, reduz custos e melhora resultados.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Plataformas cloud (AWS, Google, Azure), ferramentas no-code/low-code, libraries de programação, plataformas de aprendizagem (Coursera, edX, fast.ai), comunidades online, eventos e networking.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap14-carreira">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Panorama de ferramentas, plataformas e recursos disponíveis para desenvolvimento de IA, desde plataformas no-code/low-code até ferramentas profissionais especializadas, comunidades e oportunidades de aprendizagem.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Landscape de ferramentas é vasto e complexo - conhecimento de opções apropriadas para contextos específicos acelera desenvolvimento, reduz custos e melhora resultados.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Plataformas cloud (AWS, Google, Azure), ferramentas no-code/low-code, libraries de programação, plataformas de aprendizagem (Coursera, edX, fast.ai), comunidades online, eventos e networking.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap14-carreira">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     💼 Portfolio e Carreira em IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Estratégias práticas para indivíduos desenvolverem carreira bem-sucedida em IA, incluindo construção de portfolio profissional, especialização estratégica, criação de valor e monetização de competências.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Mercado de IA oferece oportunidades extraordinárias - profissionais que seguem estratégias estruturadas para desenvolvimento de carreira e construção de reputação conseguem resultados significativamente melhores.</p>
-                                    <p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Portfolio digital demonstrando competências, especialização estratégica, thought leadership, networking profissional, monetização (consultoria, produtos, conteúdo educacional), presença online, brand pessoal.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-14-guia-pratico" class="inline-block bg-estrategico text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 transition w-full md:w-auto text-center">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-purple-50 rounded-lg border-l-4 border-estrategico">
+<p class="text-sm mb-1.5"><strong class="text-estrategico">O que é:</strong> Estratégias práticas para indivíduos desenvolverem carreira bem-sucedida em IA, incluindo construção de portfolio profissional, especialização estratégica, criação de valor e monetização de competências.</p>
+<p class="text-sm mb-1.5"><strong class="text-estrategico">Por que aprender:</strong> Mercado de IA oferece oportunidades extraordinárias - profissionais que seguem estratégias estruturadas para desenvolvimento de carreira e construção de reputação conseguem resultados significativamente melhores.</p>
+<p class="text-sm"><strong class="text-estrategico">Conceitos chave:</strong> Portfolio digital demonstrando competências, especialização estratégica, thought leadership, networking profissional, monetização (consultoria, produtos, conteúdo educacional), presença online, brand pessoal.</p>
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-estrategico text-white px-6 py-3 rounded-lg font-semibold hover:bg-purple-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-14-guia-pratico">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Next Level CTA -->
-    <section class="bg-gradient-to-r from-aplicacao to-blue-700 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">
+</div>
+</div>
+</div>
+</section>
+<!-- Next Level CTA -->
+<section class="bg-gradient-to-r from-aplicacao to-blue-700 text-white py-16">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl font-bold mb-4">
                 Completou o Nível Estratégico?
             </h2>
-            <p class="text-xl mb-8 text-blue-100">
+<p class="text-xl mb-8 text-blue-100">
                 Continue sua jornada no Nível Aplicação
             </p>
-            <a href="nivel-aplicacao.html" class="inline-block bg-white text-aplicacao px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition">
+<a class="inline-block bg-white text-aplicacao px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition" href="nivel-aplicacao.html">
                 ⚡ Ir para Nível Aplicação →
             </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">ATIA</h3>
-                    <p class="text-gray-400">
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<h3 class="text-xl font-bold mb-4">ATIA</h3>
+<p class="text-gray-400">
                         Aprendizado em Tecnologias de Inteligência Artificial
                     </p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Níveis</h3>
-                    <ul class="space-y-2">
-                        <li><a href="nivel-estrategico.html" class="text-estrategico hover:text-purple-400 transition">🌟 Estratégico</a></li>
-                        <li><a href="nivel-aplicacao.html" class="text-gray-400 hover:text-white transition">⚡ Aplicação</a></li>
-                        <li><a href="nivel-estrategico.html" class="text-gray-400 hover:text-white transition">👑 Estratégico</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Recursos</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Início</a></li>
-                        <li><a href="https://github.com/inematds/ITIA" target="_blank" class="text-gray-400 hover:text-white transition">GitHub</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 ATIA. Powered by BMad Method.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/app.js"></script>
-    <script>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4">Níveis</h3>
+<ul class="space-y-2">
+<li><a class="text-estrategico hover:text-purple-400 transition" href="nivel-estrategico.html">🌟 Estratégico</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="nivel-aplicacao.html">⚡ Aplicação</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="nivel-estrategico.html">👑 Estratégico</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4">Recursos</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-white transition" href="index.html">Início</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="https://github.com/inematds/ITIA" target="_blank">GitHub</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+<p>© 2025 ATIA. Powered by BMad Method.</p>
+</div>
+</div>
+</footer>
+<script src="js/app.js"></script>
+<script>
         // Simple progress tracking (can be enhanced with localStorage)
         const progressFill = document.getElementById('progress-fill');
         const progressText = document.getElementById('progress-text');
@@ -540,6 +503,5 @@
         // Initialize with 0 completed
         updateProgress(0, 4);
     </script>
-
 </body>
 </html>

@@ -1,24 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Nível Aplicação - ATIA. Aprenda os aplicacao da IA, engenharia de prompt e automação de processos.">
-    <title>Nível Aplicação | ATIA - Curso de IA</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/main.css">
-
-    <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Nível Aplicação - ATIA. Aprenda os aplicacao da IA, engenharia de prompt e automação de processos." name="description"/>
+<title>Nível Aplicação | ATIA - Curso de IA</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Custom CSS -->
+<link href="css/main.css" rel="stylesheet"/>
+<script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -34,583 +30,545 @@
             }
         }
     </script>
-</head>
-<body class="font-sans antialiased bg-gray-50">
-
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white shadow-sm">
-        <div class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <a href="index.html" class="text-2xl font-bold text-aplicacao">
+<link href="https://inematds.github.io/ATIA/2025/nivel-aplicacao.html" hreflang="pt-BR" rel="alternate"/><link href="https://inematds.github.io/ATIA/en/2025/nivel-aplicacao.html" hreflang="en" rel="alternate"/><link href="https://inematds.github.io/ATIA/es/2025/nivel-aplicacao.html" hreflang="es" rel="alternate"/></head>
+<body class="font-sans antialiased bg-gray-50"><div class="inema-lang" style="position:fixed;right:14px;bottom:14px;z-index:9999;display:flex;gap:2px;padding:4px;border-radius:10px;background:rgba(12,12,16,.82);border:1px solid rgba(226,162,59,.45);font:600 12px/1 Sora,Inter,system-ui,sans-serif;backdrop-filter:blur(8px)" translate="no"><a href="nivel-aplicacao.html" hreflang="pt-BR" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#1a1206;background:#E2A23B">PT</a><a href="../en/2025/nivel-aplicacao.html" hreflang="en" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">EN</a><a href="../es/2025/nivel-aplicacao.html" hreflang="es" style="padding:6px 8px;border-radius:7px;text-decoration:none;color:#e9e9ee">ES</a></div>
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="container mx-auto px-4 py-4">
+<div class="flex items-center justify-between">
+<a class="text-2xl font-bold text-aplicacao" href="index.html">
                     🎓 ATIA
                 </a>
-
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-aplicacao transition">Início</a>
-                    <a href="nivel-fundamentos.html" class="text-gray-700 hover:text-fundamentos transition">Fundamentos</a>
-                    <a href="nivel-aplicacao.html" class="text-aplicacao font-semibold">Aplicação</a>
-                    <a href="nivel-estrategico.html" class="text-gray-700 hover:text-estrategico transition">Estratégico</a>
-                </div>
-
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-                <a href="index.html" class="block py-2 text-gray-700">Início</a>
-                <a href="nivel-fundamentos.html" class="block py-2 text-gray-700">Fundamentos</a>
-                <a href="nivel-aplicacao.html" class="block py-2 text-aplicacao font-semibold">Aplicação</a>
-                <a href="nivel-estrategico.html" class="block py-2 text-gray-700">Estratégico</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Reading Progress Bar -->
-    <div class="reading-progress">
-        <div class="reading-progress-bar" style="width: 0%"></div>
-    </div>
-
-    <!-- Breadcrumb -->
-    <div class="bg-white border-b">
-        <div class="container mx-auto px-4 py-3">
-            <nav class="text-sm text-gray-600">
-                <a href="index.html" class="hover:text-aplicacao transition">Início</a>
-                <span class="mx-2">/</span>
-                <span class="text-aplicacao font-semibold">Nível Aplicação</span>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-800 text-white py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="text-6xl mb-4">🌟</div>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-gray-700 hover:text-aplicacao transition" href="index.html">Início</a>
+<a class="text-gray-700 hover:text-fundamentos transition" href="nivel-fundamentos.html">Fundamentos</a>
+<a class="text-aplicacao font-semibold" href="nivel-aplicacao.html">Aplicação</a>
+<a class="text-gray-700 hover:text-estrategico transition" href="nivel-estrategico.html">Estratégico</a>
+</div>
+<button class="md:hidden text-gray-700" id="mobile-menu-btn">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+<div class="hidden md:hidden mt-4 pb-4" id="mobile-menu">
+<a class="block py-2 text-gray-700" href="index.html">Início</a>
+<a class="block py-2 text-gray-700" href="nivel-fundamentos.html">Fundamentos</a>
+<a class="block py-2 text-aplicacao font-semibold" href="nivel-aplicacao.html">Aplicação</a>
+<a class="block py-2 text-gray-700" href="nivel-estrategico.html">Estratégico</a>
+</div>
+</div>
+</nav>
+<!-- Reading Progress Bar -->
+<div class="reading-progress">
+<div class="reading-progress-bar" style="width: 0%"></div>
+</div>
+<!-- Breadcrumb -->
+<div class="bg-white border-b">
+<div class="container mx-auto px-4 py-3">
+<nav class="text-sm text-gray-600">
+<a class="hover:text-aplicacao transition" href="index.html">Início</a>
+<span class="mx-2">/</span>
+<span class="text-aplicacao font-semibold">Nível Aplicação</span>
+</nav>
+</div>
+</div>
+<!-- Hero Section -->
+<section class="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-800 text-white py-16">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto text-center">
+<div class="text-6xl mb-4">🌟</div>
+<h1 class="text-4xl md:text-5xl font-bold mb-4">
                     Nível Aplicação
                 </h1>
-                <p class="text-xl md:text-2xl mb-6 text-blue-100">
+<p class="text-xl md:text-2xl mb-6 text-blue-100">
                     Compreensão base da revolução IA, mercado de trabalho e engenharia de prompt
                 </p>
-                <div class="flex flex-wrap justify-center gap-4 text-sm">
-                    <div class="bg-white/20 px-4 py-2 rounded-full">
+<div class="flex flex-wrap justify-center gap-4 text-sm">
+<div class="bg-white/20 px-4 py-2 rounded-full">
                         📚 5 Capítulos
                     </div>
-                    <div class="bg-white/20 px-4 py-2 rounded-full">
+<div class="bg-white/20 px-4 py-2 rounded-full">
                         ⏱️ 4-6 horas
                     </div>
-                    <div class="bg-white/20 px-4 py-2 rounded-full">
+<div class="bg-white/20 px-4 py-2 rounded-full">
                         🎯 Iniciante
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Progress Section -->
-    <section class="bg-white py-8 border-b">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-sm font-semibold text-gray-700">Seu Progresso</span>
-                    <span class="text-sm text-gray-600" id="progress-text">0/5 capítulos</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Chapters Section -->
-    <section class="py-12">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto">
-
-                <!-- Capítulo 6 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-aplicacao">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-aplicacao text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+</div>
+</div>
+</section>
+<!-- Progress Section -->
+<section class="bg-white py-8 border-b">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center justify-between mb-2">
+<span class="text-sm font-semibold text-gray-700">Seu Progresso</span>
+<span class="text-sm text-gray-600" id="progress-text">0/5 capítulos</span>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Chapters Section -->
+<section class="py-12">
+<div class="container mx-auto px-4">
+<div class="max-w-4xl mx-auto">
+<!-- Capítulo 6 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-aplicacao">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-aplicacao text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 6
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 GPTs Personalizados e Agentes de IA
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo6_gpts_personalizados (2).png" alt="GPTs Personalizados" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="GPTs Personalizados" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo6_gpts_personalizados (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Crie assistentes de IA especializados sob medida. Aprenda a desenvolver GPTs personalizados, agentes inteligentes e sistemas de IA que funcionam como consultores especializados em áreas específicas. A era da IA sob medida chegou.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 50-65 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
-                    </div>
-
-                    <div class="mb-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
-                        <ul class="topics-list space-y-0.5">
-                            <li class="topic-item" data-topic="cap6-agentes">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 50-65 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
+</div>
+<div class="mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item" data-topic="cap6-agentes">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🤖 Agentes de IA (AI Agents)
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Sistemas de IA que podem agir autonomamente para alcançar objetivos - não apenas responder perguntas, mas planejar sequências de ações, usar ferramentas e executar tarefas complexas com mínima supervisão humana.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Agentes de IA representam a evolução de chatbots passivos para colaboradores digitais ativos - podem automatizar workflows complexos e multiplicar dramaticamente sua capacidade de execução.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Autonomia, planejamento de ações, uso de ferramentas, raciocínio em múltiplos passos, execução de objetivos, IA agentic.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap6-finetuning">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Sistemas de IA que podem agir autonomamente para alcançar objetivos - não apenas responder perguntas, mas planejar sequências de ações, usar ferramentas e executar tarefas complexas com mínima supervisão humana.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Agentes de IA representam a evolução de chatbots passivos para colaboradores digitais ativos - podem automatizar workflows complexos e multiplicar dramaticamente sua capacidade de execução.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Autonomia, planejamento de ações, uso de ferramentas, raciocínio em múltiplos passos, execução de objetivos, IA agentic.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap6-finetuning">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🎯 Fine-Tuning
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Processo de "retreinar" um modelo de IA já existente com dados específicos do seu domínio, ajustando os parâmetros do modelo para que ele se especialize em tarefas ou conhecimentos particulares.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Fine-tuning permite criar IA altamente especializada para seu negócio - com linguagem e conhecimentos únicos da sua organização - superando modelos genéricos em precisão e relevância.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Transfer learning, ajuste de parâmetros, dados de treinamento específicos, especialização de modelos, performance em domínio específico.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap6-rag">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Processo de "retreinar" um modelo de IA já existente com dados específicos do seu domínio, ajustando os parâmetros do modelo para que ele se especialize em tarefas ou conhecimentos particulares.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Fine-tuning permite criar IA altamente especializada para seu negócio - com linguagem e conhecimentos únicos da sua organização - superando modelos genéricos em precisão e relevância.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Transfer learning, ajuste de parâmetros, dados de treinamento específicos, especialização de modelos, performance em domínio específico.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap6-rag">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     📚 RAG (Retrieval-Augmented Generation)
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Técnica que combina geração de linguagem com recuperação de informações de bases de conhecimento específicas - o modelo busca documentos relevantes e usa essas informações para gerar respostas mais precisas e atualizadas.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> RAG permite criar GPTs que acessam conhecimentos atualizados e específicos sem necessidade de retreinar o modelo - ideal para documentação corporativa, bases de conhecimento e informações que mudam frequentemente.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Retrieval de documentos, embeddings, bases de conhecimento vetoriais, geração contextualizada, informação atualizada.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap6-monetizacao">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Técnica que combina geração de linguagem com recuperação de informações de bases de conhecimento específicas - o modelo busca documentos relevantes e usa essas informações para gerar respostas mais precisas e atualizadas.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> RAG permite criar GPTs que acessam conhecimentos atualizados e específicos sem necessidade de retreinar o modelo - ideal para documentação corporativa, bases de conhecimento e informações que mudam frequentemente.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Retrieval de documentos, embeddings, bases de conhecimento vetoriais, geração contextualizada, informação atualizada.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap6-monetizacao">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     💰 Monetização de GPTs
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Transformação de GPTs especializados em fontes de renda sustentáveis através de modelos como SaaS (assinatura), pay-per-use (pagamento por uso), ou licensing - criando novos negócios baseados em expertise e conhecimento especializado.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Monetização de GPTs representa oportunidade significativa na economia digital - permite transformar conhecimento especializado em renda escalável, com modelos de negócio viáveis variando de $29/mês a $299/mês por usuário.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Modelo SaaS, pay-per-use, freemium, licensing, receita recorrente, pricing estratégico.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap6-prompt-engineering">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Transformação de GPTs especializados em fontes de renda sustentáveis através de modelos como SaaS (assinatura), pay-per-use (pagamento por uso), ou licensing - criando novos negócios baseados em expertise e conhecimento especializado.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Monetização de GPTs representa oportunidade significativa na economia digital - permite transformar conhecimento especializado em renda escalável, com modelos de negócio viáveis variando de $29/mês a $299/mês por usuário.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Modelo SaaS, pay-per-use, freemium, licensing, receita recorrente, pricing estratégico.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap6-prompt-engineering">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     ✍️ Engenharia de Prompts Avançada
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Técnica de criação e otimização de prompts que maximizam a eficácia de sistemas de IA - fundamental para extrair melhor performance de modelos de linguagem como GPT através de estratégias como chain-of-thought e few-shot learning.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Prompt engineering é aplicável universalmente e tem barreira de entrada baixa, permitindo que qualquer pessoa otimize resultados de IA sem necessidade de programação ou conhecimento técnico avançado.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Design de prompts, otimização de outputs, chain-of-thought, few-shot learning, engenharia de contexto, comunicação IA.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap6-api">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Técnica de criação e otimização de prompts que maximizam a eficácia de sistemas de IA - fundamental para extrair melhor performance de modelos de linguagem como GPT através de estratégias como chain-of-thought e few-shot learning.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Prompt engineering é aplicável universalmente e tem barreira de entrada baixa, permitindo que qualquer pessoa otimize resultados de IA sem necessidade de programação ou conhecimento técnico avançado.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Design de prompts, otimização de outputs, chain-of-thought, few-shot learning, engenharia de contexto, comunicação IA.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap6-api">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔌 Integração de APIs de IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Processo de integração de modelos de IA em aplicações e workflows através de APIs, permitindo automação inteligente de processos sem necessidade de construir modelos do zero.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Prático para implementação real em negócios, criando ponte entre conceitos de IA e aplicações empresariais concretas - permite adicionar inteligência a sistemas existentes rapidamente.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Integração de APIs, automação de workflows, gestão de tokens, otimização de custos, tratamento de latência.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-06-gpts-personalizados" class="inline-block bg-aplicacao text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition w-full md:w-auto text-center">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Processo de integração de modelos de IA em aplicações e workflows através de APIs, permitindo automação inteligente de processos sem necessidade de construir modelos do zero.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Prático para implementação real em negócios, criando ponte entre conceitos de IA e aplicações empresariais concretas - permite adicionar inteligência a sistemas existentes rapidamente.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Integração de APIs, automação de workflows, gestão de tokens, otimização de custos, tratamento de latência.</p>
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-aplicacao text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-06-gpts-personalizados">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-                <!-- Capítulo 7 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-aplicacao">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-aplicacao text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+<!-- Capítulo 7 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-aplicacao">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-aplicacao text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 7
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 As Novas Profissões da Era da IA
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo7_novas_profissoes (2).png" alt="Novas Profissões" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Novas Profissões" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo7_novas_profissoes (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Descubra as profissões emergentes da era da IA. Prompt Engineer, AI Strategy Consultant, AI Ethics Specialist e mais. Salários de US$ 100k-335k/ano em carreiras que não existiam há 3 anos.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 55-70 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Roadmap de Carreira</span>
-                    </div>
-
-                    <div class="mb-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
-                        <ul class="topics-list space-y-0.5">
-                            <li class="topic-item" data-topic="cap7-product">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 55-70 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Roadmap de Carreira</span>
+</div>
+<div class="mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item" data-topic="cap7-product">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     💼 AI Product Manager
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional que gerencia produtos que incorporam IA, fazendo a ponte entre equipes técnicas e stakeholders de negócio, definindo requisitos e garantindo que produtos de IA entreguem valor real.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Uma das profissões mais demandadas e bem remuneradas da era IA - combina habilidades de produto com compreensão de capacidades e limitações de IA, essencial para empresas que estão incorporando IA.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Gestão de ciclo de vida de produto, colaboração técnica-negócio, métricas de ML, ética em IA, estratégia de dados.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap7-ethics">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional que gerencia produtos que incorporam IA, fazendo a ponte entre equipes técnicas e stakeholders de negócio, definindo requisitos e garantindo que produtos de IA entreguem valor real.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Uma das profissões mais demandadas e bem remuneradas da era IA - combina habilidades de produto com compreensão de capacidades e limitações de IA, essencial para empresas que estão incorporando IA.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Gestão de ciclo de vida de produto, colaboração técnica-negócio, métricas de ML, ética em IA, estratégia de dados.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap7-ethics">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     ⚖️ AI Ethics Officer (Oficial de Ética em IA)
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional responsável por garantir que sistemas de IA sejam desenvolvidos e usados de forma ética, justa e transparente - auditando modelos para bias e garantindo compliance com regulamentações.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Com regulamentações de IA aumentando globalmente e crescentes preocupações sobre bias, esta profissão está se tornando obrigatória em organizações que usam IA - combina ética, tecnologia e compliance.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Bias em IA, fairness algorítmica, IA explicável (XAI), compliance regulatório, auditoria de IA, IA responsável.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap7-prompt">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional responsável por garantir que sistemas de IA sejam desenvolvidos e usados de forma ética, justa e transparente - auditando modelos para bias e garantindo compliance com regulamentações.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Com regulamentações de IA aumentando globalmente e crescentes preocupações sobre bias, esta profissão está se tornando obrigatória em organizações que usam IA - combina ética, tecnologia e compliance.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Bias em IA, fairness algorítmica, IA explicável (XAI), compliance regulatório, auditoria de IA, IA responsável.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap7-prompt">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     ✍️ Prompt Engineer
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional especializado em criar e otimizar prompts que maximizam a eficácia de sistemas de IA - a profissão mais acessível da era IA, não requer programação ou formação técnica avançada.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Baixa barreira de entrada com alta demanda de mercado - pode-se começar como freelancer oferecendo serviços especializados, com aplicabilidade universal em qualquer domínio ou indústria.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Design de prompts, otimização de outputs, chain-of-thought, few-shot learning, engenharia de contexto, comunicação IA.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap7-strategy">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional especializado em criar e otimizar prompts que maximizam a eficácia de sistemas de IA - a profissão mais acessível da era IA, não requer programação ou formação técnica avançada.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Baixa barreira de entrada com alta demanda de mercado - pode-se começar como freelancer oferecendo serviços especializados, com aplicabilidade universal em qualquer domínio ou indústria.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Design de prompts, otimização de outputs, chain-of-thought, few-shot learning, engenharia de contexto, comunicação IA.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap7-strategy">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🎯 AI Strategy Consultant
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional que ajuda organizações a navegar transformação digital, identificando oportunidades de IA, desenvolvendo roadmaps de implementação e garantindo ROI em investimentos de IA.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Estratégico para empresas em transformação digital, com demanda crescente e salários altos ($120k-180k) - combina visão de negócio com expertise técnica em IA.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Avaliação de maturidade de IA, identificação de casos de uso, desenvolvimento de estratégias, gestão de mudança, ROI e métricas.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap7-learning">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional que ajuda organizações a navegar transformação digital, identificando oportunidades de IA, desenvolvendo roadmaps de implementação e garantindo ROI em investimentos de IA.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Estratégico para empresas em transformação digital, com demanda crescente e salários altos ($120k-180k) - combina visão de negócio com expertise técnica em IA.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Avaliação de maturidade de IA, identificação de casos de uso, desenvolvimento de estratégias, gestão de mudança, ROI e métricas.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap7-learning">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     📚 AI Learning Designer
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional responsável por criar experiências educacionais que aproveitam IA para maximizar eficácia de aprendizagem - designers instrucionais especializados em IA e aprendizagem adaptativa.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Educação é setor crítico em transformação com IA; design de aprendizagem é essencial para implementação bem-sucedida de soluções educacionais inteligentes.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Design instrucional adaptativo, integração de IA em curricula, análise de dados de aprendizagem, experiências personalizadas.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap7-privacy">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional responsável por criar experiências educacionais que aproveitam IA para maximizar eficácia de aprendizagem - designers instrucionais especializados em IA e aprendizagem adaptativa.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Educação é setor crítico em transformação com IA; design de aprendizagem é essencial para implementação bem-sucedida de soluções educacionais inteligentes.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Design instrucional adaptativo, integração de IA em curricula, análise de dados de aprendizagem, experiências personalizadas.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap7-privacy">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔒 Data Privacy Specialist
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional focado em garantir que sistemas de IA aderem a regulamentações de privacidade (GDPR, LGPD) e utilizam dados de forma ética e transparente - protetor de dados na era IA.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Regulamentações de privacidade são cada vez mais rigorosas; expertise crítica para empresas trabalhando com dados pessoais - compliance é não negociável.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> GDPR, LGPD, compliance regulatório, gestão de consentimento, segurança de dados, ética de dados.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-07-novas-profissoes" class="inline-block bg-aplicacao text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition w-full md:w-auto text-center">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Profissional focado em garantir que sistemas de IA aderem a regulamentações de privacidade (GDPR, LGPD) e utilizam dados de forma ética e transparente - protetor de dados na era IA.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Regulamentações de privacidade são cada vez mais rigorosas; expertise crítica para empresas trabalhando com dados pessoais - compliance é não negociável.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> GDPR, LGPD, compliance regulatório, gestão de consentimento, segurança de dados, ética de dados.</p>
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-aplicacao text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-07-novas-profissoes">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-                <!-- Capítulo 8 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-aplicacao">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-aplicacao text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+<!-- Capítulo 8 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-aplicacao">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-aplicacao text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 8
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 Criação de Conteúdo e Marketing Digital com IA
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo8_marketing_digital (2).png" alt="Marketing Digital" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Marketing Digital" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo8_marketing_digital (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Revolucione sua criação de conteúdo com IA. Aprenda a produzir texto, imagens, vídeos e áudio em escala profissional. Empresas relatam 60-80% de redução em tempo e 30-50% de aumento em engagement.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 60-75 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Ferramentas + Templates</span>
-                    </div>
-
-                    <div class="mb-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
-                        <ul class="topics-list space-y-0.5">
-                            <li class="topic-item" data-topic="cap8-personalizacao">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 60-75 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📥 Ferramentas + Templates</span>
+</div>
+<div class="mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item" data-topic="cap8-personalizacao">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🎯 Personalização em Massa com IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Capacidade de criar conteúdo único e personalizado para cada cliente individual em escala massiva - IA analisa comportamento e preferências para gerar mensagens e experiências adaptadas especificamente para cada pessoa.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Personalização em massa gera aumentos de 30-50% em engagement e 25-40% em conversões - consumidores modernos esperam experiências personalizadas, e IA finalmente torna isso economicamente viável.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Segmentação dinâmica, geração de conteúdo personalizado, análise comportamental, otimização individual, marketing one-to-one escalável.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap8-visual">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Capacidade de criar conteúdo único e personalizado para cada cliente individual em escala massiva - IA analisa comportamento e preferências para gerar mensagens e experiências adaptadas especificamente para cada pessoa.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Personalização em massa gera aumentos de 30-50% em engagement e 25-40% em conversões - consumidores modernos esperam experiências personalizadas, e IA finalmente torna isso economicamente viável.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Segmentação dinâmica, geração de conteúdo personalizado, análise comportamental, otimização individual, marketing one-to-one escalável.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap8-visual">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🎨 Geração de Conteúdo Visual com IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de ferramentas como Midjourney, DALL-E e Stable Diffusion para criar imagens, gráficos e designs profissionais sem necessidade de habilidades de design ou fotografia - democratiza criação visual profissional.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Reduz custos de produção em 40-70% e acelera ciclos criativos, permitindo que qualquer pessoa crie conteúdo visual de alta qualidade para marketing, apresentações e comunicação.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Geração de imagens, prompt engineering visual, integração com workflows criativos, controle de qualidade, consistência de marca.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap8-video">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de ferramentas como Midjourney, DALL-E e Stable Diffusion para criar imagens, gráficos e designs profissionais sem necessidade de habilidades de design ou fotografia - democratiza criação visual profissional.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Reduz custos de produção em 40-70% e acelera ciclos criativos, permitindo que qualquer pessoa crie conteúdo visual de alta qualidade para marketing, apresentações e comunicação.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Geração de imagens, prompt engineering visual, integração com workflows criativos, controle de qualidade, consistência de marca.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap8-video">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🎬 Criação de Vídeos com IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de ferramentas como RunwayML e Synthesia para criar vídeos profissionais com avatares digitais ou através de geração de vídeo a partir de texto - eliminando barreiras técnicas e financeiras da produção de vídeo.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Vídeo é o formato com maior engagement, e IA democratiza produção que antes era cara e complexa - permite criar conteúdo multilíngue em escala sem necessidade de estúdio ou equipamento.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Síntese de vídeo, avatares digitais, sincronização labial, edição automatizada, criação de conteúdo multilíngue.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap8-seo">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de ferramentas como RunwayML e Synthesia para criar vídeos profissionais com avatares digitais ou através de geração de vídeo a partir de texto - eliminando barreiras técnicas e financeiras da produção de vídeo.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Vídeo é o formato com maior engagement, e IA democratiza produção que antes era cara e complexa - permite criar conteúdo multilíngue em escala sem necessidade de estúdio ou equipamento.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Síntese de vídeo, avatares digitais, sincronização labial, edição automatizada, criação de conteúdo multilíngue.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap8-seo">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔍 SEO Automatizado e Otimização
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de IA para otimizar conteúdo para motores de busca, incluindo pesquisa de keywords, otimização de estrutura e criação de conteúdo otimizado para SERPs - automatiza análise complexa de SEO.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> SEO é crítico para visibilidade digital e IA pode automatizar otimização contínua que seria impraticável manualmente - essencial para competitividade online.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Pesquisa de keywords com IA, otimização técnica, análise de competidores, criação de conteúdo rankeável, monitoramento de performance.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap8-chatbots">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de IA para otimizar conteúdo para motores de busca, incluindo pesquisa de keywords, otimização de estrutura e criação de conteúdo otimizado para SERPs - automatiza análise complexa de SEO.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> SEO é crítico para visibilidade digital e IA pode automatizar otimização contínua que seria impraticável manualmente - essencial para competitividade online.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Pesquisa de keywords com IA, otimização técnica, análise de competidores, criação de conteúdo rankeável, monitoramento de performance.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap8-chatbots">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     💬 Chatbots Conversacionais para Vendas
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Implementação de chatbots inteligentes que conduzem conversas de vendas naturais, qualificam leads e personalizam experiências de e-commerce em tempo real - 24/7, em múltiplos idiomas.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Chatbots podem qualificar leads 24/7 e melhorar conversões significativamente - essencial para e-commerce moderno e atendimento escalável ao cliente.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Conversational AI, reconhecimento de intenção, qualificação de leads, personalização dinâmica, integração com CRM.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-08-marketing-digital" class="inline-block bg-aplicacao text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition w-full md:w-auto text-center">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Implementação de chatbots inteligentes que conduzem conversas de vendas naturais, qualificam leads e personalizam experiências de e-commerce em tempo real - 24/7, em múltiplos idiomas.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Chatbots podem qualificar leads 24/7 e melhorar conversões significativamente - essencial para e-commerce moderno e atendimento escalável ao cliente.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Conversational AI, reconhecimento de intenção, qualificação de leads, personalização dinâmica, integração com CRM.</p>
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-aplicacao text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-08-marketing-digital">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-                <!-- Capítulo 9 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-aplicacao">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-aplicacao text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+<!-- Capítulo 9 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-aplicacao">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-aplicacao text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 9
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 Prospecção e Vendas Automatizadas
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo9_vendas_automatizadas (2).png" alt="Vendas Automatizadas" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Vendas Automatizadas" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo9_vendas_automatizadas (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Transforme sua prospecção e vendas com IA. Lead scoring inteligente, qualificação automatizada e vendas aumentadas. Empresas reportam 30-50% mais leads qualificados e 20-30% mais conversões.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 55-70 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
-                    </div>
-
-                    <div class="mb-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
-                        <ul class="topics-list space-y-0.5">
-                            <li class="topic-item" data-topic="cap9-leadscoring">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 55-70 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
+</div>
+<div class="mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item" data-topic="cap9-leadscoring">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     📊 Lead Scoring com IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Sistema que usa machine learning para automaticamente pontuar e classificar leads com base em centenas de variáveis comportamentais, identificando quais prospects têm maior probabilidade de converter.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Lead scoring com IA pode aumentar taxas de conversão em 20-30% ao focar esforços nos leads certos, reduzir ciclos de vendas e melhorar produtividade da equipe - essencial para vendas modernas.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Modelos preditivos, análise comportamental, priorização automática, integração com CRM, otimização contínua de modelos.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap9-prospeccao">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Sistema que usa machine learning para automaticamente pontuar e classificar leads com base em centenas de variáveis comportamentais, identificando quais prospects têm maior probabilidade de converter.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Lead scoring com IA pode aumentar taxas de conversão em 20-30% ao focar esforços nos leads certos, reduzir ciclos de vendas e melhorar produtividade da equipe - essencial para vendas modernas.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Modelos preditivos, análise comportamental, priorização automática, integração com CRM, otimização contínua de modelos.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap9-prospeccao">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🎯 Automação de Prospecção Inteligente
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de IA para identificar prospects qualificados, pesquisar empresas alvo e enviar mensagens personalizadas em escala - automação que mantém o toque humano através de personalização inteligente.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Automatiza tarefas repetitivas de prospecção, permitindo que vendedores foquem em relacionamentos de alto valor e negociação - multiplica capacidade de prospecção em 5-10x.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Identificação de prospects, enriquecimento de dados, personalização em massa, automação de outreach, timing otimizado.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap9-preditiva">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de IA para identificar prospects qualificados, pesquisar empresas alvo e enviar mensagens personalizadas em escala - automação que mantém o toque humano através de personalização inteligente.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Automatiza tarefas repetitivas de prospecção, permitindo que vendedores foquem em relacionamentos de alto valor e negociação - multiplica capacidade de prospecção em 5-10x.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Identificação de prospects, enriquecimento de dados, personalização em massa, automação de outreach, timing otimizado.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap9-preditiva">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🔮 Análise Preditiva de Vendas
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de machine learning para prever probabilidade de fechamento de deals, timing provável de decisão e valor potencial baseado em padrões históricos - previsão de pipeline e receita mais precisa.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Permite priorização inteligente de esforços e planejamento mais preciso de pipeline e receita - reduz ciclos de vendas e aumenta taxa de fechamento ao focar nos deals certos.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Modelos preditivos, análise de comportamento, revenue forecasting, identificação de riscos, recomendações de próximos passos.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap9-conversacional">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de machine learning para prever probabilidade de fechamento de deals, timing provável de decisão e valor potencial baseado em padrões históricos - previsão de pipeline e receita mais precisa.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Permite priorização inteligente de esforços e planejamento mais preciso de pipeline e receita - reduz ciclos de vendas e aumenta taxa de fechamento ao focar nos deals certos.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Modelos preditivos, análise de comportamento, revenue forecasting, identificação de riscos, recomendações de próximos passos.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap9-conversacional">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🎤 Inteligência Conversacional
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de IA para analisar chamadas de vendas, extrair insights sobre técnicas eficazes, gerar notas de reunião automaticamente e fornecer feedback de coaching em tempo real.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Fornece inteligência acionável sobre o que funciona em conversas de vendas, acelera processos administrativos e melhora performance de equipes através de coaching baseado em dados.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Transcrição automática, análise de sentimento, extração de insights, coaching baseado em IA, rastreamento de objeções.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-09-vendas-automatizadas" class="inline-block bg-aplicacao text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition w-full md:w-auto text-center">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de IA para analisar chamadas de vendas, extrair insights sobre técnicas eficazes, gerar notas de reunião automaticamente e fornecer feedback de coaching em tempo real.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Fornece inteligência acionável sobre o que funciona em conversas de vendas, acelera processos administrativos e melhora performance de equipes através de coaching baseado em dados.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Transcrição automática, análise de sentimento, extração de insights, coaching baseado em IA, rastreamento de objeções.</p>
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-aplicacao text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-09-vendas-automatizadas">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-                <!-- Capítulo 10 -->
-                <div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-aplicacao">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="inline-block bg-aplicacao text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
+</div>
+<!-- Capítulo 10 -->
+<div class="chapter-card bg-white rounded-xl shadow-md hover:shadow-xl transition p-6 mb-6 border-l-4 border-aplicacao">
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block bg-aplicacao text-white px-3 py-1 rounded-full text-xs font-semibold mb-2">
                                 Capítulo 10
                             </span>
-                            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+<h2 class="text-2xl font-bold text-gray-900 mb-2">
                                 Educação e Desenvolvimento de Habilidades na Era IA
                             </h2>
-                        </div>
-                        <img src="doc/imagens/capitulo10_educacao_ia (2).png" alt="Educação com IA" class="w-24 h-24 object-cover rounded-lg ml-4">
-                    </div>
-
-                    <p class="text-gray-600 mb-4">
+</div>
+<img alt="Educação com IA" class="w-24 h-24 object-cover rounded-lg ml-4" src="../doc/imagens/capitulo10_educacao_ia (2).png"/>
+</div>
+<p class="text-gray-600 mb-4">
                         Aprenda como a IA está revolucionando a educação. Sistemas de aprendizagem personalizada e adaptativa que melhoram retenção em 30-50% e reduzem tempo de aprendizado em 40-60%. O futuro da educação é personalizado.
                     </p>
-
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 50-65 min</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
-                        <span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🛠️ Ferramentas</span>
-                    </div>
-
-                    <div class="mb-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
-                        <ul class="topics-list space-y-0.5">
-                            <li class="topic-item" data-topic="cap10-adaptativa">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">⏱️ 50-65 min</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">📖 Leitura</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🎥 Vídeos em breve</span>
+<span class="text-xs bg-gray-100 text-gray-700 px-3 py-1 rounded-full">🛠️ Ferramentas</span>
+</div>
+<div class="mb-4">
+<h3 class="text-lg font-semibold text-gray-800 mb-2">📚 Tópicos-chave:</h3>
+<ul class="topics-list space-y-0.5">
+<li class="topic-item" data-topic="cap10-adaptativa">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🎓 Aprendizagem Adaptativa com IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Sistemas educacionais que usam IA para dinamicamente ajustar conteúdo, sequenciamento e metodologia em tempo real baseado no desempenho e estilo de aprendizagem de cada estudante individual.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Aprendizagem adaptativa pode melhorar retenção em 30-50% e reduzir tempo de aprendizagem em 40-60% - democratiza acesso a educação de qualidade tipo tutor-individual para milhões.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Personalização em tempo real, modelagem de estudante, sequenciamento inteligente de conteúdo, adaptação pedagógica, tutores virtuais.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap10-tutores">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Sistemas educacionais que usam IA para dinamicamente ajustar conteúdo, sequenciamento e metodologia em tempo real baseado no desempenho e estilo de aprendizagem de cada estudante individual.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Aprendizagem adaptativa pode melhorar retenção em 30-50% e reduzir tempo de aprendizagem em 40-60% - democratiza acesso a educação de qualidade tipo tutor-individual para milhões.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Personalização em tempo real, modelagem de estudante, sequenciamento inteligente de conteúdo, adaptação pedagógica, tutores virtuais.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap10-tutores">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     🤖 Tutores Virtuais Inteligentes
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Sistemas de IA que fornecem instrução personalizada, feedback formativo e suporte emocional - democratizando acesso a tutoria individual de qualidade, disponível 24/7 em qualquer idioma.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Resolve o problema de escala da educação - permite que milhões de estudantes tenham tutores especializados sem os custos proibitivos de tutoria humana individual.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Pedagogia inteligente, diálogo socrático, feedback formativo, detecção de misconceptions, suporte emocional.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap10-analytics">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Sistemas de IA que fornecem instrução personalizada, feedback formativo e suporte emocional - democratizando acesso a tutoria individual de qualidade, disponível 24/7 em qualquer idioma.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Resolve o problema de escala da educação - permite que milhões de estudantes tenham tutores especializados sem os custos proibitivos de tutoria humana individual.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Pedagogia inteligente, diálogo socrático, feedback formativo, detecção de misconceptions, suporte emocional.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap10-analytics">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     📊 Learning Analytics e Intervenção Preditiva
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de learning analytics para identificar estudantes em risco de abandonar antes que o problema se manifeste, permitindo intervenção proativa - reduz evasão em até 37%.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Pode reduzir evasão dramaticamente identificando estudantes que precisam de suporte antes de falhar - crítico para instituições educacionais maximizarem taxas de conclusão.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Learning analytics, pattern recognition, intervenção precoce, análise preditiva, insights de performance.</p>
-                                </div>
-                            </li>
-                            <li class="topic-item" data-topic="cap10-literacia">
-                                <button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Uso de learning analytics para identificar estudantes em risco de abandonar antes que o problema se manifeste, permitindo intervenção proativa - reduz evasão em até 37%.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Pode reduzir evasão dramaticamente identificando estudantes que precisam de suporte antes de falhar - crítico para instituições educacionais maximizarem taxas de conclusão.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Learning analytics, pattern recognition, intervenção precoce, análise preditiva, insights de performance.</p>
+</div>
+</li>
+<li class="topic-item" data-topic="cap10-literacia">
+<button class="topic-button w-full text-left px-4 py-1 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors font-medium text-gray-800">
                                     💡 Literacia Digital e de IA
                                 </button>
-                                <div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Programas estruturados para desenvolver habilidades digitais fundamentais e compreensão de IA, essenciais para sucesso profissional na era digital - preparando workforce para futuro.</p>
-                                    <p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Literacia digital é cada vez mais crítica; "skills gap" é desafio global - IA pode personalizar desenvolvimento de competências em escala, democratizando educação de qualidade.</p>
-                                    <p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Digital literacy, AI awareness, competency mapping, personalização de desenvolvimento, micro-credenciais.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="capitulo.html?id=capitulo-10-educacao-ia" class="inline-block bg-aplicacao text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition w-full md:w-auto text-center">
+<div class="topic-explanation hidden ml-6 mt-2 p-4 bg-blue-50 rounded-lg border-l-4 border-aplicacao">
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">O que é:</strong> Programas estruturados para desenvolver habilidades digitais fundamentais e compreensão de IA, essenciais para sucesso profissional na era digital - preparando workforce para futuro.</p>
+<p class="text-sm mb-1.5"><strong class="text-aplicacao">Por que aprender:</strong> Literacia digital é cada vez mais crítica; "skills gap" é desafio global - IA pode personalizar desenvolvimento de competências em escala, democratizando educação de qualidade.</p>
+<p class="text-sm"><strong class="text-aplicacao">Conceitos chave:</strong> Digital literacy, AI awareness, competency mapping, personalização de desenvolvimento, micro-credenciais.</p>
+</div>
+</li>
+</ul>
+</div>
+<a class="inline-block bg-aplicacao text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition w-full md:w-auto text-center" href="capitulo.html?id=capitulo-10-educacao-ia">
                         📖 Iniciar Capítulo
                     </a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Next Level CTA -->
-    <section class="bg-gradient-to-r from-aplicacao to-blue-700 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-4">
+</div>
+</div>
+</div>
+</section>
+<!-- Next Level CTA -->
+<section class="bg-gradient-to-r from-aplicacao to-blue-700 text-white py-16">
+<div class="container mx-auto px-4 text-center">
+<h2 class="text-3xl font-bold mb-4">
                 Completou o Nível Aplicação?
             </h2>
-            <p class="text-xl mb-8 text-blue-100">
+<p class="text-xl mb-8 text-blue-100">
                 Continue sua jornada no Nível Aplicação
             </p>
-            <a href="nivel-aplicacao.html" class="inline-block bg-white text-aplicacao px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition">
+<a class="inline-block bg-white text-aplicacao px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition" href="nivel-aplicacao.html">
                 ⚡ Ir para Nível Aplicação →
             </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-xl font-bold mb-4">ATIA</h3>
-                    <p class="text-gray-400">
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-gray-900 text-white py-12">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div>
+<h3 class="text-xl font-bold mb-4">ATIA</h3>
+<p class="text-gray-400">
                         Aprendizado em Tecnologias de Inteligência Artificial
                     </p>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Níveis</h3>
-                    <ul class="space-y-2">
-                        <li><a href="nivel-aplicacao.html" class="text-aplicacao hover:text-blue-400 transition">🌟 Aplicação</a></li>
-                        <li><a href="nivel-aplicacao.html" class="text-gray-400 hover:text-white transition">⚡ Aplicação</a></li>
-                        <li><a href="nivel-estrategico.html" class="text-gray-400 hover:text-white transition">👑 Estratégico</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Recursos</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Início</a></li>
-                        <li><a href="https://github.com/inematds/ITIA" target="_blank" class="text-gray-400 hover:text-white transition">GitHub</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 ATIA. Powered by BMad Method.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/app.js"></script>
-    <script>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4">Níveis</h3>
+<ul class="space-y-2">
+<li><a class="text-aplicacao hover:text-blue-400 transition" href="nivel-aplicacao.html">🌟 Aplicação</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="nivel-aplicacao.html">⚡ Aplicação</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="nivel-estrategico.html">👑 Estratégico</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-4">Recursos</h3>
+<ul class="space-y-2">
+<li><a class="text-gray-400 hover:text-white transition" href="index.html">Início</a></li>
+<li><a class="text-gray-400 hover:text-white transition" href="https://github.com/inematds/ITIA" target="_blank">GitHub</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+<p>© 2025 ATIA. Powered by BMad Method.</p>
+</div>
+</div>
+</footer>
+<script src="js/app.js"></script>
+<script>
         // Simple progress tracking (can be enhanced with localStorage)
         const progressFill = document.getElementById('progress-fill');
         const progressText = document.getElementById('progress-text');
@@ -625,6 +583,5 @@
         // Initialize with 0 completed
         updateProgress(0, 5);
     </script>
-
 </body>
 </html>
